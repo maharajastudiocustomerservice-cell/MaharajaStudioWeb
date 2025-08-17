@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Maharaja Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-envelope me-1"></i>Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header text-center text-white">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Get in Touch</h1>
+            <p class="lead">We'd love to hear from you. Reach out with any questions or feedback.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <section id="contact-form" class="card p-4 p-md-5">
+                    <h2 class="text-center mb-4">Send Us a Message</h2>
+                    <form action="https://formspree.io/f/xnnzyzrn" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label"><i class="fas fa-user me-2"></i>Name</label>
+                            <input type="text" name="name" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><i class="fas fa-at me-2"></i>Email address</label>
+                            <input type="email" name="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label"><i class="fas fa-comment-dots me-2"></i>Message</label>
+                            <textarea name="message" class="form-control" id="message" rows="6" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Maharaja Studio. All Rights Reserved.</p>
+            <div class="social-icons mt-3">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                <a href="https://discord.gg/BjeK6zut" class="text-white me-3"><i class="fab fa-discord fa-lg"></i></a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com" class="text-white"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
