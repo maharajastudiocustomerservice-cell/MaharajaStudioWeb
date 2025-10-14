@@ -1,0 +1,23 @@
+✅ Ultimate Quick Inspector – Boost Your Unity Workflow!
+Pin, organize, and instantly access your most-used assets and scene objects in Unity!
+Ultimate Quick Inspector is a powerful yet lightweight editor extension that supercharges your productivity by providing one-click access to everything that matters—whether it's scene objects, prefabs, materials, or scripts.
+💡 Key Features
+📌 Pin Anything: Instantly access your favorite prefabs, scripts, materials, or GameObjects without needing to search the Project or Hierarchy windows.
+📁 Multi-Page Organization: Create unlimited custom pages, such as “UI Elements,” “Player Systems,” or “Level Tools,” to stay perfectly organized.
+➡️ Drag-and-Drop Simplicity: Add items with a simple drag-and-drop motion—no setup required.
+🔍 Smart Search & Filter: Quickly locate items with the built-in search bar.
+🔄 Persistent Across Sessions: Your pinned items and pages are automatically saved between sessions.
+🔗 Scene Object Tracking with GUIDs: Ultimate Quick Inspector maintains its connection to GameObjects even if you rename or disable them.
+Anyone tired of digging through the Hierarchy or Project folder.🛠️ Designed For:
+Solo developers and large teams
+Level designers, artists, and programmers
+
+Fully version-control friendly – easily share pages with your team.💾 Safe & Reliable:
+Uses a lightweight GuidComponent for persistent scene object tracking.
+Stores all data in a single ScriptableObject file.
+
+✨ Why Use Ultimate Quick Inspector?
+✅ Speed up your iteration time.
+✅ Stay organized with project-specific pages.
+✅ Avoid wasting time finding commonly used assets.
+✅ Make your Unity editor smarter and more user-friendly.

@@ -1,0 +1,41 @@
+Tactical Cover & Retreat AI System
+
+Elevate your AI from simple pawns to intelligent survivors.
+Tired of AI that stands in the open, runs in predictable patterns, or fails to understand the tactical layout of your level? Tactical Cover & Retreat AI System is the ultimate, high-performance solution for creating enemies that think, react, and use the environment to their advantage.
+Built from the ground up for performance and extensibility, this system allows your AI agents to dynamically scan their surroundings, evaluate dozens of potential hiding spots against a rich set of tactical criteria, and execute intelligent retreats. Whether you're making a fast-paced FPS, a tense stealth game, or a strategic squad-based shooter, this asset provides the brain your AI has been missing.
+Key Features
+✅ High-Performance Asynchronous Core
+Blazing Fast: Utilizes Unity's Jobs System and Burst Compiler to perform thousands of calculations on worker threads, ensuring silky-smooth performance with minimal impact on your main thread. Your game won't stutter, even with dozens of agents searching for cover simultaneously.
+Synchronous Fallback: A simple, single-threaded mode is also included, perfect for debugging, simpler projects, or for understanding the core logic without dependencies.
+✅ Advanced Tactical Scoring System
+The heart of the system is a modular, weight-based scoring engine. You don't just find a hidden spot; you find the best spot. Combine and weight over 20 unique scorers to define your AI's personality:
+Visibility & FOV: Is the spot truly hidden from the player's line of sight and field of view?
+Path Safety: The system doesn't just check the destination; it analyzes the entire path, penalizing or disqualifying routes that are exposed to enemy fire.
+Ambush Potential: Prefers spots that are hidden from the player's current location but have a clear line of sight to where the player was, perfect for setting traps.
+Directional Cover: Understands how to use cover, preferring spots where the cover is correctly oriented between the agent and the threat.
+Crossfire & Flanking: Encourages agents to create tactical advantages by positioning themselves at optimal angles relative to their allies.
+Threat Avoidance: AI develops a "memory" of dangerous areas using a dynamic Threat Map, learning to avoid locations where players were recently spotted.
+And many more: Proximity penalties, hazard avoidance, objective proximity, team proximity, cover height, and even player path prediction!
+✅ Modular & Extensible Framework
+ScriptableObject-Based: The entire system is driven by ScriptableObjects. Simply drag and drop Providers (to generate spots) and Scorers (to evaluate them) into a list in the Hiding Settings asset.
+Create Your Own Logic: The system is incredibly easy to extend. Create your own HideSpotProviderSO or HideSpotScorerSO to implement unique AI behaviors specific to your game—no need to modify the core code.
+✅ Designer-Friendly Workflow
+Empower your level designers to guide the AI without writing a single line of code:
+Tactical Zones: Draw volumes in your scene to designate areas for specific purposes (Defensive, Overwatch, Ambush, FlankRoute). The AI can be configured to prioritize finding cover within these zones.
+Cover Nodes: Place simple CoverNode components to manually mark high-quality cover spots and define the exact direction of safety.
+Hazards: Define dangerous areas (like fire or open ground) that the AI will intelligently avoid.
+✅ Powerful Debug Visualizer
+See What the AI is Thinking: An incredibly detailed in-editor gizmo system shows you everything in real-time.
+Visualize: Candidate spots (color-coded by visibility), the chosen best spot, lines of sight, player FOV cones, peek locations, and individual candidate scores. Stop guessing and start seeing exactly why your AI makes its decisions.
+How It Works: A 3-Step Process
+Generate: A set of Providers (e.g., AutomaticCoverProvider, BehindObstacleProvider, TacticalZoneProvider) generate a list of potential hiding spots around the agent.
+Score: The powerful Scoring Engine evaluates every single candidate against your customized list of weighted Scorers.
+Execute: The agent is given the single best-scoring spot and moves towards it using a pre-calculated, safety-checked NavMesh path.
+What's Included?
+10+ Hide Spot Providers: Including Automatic (no-tagging required), Cover Nodes, Behind Obstacles, Tactical Zones, NavMesh Rings, Shadow-based, Vertical Layers (for multi-floor buildings), and more.
+20+ Tactical Scorers: Covering everything from basic visibility and distance to advanced concepts like Ambush Potential, Path Safety, Crossfire Analysis, Player Path Prediction, and Hazard Avoidance.
+Core Systems: The robust asynchronous (Jobs/Burst) and synchronous hiding system controllers.
+Helper Components: TacticalZone, CoverNode, Hazard, and VolumetricCover for easy level markup.
+AI Services: PlayerTrackerService (for velocity prediction) and ThreatMapService (for AI memory).
+Full C# Source Code: Well-documented and cleanly written for easy understanding and modification.
+Example Scene: A comprehensive demo showcasing setup and various features in action.

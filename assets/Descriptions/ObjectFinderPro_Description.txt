@@ -1,0 +1,52 @@
+Object Finder Pro
+
+Object Finder Pro is a professional-grade Unity Editor tool that helps you instantly locate any GameObject or asset in your project. It’s designed for speed, precision, and usability, ensuring you spend less time searching and more time creating.
+
+Tired of wasting time digging through complex hierarchies and project folders? Object Finder Pro transforms how you work by turning your project into a searchable database. With its asynchronous, non-blocking engine, it handles even the largest projects with ease, delivering the exact results you need, right when you need them.
+
+What's New in Version 2.0?
+
+Version 2.0 is a massive leap forward, introducing powerful new search paradigms and deep customization to make Object Finder Pro an even more indispensable part of your workflow.
+New Flexible Search Modes: Take control with Fuzzy Search to find typo-tolerant, relevance-sorted matches, and Exact Match for precise, case-insensitive lookups.
+Targeted Hierarchy Search: A new "In Root GameObject" scope allows you to confine searches to a specific object and its children—perfect for instantly finding bones in a complex skeleton or parts of a specific prefab instance.
+Deep Customization via the Settings Window: A new settings panel (accessible via a gear icon) allows you to set a default preset, manage and rename favorites, simplify the UI by hiding features you don't use, and access quick guides in a new Help tab.
+Enhanced Performance & UI: Search results now appear in real-time as they are found. We've also added full keyboard navigation to the Folder Selector, Component Selector, and Filter windows for a faster, mouse-free workflow.
+Key Features
+
+The Smart Search Powerhouse: Go Beyond Simple Names
+
+Enable "Smart Search" to unlock a powerful query language that lets you inspect your project with unparalleled precision. This is the ultimate tool for debugging, analysis, and complex filtering.
+Example: comp(BoxCollider).isTrigger:true finds all trigger BoxColliders.Filter by Any Public Component Property: The standout feature. Find objects based on the live values of their components.
+Example: comp(Light).intensity:>5 finds all lights with an intensity greater than 5.
+Example: comp(Rigidbody).mass:>=10 finds all Rigidbodies with a mass of 10 or more.
+
+Numeric: polycount:, memsize:, texwidth:, childcount: (with operators >, <, =)Advanced Keyword Filtering: Use a full suite of keywords for precise control:
+Standard: type:, tag:, layer:, script:, active:
+
+Intuitive Logic: Use commas for OR logic (e.g., tag:Player,Enemy) and a hyphen for negative searches (e.g., rock -moss).
+Acronym Matching: Quickly find objects by typing acronyms (e.g., pc → PlayerController).
+Example (by keyword): tag:Enemy -layer:Water finds all objects tagged as "Enemy" that is not on the layer Water.Negative Search: Exclude results by prefixing any term or keyword with a hyphen (-). This powerful feature works on names, tags, types, or any other filter.
+Example (by name): vehicle -car will find items named "truck" or "motorcycle" but will exclude "red car".
+
+Professional-Grade Search Workflows
+Find All References: Find every single usage of a component instance or asset. It searches scenes, prefabs, and ScriptableObjects to locate all references, making refactoring and debugging safe and easy.
+Multi-Component Filter: Find GameObjects that have a specific list of components attached (e.g., find all objects with a Rigidbody AND an AudioSource).
+Component Signature Filter: Go one step further and find GameObjects that have an exact set of components—no more, no less—perfect for verifying object templates.
+Search Unloaded Scenes: Instantly search any scene in your project without the time-consuming process of opening it first.
+Extensible via a Powerful Custom Filter API
+
+Go beyond the built-in options by creating your own highly specific search logic. The Custom Filter API is designed for professional studios and power users who need to enforce project-specific rules or debug complex scenarios.
+Write Your Own Logic: For unique search needs, simply create a new C# script that inherits from the CustomFilterBase class.
+35+ Pre-Built Filters Included: Hit the ground running with a massive library of over 35 ready-to-use filters with full source code. These serve as perfect examples and solve dozens of common, real-world problems right out of the box (e.g., find animators without controllers, static objects with rigidbodies, etc.).
+ScriptableObject-Based Architecture: Each filter is a ScriptableObject, allowing you to create and save multiple pre-configured instances for any situation.
+Core Features & Quality of Life
+Blazing-Fast Async Engine: The Unity Editor never freezes. Searches run in the background with a progress bar, keeping you productive.
+Instant Results: Results populate the list in real-time, so you see matches as they're discovered.
+Scope Your Search: Search the current Scene, the entire Project, Both, an Unloaded Scene, or within a specific GameObject hierarchy. Use the Folder Selection Window to limit project searches to specific folders for lightning-fast results.
+Dynamic Results Filtering: Instantly filter your search results after they are displayed, without needing to search again.
+Detailed Preview & Stats Panel: Select a result to see an instant preview, component lists, vertex counts, memory usage, and more.
+Favorites & History: Save your most complex searches as favorites and access a complete history of recent queries. You can now rename favorites directly in the new Settings window.
+Fully Dockable UI: Integrates seamlessly into your existing Unity layouts.
+Performance
+
+Object Finder Pro’s search engine is heavily optimized. The first search in a large project may perform a one-time caching process to ensure maximum speed. All subsequent searches are virtually instant. The async engine guarantees the Unity Editor remains fluid and responsive at all times.

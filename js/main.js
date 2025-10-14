@@ -1,60 +1,66 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Typing effect for hero section
-    const typingElement = document.querySelector('.hero-section .lead');
-    if (typingElement) {
-        const text = typingElement.innerText;
-        typingElement.innerText = '';
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                typingElement.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
+document.addEventListener('DOMContentLoaded', function () {
+    // --- Theme Switcher Logic ---
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const html = document.documentElement;
+
+    const applyTheme = (theme) => {
+        html.setAttribute('data-theme', theme);
+        if (themeSwitcher) {
+            themeSwitcher.checked = theme === 'dark';
         }
-        typeWriter();
+    };
+
+    const getInitialTheme = () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return prefersDark ? 'dark' : 'light';
+    };
+
+    const initialTheme = getInitialTheme();
+    applyTheme(initialTheme);
+
+    if (themeSwitcher) {
+        themeSwitcher.addEventListener('change', function () {
+            const newTheme = this.checked ? 'dark' : 'light';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
     }
 
-    // Fade-in animation on scroll
-    const fadeElems = document.querySelectorAll('.card, .feature-box, .testimonial-card');
-    const fadeInObserver = new IntersectionObserver((entries, observer) => {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            applyTheme(newTheme);
+        }
+    });
+
+    // --- Navbar Scroll Effect ---
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // --- Scroll-triggered Animations ---
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeIn 1s forwards';
+                entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
-    fadeElems.forEach(elem => {
-        elem.style.opacity = '0';
-        fadeInObserver.observe(elem);
-    });
-
-    // Asset card description toggle
-    const assetCards = document.querySelectorAll('.asset-card');
-    assetCards.forEach(card => {
-        const button = card.querySelector('button');
-        const description = card.querySelector('.asset-description');
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (description.style.display === 'block') {
-                description.style.display = 'none';
-                button.innerHTML = '<i class="fas fa-info-circle me-2"></i>Show Description';
-            } else {
-                description.style.display = 'block';
-                button.innerHTML = '<i class="fas fa-info-circle me-2"></i>Hide Description';
-            }
-        });
+    animatedElements.forEach(element => {
+        observer.observe(element);
     });
 });
-
-// Add fadeIn animation to CSS
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-`;
-document.head.appendChild(style);

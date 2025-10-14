@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Quick Inspector - Maharaja Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-3">
+                        <div class="theme-switcher">
+                            <i class="fas fa-sun"></i>
+                            <div class="form-check form-switch mx-2">
+                                <input class="form-check-input" type="checkbox" id="theme-switcher" checked>
+                            </div>
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="asset-header text-center text-white d-flex align-items-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/Images/UltimateQuickInspector.png');">
+        <div class="container">
+            <h1 class="display-2 fw-bold">Ultimate Quick Inspector</h1>
+            <p class="lead my-4 col-md-8 mx-auto">Pin, organize, and instantly access your most-used assets and scene objects in Unity.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section id="asset-intro" class="mb-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title mb-3">Supercharge Your Workflow</h2>
+                    <p class="lead">Ultimate Quick Inspector is a powerful yet lightweight editor extension that boosts your productivity by providing one-click access to everything that matters—whether it's scene objects, prefabs, materials, or scripts.</p>
+                    <div class="d-flex gap-2 mt-4">
+                        <a href="https://assetstore.unity.com/packages/tools/level-design/ultimatequickinspector-327233" class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart me-2"></i>Get on Asset Store</a>
+                        <a href="ultimate-quick-inspector-docs.html" class="btn btn-outline-secondary btn-lg"><i class="fas fa-book me-2"></i>Read Docs</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/Images/UltimateQuickInspector.png" class="img-fluid rounded shadow-lg" alt="Ultimate Quick Inspector in action">
+                </div>
+            </div>
+        </section>
+
+        <section id="key-features" class="py-5">
+            <div class="container">
+                <h2 class="text-center section-title mb-5">Intuitive & Powerful Features</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="feature-list-item">
+                            <div class="icon"><i class="fas fa-thumbtack"></i></div>
+                            <div>
+                                <h5>Pin Anything</h5>
+                                <p>Instantly access your favorite prefabs, scripts, materials, or GameObjects without needing to search the Project or Hierarchy windows.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-list-item">
+                            <div class="icon"><i class="fas fa-folder-plus"></i></div>
+                            <div>
+                                <h5>Multi-Page Organization</h5>
+                                <p>Create unlimited custom pages, such as “UI Elements,” “Player Systems,” or “Level Tools,” to stay perfectly organized.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-list-item">
+                            <div class="icon"><i class="fas fa-hand-pointer"></i></div>
+                            <div>
+                                <h5>Drag-and-Drop Simplicity</h5>
+                                <p>Add items with a simple drag-and-drop motion—no setup required. It's the fastest way to build your personal toolbox.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-list-item">
+                            <div class="icon"><i class="fas fa-link"></i></div>
+                            <div>
+                                <h5>Robust Scene Object Tracking</h5>
+                                <p>Maintains its connection to GameObjects using a reliable GUID system, even if you rename or disable them.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Maharaja Studio. All Rights Reserved.</p>
+            <div class="social-icons mt-3">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                <a href="https://discord.gg/GamF5bez3h" class="text-white me-3"><i class="fab fa-discord fa-lg"></i></a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com" class="text-white"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
