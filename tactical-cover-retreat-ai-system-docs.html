@@ -42,8 +42,8 @@
                 <ul class="docs-nav-menu">
                     <li><a href="#introduction" class="docs-nav-link">Introduction</a></li>
                     <li><a href="#quick-start" class="docs-nav-link">Quick Start Guide</a></li>
-                    <li><a href="#for-designers" class="docs-nav-link">For Designers</a></li>
-                    <li><a href="#for-developers" class="docs-nav-link">For Developers</a></li>
+                    <li><a href="#for-designers" class="docs-nav-link">How-To Guides (The Cookbook)</a></li>
+                    <li><a href="#for-developers" class="docs-nav-link">Core Concepts</a></li>
                     <li class="has-submenu">
                         <a href="#environmental-helpers" class="docs-nav-link">Environmental Helpers</a>
                         <ul class="submenu">
@@ -98,7 +98,14 @@
                         </ul>
                     </li>
                     <li class="has-submenu">
-                        <a href="#use-cases" class="docs-nav-link">Use Cases</a>
+                        <a href="#api-usages" class="docs-nav-link">API Usages</a>
+                        <ul class="submenu">
+                            <li><a href="#api-usage" class="docs-nav-link">API Usage</a></li>
+                            <li><a href="#advanced-apis" class="docs-nav-link">Advanced APIs</a></li>
+                            <li><a href="#core-engine-apis" class="docs-nav-link">Core Engine APIs</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
                         <ul class="submenu">
                             <li><a href="#UseCase_CowardlyAI" class="docs-nav-link">Cowardly AI</a></li>
                             <li><a href="#UseCase_StealthyHunter" class="docs-nav-link">Stealthy Hunter</a></li>
@@ -110,261 +117,1162 @@
 
             <article class="docs-content">
                 <section id="introduction" class="docs-section">
-                    <h1>Introduction to the Tactical Cover & Retreat AI System</h1>
-                    <p>Welcome to the Tactical Cover & Retreat AI System for Unity! This asset is a powerful and highly customizable solution for creating intelligent and dynamic stealth AI. It provides a robust framework for finding and evaluating hiding spots, allowing your AI to make smart decisions based on the current tactical situation.</p>
-                    <p>At its core, the system is designed as a <strong>data-driven state machine helper</strong>. You, the developer, remain in full control of your AI's logic (e.g., in your Behavior Trees or FSMs). This asset provides the tools to answer the crucial question: "Where is the best place to hide right now?"</p>
+                    <h1>Welcome to the Tactical AI Hiding System!</h1>
+                    <p>This asset is a powerful, flexible, and performance-oriented framework for creating intelligent stealth and cover-based AI. It's built on a simple philosophy: <strong>You are in control.</strong></p>
+                    <p>Instead of a black box that takes over your characters, this system acts as an intelligent service. Your AI's brain (like a Behavior Tree or State Machine) asks the question, <em>"Where is the best place to hide right now?"</em>, and this system provides the answer.</p>
 
-                    <h2>Core Design Philosophy</h2>
+                    <h3>Core Features</h3>
                     <ul>
-                        <li><strong>You Are in Control</strong>: The system does not take over your AI. It acts as a service. You call it when you need it, and it returns the best hiding spot based on your configuration.</li>
-                        <li><strong>Component-Based Facade</strong>: The primary entry point is the <code>EnemyHider</code> MonoBehaviour. You attach this to your AI, configure it, and call its public API (like <code>RetreatToHide()</code>) from your own scripts.</li>
-                        <li><strong>Data-Driven Behavior</strong>: AI behavior is defined not in code, but in <code>HidingSettings</code> ScriptableObjects. By mixing and matching different <strong>Providers</strong> and <strong>Scorers</strong>, you can create unique AI personalities without writing a single line of new code.</li>
+                        <li><strong>Data-Driven AI Personality</strong>: Define complex behaviors not in code, but in ScriptableObjects. Create cautious snipers, aggressive flankers, and sneaky assassins simply by mixing and matching components.</li>
+                        <li><strong>High Performance by Design</strong>: The asynchronous, multithreaded core uses Unity's Job System and Burst Compiler to run complex calculations on background threads, leaving your main thread free for smooth gameplay.</li>
+                        <li><strong>Extensible & Customizable</strong>: Don't like how the AI evaluates cover? Write your own custom Scorer. Need the AI to recognize a unique type of cover in your game? Write your own custom Provider.</li>
+                        <li><strong>Environment-Aware</strong>: Use optional helper components to tag your scene with tactical information. Designate cover nodes, danger zones (<code>Hazards</code>), strategic areas (<code>TacticalZones</code>), and even soft cover like smoke (<code>VolumetricCover</code>).</li>
+                        <li><strong>Dynamic Behavior</strong>: Use the <code>SearchProfile</code> API to change an AI's "mood" or tactics on the fly in response to game events like taking damage or receiving a squad command.</li>
                     </ul>
 
-                    <h2>Key Concepts</h2>
+                    <h3>Key Concepts at a Glance</h3>
                     <ul>
-                        <li><strong><code>EnemyHider</code></strong>: The main MonoBehaviour you add to your AI. It acts as the "brain" and the primary interface to the whole system.</li>
-                        <li><strong><code>HidingSettings</code></strong>: A ScriptableObject asset that holds the rules for hiding. This is where you define <em>what</em> makes a good hiding spot.</li>
-                        <li><strong>Providers</strong>: ScriptableObjects that generate a list of potential hiding spots. For example, a provider might find all dark areas or all locations behind obstacles.</li>
-                        <li><strong>Scorers</strong>: ScriptableObjects that evaluate the hiding spots found by the providers. Each scorer assigns a score based on a specific criterion, such as distance from the player, visibility, or path safety.</li>
-                        <li><strong>Environmental Helpers:</strong> <code>(Optional but very powerful)</code> Components you add to your scene to provide more tactical information to the AI. This includes CoverNode (manual cover spots), Hazard (danger zones), TacticalZone (strategic areas), and VolumetricCover (soft cover like smoke).</li>
-                        <li><strong><code>ICombatAction</code></strong>: An interface that allows you to write your own custom logic for what to do <em>after</em> a hiding spot has been found, such as peeking around cover or firing a weapon.</li>
+                        <li><strong><code>EnemyHider</code></strong>: The main MonoBehaviour component you add to your AI. It's the central brain.</li>
+                        <li><strong><code>HidingSettings</code></strong>: A ScriptableObject that acts as the AI's "Rulebook" or "Personality," defining how it thinks.</li>
+                        <li><strong>Providers</strong>: ScriptableObjects that <strong>find</strong> potential hiding spots (e.g., "look behind obstacles").</li>
+                        <li><strong>Scorers</strong>: ScriptableObjects that <strong>rate</strong> those spots (e.g., "spots far from the player are better").</li>
                     </ul>
-                    <p>This documentation will guide you through setting up the system, explain what each component does, and provide recipes for common use cases. Let's get started!</p>
+                    <p>Ready to begin? Let's get your first AI hiding in under 10 minutes.</p>
+                    <p><strong>➡️ Next: <a href="#quick-start">Getting Started Guide</a></strong></p>
                 </section>
                 <section id="quick-start" class="docs-section">
-                    <h1>Quick Start Guide</h1>
-                    <p>This guide provides the minimum setup required to get the Tactical Cover & Retreat AI System working in your project. It assumes you have an existing AI controller script (like a state machine or behavior tree) that will decide <em>when</em> the AI should hide.</p>
+                    <h1>Getting Started: Your First Hiding AI</h1>
+                    <p>This guide will walk you through the entire process of setting up an AI that can intelligently hide from a player. We will cover the complete setup, from components to the final trigger script.</p>
 
-                    <h2>Step 1: Add and Configure <code>EnemyHider</code></h2>
+                    <h3>Step 1: Scene Preparation</h3>
+                    <p>Before we begin, ensure your scene is ready:</p>
                     <ol>
-                        <li>Select your AI character's GameObject in the scene.</li>
-                        <li>Click <strong>Add Component</strong> and add the <strong><code>EnemyHider</code></strong> component.</li>
-                        <li>This component is the main interface for the system. You will see several fields in the Inspector.</li>
+                        <li><strong>NavMesh</strong>: Your scene must have a baked NavMesh so the AI can navigate.</li>
+                        <li><strong>Layers</strong>: Create a new Layer called <code>Obstacles</code> (or similar). Place all your static, cover-providing geometry (walls, crates, etc.) on this layer. We will use this to tell the system what blocks line of sight.</li>
                     </ol>
 
-                    <h2>Step 2: Create Hiding Settings</h2>
-                    <p>The behavior of your AI is defined in a <code>HidingSettings</code> ScriptableObject.</p>
+                    <h3>Step 2: Create the AI's "Personality" Asset</h3>
+                    <p>The AI's behavior is stored in a <code>HidingSettings</code> ScriptableObject.</p>
                     <ol>
-                        <li>In your <code>Project</code> window, right-click to open the context menu.</li>
-                        <li>Navigate to <strong>Create > HidingSystem > Hiding Settings</strong>.</li>
-                        <li>Give the new asset a descriptive name (e.g., <code>TacticalAI_Settings</code>).</li>
+                        <li>In your Project window, right-click and go to <strong>Create > HidingSystem > Hiding Settings</strong>.</li>
+                        <li>Name it <code>StandardAI_Settings</code>.</li>
+                        <li>Select the new asset. In the Inspector, set the <strong>Occluder Mask</strong> to your <code>Obstacles</code> layer. This is critical for visibility checks.</li>
                     </ol>
 
-                    <h2>Step 3: Assign Settings and Dependencies</h2>
-                    <p>Go back to the <code>EnemyHider</code> component on your AI character.</p>
+                    <h3>Step 3: Configure the <code>EnemyHider</code> Component</h3>
                     <ol>
-                        <li><strong>Assign Settings</strong>: Drag your new <code>HidingSettings</code> asset into the <strong>Settings</strong> field.</li>
-                        <li><strong>Assign Nav Mesh Agent</strong>: Drag the <code>NavMeshAgent</code> component from your AI character into the <strong>Agent</strong> field.</li>
-                        <li><strong>Configure Providers & Scorers</strong>: Select your <code>HidingSettings</code> asset to configure it. Add at least one <strong>Provider</strong> (e.g., <code>BehindObstacleProviderSO</code>) to find spots and at least one <strong>Scorer</strong> (e.g., <code>VisibilityScorerSO</code>) to evaluate them. For even more intelligent behavior, you can tag objects in your scene with helper components like CoverNode, TacticalZone and etc...</li>
+                        <li>Select your AI character GameObject. It must already have a <code>NavMeshAgent</code> component.</li>
+                        <li>Click <strong>Add Component</strong> and add the <strong><code>EnemyHider</code></strong>.</li>
+                        <li>Drag your <code>StandardAI_Settings</code> asset into the <strong>Settings</strong> slot on the <code>EnemyHider</code>.</li>
+                        <li>Drag the character's <code>NavMeshAgent</code> component into the <strong>Agent</strong> slot.</li>
                     </ol>
 
-                    <h2>Step 4: Call the API from Your Controller</h2>
-                    <p>The <code>EnemyHider</code> component will not do anything on its own. You must call its public methods from your own AI logic scripts.</p>
-                    <p>Here is a minimal example of how to trigger a search for a hiding spot.</p>
-                    <pre><code>// In your existing AI controller script (e.g., EnemyMind.cs, AISateMachine.cs)
+                    <h3>Step 4: Define the Hiding Rules (Providers & Scorers)</h3>
+                    <p>Now, let's give our AI some basic rules. Select your <code>StandardAI_Settings</code> asset again.</p>
+                    <ol>
+                        <li><strong>Add Providers (Where to look for cover):</strong>
+                            <ul>
+                                <li>Under <code>Providers</code>, click <code>+</code> and add <code>BehindObstacleProviderSO</code>.</li>
+                                <li>Click <code>+</code> again and add <code>CurrentPositionProviderSO</code>. This is important, as it allows the AI to consider "staying put" if it's already in a good spot.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Add Scorers (How to decide which spot is best):</strong>
+                            <ul>
+                                <li>Under <code>Scorers</code>, click <code>+</code>. Add a <code>VisibilityScorerSO</code> and set its <strong>Weight</strong> to <code>2.0</code>. This makes being hidden very important.</li>
+                                <li>Add a <code>PathSafetyScorerSO</code> and set its <strong>Weight</strong> to <code>1.5</code>. This tells the AI to avoid running through open areas.</li>
+                                <li>Add a <code>DistanceScorerSO</code> with a <strong>Weight</strong> of <code>1.0</code>. This will make the AI prefer spots that are a reasonable distance away.</li>
+                            </ul>
+                        </li>
+                    </ol>
 
-using UnityEngine;
-using MaharajaStudio.HidingSystem; // Make sure to include the namespace
+                    <h3>Step 5: Triggering the AI with a Simple Controller</h3>
+                    <p>The <code>EnemyHider</code> needs to be told <em>when</em> to hide. Create a new script, <code>AIController.cs</code>, and add it to your AI character.</p>
+                    <pre><code>using UnityEngine;
+using MaharajaStudio.HidingSystem; // The Hiding System namespace
 
-public class MyAIController : MonoBehaviour
+[RequireComponent(typeof(EnemyHider))]
+public class AIController : MonoBehaviour
 {
-    public Transform playerTarget; // Assign the player in the inspector
+    // Assign your Player GameObject to this in the Inspector
+    public Transform playerTarget;
     private EnemyHider hider;
 
     void Start()
     {
-        // Get the EnemyHider component
         hider = GetComponent<EnemyHider>();
-        if (hider == null)
-        {
-            Debug.LogError("EnemyHider component not found!");
-            this.enabled = false;
-        }
+        
+        // Tell the hider who the enemy is
+        hider.SetSinglePlayerTarget(playerTarget);
     }
 
     void Update()
     {
-        // This is your custom logic. For example, hide when health is low.
-        if (ShouldStartHiding())
+        // Check if we are exposed AND not already searching or moving to cover
+        if (hider.IsThreatened && !hider.IsSearching && !hider.IsMoving)
         {
-            // First, tell the hider who to hide from
-            hider.SetSinglePlayerTarget(playerTarget);
-
-            // Then, command it to start the search
+            Debug.Log("I'm exposed! Finding a place to hide.");
             hider.RetreatToHide();
         }
     }
-
-    private bool ShouldStartHiding()
-    {
-        // Replace this with your own game's logic!
-        // e.g., return currentHealth < maxHealth * 0.5f;
-        // e.g., return playerIsAimingAtMe;
-        return true;
-    }
 }</code></pre>
-                    <p>With this setup, when your <code>ShouldStartHiding()</code> condition becomes true, the <code>EnemyHider</code> will use your configured settings to find the best hiding spot and automatically move the NavMeshAgent there. You can subscribe to its <code>OnSearchSuccess</code> and <code>OnSearchFailed</code> events to be notified of the result.</p>
+                    <p>Assign your Player object to the <code>Player Target</code> field on the <code>AIController</code>.</p>
+
+                    <h3>You're Done!</h3>
+                    <p>Press Play! Move your player into the AI's line of sight. You should see the "I'm exposed!" debug log, and the AI will use your rules to find the best spot behind an obstacle and move there.</p>
+                    <p><strong>➡️ Next: Learn the underlying principles in <a href="#for-developers">Core Concepts</a></strong></p>
                 </section>
                 <section id="for-designers" class="docs-section">
-                    <h1>Setup Guide for Designers</h1>
+                    <h1>How-To Guides (The Cookbook)</h1>
+                    <p>This section provides practical, goal-oriented recipes for creating common AI behaviors.</p>
 
-<p>Welcome! This guide will walk you through setting up the <code>Tactical Cover & Retreat AI System</code> in your Unity project. The entire system is designed to be configured from the editor without writing code, though a programmer will need to trigger the hiding action.</p>
+                    <h3>Recipe: The Cautious Marksman</h3>
+                    <p><strong>Goal</strong>: An AI that tries to stay as far away from the player as possible and heavily prioritizes safety.</p>
+                    <p><strong>Ingredients</strong>:</p>
+                    <ul>
+                        <li>A <code>HidingSettings</code> asset named <code>Marksman_Settings</code>.</li>
+                        <li>Providers: <code>BehindObstacleProviderSO</code>, <code>CurrentPositionProviderSO</code>.</li>
+                        <li>Scorers: <code>DistanceScorerSO</code>, <code>VisibilityScorerSO</code>, <code>PathSafetyScorerSO</code>.</li>
+                    </ul>
+                    <p><strong>Method</strong>:</p>
+                    <ol>
+                        <li>In your <code>Marksman_Settings</code> asset, add the providers listed above.</li>
+                        <li>Add the scorers with the following weights:
+                            <ul>
+                                <li><strong><code>DistanceScorerSO</code></strong>: <code>Weight: 3.0</code> (This is the highest priority. The AI desperately wants to be far away).</li>
+                                <li><strong><code>VisibilityScorerSO</code></strong>: <code>Weight: 2.0</code> (Being unseen is very important).</li>
+                                <li><strong><code>PathSafetyScorerSO</code></strong>: <code>Weight: 2.0</code> (The path to the safe spot must also be safe).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Result</strong>: When this AI hides, it will consistently choose valid cover points near the maximum edge of its search radius.</p>
 
-<h2>Goal</h2>
+                    <hr>
 
-<p>Our goal is to give an AI character the ability to intelligently hide from its enemies. We will achieve this by:
-1.  Adding and configuring the main <code>EnemyHider</code> component.
-2.  Creating a "Rulebook" (<code>HidingSettings</code>) that defines what makes a good hiding spot.
-3.  Tagging the environment with helper components to provide more tactical data.
-4.  Hooking into the <code>EnemyHider</code>'s events to see the results.</p>
-
-<hr>
-
-<h3>Step 1: Add the <code>EnemyHider</code> Component</h3>
-
-<p>This component is the "brain" of the hiding system for a single AI.</p>
-
-<ol>
-<li>Select your AI character's GameObject.</li>
-<li>In the Inspector, click <strong>Add Component</strong> and add <strong><code>EnemyHider</code></strong>.</li>
-</ol>
-
-<p>You will see several fields on this component. Let's configure the most important ones.</p>
-
-<ul>
-<li><strong>Execution Mode</strong>: Choose <code>Asynchronous</code> for the best performance, or <code>Synchronous</code> for easier debugging.</li>
-<li><strong>Allow Desperate Retreat</strong>: Check this box if you want the AI to find the "least bad" spot if no perfectly safe spot is available. This prevents the AI from getting stuck when surrounded.</li>
-</ul>
-
-<hr>
-
-<h3>Step 2: Create the AI's "Rulebook" (Hiding Settings)</h3>
-
-<p>Next, we create an asset to hold all our rules for hiding.</p>
-
-<ol>
-<li>In your <code>Project</code> window (e.g., in an <code>AI/Settings</code> folder), right-click.</li>
-<li>Go to <strong>Create > HidingSystem > Hiding Settings</strong>.</li>
-<li>Name it something descriptive, like <code>AggressiveAI_Rules</code> or <code>StealthyAI_Settings</code>.</li>
-</ol>
-
-<p>Now, go back to your <code>EnemyHider</code> component. Drag your new <code>HidingSettings</code> asset from the Project window into the <strong>Settings</strong> slot. Also, make sure to assign the <strong>Agent</strong> field with the <code>NavMeshAgent</code> from your character.</p>
-
-<hr>
-
-<h3>Step 3: Define "What is a Good Hiding Spot?"</h3>
-
-<p>Select your <code>HidingSettings</code> asset in the Project window to see its properties in the Inspector. This is where you define the AI's personality using <strong>Providers</strong> and <strong>Scorers</strong>.</p>
-
-<ul>
-<li><strong>Providers</strong>: These <em>find</em> potential hiding spots. Think of them as the AI's "eyes" looking for places to go.</li>
-<li><strong>Scorers</strong>: These <em>rate</em> the spots found by the providers. They help the AI "decide" which spot is the best.</li>
-</ul>
-
-<p><strong>Example Setup for a Tactical AI:</strong></p>
-
-<ol>
-<li><strong>Add Providers</strong>: Under the <code>Providers</code> list, click the <code>+</code> icon. Add <code>BehindObstacleProviderSO</code> to find spots behind walls and <code>CurrentPositionProviderSO</code> to make the AI stable.</li>
-<li><strong>Add Scorers</strong>: Under the <code>Scorers</code> list, click <code>+</code>. Add scorers to define the behavior.
-<ul>
-<li><strong><code>VisibilityScorerSO</code></strong>: To make the AI prefer spots the enemy can't see.</li>
-<li><strong><code>PathSafetyScorerSO</code></strong>: To make the AI avoid running through the open.</li>
-<li>For each scorer, you can set a <strong>Weight</strong>. This tells the system how important that rule is. For a tactical AI, <code>Visibility</code> and <code>PathSafety</code> should have the highest weights.</li>
-</ul>
-</li>
-</ol>
-
-<hr>
-
-<h2>Step 4: Tag Your Environment (Optional but Recommended)</h2>
-<p>To make your AI even smarter, you can add special components to your scene objects. These helpers provide more information to the AI system, leading to more intelligent and believable behavior.</p>
-
-<ul>
-<li><strong>CoverNode:</strong> Add this to an empty GameObject to manually create a perfect, designer-placed hiding spot.</li>
-<li><strong>Hazard:</strong> Add this to objects like fires or acid pools to mark them as dangerous areas that the AI must avoid.</li>
-<li><strong>TacticalZone:</strong> Use this with a trigger collider to define large areas for specific purposes, like an "Ambush Zone" or "Defensive Position".</li>
-<li><strong>VolumetricCover:</strong> Add this to objects like smoke clouds or large bushes to allow the AI to use them for concealment.</li>
-</ul>
-
-<p>For a detailed guide on setting up each of these components, see the Environmental Helpers Guide.</p>
-
-<hr>
-
-<h3>Step 5: Hooking into Events (Optional)</h3>
-
-<p>The <code>EnemyHider</code> has UnityEvents that let you know what's happening. You can use these to trigger animations, sounds, or other effects without any code.</p>
-
-<ul>
-<li><strong>On Search Started</strong>: Triggers when the AI begins looking for a spot.</li>
-<li><strong>On Search Success</strong>: Triggers when a spot is found.</li>
-<li><strong>On Search Failed</strong>: Triggers when no spot could be found.</li>
-</ul>
-
-<p>You can drag other components or GameObjects into these event slots and call their public methods, just like a UI Button's <code>OnClick()</code> event.</p>
-
-<h3>Step 6: Triggering the Action</h3>
-
-<p>The <code>EnemyHider</code> needs to be told <em>when</em> to hide. A programmer must call the <code>RetreatToHide()</code> function from another script. Work with your team's programmer to decide on the right conditions to trigger this action (e.g., when the AI's health is low, when it's being aimed at, etc.). The AI will then use the rules you've designed to find the perfect spot!</p>
+                    <h3>Recipe: The Aggressive Flanker</h3>
+                    <p><strong>Goal</strong>: An AI that prefers to hide in locations that create a crossfire angle with its allies, getting into an advantageous flanking position.</p>
+                    <p><strong>Ingredients</strong>:</p>
+                    <ul>
+                        <li>A <code>HidingSettings</code> asset named <code>Flanker_Settings</code>.</li>
+                        <li>Providers: <code>NavMeshRingProviderSO</code>, <code>BehindObstacleProviderSO</code>.</li>
+                        <li>Scorers: <code>CrossfireScorerSO</code>, <code>VisibilityScorerSO</code>, <code>ProximityPenaltyScorerSO</code>.</li>
+                    </ul>
+                    <p><strong>Method</strong>:</p>
+                    <ol>
+                        <li>Configure the <code>Flanker_Settings</code> asset.</li>
+                        <li>Set up the scorer weights:
+                            <ul>
+                                <li><strong><code>CrossfireScorerSO</code></strong>: <code>Weight: 3.0</code> (The absolute main priority is getting a good angle).</li>
+                                <li><strong><code>VisibilityScorerSO</code></strong>: <code>Weight: 1.5</code> (The spot should still be hidden).</li>
+                                <li><strong><code>ProximityPenaltyScorerSO</code></strong>: <code>Weight: 1.0</code> (Ensure it doesn't try to flank from a position that is suicidally close).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Result</strong>: This AI will ignore spots directly behind it, instead favoring cover that puts it at a 90-degree angle to its allies, relative to the player's position. Make sure to populate the <code>allies</code> list on the <code>EnemyHider</code> for this to work</p>
                 </section>
                 <section id="for-developers" class="docs-section">
-                    <h1>Technical Architecture</h1>
+                    <h1>Core Concepts: How the System Thinks</h1>
+                    <p>Understanding the core architecture will empower you to create truly unique and intelligent AI. The entire system is built on a simple but powerful pipeline.</p>
 
-<p>This document provides a technical overview of the Tactical Cover & Retreat AI System's architecture. It is intended for developers who want to understand how the system works internally or wish to extend it with custom logic.</p>
+                    <h3>The Generate -> Score -> Select Pipeline</h3>
+                    <p>Every time you call <code>RetreatToHide()</code>, the system performs three main steps:</p>
+                    <ol>
+                        <li><strong>GENERATE</strong>: <strong>Providers</strong> scan the world and generate a list of potential hiding spots (<code>CandidateInfo</code>). They don't know if a spot is "good" or "bad"; they only know how to find possibilities.</li>
+                        <li><strong>SCORE</strong>: Each candidate spot is then shown to a list of <strong>Scorers</strong>. Each scorer evaluates the spot based on one specific criterion (e.g., "How visible is it?") and gives it a score.</li>
+                        <li><strong>SELECT</strong>: The system multiplies each score by its user-defined <strong>Weight</strong> and adds them all up. The candidate with the highest total score is the winner.</li>
+                    </ol>
+                    <p>This pipeline is what allows for such modular and data-driven behavior.</p>
 
-<h2>Core Architecture: The Facade Pattern</h2>
+                    <pre><code>graph TD
+    A[Start Search: RetreatToHide()] --> B{HidingContext Assembled};
+    B --> C[1. GENERATE Candidates];
+    C --> D(BehindObstacleProvider);
+    C --> E(CoverNodeProvider);
+    C --> F(...);
+    D & E & F --> G[Master List of Candidates];
+    G --> H[2. SCORE Each Candidate];
+    H -- Candidate 1 --> I{For each Scorer...};
+    I -- VisibilityScorer --> J(Score: 0.0 * Weight: 2.0);
+    I -- DistanceScorer --> K(Score: 0.8 * Weight: 1.0);
+    I -- PathSafetyScorer --> L(Score: 1.0 * Weight: 1.5);
+    J & K & L --> M[Total Score for Candidate 1 = 2.3];
+    H -- Candidate 2... --> N[...];
+    M & N --> O[3. SELECT Candidate with Highest Score];
+    O --> P[Return Best HidingSpot];
+</code></pre>
 
-<p>The system is designed around the <strong>Facade</strong> pattern. The <code>EnemyHider</code> MonoBehaviour acts as a simple, high-level interface (a "facade") that conceals the more complex underlying logic. This provides a clean separation of concerns:</p>
+                    <h3>AI Personality: <code>HidingSettings</code> vs. <code>SearchProfile</code></h3>
+                    <p>You have two ways to define an AI's behavior:</p>
+                    <ul>
+                        <li><strong><code>HidingSettingsSO</code> (The Rulebook)</strong>: This is the AI's default "personality." It's a static asset that defines the complete set of providers and scorers the AI uses. You might have a <code>SniperSettings</code> asset that prefers high ground and long distances, and a <code>GruntSettings</code> asset that prefers staying close to allies.</li>
+                        <li><strong><code>SearchProfile</code> (The "Mood")</strong>: This is a temporary, code-driven override for a single search. It allows you to dynamically change the AI's priorities. For example, when an AI's health is low, you can use a <code>SearchProfile</code> to temporarily crank up the weight of the <code>DistanceScorer</code> and <code>PathSafetyScorer</code>, making it act more desperately and cautiously without changing its base personality asset.</li>
+                    </ul>
 
-<ol>
-<li><strong>The User (You)</strong>: Interacts exclusively with the <code>EnemyHider</code> component. You are responsible for deciding <em>when</em> the AI should hide and calling the public API (e.g., <code>hider.RetreatToHide()</code>).</li>
-<li><strong>The Facade (<code>EnemyHider</code>)</strong>: Manages the state for a single AI (e.g., its target list, settings asset, cancellation tokens). When one of its methods is called, it gathers all the necessary data into a <code>HidingContext</code> object.</li>
-<li><strong>The Core Logic (<code>Async/SynchronousHidingSystemCore</code>)</strong>: These are static classes that contain the pure, stateless logic for finding a hiding spot. They take the <code>HidingContext</code>, run the providers and scorers, and return the result. They have no knowledge of GameObjects or scenes.</li>
-</ol>
+                    <h3>The Facade Pattern: Keeping Your Code Clean</h3>
+                    <p>The <code>EnemyHider</code> component acts as a <strong>Facade</strong>. It provides a simple, clean API (<code>RetreatToHide()</code>, <code>IsThreatened</code>, etc.) that hides the complex machinery underneath. Your AI controller only ever needs to talk to the <code>EnemyHider</code>, keeping your game logic decoupled and easy to manage.</p>
+                    <p><strong>➡️ Next: See practical examples in the <a href="#for-designers">How-To Guides (Cookbook)</a></strong></p>
+                </section>
 
-<p>This design makes the system robust, predictable, and easy to integrate into any existing AI framework, such as a Behavior Tree or a Finite State Machine.</p>
+                <section id="api-usage" class="docs-section">
+                    <h1>EnemyHider Class API Documentation</h1>
+                    <p>The <code>EnemyHider</code> is the central component of the AI Hiding System. Attach it to your AI agent to enable intelligent cover-finding and retreat behaviors. This documentation covers all public properties, methods, and events you can use to control and query the AI's state.</p>
 
-<h2>Data Flow</h2>
+                    <h2>1. Core Properties (Status & State)</h2>
+                    <p>These properties provide real-time information about the AI's current state. They are read-only and are perfect for driving animations, behavior trees, or UI debugging.</p>
 
-<p>The data flows in a clear sequence when you call <code>RetreatToHide()</code>:</p>
+                    <hr>
 
-<ol>
-<li><strong><code>EnemyHider</code></strong> assembles the <code>HidingContext</code>. This is a struct that packages up all the necessary data for the search: the agent's position, the player list, the ally list, the <code>HidingSettingsSO</code>, visibility services, etc.</li>
-<li>The context is passed to the appropriate static core method (<code>SynchronousHidingSystemCore.TryFindBestSpot</code> or <code>AsyncHidingSystemCore.FindBestSpotAsync</code>).</li>
-<li><strong>Inside the Core</strong>:
-<ol type="a">
-<li>The <code>Core</code> iterates through the list of <strong>Providers</strong> from the <code>HidingSettingsSO</code>, calling <code>GenerateCandidates()</code> on each. All returned points are aggregated into a single master list.</li>
-<li>For each point in the master list, the <code>Core</code> iterates through the list of <strong>Scorers</strong>.</li>
-<li>Each <code>Scorer</code> evaluates the spot by calling its <code>Score()</code> method. The returned score is multiplied by its corresponding <strong>weight</strong> from the <code>HidingSettingsSO</code> and added to a total score for that spot.</li>
-<li>A scorer returning <code>float.NegativeInfinity</code> immediately disqualifies a candidate.</li>
-</ol>
-</li>
-<li>The spot with the highest final score is selected.</li>
-<li>The <code>Core</code> returns the best spot (or a failure state) back to the <code>EnemyHider</code>.</li>
-<li><strong><code>EnemyHider</code></strong> receives the result. If successful, it invokes the <code>OnSearchSuccess</code> event and either moves the NavMeshAgent itself or passes the result to a custom <code>ICombatAction</code> handler. If failed, it invokes <code>OnSearchFailed</code>.</li>
-</ol>
+                    <h3>IsSearching</h3>
+                    <p>Returns <code>true</code> if the AI is currently in the process of finding a hiding spot.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Prevent the AI from performing other actions (like attacking or reloading) while it's busy thinking about where to hide. It's an essential flag for state management in a Behavior Tree or State Machine.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>EnemyHider hider = GetComponent&lt;EnemyHider&gt;();
 
-<h2>Extensibility: The <code>ICombatAction</code> Interface</h2>
+void Update()
+{
+    // Example: Don't allow the AI to shoot while it's looking for cover.
+    if (hider.IsSearching)
+    {
+        myWeaponController.HoldFire();
+    }
+}</code></pre>
+                        </li>
+                    </ul>
 
-<p>A key point of extension is the <strong><code>ICombatAction</code></strong> interface. By default, after finding a spot, <code>EnemyHider</code> will simply move the NavMeshAgent to the destination. However, you can provide your own implementation of <code>ICombatAction</code> to define custom behavior.</p>
+                    <hr>
 
-<p>This allows you to create more sophisticated actions, such as:</p>
+                    <h3>IsInCover</h3>
+                    <p>Returns <code>true</code> if the agent has successfully reached its destination and is stationary.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Use this to trigger "in cover" behaviors, such as crouching, peeking, or starting a timer before re-engaging. It confirms that the AI is not only safe but also in position.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>EnemyHider hider = GetComponent&lt;EnemyHider&gt;();
 
-<ul>
-<li>Moving to the spot and then peeking around cover.</li>
-<li>Moving to the spot and entering a special "suppressive fire" animation.</li>
-<li>Moving to the spot and throwing a grenade at the player's last known position.</li>
-</ul>
+void Update()
+{
+    // If the AI is in cover, make it crouch.
+    if (hider.IsInCover)
+    {
+        animator.SetBool("IsCrouching", true);
+    }
+    else
+    {
+        animator.SetBool("IsCrouching", false);
+    }
+}</code></pre>
+                        </li>
+                    </ul>
 
-<p><strong>To use it:</strong></p>
+                    <hr>
 
-<ol>
-<li>Create a new C# script that implements the <code>ICombatAction</code> interface.</li>
-<li>Implement the <code>Execute(HidingSpot spot, Vector3? lastKnownPlayerPosition)</code> method with your custom logic.</li>
-<li>Attach this script to a GameObject and assign that GameObject to the <code>Combat Action Game Object</code> field on the <code>EnemyHider</code> component.</li>
-</ol>
+                    <h3>IsThreatened</h3>
+                    <p>A convenient alias for <code>IsNeedToHide()</code>. Returns <code>true</code> if the agent is currently visible to any player.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> This is the primary trigger for deciding <em>when</em> to start a search. It's a lightweight check that can be called every frame in an <code>Update</code> loop or as a condition in a Behavior Tree to initiate a retreat.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>EnemyHider hider = GetComponent&lt;EnemyHider&gt;();
 
-<p>The <code>EnemyHider</code> will automatically detect this component and call your <code>Execute</code> method instead of its own default <code>MoveToSpot</code> logic.</p>
+void Update()
+{
+    // If the AI is threatened and not already moving to cover, tell it to hide.
+    if (hider.IsThreatened && !hider.IsMoving)
+    {
+        hider.RetreatToHide();
+    }
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>IsMoving</h3>
+                    <p>Returns <code>true</code> if the NavMeshAgent is actively following a path to a destination.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Useful for controlling animations (e.g., switching between idle/run) and for preventing the AI from starting a new search while it's already on its way to cover.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>EnemyHider hider = GetComponent&lt;EnemyHider&gt;();
+
+void Update()
+{
+    // Control the "IsRunning" parameter in the animator.
+    animator.SetBool("IsRunning", hider.IsMoving);
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>HasValidHidingSpot</h3>
+                    <p>Returns <code>true</code> if the agent has a valid <code>CurrentHidingSpot</code>, even if it hasn't reached it yet.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Differentiate between an AI that has no plan (<code>HasValidHidingSpot</code> is false) and an AI that has a plan but is still executing it (<code>HasValidHidingSpot</code> is true, but <code>IsInCover</code> is false).</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// In a Behavior Tree, this could be a condition:
+// "Does the AI have a valid destination?"
+if (hider.HasValidHidingSpot)
+{
+    // Proceed with movement task.
+}
+else
+{
+    // Trigger a search task.
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>CurrentHidingSpot</h3>
+                    <p>The <code>HidingSpot</code> struct the agent is currently moving to or located at. It's <code>HidingSpot.Invalid</code> if no spot has been found.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Access detailed information about the AI's destination, such as its position, the direction of cover (<code>coverNormal</code>), and whether it can peek left or right.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>if (hider.IsInCover && hider.CurrentHidingSpot.canPeekRight)
+{
+    // The AI is in cover and can peek right, so trigger a peek-and-shoot action.
+    myCombatLogic.PerformPeek(hider.CurrentHidingSpot.peekRightPosition);
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>LastKnownPlayerPosition</h3>
+                    <p>The position where the AI last had a line of sight to a player. This acts as the AI's short-term memory.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> This is crucial for tactical decisions. When the AI gets into cover, it should aim or throw grenades towards this position, not the player's new, unseen location.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// When the AI decides to throw a grenade from cover:
+if (hider.IsInCover && hider.LastKnownPlayerPosition.HasValue)
+{
+    Vector3 target = hider.LastKnownPlayerPosition.Value;
+    myGrenadeController.ThrowAt(target);
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>TimeInCover</h3>
+                    <p>Returns the number of seconds the agent has been stationary in its current valid cover spot.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Make the AI's behavior more dynamic. For example, an aggressive AI might decide to pop out of cover after 2 seconds, while a cautious one might wait for 5 seconds.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// A cautious AI might only re-engage after being in cover for a while.
+if (hider.IsInCover && hider.TimeInCover > 5.0f)
+{
+    // It's been 5 seconds, time to look for an opportunity to attack.
+    myCombatLogic.SeekAttackOpportunity();
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>2. Core Methods (Actions)</h2>
+                    <p>These methods instruct the <code>EnemyHider</code> to perform an action, such as starting a search or stopping its current behavior.</p>
+
+                    <hr>
+
+                    <h3>RetreatToHide()</h3>
+                    <p>Initiates a search for the best hiding spot using the default settings. This is the primary and most common way to make the AI find cover.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> This is your go-to method. Call it when the AI is exposed and needs to find safety.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>EnemyHider hider = GetComponent&lt;EnemyHider&gt;();
+
+void OnTookDamage()
+{
+    // When the AI takes damage, it should immediately try to find cover.
+    hider.RetreatToHide();
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>RetreatToHide(SearchProfile profile)</h3>
+                    <p>Initiates a search using a temporary <code>SearchProfile</code> to override the default settings for a single search.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> This is powerful for creating dynamic, context-aware AI. An AI might use a "cautious" profile (preferring distant cover) when its health is low, or an "aggressive" profile (preferring ambush spots) when it has a shotgun.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// Create a profile for an aggressive flank.
+var flankProfile = new SearchProfile
+{
+    // Create a dictionary to override scorer weights.
+    ScorerWeightOverrides = new Dictionary&lt;HideSpotScorerSO, float&gt;
+    {
+        { crossfireScorerAsset, 5.0f }, // Heavily prioritize crossfire angles
+        { distanceScorerAsset, 0.5f }   // Care less about being far away
+    }
+};
+
+// Tell the AI to find a flanking position using this custom profile.
+hider.RetreatToHide(flankProfile);</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>RetreatToHideInArea(Vector3 areaCenter, float areaRadius)</h3>
+                    <p>A convenient wrapper that tells the AI to find cover, but only within a specific circular area in the world.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Perfect for mission objectives or squad tactics. For example, "Defend this control point" means the AI should find cover <em>inside</em> the control point's radius, not run across the map.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>Vector3 controlPointCenter = new Vector3(10, 0, 50);
+float controlPointRadius = 15f;
+
+// The AI must find cover within the designated objective area.
+hider.RetreatToHideInArea(controlPointCenter, controlPointRadius);</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>StopAndClear()</h3>
+                    <p>Immediately cancels any ongoing search, stops all movement, and clears the current hiding spot.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Use this to interrupt the AI's current action. For example, if a player gets too close, you might want the AI to stop retreating and switch to close-quarters combat, regardless of its previous plan.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+if (distanceToPlayer < 5.0f)
+{
+    // The player is too close! Stop running and fight back.
+    hider.StopAndClear();
+    myCombatLogic.EngageInMelee();
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>CancelSearch()</h3>
+                    <p>Cancels an ongoing <em>asynchronous</em> search. It does not stop the agent if it's already moving.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> This is a more subtle interruption than <code>StopAndClear()</code>. Use it if you want to abort the <em>thinking</em> process (which can take a few frames) without necessarily stopping the AI's current movement.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// The AI started a search, but the player suddenly died.
+void OnPlayerDied()
+{
+    // Cancel the search since the threat is gone. The AI might continue to its last spot.
+    hider.CancelSearch();
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>3. Query Methods (Checks & Information)</h2>
+                    <p>These methods allow you to ask questions and get information from the system without changing the AI's state. They are ideal for decision-making logic.</p>
+
+                    <hr>
+
+                    <h3>IsNeedToHide()</h3>
+                    <p>Performs a lightweight line-of-sight check to see if the agent is currently visible to any player.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> This is the most common query. Use it in <code>Update</code> or a Behavior Tree to decide if a retreat is necessary. It's much cheaper than running a full <code>RetreatToHide()</code> every frame.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// A classic "tick" for a Behavior Tree node.
+public NodeStatus CheckThreatStatus()
+{
+    if (hider.IsNeedToHide())
+    {
+        return NodeStatus.FAILURE; // We are exposed, the "Stay Safe" check fails.
+    }
+    return NodeStatus.SUCCESS; // We are hidden, the check passes.
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>CanFindHidingSpot(out HidingSpot potentialSpot)</h3>
+                    <p>Performs a quick, synchronous search to see if <em>any</em> valid hiding spot exists from the current position. It does <strong>not</strong> make the AI move.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> A crucial "look before you leap" check. Before deciding to retreat, you can use this to see if there's anywhere <em>to</em> retreat to. If not, the AI might choose to stand and fight instead of running into a dead end.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// Before committing to a retreat, check if it's even possible.
+if (hider.IsThreatened)
+{
+    if (hider.CanFindHidingSpot(out HidingSpot spot))
+    {
+        // A safe spot exists, so let's go!
+        hider.RetreatToHide();
+    }
+    else
+    {
+        // There's nowhere to hide. Stand and fight!
+        myCombatLogic.HoldPositionAndFight();
+    }
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>GetTopNHidingSpotsSync / GetTopNHidingSpotsAsync</h3>
+                    <p>Performs a full search and returns a list of the best hiding spots found, sorted by score. The <code>Sync</code> version blocks the main thread for a frame, while the <code>Async</code> version is non-blocking.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Advanced usage for squad tactics or complex behaviors. A squad leader could call this to find the top 3 spots and then assign each squad member to one of them, ensuring they don't all run to the same piece of cover.</li>
+                        <li><strong>How to Use (Async):</strong>
+                            <pre><code>private async void AssignSquadPositions()
+{
+    // Find the 3 best cover spots near the squad leader.
+    List&lt;HidingSpot&gt; bestSpots = await squadLeader.hider.GetTopNHidingSpotsAsync(3);
+
+    if (bestSpots.Count >= 3)
+    {
+        squadMember1.hider.MoveToSpot(bestSpots[0]);
+        squadMember2.hider.MoveToSpot(bestSpots[1]);
+        squadMember3.hider.MoveToSpot(bestSpots[2]);
+    }
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>ReEvaluateCurrentSpot()</h3>
+                    <p>Checks if the agent's <code>CurrentHidingSpot</code> is still safe from all players. This is much cheaper than a full new search.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Periodically check if the AI's cover has been flanked. If a player moves and gets a new angle, this method will return <code>false</code>, signaling that the AI needs to find a new, better spot.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// Run this check every couple of seconds while in cover.
+IEnumerator CheckCoverValidity()
+{
+    while(true)
+    {
+        yield return new WaitForSeconds(2.0f);
+        if (hider.IsInCover && !hider.ReEvaluateCurrentSpot())
+        {
+            // Our cover is blown! Find a new spot.
+            hider.RetreatToHide();
+        }
+    }
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>4. Configuration Methods</h2>
+                    <p>These methods are used to set up and change the <code>EnemyHider</code>'s behavior and context at runtime.</p>
+
+                    <hr>
+
+                    <h3>SetPlayers(IReadOnlyList&lt;Transform&gt; playerList) / SetAllies(IReadOnlyList&lt;Transform&gt; allyList)</h3>
+                    <p>Updates the list of player targets and allies that the AI should be aware of.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> This is fundamental for setup. Your game manager or AI spawner should call this to tell each AI who its enemies and friends are. It should be updated if players or allies enter or leave the AI's awareness range.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>EnemyHider myAI = GetMyAI();
+List&lt;Transform&gt; allPlayers = FindAllPlayerTransforms();
+List&lt;Transform&gt; nearbyAllies = FindNearbyAllies();
+
+myAI.SetPlayers(allPlayers);
+myAI.SetAllies(nearbyAllies);</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>UpdateHidingSettings(HidingSettingsSO newSettings)</h3>
+                    <p>Swaps the currently used <code>HidingSettingsSO</code> asset at runtime.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Allows for profound changes in AI behavior. You could have different settings assets for different enemy types (e.g., "GruntSettings", "SniperSettings") or for different game states (e.g., "StealthSettings", "CombatSettings").</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>public HidingSettingsSO cautiousSettings;
+public HidingSettingsSO aggressiveSettings;
+
+void OnHealthLow()
+{
+    // When health is low, switch to the cautious behavior set.
+    hider.UpdateHidingSettings(cautiousSettings);
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>SetCurrentEyeHight(float eyeHeight)</h3>
+                    <p>Updates the AI's eye height, which is used for all visibility calculations.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Make the AI's visibility checks more accurate based on its stance. If the AI is crouching, its eye height should be lower, which might make shorter objects valid cover.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>void Crouch()
+{
+    animator.SetBool("IsCrouching", true);
+    hider.SetCurrentEyeHight(0.8f); // Set eye height for crouching.
+}
+
+void StandUp()
+{
+    animator.SetBool("IsCrouching", false);
+    hider.SetCurrentEyeHight(1.7f); // Reset to default standing height.
+}</code></pre>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>ForgetPlayerLocation()</h3>
+                    <p>Manually clears the AI's memory of the <code>LastKnownPlayerPosition</code>.</p>
+                    <ul>
+                        <li><strong>Use Case:</strong> Useful in stealth scenarios. If the player successfully hides for a certain amount of time, you can call this to make the AI "give up" the search and return to its patrol, making it seem less omniscient.</li>
+                        <li><strong>How to Use:</strong>
+                            <pre><code>// Called by a stealth manager after the player has been hidden for 10 seconds.
+public void OnPlayerLost()
+{
+    aiHider.ForgetPlayerLocation();
+    aiHider.ReturnToPatrol();
+}</code></pre>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="advanced-apis" class="docs-section">
+                    <h1>Advanced API & Architecture Documentation</h1>
+                    <p>This guide covers the core architectural components of the AI Hiding System. Mastering these concepts will allow you to extend the system, define custom AI personalities, and deeply integrate it into your game's unique mechanics.</p>
+                    <p>The system's core philosophy is a simple three-step process:</p>
+                    <ol>
+                        <li><strong>GENERATE:</strong> Potential hiding spots (<code>CandidateInfo</code>) are generated by <strong>Providers</strong>.</li>
+                        <li><strong>SCORE:</strong> Each candidate is evaluated and scored by multiple <strong>Scorers</strong>.</li>
+                        <li><strong>SELECT:</strong> The candidate with the highest total score is chosen as the best <code>HidingSpot</code>.</li>
+                    </ol>
+
+                    <h2>1. Creating Custom <code>HideSpotProviderSO</code> (Generation)</h2>
+                    <p><strong>What is it?</strong><br>A <code>HideSpotProviderSO</code> is a ScriptableObject whose sole purpose is to generate a list of potential hiding spots. Providers are the "eyes" of the system, finding candidate locations in the world based on a specific strategy (e.g., looking behind obstacles, sampling the NavMesh, finding tagged objects).</p>
+                    <p><strong>Why is it useful?</strong><br>Your game might have unique types of cover that the default providers don't know about.</p>
+                    <ul>
+                        <li>Want AI to hide in tall grass? Create a <code>TallGrassProvider</code>.</li>
+                        <li>Want AI to use teleporter exits as escape points? Create a <code>TeleporterProvider</code>.</li>
+                        <li>Want AI to hide near health packs? Create a <code>HealthPackProvider</code>.</li>
+                    </ul>
+                    <p><strong>How to use it:</strong></p>
+                    <ol>
+                        <li><strong>Create the C# Script:</strong> Create a new script that inherits from <code>HideSpotProviderSO</code>.</li>
+                        <li><strong>Implement <code>GenerateCandidates</code>:</strong> This is the only method you need to override. Your logic should add <code>CandidateInfo</code> structs to the <code>results</code> list.</li>
+                        <li><strong>Create the Asset:</strong> In the Unity Editor, right-click in your project folder and create an instance of your new provider asset via the <code>CreateAssetMenu</code> attribute.</li>
+                        <li><strong>Assign the Asset:</strong> Drag your new provider asset into the <code>Providers</code> array in your <code>HidingSettingsSO</code>.</li>
+                    </ol>
+
+                    <h4>Example: A <code>SafeZoneProvider</code></h4>
+                    <p>Let's imagine you have designer-placed "Safe Zones" in your level. This provider will generate candidate spots inside those zones.</p>
+                    <p><strong>Step 1 & 2: C# Script (<code>SafeZoneProviderSO.cs</code>)</strong></p>
+                    <pre><code>using UnityEngine;
+using MaharajaStudio.HidingSystem;
+using MaharajaStudio.HidingSystem.Providers;
+using System.Collections.Generic;
+
+// Assume you have a simple component to tag your safe zones
+public class SafeZoneVolume : MonoBehaviour { }
+
+[CreateAssetMenu(menuName = "HidingSystem/Providers/Custom/Safe Zone Provider")]
+public class SafeZoneProviderSO : HideSpotProviderSO
+{
+    public override void GenerateCandidates(in HidingContext ctx, List&lt;CandidateInfo&gt; results)
+    {
+        // Find all active safe zones in the scene.
+        // Note: A real implementation should use a static registry for better performance.
+        var safeZones = Object.FindObjectsByType&lt;SafeZoneVolume&gt;(FindObjectsSortMode.None);
+
+        foreach (var zone in safeZones)
+        {
+            Bounds bounds = zone.GetComponent&lt;Collider&gt;().bounds;
+            int samples = ctx.lodSettings.candidatesPerProvider;
+
+            for (int i = 0; i < samples; i++)
+            {
+                // Generate a random point within the zone's bounds
+                Vector3 randomPoint = new Vector3(
+                    Random.Range(bounds.min.x, bounds.max.x),
+                    Random.Range(bounds.min.y, bounds.max.y),
+                    Random.Range(bounds.min.z, bounds.max.z)
+                );
+
+                // Add the point as a candidate. We don't know the cover normal.
+                results.Add(new CandidateInfo { position = randomPoint, coverNormal = Vector3.zero });
+            }
+        }
+    }
+}</code></pre>
+                    <p><strong>Step 3 & 4: In the Editor</strong></p>
+                    <ol>
+                        <li>Create the <code>SafeZoneProviderSO</code> asset in your project.</li>
+                        <li>Drag this asset into the <code>Providers</code> list on your <code>HidingSettingsSO</code>. Now, whenever the AI searches for cover, it will include points from your safe zones.</li>
+                    </ol>
+
+                    <hr>
+
+                    <h2>2. Creating Custom <code>HideSpotScorerSO</code> (Scoring)</h2>
+                    <p><strong>What is it?</strong><br>A <code>HideSpotScorerSO</code> is a ScriptableObject that evaluates a single <code>CandidateInfo</code> and returns a score. This is the "brain" of the AI. The score typically ranges from 0.0 (bad) to 1.0 (good). A score of <code>float.NegativeInfinity</code> will instantly disqualify the spot.</p>
+                    <p><strong>Why is it useful?</strong><br>Scorers define an AI's <strong>personality and priorities</strong>. By creating custom scorers and adjusting their weights in the <code>HidingSettingsSO</code>, you can create vastly different behaviors.</p>
+                    <ul>
+                        <li><strong>Cautious AI:</strong> Give a high weight to <code>DistanceScorerSO</code>.</li>
+                        <li><strong>Aggressive AI:</strong> Give a high weight to <code>AmbushScorerSO</code> and a custom <code>ProximityToEnemyScorer</code>.</li>
+                        <li><strong>Stealth AI:</strong> Give a high weight to <code>DarknessScorerSO</code> or a custom <code>InBushesScorer</code>.</li>
+                    </ul>
+                    <p><strong>How to use it:</strong></p>
+                    <ol>
+                        <li><strong>Create the C# Script:</strong> Create a new script that inherits from <code>HideSpotScorerSO</code>.</li>
+                        <li><strong>Implement <code>Score</code>:</strong> Override the <code>Score</code> method. This method receives the <code>HidingContext</code> (for world information) and the <code>CandidateInfo</code> to evaluate. Return your calculated score.</li>
+                        <li><strong>Create the Asset:</strong> Create a ScriptableObject asset from your new scorer class.</li>
+                        <li><strong>Assign and Weigh:</strong> Add the asset to the <code>Scorers</code> list in your <code>HidingSettingsSO</code> and set its <code>weight</code>. The weight determines how much influence this scorer has on the final decision.</li>
+                    </ol>
+
+                    <h4>Example: An <code>AmmoProximityScorerSO</code></h4>
+                    <p>Let's create a scorer that makes the AI prefer hiding spots that are near ammo pickups, especially if its ammo is low.</p>
+                    <p><strong>Step 1 & 2: C# Script (<code>AmmoProximityScorerSO.cs</code>)</strong></p>
+                    <pre><code>using UnityEngine;
+using MaharajaStudio.HidingSystem;
+using MaharajaStudio.HidingSystem.Scorer;
+
+// Assume a central registry knows where all ammo boxes are.
+public static class AmmoBoxRegistry
+{
+    public static List&lt;Transform&gt; AllAmmoBoxes = new List&lt;Transform&gt;();
+}
+
+[CreateAssetMenu(menuName = "HidingSystem/Scorers/Custom/Ammo Proximity Scorer")]
+public class AmmoProximityScorerSO : HideSpotScorerSO
+{
+    [Tooltip("The ideal distance to be from an ammo box.")]
+    public float optimalDistance = 3f;
+    [Tooltip("Beyond this distance, the scorer has no effect.")]
+    public float maxDistance = 20f;
+
+    public override float Score(in HidingContext ctx, in CandidateInfo candidate)
+    {
+        // For this to work, you need a way to get the AI's ammo count.
+        // Let's assume the EnemyHider has a sibling component `WeaponSystem`.
+        var weaponSystem = ctx.enemyTransform.GetComponent&lt;WeaponSystem&gt;();
+        
+        // If ammo is full, this scorer is irrelevant. Return a neutral score.
+        if (weaponSystem == null || weaponSystem.IsAmmoFull())
+        {
+            return 0.5f; 
+        }
+
+        if (AmmoBoxRegistry.AllAmmoBoxes.Count == 0) return 0f;
+
+        // Find the closest ammo box to the candidate hiding spot.
+        float minDstSq = float.MaxValue;
+        foreach (var ammoBox in AmmoBoxRegistry.AllAmmoBoxes)
+        {
+            float d = (ammoBox.position - candidate.position).sqrMagnitude;
+            if (d < minDstSq)
+            {
+                minDstSq = d;
+            }
+        }
+
+        float distance = Mathf.Sqrt(minDstSq);
+
+        if (distance > maxDistance) return 0.0f;
+
+        // The score is higher the closer we are.
+        float score = 1.0f - (distance / maxDistance);
+        
+        return Mathf.Clamp01(score);
+    }
+}</code></pre>
+                    <p><strong>Step 3 & 4: In the Editor</strong></p>
+                    <ol>
+                        <li>Create the <code>AmmoProximityScorerSO</code> asset.</li>
+                        <li>Add it to the <code>Scorers</code> list in <code>HidingSettingsSO</code> and give it a weight (e.g., 1.5). Now, when an AI with this setting is low on ammo, it will strongly prefer cover spots near ammo boxes.</li>
+                    </ol>
+
+                    <hr>
+
+                    <h2>3. Dynamic Behavior with <code>SearchProfile</code></h2>
+                    <p><strong>What is it?</strong><br><code>SearchProfile</code> is a class that allows you to <strong>temporarily override</strong> any aspect of a <code>HidingSettingsSO</code> for a single search. You can override the search radius, providers, and most importantly, scorer weights.</p>
+                    <p><strong>Why is it useful?</strong><br>It allows you to change an AI's "mood" or "tactic" at runtime without needing to swap out its entire <code>HidingSettingsSO</code> asset. This is the key to creating responsive and dynamic AI.</p>
+                    <ul>
+                        <li><strong>Low Health:</strong> Create a profile that cranks up the weight of <code>DistanceScorerSO</code> and <code>PathSafetyScorerSO</code>.</li>
+                        <li><strong>Squad Order to Flank:</strong> Create a profile that uses only the <code>CrossfireScorerSO</code>.</li>
+                        <li><strong>Player is Distracted:</strong> Create a profile that heavily favors the <code>AmbushScorerSO</code>.</li>
+                    </ul>
+                    <p><strong>How to use it:</strong></p>
+                    <p>You create an instance of <code>SearchProfile</code> in your code, set its properties, and then pass it to <code>enemyHider.RetreatToHide(profile)</code>.</p>
+
+                    <h4>Example: "Desperate Retreat" Profile</h4>
+                    <p>When an AI's health is critically low, we want it to prioritize safety above all else, even if it means running far away.</p>
+                    <pre><code>using UnityEngine;
+using MaharajaStudio.HidingSystem;
+using MaharajaStudio.HidingSystem.Scorer;
+using System.Collections.Generic;
+
+public class AIHealth : MonoBehaviour
+{
+    public EnemyHider hider;
+    public HidingSettingsSO defaultSettings;
+    public int health = 100;
+
+    // References to the specific scorer assets you want to override.
+    public DistanceScorerSO distanceScorer;
+    public PathSafetyScorerSO pathSafetyScorer;
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health < 25)
+        {
+            // Health is critical! Trigger a desperate retreat.
+            TriggerDesperateRetreat();
+        }
+    }
+
+    private void TriggerDesperateRetreat()
+    {
+        // 1. Create a new profile.
+        var desperateProfile = new SearchProfile
+        {
+            // 2. Create the dictionary for overrides.
+            ScorerWeightOverrides = new Dictionary&lt;HideSpotScorerSO, float&gt;
+            {
+                // 3. Add overrides. We use the asset reference as the key.
+                // Massively increase the importance of being far away.
+                { distanceScorer, 4.0f }, 
+                // Also be extra sure the path to get there is safe.
+                { pathSafetyScorer, 3.0f }
+            },
+            // You can also override other things, like the search radius.
+            SearchRadius = 50f 
+        };
+
+        // 4. Call the search with the custom profile.
+        hider.RetreatToHide(desperateProfile);
+    }
+}</code></pre>
+
+                    <hr>
+
+                    <h2>4. Integrating with Game Systems via Services</h2>
+                    <p><strong>What are they?</strong><br>The hiding system includes several static "Service" classes (<code>HazardRegistry</code>, <code>ObjectiveService</code>, <code>ThreatMapService</code>). These are global registries that your own game code must populate with data. The AI system then reads from these services to gain world context.</p>
+                    <p><strong>Why are they useful?</strong><br>They decouple the AI from your game logic. The AI doesn't need to know what a "control point" is; it only needs to know that the <code>ObjectiveService</code> has a point to defend. This makes integration clean and simple.</p>
+                    <p><strong>How to use them:</strong><br>From your own game manager, objective controller, or item scripts, call the <code>Register</code>, <code>Unregister</code>, or <code>Update</code> methods on these services.</p>
+
+                    <h4>Example: Registering a <code>Hazard</code></h4>
+                    <p>The <code>HazardAvoidanceScorerSO</code> will make AI avoid any area registered as a hazard. To make it work, your fire/poison/etc. game object needs to tell the <code>HazardRegistry</code> about itself. The provided <code>Hazard.cs</code> component does this automatically.</p>
+                    <pre><code>// Simplified Hazard script logic (as provided in the files)
+public class Hazard : MonoBehaviour
+{
+    public float radius = 5f;
+
+    // When the hazard (e.g., a fire) is created, it registers itself.
+    private void OnEnable()
+    {
+        HazardRegistry.Register(this);
+    }
+
+    // When the fire goes out, it unregisters itself.
+    private void OnDisable()
+    {
+        HazardRegistry.Unregister(this);
+    }
+}</code></pre>
+                    <p>By simply adding the <code>Hazard</code> component to your fire prefab, the AI system will now automatically know to avoid it, provided the <code>HazardAvoidanceScorerSO</code> is in its settings. The same principle applies to <code>ObjectiveService</code> (call <code>ObjectiveService.RegisterObjective(...)</code> from your mission script) and others.</p>
+
+                    <hr>
+
+                    <h2>5. Performance Optimization with <code>IMultiThreadedScorer</code></h2>
+                    <p><strong>What is it?</strong><br><code>IMultiThreadedScorer</code> is a "marker interface". It has no methods. If your custom <code>HideSpotScorerSO</code> implements this interface, the system will automatically run its scoring logic on a background worker thread using Unity's C# Job System and Burst Compiler.</p>
+                    <p><strong>Why is it useful?</strong><br><strong>Performance.</strong> For complex scorers or a large number of AI agents, moving calculations off the main thread is essential to prevent frame rate drops. Scorers that perform heavy math or iterate over many objects are prime candidates for this optimization.</p>
+                    <p><strong>How to use it:</strong></p>
+                    <ol>
+                        <li>Add <code>IMultiThreadedScorer</code> to your scorer's class definition.</li>
+                        <li><strong>Crucially</strong>, you must ensure your <code>Score</code> method is "Burst-compatible". This means:
+                            <ul>
+                                <li><strong>No managed types:</strong> You cannot use <code>List&lt;&gt;</code>, <code>Dictionary&lt;&gt;</code>, strings, etc.</li>
+                                <li><strong>No Unity main-thread APIs:</strong> You cannot call <code>GetComponent&lt;&gt;</code>, <code>GameObject.Find</code>, <code>Debug.Log</code>, or access most parts of <code>Transform</code> beyond its position/rotation.</li>
+                                <li>Your logic must rely <em>only</em> on the data already prepared for the job system (like <code>playerPositions</code>, <code>threatPoints</code>, etc., which are passed as <code>NativeArray</code>s).</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Example: A Job-Safe Darkness Scorer</h4>
+                    <p>The provided <code>DarknessScorerSO</code> is a perfect example.</p>
+                    <pre><code>using UnityEngine;
+using MaharajaStudio.HidingSystem.Scorer;
+
+// Note the addition of IMultiThreadedScorer
+[CreateAssetMenu(menuName = "HidingSystem/Scorers/Darkness")]
+public class DarknessScorerSO : HideSpotScorerSO, IMultiThreadedScorer
+{
+    // The regular Score method is still here.
+    public override float Score(in HidingContext ctx, in CandidateInfo candidate)
+    {
+        // The main-thread logic gets the ambient intensity.
+        float lightLevel = RenderSettings.ambientIntensity; 
+        return Mathf.Clamp01(1f - lightLevel);
+    }
+}</code></pre>
+                    <p>When the <code>AsyncHidingSystemCore</code> runs, it sees that <code>DarknessScorerSO</code> implements <code>IMultiThreadedScorer</code>. It fetches <code>RenderSettings.ambientIntensity</code> <em>once</em> on the main thread, passes it to the <code>ScoreCandidatesJob</code>, and the actual calculation (<code>1f - lightLevel</code>) happens for hundreds of candidates in parallel on a background thread.</p>
+                </section>
+
+                <section id="core-engine-apis" class="docs-section">
+                    <h1>Core Engine API Documentation</h1>
+                    <p>This documentation covers the internal engine of the AI Hiding System. You will rarely call these APIs directly, as the <code>EnemyHider</code> component manages them for you. However, understanding how they work is crucial for deep customization, performance profiling, and debugging.</p>
+
+                    <h2>The Core Data Flow</h2>
+                    <p>At its heart, every search follows this sequence:</p>
+                    <ol>
+                        <li>The <code>EnemyHider</code> gathers all relevant world data.</li>
+                        <li>It packages this data into a single, comprehensive <code>HidingContext</code> struct.</li>
+                        <li>This <code>HidingContext</code> is sent to one of the two core processors: <code>SynchronousHidingSystemCore</code> or <code>AsyncHidingSystemCore</code>.</li>
+                        <li>The core processor uses the context to run the <strong>Generate -> Score -> Select</strong> pipeline.</li>
+                        <li>The result, a <code>HidingSpot</code> struct, is returned to the <code>EnemyHider</code>, which then acts upon it.</li>
+                    </ol>
+
+                    <hr>
+
+                    <h2>1. Core Data Structures (The "Nouns")</h2>
+                    <p>These structs are the lifeblood of the system, carrying information between different stages.</p>
+
+                    <h3><code>HidingContext</code></h3>
+                    <p><strong>What is it?</strong><br>The <code>HidingContext</code> is a comprehensive "snapshot" of the world at the exact moment a search is initiated. It contains all the information that providers and scorers need to make their decisions.</p>
+                    <p><strong>Why is it important?</strong><br>It is the single source of truth for a search operation. By bundling all data together, the system ensures that every provider and scorer is working with the exact same information. It also makes the <code>Score</code> and <code>GenerateCandidates</code> methods clean and predictable, as they receive all their necessary data in one package.</p>
+                    <p><strong>Key Properties:</strong></p>
+                    <ul>
+                        <li><code>enemyPosition</code> / <code>enemyTransform</code>: The agent's current location.</li>
+                        <li><code>players</code> / <code>allies</code>: Lists of all relevant friendly and enemy transforms.</li>
+                        <li><code>playerLastKnownPosition</code>: The AI's "memory" of where it last saw a threat.</li>
+                        <li><code>settings</code> / <code>lodSettings</code>: The configuration assets that define search parameters.</li>
+                        <li><code>visibilityService</code>: The service used for line-of-sight checks.</li>
+                        <li><code>activeProfile</code>: The temporary <code>SearchProfile</code> used for overrides.</li>
+                        <li><strong>Helper Properties (<code>EffectiveSearchRadius</code>, etc.):</strong> These automatically resolve whether to use a value from the <code>settings</code> or the override <code>profile</code>.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h3><code>CandidateInfo</code></h3>
+                    <p><strong>What is it?</strong><br>A <code>CandidateInfo</code> is the most basic representation of a potential hiding spot. It is the raw output from a <code>HideSpotProviderSO</code>.</p>
+                    <p><strong>Why is it important?</strong><br>This simple, lightweight struct is the common language between all providers and the core system. Providers generate lists of these, and the core system feeds them one-by-one to the scorers for evaluation.</p>
+                    <p><strong>Key Properties:</strong></p>
+                    <ul>
+                        <li><code>position</code>: The world-space position of the potential spot.</li>
+                        <li><code>coverNormal</code>: The direction pointing <em>away</em> from the surface of the cover object. It is <code>Vector3.zero</code> if the provider couldn't determine a cover direction (e.g., <code>NavMeshRingProviderSO</code>). This normal is crucial for scorers like <code>DirectionalCoverScorerSO</code>.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h3><code>HidingSpot</code></h3>
+                    <p><strong>What is it?</strong><br>A <code>HidingSpot</code> is the <strong>final, actionable result</strong> of a successful search. It's an enhanced <code>CandidateInfo</code> with additional tactical data calculated after the best spot has been chosen.</p>
+                    <p><strong>Why is it important?</strong><br>This is the "mission plan" given back to the <code>EnemyHider</code>. It contains not just <em>where</em> to go, but <em>how</em> to get there safely and what the AI can do once it arrives.</p>
+                    <p><strong>Key Properties:</strong></p>
+                    <ul>
+                        <li><code>position</code> & <code>coverNormal</code>: The position and cover direction of the winning spot.</li>
+                        <li><code>canPeekLeft</code> / <code>canPeekRight</code>: Booleans indicating if the AI can lean out from cover for a shot.</li>
+                        <li><code>peekLeftPosition</code> / <code>peekRightPosition</code>: The world-space positions to move to for peeking.</li>
+                        <li><code>safePath</code>: <strong>(Crucial)</strong> A pre-calculated <code>NavMeshPath</code>. The <code>PathSafetyScorerSO</code> evaluates this path to ensure it's safe. The <code>EnemyHider</code> then uses <code>agent.SetPath()</code> to follow this exact route, preventing the agent from taking a different, more dangerous route than the one that was scored.</li>
+                        <li><code>IsValid</code>: A boolean to check if the spot is valid (i.e., not <code>HidingSpot.Invalid</code>).</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>2. Core Interfaces & Services</h2>
+
+                    <h3><code>IVisibilityService</code></h3>
+                    <p><strong>What is it?</strong><br>An interface that defines the contract for how the system performs line-of-sight (LOS) checks. <code>DefaultVisibilityService</code> is the standard implementation, which uses <code>Physics.Raycast</code>.</p>
+                    <p><strong>Why is it important?</strong><br>It centralizes all visibility logic. By using an interface, you could theoretically replace the default physics-based system with something else (e.g., a custom voxel-based visibility grid, a portal-based system) without having to change any of the scorers. The scorers simply ask the service, "Is this point visible?" and get a <code>true</code>/<code>false</code> answer.</p>
+                    <p><strong>Key Methods:</strong></p>
+                    <ul>
+                        <li><code>AnyPlayerHasLineOfSight(ctx, point)</code>: The most common method. Returns <code>true</code> if <em>any</em> player can see the given point.</li>
+                        <li><code>InAnyPlayerFOVAndVisible(ctx, point)</code>: A stricter check that also ensures the point is within a player's Field of View cone.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>3. Core Processors (The "Verbs")</h2>
+                    <p>These are the static classes that contain the main logic loop. <code>EnemyHider</code> chooses which one to call based on the <code>ExecutionMode</code>.</p>
+
+                    <h3><code>SynchronousHidingSystemCore</code></h3>
+                    <p><strong>What is it?</strong><br>This processor runs the entire <strong>Generate -> Score -> Select</strong> pipeline on the main thread in a single frame.</p>
+                    <p><strong>How does it work?</strong></p>
+                    <ol>
+                        <li>It receives the <code>HidingContext</code>.</li>
+                        <li>It loops through all <code>EffectiveProviders</code> and collects all <code>CandidateInfo</code>s into a single, pooled list.</li>
+                        <li>It then iterates through every candidate. For each candidate, it iterates through every scorer in the <code>settings</code>, calculates the raw score, applies the weight, and sums them up.</li>
+                        <li>If a scorer returns <code>NegativeInfinity</code>, the candidate is immediately disqualified.</li>
+                        <li>It keeps track of the candidate with the highest score.</li>
+                        <li>Finally, it converts the winning <code>CandidateInfo</code> into a <code>HidingSpot</code> by calculating the path and peek points.</li>
+                    </ol>
+                    <p><strong>API:</strong></p>
+                    <ul>
+                        <li><code>TryFindBestSpot(in HidingContext, out HidingSpot, out float)</code>: Finds the single best spot.</li>
+                        <li><code>TryFindTopSpots(in HidingContext, int count, out List&lt;HidingSpot&gt;)</code>: Finds the top <code>N</code> spots, sorted by score.</li>
+                    </ul>
+                    <p><strong>When to use it:</strong><br>This mode is used by <code>EnemyHider</code> for the <code>Synchronous</code> <code>ExecutionMode</code> and for quick, non-blocking queries like <code>CanFindHidingSpot()</code>. It's simpler and easier to debug, but can cause performance issues with many AIs.</p>
+
+                    <hr>
+
+                    <h3><code>AsyncHidingSystemCore</code></h3>
+                    <p><strong>What is it?</strong><br>This is the high-performance processor that offloads the most expensive parts of the search (raycasting and scoring) to background worker threads using Unity's C# Job System and Burst Compiler.</p>
+                    <p><strong>How does it work?</strong><br>The process is more complex but significantly faster:</p>
+                    <ol>
+                        <li><strong>(Main Thread) Preparation:</strong>
+                            <ul>
+                                <li>It receives the <code>HidingContext</code>.</li>
+                                <li>It generates all <code>CandidateInfo</code>s from providers, just like the synchronous core.</li>
+                                <li><strong>Crucially, it deconstructs all complex objects (like <code>Transform</code>) into simple, "blittable" data types (<code>Vector3</code>, <code>float</code>) and copies them into <code>NativeArray</code>s.</strong> This is a requirement for the Job System.</li>
+                                <li>It prepares huge batches of <code>RaycastCommand</code>s for every visibility check needed by the scorers (e.g., 3 body points per candidate vs. every player).</li>
+                            </ul>
+                        </li>
+                        <li><strong>(Worker Threads) Execution:</strong>
+                            <ul>
+                                <li>It schedules all the <code>RaycastCommand</code>s to run in parallel.</li>
+                                <li>It then schedules a custom <code>ScoreCandidatesJob</code>. This job receives all the <code>NativeArray</code>s of data and the raycast results.</li>
+                                <li>Inside the job, each core of the CPU processes a chunk of the candidates. The scoring logic (for scorers marked with <code>IMultiThreadedScorer</code>) is executed here. This code is often Burst-compiled into highly optimized machine code.</li>
+                            </ul>
+                        </li>
+                        <li><strong>(Main Thread) Finalization:</strong>
+                            <ul>
+                                <li>The main thread <code>await</code>s the completion of the jobs.</li>
+                                <li>Once the jobs are done, it retrieves the raw scores from the <code>ScoreCandidatesJob</code>.</li>
+                                <li>It then runs any scorers that were <strong>not</strong> marked as <code>IMultiThreadedScorer</code> (like those requiring NavMesh APIs).</li>
+                                <li>Finally, it finds the best score and calculates the final <code>HidingSpot</code>, just like the synchronous version.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>API:</strong></p>
+                    <ul>
+                        <li><code>FindBestSpotAsync(HidingContext, CancellationToken)</code>: Asynchronously finds the single best spot. Returns a <code>Task</code> or <code>UniTask</code>.</li>
+                        <li><code>FindTopSpotsAsync(HidingContext, int, CancellationToken)</code>: Asynchronously finds and returns a list of the top <code>N</code> spots.</li>
+                    </ul>
+                    <p><strong>When to use it:</strong><br>This is the default and recommended mode for production. It ensures that the heavy calculations of the AI have minimal impact on your game's frame rate, allowing for more agents and more complex environments.</p>
+                </section>
+
+                <section id="core-engine-apis" class="docs-section">
+                    <h1>Core Engine API Documentation</h1>
+                    <p>This documentation covers the internal engine of the AI Hiding System. You will rarely call these APIs directly, as the <code>EnemyHider</code> component manages them for you. However, understanding how they work is crucial for deep customization, performance profiling, and debugging.</p>
+
+                    <h2>The Core Data Flow</h2>
+                    <p>At its heart, every search follows this sequence:</p>
+                    <ol>
+                        <li>The <code>EnemyHider</code> gathers all relevant world data.</li>
+                        <li>It packages this data into a single, comprehensive <code>HidingContext</code> struct.</li>
+                        <li>This <code>HidingContext</code> is sent to one of the two core processors: <code>SynchronousHidingSystemCore</code> or <code>AsyncHidingSystemCore</code>.</li>
+                        <li>The core processor uses the context to run the <strong>Generate -> Score -> Select</strong> pipeline.</li>
+                        <li>The result, a <code>HidingSpot</code> struct, is returned to the <code>EnemyHider</code>, which then acts upon it.</li>
+                    </ol>
+
+                    <hr>
+
+                    <h2>1. Core Data Structures (The "Nouns")</h2>
+                    <p>These structs are the lifeblood of the system, carrying information between different stages.</p>
+
+                    <h3><code>HidingContext</code></h3>
+                    <p><strong>What is it?</strong><br>The <code>HidingContext</code> is a comprehensive "snapshot" of the world at the exact moment a search is initiated. It contains all the information that providers and scorers need to make their decisions.</p>
+                    <p><strong>Why is it important?</strong><br>It is the single source of truth for a search operation. By bundling all data together, the system ensures that every provider and scorer is working with the exact same information. It also makes the <code>Score</code> and <code>GenerateCandidates</code> methods clean and predictable, as they receive all their necessary data in one package.</p>
+                    <p><strong>Key Properties:</strong></p>
+                    <ul>
+                        <li><code>enemyPosition</code> / <code>enemyTransform</code>: The agent's current location.</li>
+                        <li><code>players</code> / <code>allies</code>: Lists of all relevant friendly and enemy transforms.</li>
+                        <li><code>playerLastKnownPosition</code>: The AI's "memory" of where it last saw a threat.</li>
+                        <li><code>settings</code> / <code>lodSettings</code>: The configuration assets that define search parameters.</li>
+                        <li><code>visibilityService</code>: The service used for line-of-sight checks.</li>
+                        <li><code>activeProfile</code>: The temporary <code>SearchProfile</code> used for overrides.</li>
+                        <li><strong>Helper Properties (<code>EffectiveSearchRadius</code>, etc.):</strong> These automatically resolve whether to use a value from the <code>settings</code> or the override <code>profile</code>.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h3><code>CandidateInfo</code></h3>
+                    <p><strong>What is it?</strong><br>A <code>CandidateInfo</code> is the most basic representation of a potential hiding spot. It is the raw output from a <code>HideSpotProviderSO</code>.</p>
+                    <p><strong>Why is it important?</strong><br>This simple, lightweight struct is the common language between all providers and the core system. Providers generate lists of these, and the core system feeds them one-by-one to the scorers for evaluation.</p>
+                    <p><strong>Key Properties:</strong></p>
+                    <ul>
+                        <li><code>position</code>: The world-space position of the potential spot.</li>
+                        <li><code>coverNormal</code>: The direction pointing <em>away</em> from the surface of the cover object. It is <code>Vector3.zero</code> if the provider couldn't determine a cover direction (e.g., <code>NavMeshRingProviderSO</code>). This normal is crucial for scorers like <code>DirectionalCoverScorerSO</code>.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h3><code>HidingSpot</code></h3>
+                    <p><strong>What is it?</strong><br>A <code>HidingSpot</code> is the <strong>final, actionable result</strong> of a successful search. It's an enhanced <code>CandidateInfo</code> with additional tactical data calculated after the best spot has been chosen.</p>
+                    <p><strong>Why is it important?</strong><br>This is the "mission plan" given back to the <code>EnemyHider</code>. It contains not just <em>where</em> to go, but <em>how</em> to get there safely and what the AI can do once it arrives.</p>
+                    <p><strong>Key Properties:</strong></p>
+                    <ul>
+                        <li><code>position</code> & <code>coverNormal</code>: The position and cover direction of the winning spot.</li>
+                        <li><code>canPeekLeft</code> / <code>canPeekRight</code>: Booleans indicating if the AI can lean out from cover for a shot.</li>
+                        <li><code>peekLeftPosition</code> / <code>peekRightPosition</code>: The world-space positions to move to for peeking.</li>
+                        <li><code>safePath</code>: <strong>(Crucial)</strong> A pre-calculated <code>NavMeshPath</code>. The <code>PathSafetyScorerSO</code> evaluates this path to ensure it's safe. The <code>EnemyHider</code> then uses <code>agent.SetPath()</code> to follow this exact route, preventing the agent from taking a different, more dangerous route than the one that was scored.</li>
+                        <li><code>IsValid</code>: A boolean to check if the spot is valid (i.e., not <code>HidingSpot.Invalid</code>).</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>2. Core Interfaces & Services</h2>
+
+                    <h3><code>IVisibilityService</code></h3>
+                    <p><strong>What is it?</strong><br>An interface that defines the contract for how the system performs line-of-sight (LOS) checks. <code>DefaultVisibilityService</code> is the standard implementation, which uses <code>Physics.Raycast</code>.</p>
+                    <p><strong>Why is it important?</strong><br>It centralizes all visibility logic. By using an interface, you could theoretically replace the default physics-based system with something else (e.g., a custom voxel-based visibility grid, a portal-based system) without having to change any of the scorers. The scorers simply ask the service, "Is this point visible?" and get a <code>true</code>/<code>false</code> answer.</p>
+                    <p><strong>Key Methods:</strong></p>
+                    <ul>
+                        <li><code>AnyPlayerHasLineOfSight(ctx, point)</code>: The most common method. Returns <code>true</code> if <em>any</em> player can see the given point.</li>
+                        <li><code>InAnyPlayerFOVAndVisible(ctx, point)</code>: A stricter check that also ensures the point is within a player's Field of View cone.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>3. Core Processors (The "Verbs")</h2>
+                    <p>These are the static classes that contain the main logic loop. <code>EnemyHider</code> chooses which one to call based on the <code>ExecutionMode</code>.</p>
+
+                    <h3><code>SynchronousHidingSystemCore</code></h3>
+                    <p><strong>What is it?</strong><br>This processor runs the entire <strong>Generate -> Score -> Select</strong> pipeline on the main thread in a single frame.</p>
+                    <p><strong>How does it work?</strong></p>
+                    <ol>
+                        <li>It receives the <code>HidingContext</code>.</li>
+                        <li>It loops through all <code>EffectiveProviders</code> and collects all <code>CandidateInfo</code>s into a single, pooled list.</li>
+                        <li>It then iterates through every candidate. For each candidate, it iterates through every scorer in the <code>settings</code>, calculates the raw score, applies the weight, and sums them up.</li>
+                        <li>If a scorer returns <code>NegativeInfinity</code>, the candidate is immediately disqualified.</li>
+                        <li>It keeps track of the candidate with the highest score.</li>
+                        <li>Finally, it converts the winning <code>CandidateInfo</code> into a <code>HidingSpot</code> by calculating the path and peek points.</li>
+                    </ol>
+                    <p><strong>API:</strong></p>
+                    <ul>
+                        <li><code>TryFindBestSpot(in HidingContext, out HidingSpot, out float)</code>: Finds the single best spot.</li>
+                        <li><code>TryFindTopSpots(in HidingContext, int count, out List&lt;HidingSpot&gt;)</code>: Finds the top <code>N</code> spots, sorted by score.</li>
+                    </ul>
+                    <p><strong>When to use it:</strong><br>This mode is used by <code>EnemyHider</code> for the <code>Synchronous</code> <code>ExecutionMode</code> and for quick, non-blocking queries like <code>CanFindHidingSpot()</code>. It's simpler and easier to debug, but can cause performance issues with many AIs.</p>
+
+                    <hr>
+
+                    <h3><code>AsyncHidingSystemCore</code></h3>
+                    <p><strong>What is it?</strong><br>This is the high-performance processor that offloads the most expensive parts of the search (raycasting and scoring) to background worker threads using Unity's C# Job System and Burst Compiler.</p>
+                    <p><strong>How does it work?</strong><br>The process is more complex but significantly faster:</p>
+                    <ol>
+                        <li><strong>(Main Thread) Preparation:</strong>
+                            <ul>
+                                <li>It receives the <code>HidingContext</code>.</li>
+                                <li>It generates all <code>CandidateInfo</code>s from providers, just like the synchronous core.</li>
+                                <li><strong>Crucially, it deconstructs all complex objects (like <code>Transform</code>) into simple, "blittable" data types (<code>Vector3</code>, <code>float</code>) and copies them into <code>NativeArray</code>s.</strong> This is a requirement for the Job System.</li>
+                                <li>It prepares huge batches of <code>RaycastCommand</code>s for every visibility check needed by the scorers (e.g., 3 body points per candidate vs. every player).</li>
+                            </ul>
+                        </li>
+                        <li><strong>(Worker Threads) Execution:</strong>
+                            <ul>
+                                <li>It schedules all the <code>RaycastCommand</code>s to run in parallel.</li>
+                                <li>It then schedules a custom <code>ScoreCandidatesJob</code>. This job receives all the <code>NativeArray</code>s of data and the raycast results.</li>
+                                <li>Inside the job, each core of the CPU processes a chunk of the candidates. The scoring logic (for scorers marked with <code>IMultiThreadedScorer</code>) is executed here. This code is often Burst-compiled into highly optimized machine code.</li>
+                            </ul>
+                        </li>
+                        <li><strong>(Main Thread) Finalization:</strong>
+                            <ul>
+                                <li>The main thread <code>await</code>s the completion of the jobs.</li>
+                                <li>Once the jobs are done, it retrieves the raw scores from the <code>ScoreCandidatesJob</code>.</li>
+                                <li>It then runs any scorers that were <strong>not</strong> marked as <code>IMultiThreadedScorer</code> (like those requiring NavMesh APIs).</li>
+                                <li>Finally, it finds the best score and calculates the final <code>HidingSpot</code>, just like the synchronous version.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>API:</strong></p>
+                    <ul>
+                        <li><code>FindBestSpotAsync(HidingContext, CancellationToken)</code>: Asynchronously finds the single best spot. Returns a <code>Task</code> or <code>UniTask</code>.</li>
+                        <li><code>FindTopSpotsAsync(HidingContext, int, CancellationToken)</code>: Asynchronously finds and returns a list of the top <code>N</code> spots.</li>
+                    </ul>
+                    <p><strong>When to use it:</strong><br>This is the default and recommended mode for production. It ensures that the heavy calculations of the AI have minimal impact on your game's frame rate, allowing for more agents and more complex environments.</p>
                 </section>
 
                 <section id="environmental-helpers" class="docs-section">
@@ -1539,7 +2447,7 @@ void OnStandUp()
                     </ol>
                     <h3>Scorers</h3>
                     <p>The scorers are configured to overwhelmingly prioritize being far from the player.</p>
-                    <table class="table table-dark table-bordered">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Scorer</th>
@@ -1593,7 +2501,7 @@ void OnStandUp()
                     </ol>
                     <h3>Scorers</h3>
                     <p>The scorers are weighted to create an AI that is obsessed with stealth and proximity.</p>
-                    <table class="table table-dark table-bordered">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Scorer</th>
@@ -1656,7 +2564,7 @@ void OnStandUp()
                     </ol>
                     <h3>Scorers</h3>
                     <p>The scorers are balanced to reward safety and tactical awareness. The weights are critical.</p>
-                    <table class="table table-dark table-bordered">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Scorer</th>
