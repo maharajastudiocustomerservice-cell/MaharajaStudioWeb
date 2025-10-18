@@ -445,8 +445,64 @@
     </main>
 
     <script>
-        // Your existing script here
-    </script>
-    <script src="js/main.js"></script>
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.docs-nav-link');
+    const sections = document.querySelectorAll('.docs-section');
+    const prevButton = document.getElementById('prev-doc');
+    const nextButton = document.getElementById('next-doc');
+    const searchInput = document.getElementById('doc-search');
+    const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+    let currentIndex = 0;
+
+    function updateUI() {
+        const currentHash = window.location.hash || `#${sections[0].id}`;
+        let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+        if (foundIndex === -1) foundIndex = 0;
+        currentIndex = foundIndex;
+
+        sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+        prevButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex >= sections.length - 1;
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newHash = link.getAttribute('href');
+            if (window.location.hash !== newHash) {
+                window.location.hash = newHash;
+            }
+        });
+    });
+    
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        navItems.forEach(li => {
+            const linkText = li.querySelector('a').textContent.toLowerCase();
+            li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+        });
+    });
+
+    window.addEventListener('hashchange', updateUI);
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            window.location.hash = `#${sections[currentIndex - 1].id}`;
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < sections.length - 1) {
+            window.location.hash = `#${sections[currentIndex + 1].id}`;
+        }
+    });
+
+    updateUI();
+});
+</script>
+
 </body>
 </html>
