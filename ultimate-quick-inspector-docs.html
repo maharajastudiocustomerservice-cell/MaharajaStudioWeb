@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,15 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent" style="position: sticky; top: 0; z-index: 1000;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -37,8 +42,8 @@
             <aside class="docs-sidebar">
                 <h3>Ultimate Quick Inspector</h3>
                 <div class="mb-3">
-        <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
-    </div>
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
+                </div>
                 <ul class="docs-nav-menu">
                     <li><a href="#features" class="docs-nav-link">Features</a></li>
                     <li><a href="#how-to-use" class="docs-nav-link">How to Use</a></li>
@@ -52,70 +57,103 @@
             <article class="docs-content">
                 <section id="features" class="docs-section">
                     <h1>Ultimate Quick Inspector</h1>
-                    <p>A powerful Unity Editor extension for pinning and organizing your most-used assets and scene objects for instant access.</p>
+                    <p>A powerful Unity Editor extension for pinning and organizing your most-used assets and scene
+                        objects for instant access.</p>
                     <h2>Features</h2>
                     <ul>
-                        <li><strong>Pin Anything:</strong> Keep references to any object in your project, whether it's a prefab, a script, a material, or a specific object in your scene.</li>
-                        <li><strong>Multi-Page Organization:</strong> Group your pinned objects into customizable pages. Keep your work organized by context, such as "Player Objects," "UI Elements," or "Level Design."</li>
+                        <li><strong>Pin Anything:</strong> Keep references to any object in your project, whether it's a
+                            prefab, a script, a material, or a specific object in your scene.</li>
+                        <li><strong>Multi-Page Organization:</strong> Group your pinned objects into customizable pages.
+                            Keep your work organized by context, such as "Player Objects," "UI Elements," or "Level
+                            Design."</li>
                         <li><strong>Drag-and-Drop:</strong> Easily add objects by dragging them into the window.</li>
-                        <li><strong>Search and Filter:</strong> Quickly find the object you're looking for with a simple search bar.</li>
-                        <li><strong>Persistent Data:</strong> Your pinned objects and pages are saved and will be available the next time you open Unity.</li>
-                        <li><strong>Scene Object Tracking:</strong> The tool uses a robust system to track objects in your scene, even if you rename them or they are inactive.</li>
+                        <li><strong>Search and Filter:</strong> Quickly find the object you're looking for with a simple
+                            search bar.</li>
+                        <li><strong>Persistent Data:</strong> Your pinned objects and pages are saved and will be
+                            available the next time you open Unity.</li>
+                        <li><strong>Scene Object Tracking:</strong> The tool uses a robust system to track objects in
+                            your scene, even if you rename them or they are inactive.</li>
                     </ul>
                 </section>
                 <section id="how-to-use" class="docs-section">
                     <h2>How to Use</h2>
                     <h3>Opening the Window</h3>
-                    <p>To open the Ultimate Quick Inspector, go to the Unity Editor's main menu and select <strong>Window > Ultimate Quick Inspector</strong>.</p>
+                    <p>To open the Ultimate Quick Inspector, go to the Unity Editor's main menu and select
+                        <strong>Window > Ultimate Quick Inspector</strong>.</p>
                     <h3>Adding Objects</h3>
                     <p>There are two ways to add objects to the Quick Inspector:</p>
                     <ol>
-                        <li><strong>Drag and Drop:</strong> Simply drag any object from your Project window or Scene Hierarchy and drop it into the "Drag and Drop Objects Here" area in the Quick Inspector.</li>
-                        <li><strong>Object Field:</strong> Use the object field at the top right of the window to select an object to add.</li>
+                        <li><strong>Drag and Drop:</strong> Simply drag any object from your Project window or Scene
+                            Hierarchy and drop it into the "Drag and Drop Objects Here" area in the Quick Inspector.
+                        </li>
+                        <li><strong>Object Field:</strong> Use the object field at the top right of the window to select
+                            an object to add.</li>
                     </ol>
                     <h3>Managing Objects</h3>
                     <ul>
-                        <li><strong>Remove:</strong> To remove an object from the list, click the "Remove" button next to it.</li>
-                        <li><strong>Remove All:</strong> Use the "Remove All" button in the toolbar to clear all objects from the current page.</li>
+                        <li><strong>Remove:</strong> To remove an object from the list, click the "Remove" button next
+                            to it.</li>
+                        <li><strong>Remove All:</strong> Use the "Remove All" button in the toolbar to clear all objects
+                            from the current page.</li>
                     </ul>
                     <h3>Organizing with Pages</h3>
                     <ul>
-                        <li><strong>Add Page:</strong> Click the <code>+</code> button in the page navigation bar to create a new page.</li>
-                        <li><strong>Remove Page:</strong> Click the <code>-</code> button to remove the currently selected page and all objects on it.</li>
-                        <li><strong>Rename Page:</strong> Click the settings icon (gear) to open the page settings, where you can rename the current page.</li>
+                        <li><strong>Add Page:</strong> Click the <code>+</code> button in the page navigation bar to
+                            create a new page.</li>
+                        <li><strong>Remove Page:</strong> Click the <code>-</code> button to remove the currently
+                            selected page and all objects on it.</li>
+                        <li><strong>Rename Page:</strong> Click the settings icon (gear) to open the page settings,
+                            where you can rename the current page.</li>
                     </ul>
                     <h3>Searching and Filtering</h3>
-                    <p>Use the search bar at the top of the window to filter the objects on the current page by name.</p>
+                    <p>Use the search bar at the top of the window to filter the objects on the current page by name.
+                    </p>
                 </section>
                 <section id="components" class="docs-section">
                     <h2>Components Explained</h2>
                     <h3>GuidComponent</h3>
-                    <p>When you add a scene object to the Quick Inspector, a <code>GuidComponent</code> is automatically added to it. This component assigns a unique, persistent ID to the GameObject.</p>
+                    <p>When you add a scene object to the Quick Inspector, a <code>GuidComponent</code> is automatically
+                        added to it. This component assigns a unique, persistent ID to the GameObject.</p>
                     <p><strong>Why is this important?</strong></p>
-                    <p>Unity's internal instance IDs can change when you close and reopen a scene. The <code>GuidComponent</code> ensures that the Quick Inspector can always find the correct object, even after reloading the scene or restarting Unity. This component is lightweight and has no performance impact.</p>
+                    <p>Unity's internal instance IDs can change when you close and reopen a scene. The
+                        <code>GuidComponent</code> ensures that the Quick Inspector can always find the correct object,
+                        even after reloading the scene or restarting Unity. This component is lightweight and has no
+                        performance impact.</p>
                 </section>
                 <section id="data-storage" class="docs-section">
                     <h2>Data Storage</h2>
-                    <p>The Ultimate Quick Inspector stores all its data (the list of pinned objects and your page configurations) in a <code>ScriptableObject</code> file named <code>QuickInspectorData.asset</code>. This file is located in the same directory as the main tool script (<code>UltimateQuickInspector/Editor/</code>).</p>
-                    <p>You don't need to manually edit this file, but it's good to know where it is. If you're using version control, make sure to include this file to share your pinned objects with your team.</p>
+                    <p>The Ultimate Quick Inspector stores all its data (the list of pinned objects and your page
+                        configurations) in a <code>ScriptableObject</code> file named
+                        <code>QuickInspectorData.asset</code>. This file is located in the same directory as the main
+                        tool script (<code>UltimateQuickInspector/Editor/</code>).</p>
+                    <p>You don't need to manually edit this file, but it's good to know where it is. If you're using
+                        version control, make sure to include this file to share your pinned objects with your team.</p>
                 </section>
                 <section id="troubleshooting" class="docs-section">
                     <h2>Troubleshooting & Best Practices</h2>
                     <ul>
-                        <li><strong>"Object not found in scene" warning:</strong> This means that the object is in a diffrent scene.</li>
-                        <li><strong>"Missing Refrence:"</strong> This means the scene object you pinned has been deleted. You can safely remove it from the Quick Inspector.</li>
-                        <li><strong>Best Practice:</strong> Use pages to keep your workspace organized. For example, you could have a page for each major feature of your game, or for different types of assets.</li>
-                        <li><strong>Resetting the tool:</strong> If you ever want to start from scratch, you can use the "Reset" button (refresh icon) in the toolbar. This will clear all objects and pages.</li>
+                        <li><strong>"Object not found in scene" warning:</strong> This means that the object is in a
+                            diffrent scene.</li>
+                        <li><strong>"Missing Refrence:"</strong> This means the scene object you pinned has been
+                            deleted. You can safely remove it from the Quick Inspector.</li>
+                        <li><strong>Best Practice:</strong> Use pages to keep your workspace organized. For example, you
+                            could have a page for each major feature of your game, or for different types of assets.
+                        </li>
+                        <li><strong>Resetting the tool:</strong> If you ever want to start from scratch, you can use the
+                            "Reset" button (refresh icon) in the toolbar. This will clear all objects and pages.</li>
                     </ul>
                 </section>
                 <section id="contact" class="docs-section">
                     <h2>Contact</h2>
-                    <p>If you have any questions, suggestions, or run into any issues, please feel free to contact me at:</p>
+                    <p>If you have any questions, suggestions, or run into any issues, please feel free to contact me
+                        at:</p>
                     <ul>
                         <li><strong>Email:</strong> maharajastudiocustomerservice@gmail.com</li>
                     </ul>
                     <h2>Thank You</h2>
-                    <p>Thank you for purchasing the Ultimate Quick Inspector! I hope it helps you streamline your workflow and be more productive in Unity. If you find this tool useful, please consider leaving a review on the Unity Asset Store.</p>
+                    <p>Thank you for purchasing the Ultimate Quick Inspector! I hope it helps you streamline your
+                        workflow and be more productive in Unity. If you find this tool useful, please consider leaving
+                        a review on the Unity Asset Store.</p>
                 </section>
 
                 <div class="docs-pagination">
@@ -127,64 +165,67 @@
     </main>
 
     <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.docs-nav-link');
-    const sections = document.querySelectorAll('.docs-section');
-    const prevButton = document.getElementById('prev-doc');
-    const nextButton = document.getElementById('next-doc');
-    const searchInput = document.getElementById('doc-search');
-    const navItems = document.querySelectorAll('.docs-nav-menu li');
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
 
-    let currentIndex = 0;
+            let currentIndex = 0;
 
-    function updateUI() {
-        const currentHash = window.location.hash || `#${sections[0].id}`;
-        let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
-        if (foundIndex === -1) foundIndex = 0;
-        currentIndex = foundIndex;
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
 
-        sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
-        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
 
-        prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex >= sections.length - 1;
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const newHash = link.getAttribute('href');
-            if (window.location.hash !== newHash) {
-                window.location.hash = newHash;
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex >= sections.length - 1;
             }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                navItems.forEach(li => {
+                    const linkText = li.querySelector('a').textContent.toLowerCase();
+                    li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                });
+            });
+
+            window.addEventListener('hashchange', updateUI);
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    window.location.hash = `#${sections[currentIndex - 1].id}`;
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < sections.length - 1) {
+                    window.location.hash = `#${sections[currentIndex + 1].id}`;
+                }
+            });
+
+            updateUI();
         });
-    });
-    
-    searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        navItems.forEach(li => {
-            const linkText = li.querySelector('a').textContent.toLowerCase();
-            li.style.display = linkText.includes(searchTerm) ? '' : 'none';
-        });
-    });
+    </script>
 
-    window.addEventListener('hashchange', updateUI);
-
-    prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            window.location.hash = `#${sections[currentIndex - 1].id}`;
-        }
-    });
-
-    nextButton.addEventListener('click', () => {
-        if (currentIndex < sections.length - 1) {
-            window.location.hash = `#${sections[currentIndex + 1].id}`;
-        }
-    });
-
-    updateUI();
-});
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
