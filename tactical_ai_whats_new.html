@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New in Tactical AI 2.0 - Maharaja Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .badge-new {
+            background-color: #28a745;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8em;
+            vertical-align: middle;
+        }
+
+        .component-block {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .component-block h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .param-table td {
+            vertical-align: top;
+        }
+
+        .param-name {
+            font-weight: bold;
+            color: var(--code-text-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="Maharaja Studio" height="40"
+                    class="d-inline-block align-text-top me-2">Maharaja Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="documentation.html">Docs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-3 col-lg-2 d-md-block sidebar collapse docs-sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="docs-nav-menu">
+                        <li><a href="tactical-cover-retreat-ai-system-docs.html" class="docs-nav-link text-primary"><i
+                                    class="fas fa-arrow-left me-2"></i>Back to Main Docs</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a href="#upgrade-guide" class="docs-nav-link active">Upgrade Guide</a></li>
+                        <li><a href="#new-providers" class="docs-nav-link">New Providers (V2)</a></li>
+                        <li><a href="#new-scorers" class="docs-nav-link">New Scorers (V2)</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4 docs-content">
+                <h1 class="mb-4">What's New in Tactical AI 2.0</h1>
+
+                <!-- UPGRADE GUIDE (Shortened for brevity as focusing on new features) -->
+                <section id="upgrade-guide" class="mb-5">
+                    <h2>Upgrade Guide</h2>
+                    <div class="alert alert-warning"><strong>⚠️ Important:</strong> Backup your project before
+                        upgrading. Namespace changed from <code>MaharajaStudio.HidingSystem</code> to
+                        <code>MaharajaStudio.TacticalAI</code>.</div>
+                </section>
+
+                <hr class="my-5">
+
+                <!-- NEW PROVIDERS SECTION -->
+                <section id="new-providers">
+                    <h2 class="mb-4"><i class="fas fa-layer-group me-2"></i>New Providers (V2)</h2>
+
+                    <div id="AdvanceCoverProviderSO" class="component-block">
+                        <h4>Advance Cover Provider</h4>
+                        <p><strong>`AdvanceCoverProviderSO`</strong> facilitates forward movement ("leapfrogging")
+                            towards a target.</p>
+                        <h5>How It Works</h5>
+                        <p>Generates points in a cone towards the target. Unlike simple movement, it validates that the
+                            destination actually has cover (walls/obstacles) nearby using
+                            <code>Physics.CheckSphere</code>.</p>
+                        <h5>Parameters</h5>
+                        <ul>
+                            <li><strong>Advance Distance</strong>: Max forward search distance.</li>
+                            <li><strong>Search Angle</strong>: Width of the advancement cone.</li>
+                        </ul>
+                    </div>
+
+                    <div id="ChokePointProviderSO" class="component-block">
+                        <h4>Choke Point Provider</h4>
+                        <p><strong>`ChokePointProviderSO`</strong> identifies constricted areas like hallways, bridges,
+                            and doorways for ambushes.</p>
+                        <h5>How It Works</h5>
+                        <p>Scans for points where geometry constricts on opposing sides (Left/Right or Forward/Back).
+                            Good for grenade targets or blocking paths.</p>
+                    </div>
+
+                    <div id="CornerEdgeProviderSO" class="component-block">
+                        <h4>Corner Edge Provider</h4>
+                        <p><strong>`CornerEdgeProviderSO`</strong> scans for vertical edges to allow "Tactical Peeking".
+                        </p>
+                        <h5>How It Works</h5>
+                        <p>Performs a high-res radial scan to detect depth discontinuities (corners). Places points
+                            slightly behind the edge.</p>
+                        <h5>Performance</h5>
+                        <span class="badge bg-danger">Heavy</span> - Uses many raycasts. Use selectively.
+                    </div>
+
+                    <div id="FlankPointProviderSO" class="component-block">
+                        <h4>Flank Point Provider</h4>
+                        <p><strong>`FlankPointProviderSO`</strong> generates points at the sides or rear of a target.
+                        </p>
+                        <h5>How It Works</h5>
+                        <p>Calculates arc offsets from the target's forward vector. Alternates between Left/Right
+                            flanks.</p>
+                        <h5>Parameters</h5>
+                        <ul>
+                            <li><strong>Min Flank Angle</strong>: 90=Side, 180=Rear.</li>
+                        </ul>
+                    </div>
+
+                    <div id="PincerFormationProviderSO" class="component-block">
+                        <h4>Pincer Formation Provider</h4>
+                        <p><strong>`PincerFormationProviderSO`</strong> coordinates squad encirclement.</p>
+                        <h5>How It Works</h5>
+                        <p>Calculates the average direction of all allies relative to the target, then finds the "empty"
+                            side (inverse vector) to place new agents, naturally surrounding the enemy.</p>
+                    </div>
+
+                    <div id="RoomClearanceProviderSO" class="component-block">
+                        <h4>Room Clearance Provider</h4>
+                        <p><strong>`RoomClearanceProviderSO`</strong> generates a "pie slice" arc for CQB.</p>
+                        <h5>How It Works</h5>
+                        <p>Detects a doorway/corner and generates a fan of points to allow agents to "slice the pie"
+                            methodically.</p>
+                    </div>
+
+                    <div id="SquadFormationProviderSO" class="component-block">
+                        <h4>Squad Formation Provider</h4>
+                        <p><strong>`SquadFormationProviderSO`</strong> creates strict shapes (Wedge, Line, V) relative
+                            to a leader.</p>
+                        <h5>How It Works</h5>
+                        <p>Queries the <code>SquadCoordinator</code> for the agent's slot index and places them at a
+                            fixed offset from the leader.</p>
+                    </div>
+
+                    <div id="VantagePointProviderSO" class="component-block">
+                        <h4>Vantage Point Provider</h4>
+                        <p><strong>`VantagePointProviderSO`</strong> seeks high ground.</p>
+                        <h5>How It Works</h5>
+                        <p>Biases NavMesh sampling upwards and validates that the point is significantly higher than the
+                            agent. Good for Snipers.</p>
+                    </div>
+                </section>
+
+                <!-- NEW SCORERS SECTION -->
+                <section id="new-scorers">
+                    <h2 class="mb-4"><i class="fas fa-star-half-alt me-2"></i>New Scorers (V2)</h2>
+
+                    <!-- Offensive -->
+                    <div id="AggressiveLOSScorerSO" class="component-block">
+                        <h4>Aggressive Line of Sight</h4>
+                        <p><strong>Offensive.</strong> Rewards spots with a clear line of fire to the target. Unlike
+                            visibility scorers (which hide you), this one ensures you can shoot back.</p>
+                    </div>
+
+                    <div id="PlayerPathPredictionScorerSO" class="component-block">
+                        <h4>Player Path Prediction</h4>
+                        <p><strong>Offensive.</strong> Aims for where the player <em>will be</em> in X seconds based on
+                            their velocity, rather than where they are now.</p>
+                    </div>
+
+                    <div id="HighGroundScorerSO" class="component-block">
+                        <h4>High Ground</h4>
+                        <p><strong>Offensive.</strong> Rewards being vertically higher than the target. Essential for
+                            King of the Hill or Snipers.</p>
+                    </div>
+
+                    <div id="RearAttackScorerSO" class="component-block">
+                        <h4>Rear Attack Bonus</h4>
+                        <p><strong>Offensive.</strong> Rewards spots located behind the target's back (Dot Product
+                            check).</p>
+                    </div>
+
+                    <div id="PushForwardScorerSO" class="component-block">
+                        <h4>Push Forward</h4>
+                        <p><strong>Offensive.</strong> Rewards spots that are physically closer to the target than the
+                            current position. Forces "Rusher" behavior.</p>
+                    </div>
+
+                    <div id="ZoneControlScorerSO" class="component-block">
+                        <h4>Zone Control</h4>
+                        <p><strong>Offensive.</strong> Rewards matching Line of Sight to a specific Objective ID (e.g.,
+                            guarding a flag).</p>
+                    </div>
+
+                    <!-- Defensive -->
+                    <div id="BulletPenetrationScorerSO" class="component-block">
+                        <h4>Bullet Penetration (Material Thickness)</h4>
+                        <p><strong>Defensive.</strong> Raycasts <em>through</em> the cover object to measure its
+                            thickness. Penalizes thin cover (wood) and prefers thick cover (concrete).</p>
+                        <span class="badge bg-danger">Heavy</span>
+                    </div>
+
+                    <div id="FatalFunnelScorerSO" class="component-block">
+                        <h4>Fatal Funnel</h4>
+                        <p><strong>Defensive.</strong> Penalizes standing in narrow doorways or corridors where there is
+                            no room to dodge.</p>
+                    </div>
+
+                    <div id="EscapeRouteScorerSO" class="component-block">
+                        <h4>Escape Route</h4>
+                        <p><strong>Defensive.</strong> Raycasts <em>behind</em> the cover to ensure there is a valid
+                            path for further retreat (avoids dead-ends).</p>
+                    </div>
+
+                    <div id="PlayerGazeScorerSO" class="component-block">
+                        <h4>Player Gaze</h4>
+                        <p><strong>Defensive.</strong> Penalizes spots that the player is currently looking directly at
+                            (Foveal vision).</p>
+                    </div>
+
+                    <div id="WallHuggingScorerSO" class="component-block">
+                        <h4>Wall Hugging</h4>
+                        <p><strong>Defensive.</strong> Encourages staying physically close to walls. Prevents "Open
+                            Field Syndrome" where AI stands in the open.</p>
+                    </div>
+
+                    <div id="SkyliningScorerSO" class="component-block">
+                        <h4>Skylining</h4>
+                        <p><strong>Defensive.</strong> Checks if the agent is silhouetted against the sky (no background
+                            geometry).</p>
+                    </div>
+
+                    <div id="ExposureVolumeScorerSO" class="component-block">
+                        <h4>Exposure Volume</h4>
+                        <p><strong>Defensive.</strong> Casts rays in 360 degrees to measure how "open" the area is.
+                            Prefers tight spaces over open fields.</p>
+                    </div>
+
+                    <div id="CoverClusterScorerSO" class="component-block">
+                        <h4>Cover Cluster</h4>
+                        <p><strong>Defensive.</strong> Rewards spots that have <em>other</em> cover objects nearby
+                            (backup options).</p>
+                    </div>
+
+                    <div id="SmartPathSafetyScorerSO" class="component-block">
+                        <h4>Smart Path Safety</h4>
+                        <p><strong>Defensive.</strong> Advanced pathfinding that looks for "Detours" if the direct path
+                            is dangerous. Calculates safe flanking routes.</p>
+                        <span class="badge bg-danger">Heavy</span>
+                    </div>
+
+                    <!-- Squad -->
+                    <div id="SquadReservationScorerSO" class="component-block">
+                        <h4>Squad Reservation</h4>
+                        <p><strong>Squad.</strong> <span class="badge bg-primary">Essential</span> Prevents two agents
+                            from picking the same spot. Checks the <code>SquadCoordinator</code> registry.</p>
+                    </div>
+
+                    <div id="LineOfFireScorerSO" class="component-block">
+                        <h4>Line of Fire Safety</h4>
+                        <p><strong>Squad.</strong> Prevents agents from standing in the crossfire between an ally and
+                            the target.</p>
+                    </div>
+
+                    <div id="MuzzleDisciplineScorerSO" class="component-block">
+                        <h4>Muzzle Discipline</h4>
+                        <p><strong>Squad.</strong> Prevents agents from crossing directly in front of an ally's gun,
+                            even if not firing.</p>
+                    </div>
+
+                    <div id="SquadSeparationScorerSO" class="component-block">
+                        <h4>Squad Separation</h4>
+                        <p><strong>Squad.</strong> Ensures a minimum physical distance (e.g., 3m) between agents to
+                            prevent bunching.</p>
+                    </div>
+
+                    <div id="SectorWatchScorerSO" class="component-block">
+                        <h4>Sector Watch</h4>
+                        <p><strong>Squad.</strong> Rewards facing directions that allies are <em>not</em> watching.
+                            Automates "Rear Security".</p>
+                    </div>
+
+                    <!-- Utility -->
+                    <div id="RepetitionPenaltyScorerSO" class="component-block">
+                        <h4>Repetition Penalty</h4>
+                        <p><strong>Utility.</strong> Penalizes spots the agent has recently used. Forces
+                            rotation/movement.</p>
+                    </div>
+
+                    <div id="LightProbeScorerSO" class="component-block">
+                        <h4>Light Probe (Shadows)</h4>
+                        <p><strong>Utility.</strong> Uses Unity Light Probes to detect darkness. Good for Stealth.</p>
+                    </div>
+
+                    <div id="CasualtyAversionScorerSO" class="component-block">
+                        <h4>Casualty Aversion</h4>
+                        <p><strong>Utility.</strong> Creates a "Fear Map" around recent ally death locations. Agents
+                            avoid "cursed" ground.</p>
+                    </div>
+
+                    <div id="AudioStimulusScorerSO" class="component-block">
+                        <h4>Audio Stimulus</h4>
+                        <p><strong>Utility.</strong> Pulls agents towards sounds (Gunshots, Footsteps) in the
+                            <code>StimulusRegistry</code>.</p>
+                    </div>
+
+                    <div id="StalemateBreakerScorerSO" class="component-block">
+                        <h4>Stalemate Breaker</h4>
+                        <p><strong>Utility.</strong> If an agent sits in cover too long ("Boredom"), this scorer
+                            aggressively rewards flanking moves to force action.</p>
+                    </div>
+                </section>
+
+                <div class="mt-5 p-4 rounded text-center"
+                    style="background-color: var(--surface-color); border: 1px solid var(--border-color);">
+                    <h4>Ready to use these tools?</h4>
+                    <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary">Go to Main Docs</a>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

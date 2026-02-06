@@ -39,3 +39,5 @@ This section provides practical, goal-oriented recipes for creating common AI be
     *   **`ProximityPenaltyScorerSO`**: `Weight: 1.0` (Ensure it doesn't try to flank from a position that is suicidally close).
 
 **Result**: This AI will ignore spots directly behind it, instead favoring cover that puts it at a 90-degree angle to its allies, relative to the player's position. Make sure to populate the `allies` list on the `EnemyHider` for this to work
+
+**➡️ Next: [Providers Reference](Providers-Reference.md)**
