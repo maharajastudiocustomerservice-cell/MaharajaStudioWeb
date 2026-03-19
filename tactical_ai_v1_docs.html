@@ -3747,7 +3747,8 @@ void OnStandUp()
                     </ol>
                     <h3>Scorers</h3>
                     <p>The scorers are configured to overwhelmingly prioritize being far from the player.</p>
-                    <table class="table table-bordered">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Scorer</th>
@@ -3783,6 +3784,7 @@ void OnStandUp()
                             </tr>
                         </tbody>
                     </table>
+                </div>
                 </section>
                 <section id="UseCase_StealthyHunter" class="docs-section">
                     <h1>Use Case: The Stealthy Hunter</h1>
@@ -3815,7 +3817,8 @@ void OnStandUp()
                     </ol>
                     <h3>Scorers</h3>
                     <p>The scorers are weighted to create an AI that is obsessed with stealth and proximity.</p>
-                    <table class="table table-bordered">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Scorer</th>
@@ -3865,6 +3868,7 @@ void OnStandUp()
                             </tr>
                         </tbody>
                     </table>
+                </div>
                 </section>
                 <section id="UseCase_TacticalAI" class="docs-section">
                     <h1>Use Case: The Tactical AI</h1>
@@ -3895,7 +3899,8 @@ void OnStandUp()
                     </ol>
                     <h3>Scorers</h3>
                     <p>The scorers are balanced to reward safety and tactical awareness. The weights are critical.</p>
-                    <table class="table table-bordered">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Scorer</th>
@@ -3949,6 +3954,7 @@ void OnStandUp()
                             </tr>
                         </tbody>
                     </table>
+                </div>
                 </section>
 
                 <div class="docs-pagination">
@@ -3957,6 +3963,10 @@ void OnStandUp()
                 </div>
             </article>
         </div>
+        <button id="doc-sidebar-toggle" class="btn btn-primary d-lg-none" 
+            style="position: fixed; bottom: 20px; right: 20px; z-index: 1100; border-radius: 50%; width: 50px; height: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <i class="fas fa-list"></i>
+        </button>
     </main>
 
     <script>

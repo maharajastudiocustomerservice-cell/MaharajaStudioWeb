@@ -39,8 +39,11 @@
 
     <main>
         <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
             <aside class="docs-sidebar">
-                <h3>Scriptable Studio Pro</h3>
+                <h3>Scriptable Studio Pro <span class="badge bg-primary ms-2 text-white" style="font-size: 0.5em; vertical-align: middle;">v3.0</span></h3>
                 <div class="mb-3">
                     <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
                 </div>
@@ -48,113 +51,138 @@
                     <li><a href="#introduction" class="docs-nav-link">Introduction</a></li>
                     <li><a href="#getting-started" class="docs-nav-link">Getting Started</a></li>
                     <li><a href="#core-workflow" class="docs-nav-link">Core Workflow</a></li>
+                    <li><a href="#detail-panel" class="docs-nav-link">Detail Panel</a></li>
+                    <li><a href="#create-edit-modes" class="docs-nav-link">Create vs Edit Modes</a></li>
                     <li><a href="#power-features" class="docs-nav-link">Power Features</a></li>
+                    <li><a href="#user-interface" class="docs-nav-link">User Interface Reference</a></li>
                     <li><a href="#ai-asset-architect" class="docs-nav-link">AI Asset Architect</a></li>
                     <li><a href="#configuration" class="docs-nav-link">Configuration</a></li>
                 </ul>
             </aside>
 
             <article class="docs-content">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="mb-0">Scriptable Studio Pro Documentation</h1>
+                    <span class="badge bg-primary fs-5 text-white">v3.0</span>
+                </div>
+
                 <section id="introduction" class="docs-section">
                     <h1>Introduction</h1> <!-- File: Introduction.md -->
-                    <p><strong>Scriptable Studio Pro</strong> is the ultimate asset management solution for Unity. It
-                        transforms the way you create, edit, and manage <code>ScriptableObject</code> data, turning
-                        Unity into a powerful database engine.</p>
-                    <p>Designed for professional studios and solo developers alike, it combines the speed of a
-                        spreadsheet, the power of Excel-like formulas, and the creativity of Generative AI into a
-                        single, cohesive editor window.</p>
+                    <p><strong>Scriptable Studio Pro</strong> is the ultimate asset management platform for Unity. It transforms the way you create, edit, and manage <code>ScriptableObject</code> data, giving you the speed of a spreadsheet, the depth of a full inspector, and the creative power of Generative AI — all inside a single, cohesive editor window.</p>
+                    <p>Designed for <strong>professional studios and solo developers</strong> alike, version 3.0 marks a major leap forward in type compatibility, navigation ergonomics, and workflow depth.</p>
+
+                    <hr>
 
                     <h2>Key Features</h2>
 
                     <h3>📊 The Grid Editor</h3>
-                    <p>Forget the default Inspector. View and edit hundreds of assets at once in a high-performance,
-                        multi-column grid.</p>
+                    <p>Forget the default Inspector. View and edit hundreds of assets simultaneously in a high-performance, multi-column grid.</p>
                     <ul>
-                        <li><strong>Sort & Filter</strong>: Find assets instantly by name, type, or field values.</li>
+                        <li><strong>Sort & Filter</strong>: Find assets instantly by name, type, or field values — including advanced query syntax with <code>&&</code>, <code>||</code>, comparison operators, and nested field access.</li>
                         <li><strong>Bulk Editing</strong>: Select multiple rows and edit them simultaneously.</li>
-                        <li><strong>Reorder</strong>: Drag and drop to organize your lists.</li>
+                        <li><strong>Reorder</strong>: Drag and drop rows to organize your list instantly.</li>
+                    </ul>
+
+                    <h3>🎨 Native Drawing System <span class="badge bg-primary">New in 3.0</span></h3>
+                    <p>Any field type is now rendered correctly in the <strong>Detail Panel</strong>, without workarounds or exclusions.</p>
+                    <ul>
+                        <li>Types with a Unity <code>CustomPropertyDrawer</code> are <strong>detected automatically</strong> at startup and rendered natively.</li>
+                        <li>Register additional types in <strong>Settings › Native Drawn Types</strong> to give them first-class treatment.</li>
+                        <li>This covers <code>SerializableDictionary</code>, third-party framework types, any custom generic wrapper, and any type your team builds with a property drawer.</li>
+                    </ul>
+
+                    <h3>🔬 Next-Generation Type Parser <span class="badge bg-primary">New in 3.0</span></h3>
+                    <p>The internal type-reading and writing engine has been completely rebuilt from the ground up.</p>
+                    <ul>
+                        <li>Handles <strong>every C# primitive</strong> including <code>uint</code>, <code>byte</code>, <code>sbyte</code>, <code>short</code>, <code>ushort</code>, <code>ulong</code>, <code>char</code>, and <code>decimal</code>.</li>
+                        <li>Handles <strong>all Unity types</strong>: math structs, <code>Gradient</code>, <code>AnimationCurve</code>, <code>LayerMask</code>, <code>Quaternion</code>, <code>Bounds</code>, and more.</li>
+                        <li><strong>Generic types and custom serializers</strong> (e.g., <code>SerializableDictionary&lt;TKey, TValue&gt;</code>) are parsed using a multi-strategy engine that respects <code>ISerializationCallbackReceiver</code>, ensuring the exact same state as runtime.</li>
+                    </ul>
+
+                    <h3>🏷️ Pill Navigation System <span class="badge bg-primary">New in 3.0</span></h3>
+                    <p>When working with multiple selected types in Batch Mode, a row of <strong>interactive pills</strong> appears above the grid, one per selected type.</p>
+                    <ul>
+                        <li><strong>One-click navigation</strong> between any checked type — no sidebar scrolling.</li>
+                        <li><strong>Drag-to-reorder</strong> pills to set your preferred workflow order.</li>
+                        <li>The container auto-collapses to save space and expands on demand.</li>
+                    </ul>
+
+                    <h3>🌐 Localization Support <span class="badge bg-primary">New in 3.0</span></h3>
+                    <p>Fields using <strong>Unity Localization</strong> (<code>LocalizedString</code>, <code>LocalizedAsset</code>, and any type in the <code>UnityEngine.Localization</code> namespace) are now fully supported.</p>
+                    <ul>
+                        <li>Values are correctly read, written, and cloned without breaking internal table references.</li>
                     </ul>
 
                     <h3>🛠️ Dual Workflow Modes</h3>
                     <ul>
-                        <li><strong>Create Mode</strong>: Rapidly prototype data in memory. Create 100 items, tweak
-                            them, and only write to disk when you're ready.</li>
-                        <li><strong>Edit Mode</strong>: Load existing assets from your project folder and modify them in
-                            place with bulk tools.</li>
+                        <li><strong>Create Mode</strong>: Rapidly prototype data in memory. Create 100 items, tweak them, save only when ready.</li>
+                        <li><strong>Edit Mode</strong>: Load existing assets from your project and modify them in place with bulk tools.</li>
                     </ul>
 
                     <h3>⚡ Power Tools</h3>
                     <ul>
-                        <li><strong>Formulas</strong>: Use math directly in your fields (e.g.,
-                            <code>=[BaseStats.Strength] * 2.5</code>).
-                        </li>
-                        <li><strong>Smart Fill</strong>: Select a range and auto-complete sequences (1, 2, 3...) or
-                            gradients.</li>
-                        <li><strong>Smart Rename</strong>: Rename hundreds of files based on their internal data
-                            patterns.</li>
-                        <li><strong>Find & Replace</strong>: Search across all fields and replace text or values
-                            instantly.</li>
+                        <li><strong>Formulas</strong>: Use math directly in fields (<code>=[Level] * 100</code>, <code>=[Strength] + [Agility]</code>).</li>
+                        <li><strong>Smart Fill</strong>: Select a range and auto-complete sequences, gradients, patterns, and GUIDs.</li>
+                        <li><strong>Smart Rename</strong>: Rename hundreds of files based on their internal data in one click.</li>
+                        <li><strong>Find & Replace</strong>: Search across all fields and replace text or values instantly.</li>
+                        <li><strong>Validator</strong>: Advanced rule-based validation with built-in rules, formula expressions, and Regex.</li>
                     </ul>
 
                     <h3>🧠 AI Asset Architect (Optional)</h3>
                     <p>Integrated directly into the workflow is a world-class AI assistant.</p>
                     <ul>
                         <li><strong>Generate</strong>: Create production-ready assets from text prompts.</li>
-                        <li><strong>Refine</strong>: Use natural language to tweak existing data (e.g., <em>"Make all
-                                boss enemies 20% stronger"</em>).</li>
-                        <li><strong>Context-Aware</strong>: The AI understands your game's name, theme, and lore.</li>
+                        <li><strong>Refine</strong>: Use natural language to tweak existing data (<em>"Make all boss enemies 20% stronger"</em>).</li>
+                        <li><strong>Context-Aware</strong>: Understands your game's name, theme, lore, and custom field types.</li>
                         <li><a href="#ai-asset-architect">Read the full AI Documentation</a></li>
                     </ul>
 
                     <h3>🛡️ Professional Grade</h3>
                     <ul>
-                        <li><strong>Undo/Redo</strong>: A custom, robust undo system tracks every change, even across
-                            bulk operations.</li>
-                        <li><strong>Import/Export</strong>: JSON and CSV support for external tools.</li>
-                        <li><strong>Type Safety</strong>: Built to handle complex Unity types like
-                            <code>AnimationCurve</code>, <code>Gradient</code>, and <code>LayerMask</code>.
-                        </li>
+                        <li><strong>Undo/Redo</strong>: A custom system tracks every change — including bulk operations, localization fields, and native-drawn types.</li>
+                        <li><strong>Import/Export</strong>: JSON, CSV, SQL, and Google Sheets support.</li>
+                        <li><strong>Full Type Safety</strong>: No special-casing needed. Every serializable C# and Unity type works out of the box.</li>
                     </ul>
 
                     <hr>
 
                     <h2>Why Scriptable Studio Pro?</h2>
 
-                    <p>Unity's default workflow for ScriptableObjects is slow: create one file, rename it, select it,
-                        edit inspector, repeat.</p>
+                    <p>Unity's default ScriptableObject workflow is slow: create one file, rename it, select it, edit the inspector, repeat. Complex field types like dictionaries or localization references require workarounds or custom editors.</p>
 
-                    <p><strong>Scriptable Studio Pro</strong> removes this friction. Whether you are balancing an RPG
-                        item database, managing NPC dialogue lines, or configuring level data, this tool saves you hours
-                        of manual work.</p>
-
+                    <p><strong>Scriptable Studio Pro</strong> removes all of that friction. Whether you are balancing an RPG item database, managing NPC dialogue lines with localization, or configuring level data with complex custom serializers — this tool saves hours of manual work every day.</p>
                 </section>
 
                 <section id="getting-started" class="docs-section">
                     <h1>Getting Started</h1> <!-- File: Getting-Started.md -->
-                    <p>Welcome to <strong>Scriptable Studio Pro</strong>. This guide will help you set up the tool and
-                        create your first database.</p>
+                    <p>Welcome to <strong>Scriptable Studio Pro v3.0</strong>. This guide will get you set up and creating your first database in minutes.</p>
+
+                    <hr>
 
                     <h2>Installation</h2>
                     <ol>
-                        <li>Import the <strong>Scriptable Studio Pro</strong> package into your Unity project.</li>
-                        <li>The tool will automatically compile and appear in the menu bar.</li>
+                        <li>Import the <strong>Scriptable Studio Pro</strong> package via the Unity Package Manager.</li>
+                        <li>The tool compiles automatically and registers menu items.</li>
                     </ol>
 
+                    <hr>
+
                     <h2>Opening the Window</h2>
-                    <p>Go to <code>Asset > Scriptable Studio Pro</code> or
-                        <code>Tools > Maharaja Studio > Scriptable Studio Pro > Open Window</code> (or press
-                        <code>Ctrl+M</code> / <code>Cmd+M</code>).
+                    <p>Go to <strong><code>Assets › Scriptable Studio Pro</code></strong> or <strong><code>Tools › Maharaja Studio › Scriptable Studio Pro › Open Window</code></strong><br>
+                        Keyboard shortcut: <strong><code>Ctrl + M</code></strong> / <strong><code>Cmd + M</code></strong>
                     </p>
+
+                    <hr>
 
                     <h2>Your First Workflow</h2>
 
                     <h3>1. Select a Type</h3>
                     <p>The left sidebar lists every <code>ScriptableObject</code> class in your project.</p>
                     <ul>
-                        <li>Click on a type (e.g., <code>ItemData</code>, <code>EnemyStats</code>) to load the grid.
-                        </li>
-                        <li>If you don't have any custom ScriptableObjects yet, create a simple C# script:</li>
+                        <li>Type in the <strong>Search Bar</strong> to filter types instantly.</li>
+                        <li>Click a type (e.g., <code>ItemData</code>, <code>EnemyStats</code>) to load its grid.</li>
                     </ul>
+                    <p>If you don't have any custom <code>ScriptableObject</code> types yet, create a simple C# script and compile:</p>
                     <pre><code>using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "Game/Item")]
@@ -163,59 +191,108 @@ public class ItemData : ScriptableObject
     public string ItemName;
     public int Cost;
     public float Damage;
+    public bool IsRare;
 }</code></pre>
+                    <p>You can use any field type — primitives, Unity structs, enums, custom serializers, <code>LocalizedString</code>, <code>List&lt;T&gt;</code>, or any type with a <code>CustomPropertyDrawer</code>. The v3.0 parser handles all of them.</p>
 
-                    <h3>2. Create Mode vs. Edit Mode</h3>
-                    <p>Use the dropdown in the top-left toolbar to switch modes:</p>
-                    <ul>
-                        <li><strong>Create Mode</strong>: Start with a blank slate. Add "Virtual Instances" to the list.
-                            These exist only in the window until you click "Create Assets".</li>
-                        <li><strong>Edit Mode</strong>: Loads all existing <code>.asset</code> files of the selected
-                            type from your project. Changes are applied directly to the files when you press "Update
-                            Linked Assets".</li>
-                    </ul>
+                    <hr>
 
-                    <h3>3. Adding Data</h3>
+                    <h3>2. Choose a Mode</h3>
+                    <p>Use the <strong>Mode Selector</strong> in the top-left toolbar:</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Mode</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Create Mode</strong></td>
+                                    <td>Prototype data in memory. Instances are virtual until you click <strong>Create Assets</strong>.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Edit Mode</strong></td>
+                                    <td>Load existing <code>.asset</code> files and modify them. Changes are applied when you click <strong>Update Linked Assets</strong>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+
+                    <h3>3. Add Data</h3>
                     <ol>
                         <li>Ensure you are in <strong>Create Mode</strong>.</li>
-                        <li>Click the <strong>➕ (Add)</strong> button in the toolbar to add a row.</li>
-                        <li>Type values into the grid cells.</li>
-                        <li>Use <strong>Duplicate</strong> to copy rows quickly.</li>
+                        <li>Click <strong>➕ (Add)</strong> to add a row.</li>
+                        <li>Fill values directly in the grid cells.</li>
+                        <li>Use <strong>Duplicate</strong> (right-click context menu) to clone rows quickly.</li>
+                    </ol>
+                    <p>For fields that are complex types (custom structs, dictionaries, localized strings), click <strong>Open Details</strong> in the toolbar to open the <strong>Detail Panel</strong> for that instance. The Detail Panel uses the <strong>Native Drawing System</strong> to render every field correctly, including types with custom property drawers.</p>
+
+                    <hr>
+
+                    <h3>4. Navigate with Pills <span class="badge bg-primary">New in v3.0</span></h3>
+                    <p>When you check multiple types in the sidebar (for batch creation), a row of <strong>Pills</strong> appears above the grid — one pill per selected type.</p>
+                    <ul>
+                        <li><strong>Left-click</strong> a pill to jump to that type's grid instantly.</li>
+                        <li><strong>Right-click + drag</strong> a pill to reorder it.</li>
+                        <li>Click <strong>▼</strong> at the right of the pill strip to expand/collapse it.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h3>5. Save Assets</h3>
+                    <ol>
+                        <li>When satisfied with your data, check the <strong>Folder Settings</strong> at the bottom of the window.</li>
+                        <li>Choose a <strong>Subfolder Mode</strong> (Default, Single Subfolder, or Subfolder Per Type).</li>
+                        <li>Click <strong>Create Assets</strong>.</li>
+                        <li>The tool generates <code>.asset</code> files in your project at the chosen location.</li>
                     </ol>
 
-                    <h3>4. Saving Assets</h3>
+                    <hr>
+
+                    <h2>Working with Custom & Localization Types</h2>
+
+                    <h3>Custom Types (Serializers, Dictionaries, Wrappers)</h3>
                     <ol>
-                        <li>When you are happy with your data, check the <strong>Folder Settings</strong> at the bottom
-                            of the window.</li>
-                        <li>Choose a <strong>Subfolder Name</strong> (e.g., "Items").</li>
-                        <li>Click <strong>Create Assets</strong>.</li>
-                        <li>The tool will generate the <code>.asset</code> files in your project.</li>
+                        <li><strong>Grid</strong>: The tool automatically detects if a type has a <code>CustomPropertyDrawer</code> and renders it natively.</li>
+                        <li><strong>Detail Panel</strong>: The field appears with its proper drawer UI.</li>
+                        <li>If a type is <em>not</em> auto-detected, go to <strong>Settings › Native Drawn Types</strong> and add its fully-qualified class name manually.</li>
                     </ol>
+
+                    <h3>Localization Fields (LocalizedString, LocalizedAsset)</h3>
+                    <p>Fields using <strong>Unity Localization</strong> are handled automatically: Values are correctly read from and written to the Localization tables without breaking references.</p>
 
                     <hr>
 
                     <h2>Next Steps</h2>
                     <ul>
-                        <li>Learn about the <a href="#core-workflow">Core Workflow</a> to master the grid and bulk
-                            editing.</li>
-                        <li>Explore <a href="#power-features">Power Features</a> like Formulas and Smart Fill.</li>
-                        <li>Set up the <a href="#ai-asset-architect">AI Assistant</a> to generate content for you.</li>
+                        <li><a href="#core-workflow">Core Workflow</a>: Master the grid, sorting, bulk editing, and context menus.</li>
+                        <li><a href="#power-features">Power Features</a>: Formulas, Smart Fill, Import/Export, and Undo/Redo.</li>
+                        <li><a href="#user-interface">User Interface</a>: Detailed reference for every button, field, and panel.</li>
+                        <li><a href="#ai-asset-architect">AI Assistant</a>: Use AI to generate and refine data at scale.</li>
+                        <li><a href="#configuration">Configuration</a>: Settings, shortcuts, assembly filtering, and more.</li>
                     </ul>
                 </section>
 
                 <section id="core-workflow" class="docs-section">
                     <h1>Core Workflow</h1> <!-- File: Core-Workflow.md -->
-                    <p>This page details the primary interface and workflows of <strong>Scriptable Studio Pro</strong>.
-                    </p>
+                    <p>This document covers the primary interface and workflows of <strong>Scriptable Studio Pro</strong>.</p>
+
+                    <hr>
 
                     <h2>The Main Interface</h2>
-                    <p>The window is divided into three main sections:</p>
+                    <p>The window is divided into three main areas:</p>
                     <ol>
-                        <li><strong>Sidebar (Left)</strong>: Lists all <code>ScriptableObject</code> types in your
-                            project.</li>
-                        <li><strong>Grid (Center)</strong>: The main workspace where you edit data.</li>
-                        <li><strong>Toolbar (Top)</strong>: Mode selection and global tools.</li>
+                        <li><strong>Sidebar (Left)</strong> — Lists all <code>ScriptableObject</code> types found in your project.</li>
+                        <li><strong>Grid Area (Right, Center)</strong> — The main workspace where you view and edit data.</li>
+                        <li><strong>Toolbar (Top)</strong> — Mode selection and global tools.</li>
                     </ol>
+                    <p>Additionally in v3.0, a <strong>Pill Strip</strong> appears at the top of the right pane when multiple types are selected, enabling instant type navigation.</p>
+
+                    <hr>
 
                     <h2>Working with the Grid</h2>
                     <p>The grid is the heart of the tool. It displays your assets in a spreadsheet-like view.</p>
@@ -223,23 +300,15 @@ public class ItemData : ScriptableObject
                     <h3>Sorting & Filtering</h3>
                     <ul>
                         <li><strong>Sort</strong>: Click any column header to sort ascending/descending.</li>
-                        <li><strong>Filter</strong>: Use the search bar to filter rows.
+                        <li><strong>Filter</strong>: Use the instance search bar to filter rows.
                             <ul>
-                                <li><strong>Simple Text</strong>: <code>Sword</code> matches any item with "Sword" in
-                                    the name.</li>
+                                <li><strong>Simple Text</strong>: <code>Sword</code> matches any instance with "Sword" in the name.</li>
                                 <li><strong>Advanced Syntax</strong>:
                                     <ul>
-                                        <li><strong>Logical</strong>: <code>&&</code> (AND), <code>||</code> (OR).
-                                            Example: <code>[Cost] < 50 && [Type] == "Fire"</code>.</li>
-                                        <li><strong>Comparison</strong>: <code>==</code>, <code>!=</code>,
-                                            <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>,
-                                            <code>&lt;=</code>, <code>:</code> (contains).
-                                        </li>
-                                        <li><strong>Nested Fields</strong>: <code>[Stats.Health] &gt; 100</code> or
-                                            <code>[Inventory[0]] == "Potion"</code>.
-                                        </li>
-                                        <li><strong>Special</strong>: <code>[Model] == {null}</code> to find missing
-                                            references.</li>
+                                        <li><strong>Logical</strong>: <code>&&</code> (AND), <code>||</code> (OR). Example: <code>[Cost] < 50 && [Type] == "Fire"</code>.</li>
+                                        <li><strong>Comparison</strong>: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>:</code> (contains).</li>
+                                        <li><strong>Nested Fields</strong>: <code>[Stats.Health] &gt; 100</code> or <code>[Inventory[0]] == "Potion"</code>.</li>
+                                        <li><strong>Null Check</strong>: <code>[Model] == {null}</code> to find missing references.</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -247,95 +316,224 @@ public class ItemData : ScriptableObject
                     </ul>
 
                     <h3>Reordering</h3>
-                    <ul>
-                        <li>Drag and drop rows by their index number (far left column) to reorder them.</li>
-                        <li><strong>Note</strong>: Reordering works in both Create and Edit modes. In Edit Mode, it
-                            changes the order in the list but doesn't affect file names unless you rename them.</li>
-                    </ul>
+                    <p>Drag rows by their index number (far-left column) to reorder them. Works in both Create and Edit modes.</p>
 
                     <h3>Bulk Editing</h3>
-                    <p>You can edit multiple cells at once:</p>
                     <ol>
-                        <li>Select multiple rows (Ctrl/Cmd + Click or Shift + Click).</li>
-                        <li>Edit a value in <em>any</em> of the selected rows.</li>
-                        <li>The change will apply to <strong>all</strong> selected rows.</li>
+                        <li>Select multiple rows (<code>Ctrl/Cmd + Click</code> or <code>Shift + Click</code>).</li>
+                        <li>Edit a value in <strong>any</strong> selected row.</li>
+                        <li>The change applies to <strong>all</strong> selected rows simultaneously.</li>
                     </ol>
 
+                    <hr>
+
+                    <h2>Pill Navigation <span class="badge bg-primary">New in v3.0</span></h2>
+                    <p>When you check multiple types in the sidebar (for Batch Mode), a <strong>Pill Strip</strong> appears above the grid.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Left-click</strong> a pill</td>
+                                    <td>Immediately switches the grid to show that type's data</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Right-click + drag</strong> a pill</td>
+                                    <td>Reorders the pill to your preferred position</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>▼ / ▲ button</strong> (far right)</td>
+                                    <td>Collapses or expands the pill strip</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>The pill strip height is configurable in <strong>Settings › Visuals › Pill Height</strong>.</p>
+
+                    <hr>
+
                     <h2>Context Menu Actions</h2>
-                    <p>Right-click on any row (or the index number) to access powerful actions:</p>
+                    <p>Right-click on any row or index number to access:</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Ping Asset</strong></td>
+                                    <td>Highlights the file in the Project window</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Copy / Paste Values</strong></td>
+                                    <td>Copy all field values from one row and paste them into another</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Duplicate Row</strong></td>
+                                    <td>Creates an exact copy of the selected instance</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Smart Rename</strong></td>
+                                    <td><em>(Edit Mode)</em> Renames the asset file based on a string field</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Insert Row Above / Below</strong></td>
+                                    <td>Adds a blank row at a specific position</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Delete</strong></td>
+                                    <td>Removes the selected instance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+                </section>
+
+                <section id="detail-panel" class="docs-section">
+                    <h2>Detail Panel</h2>
+                    <p>Accessible via <strong>Open Details</strong> in the main toolbar. The Detail Panel shows all fields of a single instance in a vertical, scrollable layout.</p>
+
+                    <h3>Native Drawing System <span class="badge bg-primary">New in v3.0</span></h3>
+                    <p>In v3.0, the Detail Panel uses a <strong>native drawing pipeline</strong> for field types. The system works as follows:</p>
+                    <ol>
+                        <li>At startup, the tool scans all loaded assemblies for <code>CustomPropertyDrawer</code> attributes and builds a fast type-to-drawer cache.</li>
+                        <li>When rendering a field in the Detail Panel, the tool checks if the field's type is <strong>native-drawn</strong>.</li>
+                        <li>If native-drawn → rendered via <code>IMGUIContainer</code> + Unity's built-in inspector.</li>
+                        <li>Otherwise → rendered via the tool's own recursive field builder.</li>
+                    </ol>
+                    <p>This means you <strong>never need to configure anything</strong> for types like <code>SerializableDictionary</code>, localization fields, or any type your team provides a custom drawer for.</p>
+
+                    <h3>Supported Attributes in the Detail Panel</h3>
+                    <p>The Detail Panel respects these Unity field attributes:</p>
                     <ul>
-                        <li><strong>Ping Asset</strong>: Highlights the file in the Project window.</li>
-                        <li><strong>Copy/Paste Values</strong>: Copy data from one instance to another.</li>
-                        <li><strong>Duplicate Row</strong>: Creates an exact copy of the selected instance.</li>
-                        <li><strong>Smart Rename</strong>: (Edit Mode) Renames the instance based on a string field
-                            (e.g., "Set Name from 'ItemName'").</li>
-                        <li><strong>Insert Row Above/Below</strong>: Adds a blank row at a specific position.</li>
+                        <li><code>[Header]</code> — renders a bold section label above the field.</li>
+                        <li><code>[Tooltip]</code> — surface as hover tooltip on the label.</li>
+                        <li><code>[TextArea]</code> / <code>[Multiline]</code> — renders a multi-line text box.</li>
+                        <li><code>[Range]</code> — renders a <strong>slider + numeric input</strong>.</li>
+                        <li><code>[HideInInspector]</code> — field is hidden.</li>
                     </ul>
 
+                    <h3>Searching Fields</h3>
+                    <p>Use the <strong>search bar</strong> at the top of the Detail Panel to filter visible fields by name.</p>
+
+                    <hr>
+                </section>
+
+                <section id="create-edit-modes" class="docs-section">
                     <h2>Create Mode vs. Edit Mode</h2>
 
                     <h3>Create Mode</h3>
-                    <ul>
-                        <li><strong>Purpose</strong>: Rapidly creating <em>new</em> assets.</li>
-                        <li><strong>Behavior</strong>: Data exists only in memory.</li>
-                        <li><strong>Save</strong>: You must click <strong>Create Assets</strong> to write files to disk.
-                        </li>
-                        <li><strong>Naming</strong>: Files are named based on the <strong>Naming Pattern</strong> (e.g.,
-                            <code>{TYPE}_{#}</code>).
-                        </li>
-                    </ul>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Purpose</strong></td>
+                                    <td>Rapidly creating <em>new</em> assets</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Behavior</strong></td>
+                                    <td>Data exists only in memory until explicitly saved</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Save</strong></td>
+                                    <td>Click <strong>Create Assets</strong> to write <code>.asset</code> files to disk</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Naming</strong></td>
+                                    <td>Files are named based on the <strong>Naming Pattern</strong> (e.g., <code>{TYPE}_{ii}</code>)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Edit Mode</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Purpose</strong></td>
+                                    <td>Managing <em>existing</em> assets</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Behavior</strong></td>
+                                    <td>Grid operates on the actual asset files</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Import</strong></td>
+                                    <td><strong>Import All</strong> or <strong>Import Selected</strong> to load assets</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Save</strong></td>
+                                    <td>Click <strong>Update Linked Assets</strong> to write changes to disk</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+
+                    <h2>Undo / Redo</h2>
+                    <p>The tool uses a <strong>custom undo stack</strong> independent of Unity's standard undo system.</p>
                     <ul>
-                        <li><strong>Purpose</strong>: Managing <em>existing</em> assets.</li>
-                        <li><strong>Behavior</strong>: Changes are written to the asset files when <strong>Update Linked
-                                Assets</strong> pressed.</li>
-                        <li><strong>Import</strong>: Use the <strong>Import</strong> buttons to load assets into the
-                            grid.
-                            <ul>
-                                <li><strong>Import All</strong>: Loads every asset of this type found in the project.
-                                </li>
-                                <li><strong>Import Selected</strong>: Loads only the assets currently selected in the
-                                    Project window.</li>
-                                <li><strong>Save</strong>: You must click <strong>Update Linked Assets</strong> to write
-                                    files to disk.</li>
-                            </ul>
-                        </li>
+                        <li><strong>Undo</strong>: <code>Ctrl + Z</code> / <code>Cmd + Z</code></li>
+                        <li><strong>Redo</strong>: <code>Ctrl + Y</code> / <code>Cmd + Shift + Z</code></li>
                     </ul>
+                    <p>The undo stack tracks value changes, row additions/removals, reordering, and bulk operations.</p>
                 </section>
 
                 <section id="power-features" class="docs-section">
                     <h1>Power Features</h1> <!-- File: Power-Features.md -->
-                    <p>Unlock the full potential of <strong>Scriptable Studio Pro</strong> with these advanced tools.
-                    </p>
+                    <p>Unlock the full potential of <strong>Scriptable Studio Pro</strong> with these advanced tools.</p>
+
+                    <hr>
 
                     <h2>Formulas</h2>
                     <p>Just like in Excel, you can use formulas to calculate values dynamically.</p>
                     <ul>
                         <li><strong>Syntax</strong>: Start any text field with <code>=</code>.</li>
-                        <li><strong>References</strong>: Use <code>[FieldName]</code> to reference other fields in the
-                            same row.</li>
-                        <li><strong>Math</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>,
-                            <code>^</code> (power), <code>%</code> (modulo).
-                        </li>
+                        <li><strong>References</strong>: Use <code>[FieldName]</code> to reference other fields in the same row.</li>
+                        <li><strong>Math</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code> (power), <code>%</code> (modulo).</li>
                     </ul>
                     <h3>Examples</h3>
                     <ul>
-                        <li><code>=[Level] * 100</code> -> Sets value to Level * 100.</li>
-                        <li><code>=[Strength] + [Agility]</code> -> Sums two stats.</li>
+                        <li><code>=[Level] * 100</code> &mdash; Sets value to Level * 100.</li>
+                        <li><code>=[Strength] + [Agility]</code> &mdash; Sums two stats.</li>
                         <li><code>=[BaseDamage] * (1 + [Bonus])</code></li>
                     </ul>
                     <div class="alert alert-info" role="alert">
-                        <strong>NOTE</strong>: Formulas are evaluated when you press Enter or click the
-                        <strong>Refresh</strong> button. The result is written to the field.
+                        <strong>NOTE</strong>: Formulas are evaluated when you press Enter or click <strong>Refresh</strong> in the toolbar. The result is written directly to the memory state of the instance.
                     </div>
 
+                    <hr>
+
                     <h2>Smart Fill</h2>
-                    <p>Auto-complete sequences of data across multiple rows.</p>
+                    <p>Auto-complete sequences of data across any number of rows. Smart Fill in v3.0 supports <strong>every serializable type</strong> including primitives, structs, and localization fields.</p>
                     <ol>
                         <li>Select a range of cells (vertical or horizontal).</li>
-                        <li>Click the <strong>✨ Smart Fill</strong> button in the toolbar.</li>
-                        <li>Choose a pattern based on the field type:</li>
+                        <li>Click <strong>✨ Smart Fill</strong> in the toolbar.</li>
+                        <li>Choose a fill mode:</li>
                     </ol>
 
                     <h3>Numeric Modes</h3>
@@ -343,328 +541,240 @@ public class ItemData : ScriptableObject
                         <li><strong>Linear</strong>: 1, 2, 3, 4... (Standard progression)</li>
                         <li><strong>Incremental</strong>: Start at X, add Y each step.</li>
                         <li><strong>Random Range</strong>: Random value between Min and Max.</li>
-                        <li><strong>Multiplier</strong>: Multiply previous value by X.</li>
-                        <li><strong>Curve</strong>: Use an animation curve to define the value distribution.</li>
+                        <li><strong>Multiplier</strong>: Multiply the previous value by X.</li>
+                        <li><strong>Curve</strong>: Use an <code>AnimationCurve</code> to define how values scale over the selection.</li>
                     </ul>
 
-                    <h3>String Modes</h3>
+                    <h3>String & Object Modes</h3>
                     <ul>
-                        <li><strong>Pattern</strong>: Use placeholders like <code>{i}</code> (index) and
-                            <code>{old}</code> (current value).
+                        <li><strong>Pattern</strong>: Use placeholders like <code>{i}</code> (index) and <code>{old}</code> (current value).
                             <ul>
-                                <li>Example: <code>Item_{i}</code> -> Item_1, Item_2...</li>
+                                <li>Example: <code>Item_{i}</code> &rarr; Item_1, Item_2...</li>
                             </ul>
                         </li>
                         <li><strong>Search & Replace</strong>: Bulk replace text within the selection.</li>
-                        <li><strong>Prefix/Suffix</strong>: Add text to the beginning or end.</li>
-                        <li><strong>GUID</strong>: Generate unique IDs.</li>
+                        <li><strong>Prefix/Suffix</strong>: Add text to the beginning or end of existing values.</li>
+                        <li><strong>GUID</strong>: Generate unique IDs for every cell.</li>
                     </ul>
 
                     <h3>Other Modes</h3>
                     <ul>
-                        <li><strong>Boolean</strong>: <strong>Pattern</strong> (e.g., <code>TF</code> = True, False,
-                            True...), <strong>Random</strong>.</li>
-                        <li><strong>Color</strong>: <strong>Gradient</strong> (blend between colors),
-                            <strong>Random</strong>.
-                        </li>
+                        <li><strong>Boolean</strong>: <strong>Pattern</strong> (e.g., <code>TF</code> = True, False, True...), <strong>Random</strong>.</li>
+                        <li><strong>Color</strong>: <strong>Gradient</strong> (blend between colors using a <code>Gradient</code>), <strong>Random</strong>.</li>
+                        <li><strong>Localization</strong>: Copy references or generate new keys based on patterns.</li>
                     </ul>
 
+                    <hr>
+
                     <h2>Smart Rename</h2>
-                    <p>Rename hundreds of assets instantly based on their data.</p>
+                    <p>Rename hundreds of assets instantly based on their data. This is particularly powerful for cleaning up external imports or large AI-generated sets.</p>
                     <ol>
-                        <li>Ensure you are in <strong>Create Mode</strong> (or Edit Mode if you want to rename files).
-                        </li>
-                        <li>Right-click on the header of the column you want to use as the name source (e.g.,
-                            <code>ItemName</code>).
-                        </li>
-                        <li>Select <strong>Set Name from 'ItemName'</strong>.</li>
-                        <li>The instance names (and filenames) will update to match the value in that column.</li>
+                        <li>Right-click the <strong>header</strong> of the column you want to use as the name source (e.g., <code>ItemID</code>).</li>
+                        <li>Select <strong>Set Name from '[ColumnName]'</strong>.</li>
+                        <li>The instance names (and filenames in Edit Mode) will update to match the values in that column.</li>
                     </ol>
 
+                    <hr>
+
                     <h2>Import / Export</h2>
-                    <p>Move data between Unity and external tools.</p>
+                    <p>Seamlessly move data between Unity and external tools.</p>
                     <h3>Supported Formats</h3>
                     <ul>
                         <li><strong>CSV / JSON</strong>: Standard formats for backup or external editing.</li>
-                        <li><strong>SQL</strong>: Generate SQL INSERT statements for database integration.</li>
+                        <li><strong>SQL</strong>: Generate <code>INSERT</code> or <code>UPDATE</code> statements for database integration.</li>
                         <li><strong>Google Sheets</strong>:
                             <ul>
-                                <li><strong>Clipboard (Recommended)</strong>: Copy cells in Sheets, click <strong>Paste
-                                        & Import</strong> in the tool.</li>
-                                <li><strong>URL</strong>: Download directly from a published Google Sheet CSV link.</li>
+                                <li><strong>Clipboard</strong>: Copy cells in Sheets, click <strong>Paste & Import</strong> in the tool.</li>
+                                <li><strong>Direct URL</strong>: Paste a public Google Sheet CSV link for direct download.</li>
                             </ul>
                         </li>
                     </ul>
 
-                    <h2>Undo / Redo</h2>
-                    <p>The tool features a custom <strong>Undo System</strong> that is separate from Unity's standard
-                        undo stack for better performance and reliability.</p>
+                    <hr>
+
+                    <h2>Universal Search</h2>
+                    <p>Press <strong><code>Ctrl+F</code></strong> to open the search overlay. It searches across all fields and all loaded types simultaneously, highlighting matches in the grid.</p>
+                </section>
+
+                <section id="user-interface" class="docs-section">
+                    <h1>User Interface Reference</h1> <!-- File: UserInterface.md -->
+                    <p>A detailed breakdown of every component in the <strong>Scriptable Studio Pro</strong> workspace.</p>
+
+                    <hr>
+
+                    <h2>1. Sidebar (Type Explorer)</h2>
+                    <p>The control center for what data is currently visible.</p>
                     <ul>
-                        <li><strong>Undo</strong>: <code>Ctrl + Z</code> (Cmd + Z)</li>
-                        <li><strong>Redo</strong>: <code>Ctrl + Y</code> (Cmd + Shift + Z)</li>
+                        <li><strong>Search Bar</strong>: Filters types by name. Use <code>t:</code> prefix for namespace filtering.</li>
+                        <li><strong>Type List</strong>: Click to select a single type. Check the checkbox for <strong>Batch Mode</strong>.</li>
+                        <li><strong>Batch Mode</strong>: When multiple types are checked, their grids are loaded in parallel. Switch between them using the <strong>Pill Strip</strong>.</li>
                     </ul>
-                    <p>It tracks:</p>
+
+                    <hr>
+
+                    <h2>2. Toolbar (Global Actions)</h2>
+                    <p>The horizontal bar at the top of the interface.</p>
                     <ul>
-                        <li>Value changes</li>
-                        <li>Row additions/removals</li>
-                        <li>Reordering</li>
-                        <li>Bulk operations</li>
+                        <li><strong>Mode Dropdown</strong>: Switch between <strong>Create Mode</strong> and <strong>Edit Mode</strong>.</li>
+                        <li><strong>Add (➕)</strong>: Adds a new row/instance to the current grid.</li>
+                        <li><strong>Open Details</strong>: Toggles the <strong>Detail Panel</strong> on the right.</li>
+                        <li><strong>Smart Fill (✨)</strong>: Opens the Smart Fill configuration window for the selected range.</li>
+                        <li><strong>Execute Logic (▶️)</strong>: Triggers asset creation or updates depending on mode.</li>
+                        <li><strong>Refresh</strong>: Reloads data and re-evaluates all formulas.</li>
+                        <li><strong>Settings (⚙️)</strong>: Opens the Preference window.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>3. Grid Area</h2>
+                    <p>The main spreadsheet view.</p>
+                    <ul>
+                        <li><strong>Index Column</strong>: The far-left column showing row numbers. Click to select a row; drag to reorder.</li>
+                        <li><strong>Column Headers</strong>: Click to sort. Right-click for column-specific actions (Hide, Pin, Rename).</li>
+                        <li><strong>Cells</strong>: Click to edit. Supports keyboard navigation (Arrows, Enter, Tab).</li>
+                        <li><strong>Pill Strip (v3.0)</strong>: Horizontal list of checked types. Supports reordering and one-click jumping.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>4. Detail Panel</h2>
+                    <p>A vertical inspector for the "Active Row" (the last cell you clicked).</p>
+                    <ul>
+                        <li><strong>Field Search</strong>: Filter fields by name at the top of the panel.</li>
+                        <li><strong>Native Drawing</strong>: Complex types like <code>SerializableDictionary</code> or custom classes with <code>PropertyDrawers</code> are rendered using Unity's native UI system.</li>
+                        <li><strong>Sub-object Folding</strong>: Click the arrow next to a class or struct field to expand its children.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>5. Breadcrumb & Status Bar</h2>
+                    <p>Located at the very bottom of the window.</p>
+                    <ul>
+                        <li><strong>Path Display</strong>: Shows exactly where assets will be saved.</li>
+                        <li><strong>Count</strong>: Displays Total Rows, Selected Rows, and any active Filters.</li>
+                        <li><strong>Mode Indicator</strong>: Visual color-coding (Blue for Create, Green for Edit).</li>
                     </ul>
                 </section>
 
                 <section id="ai-asset-architect" class="docs-section">
                     <h1>AI Asset Architect</h1> <!-- File: AI-System.md -->
-                    <p>Scriptable Studio Pro includes a powerful <strong>AI Asset Architect</strong> that generates
-                        production-ready ScriptableObjects directly from text prompts. It is
-                        <strong>context-aware</strong>, meaning it generates data specific to the C# class you
-                        consistently work with.
-                    </p>
+                    <p><strong>Scriptable Studio Pro</strong> includes a powerful <strong>AI Asset Architect</strong> that generates production-ready assets directly from text prompts. It is fully <strong>context-aware</strong>, meaning it understands your custom classes, field types, and even your game's lore.</p>
+
+                    <hr>
 
                     <h2>Overview</h2>
-                    <p>The AI system is built to handle the tedious part of data entry. It can:</p>
+                    <p>The AI system is designed to remove the "blank page" problem. It can:</p>
                     <ul>
-                        <li><strong>Generate New Assets</strong>: Create dozens of items, characters, or abilities from
-                            scratch.</li>
-                        <li><strong>Refine Existing Data</strong>: Bulk-edit selected assets using natural language
-                            (e.g., "Nerf all fire weapons by 10%").</li>
-                        <li><strong>Understand Context</strong>: It knows your game's name, theme, and lore.</li>
-                        <li><strong>Self-Heal</strong>: Automatically repairs invalid JSON responses from LLMs.</li>
+                        <li><strong>Generate New Assets</strong>: Create hundreds of items, characters, or abilities in seconds.</li>
+                        <li><strong>Refine Existing Data</strong>: Use natural language to modify values (e.g., <em>"Make all fire-type weapons deal 15% more damage"</em>).</li>
+                        <li><strong>Smart Mapping</strong>: Automatically maps AI-generated descriptions to your C# fields (Name, Cost, Description, Stats, etc.).</li>
                     </ul>
 
                     <hr>
 
-                    <h2>🚀 Getting Started</h2>
+                    <h2>Setting Up</h2>
                     <ol>
-                        <li><strong>Open Scriptable Studio Pro</strong>: Go to
-                            <code>Asset > Scriptable Studio Pro</code> or
-                            <code>Tools > Maharaja Studio > Scriptable Studio Pro > Open Window</code>.
+                        <li>Open the tool and go to <strong>Settings › AI Configuration</strong>.</li>
+                        <li>Choose a <strong>Provider</strong>:
+                            <ul>
+                                <li><strong>OpenAI</strong>: Requires an API Key (supports GPT-4o, GPT-4 Turbo).</li>
+                                <li><strong>Google Gemini</strong>: Requires an API Key (supports Gemini 1.5 Pro/Flash). <em>(Recommended for large data sets)</em>.</li>
+                                <li><strong>Local Engine</strong>: For studios with custom internal AI nodes.</li>
+                            </ul>
                         </li>
-                        <li><strong>Select a Type</strong>: click on a ScriptableObject type in the left sidebar (e.g.,
-                            <code>ItemData</code>).
-                        </li>
-                        <li><strong>Launch AI</strong>: Click the <strong>AI Icon</strong> in the main toolbar (usually
-                            next to the Duplicate button).</li>
-                        <li><strong>Configure</strong>: Select use the default profile or create a new one.</li>
-                        <li><strong>Prompt</strong>: Type a prompt (or leave it empty) and click <strong>Generate
-                                Assets</strong>.</li>
+                        <li>Enter your API Key and click <strong>Validate Connection</strong>.</li>
                     </ol>
 
                     <hr>
 
-                    <h2>⚙️ Configuration</h2>
-
-                    <h3>1. Global Context</h3>
-                    <p>These settings apply to <em>all</em> generations across the project, helping the AI maintain
-                        consistency.</p>
-                    <ul>
-                        <li><strong>Game Name</strong>: The name of your project.</li>
-                        <li><strong>Theme</strong>: The genre or visual style (e.g., "Dark Fantasy", "Sci-Fi Horror").
-                        </li>
-                        <li><strong>Global Lore</strong>: High-level rules or backstory.</li>
-                    </ul>
-
-                    <h3>2. AI Profiles</h3>
-                    <p>Profiles allow you to switch between different AI providers or configurations.</p>
-                    <p><strong>To create a profile:</strong></p>
-                    <p>Right-click in Project View and go to:</p>
-                    <ul>
-                        <li><code>Create > Scriptable Studio Pro > AI > OpenAI > Standard Template</code></li>
-                        <li><code>Create > Scriptable Studio Pro > AI > Google Gemini > Standard Template</code></li>
-                        <li><code>Create > Scriptable Studio Pro > AI > Custom > Blank Template</code></li>
-                        <li><em>(And other supported providers)</em></li>
-                    </ul>
-
-                    <p><strong>Profile Settings:</strong></p>
-                    <ul>
-                        <li><strong>Provider</strong>: The AI service (OpenAI, Gemini, DeepSeek, etc.).</li>
-                        <li><strong>Model</strong>: Specific model selection (e.g., GPT-4o, Gemini3 Pro).</li>
-                        <li><strong>System Prompt</strong>: The "persona" of the AI.</li>
-                        <li><strong>Temperature</strong>: 0.0 for strict data, 1.0 for creative variety.</li>
-                    </ul>
-
-                    <hr>
-
-                    <h2>🧠 Supported Providers</h2>
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Provider</th>
-                                <th>Description</th>
-                                <th>Best For</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>OpenAI</strong></td>
-                                <td>Industry standard (GPT-4o, GPT-3.5).</td>
-                                <td>General purpose, high quality.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Google Gemini</strong></td>
-                                <td>Google's latest models (Gemini3 Pro/Flash).</td>
-                                <td>Large context, creative writing.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>DeepSeek</strong></td>
-                                <td>Powerful open weights models.</td>
-                                <td>Logic and code-heavy data.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Local LLM</strong></td>
-                                <td>Connects to <code>localhost:1234</code> (LM Studio).</td>
-                                <td>Privacy, free generation.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Ollama</strong></td>
-                                <td>Connects to <code>localhost:11434</code>.</td>
-                                <td>Privacy, free generation.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>OpenRouter</strong></td>
-                                <td>Access to Claude, Llama 3, etc.</td>
-                                <td>flexible model choice.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <hr>
-
-                    <h2>🛠️ Features & Workflow</h2>
-
-                    <h3>1. Style Reference (Few-Shot Learning)</h3>
-                    <p>The AI Window includes a <strong>Style Reference</strong> section.</p>
-                    <ul>
-                        <li><strong>Drag & Drop</strong>: Drag existing ScriptableObjects here to teach the AI your
-                            naming conventions and balance style.</li>
-                        <li><strong>Use Previous Outputs</strong>: Toggle this to feed the last generated items back
-                            into the context, ensuring the next batch matches the previous one.</li>
-                    </ul>
-
-                    <h3>2. Refine Mode (Edit)</h3>
-                    <p>Instead of generating from scratch, you can <strong>modify</strong> existing assets.</p>
+                    <h2>Generating Assets</h2>
                     <ol>
-                        <li><strong>Select</strong> specific rows in the Main Grid (or choose "All Instances" in the
-                            Refine Window).</li>
-                        <li>Right-click or use the Toolbar to open <strong>Refine Assets</strong>.</li>
-                        <li><strong>Lock Fields</strong>: in the Refine Window, toggle "Lock" on fields you want to
-                            preserve (e.g., keep <code>Prefab</code> and <code>ID</code> unchanged).</li>
-                        <li><strong>Prompt</strong>: "Rename these to sound more Elvish" or "Double the prices".</li>
-                    </ol>
-
-                    <h3>3. Attribute Metadata</h3>
-                    <p>Control the AI directly from your C# code:</p>
-                    <pre><code>[Header("Combat Stats")]
-public int Health;
-
-// 1. Give the AI a hint
-[AIDescription("The amount of gold this monster drops. Bosses should drop 500+")]
-public int GoldReward;
-
-// 2. Hide a field from the AI interpretation entirely
-[AIExclude] 
-public string InternalGUID;</code></pre>
-
-                    <hr>
-
-                    <h2>🔍 How It Works (Architecture)</h2>
-                    <ol>
-                        <li><strong>Schema Generation</strong>: The tool uses Reflection to build a JSON schema
-                            representing your C# class, including support for complex types like
-                            <code>AnimationCurve</code>, <code>Gradient</code>, <code>LayerMask</code>, and nested
-                            classes.
-                        </li>
-                        <li><strong>Context Injection</strong>: It combines your Schema, Field Notes, Game Settings, and
-                            Style References into a single System Prompt.</li>
-                        <li><strong>Self-Healing</strong>: If the AI returns invalid JSON, the tool catches the error
-                            and automatically sends a "repair request" back to the model.</li>
+                        <li>Select a type in the sidebar (e.g., <code>WeaponData</code>).</li>
+                        <li>Switch to <strong>Create Mode</strong>.</li>
+                        <li>Click <strong>🧠 AI Generate</strong> in the toolbar.</li>
+                        <li>Enter your prompt: <em>"Create 10 futuristic weapons. Each should have a unique name, a cost between 100-500, and balanced damage values."</em></li>
+                        <li>Click <strong>Generate</strong>. The AI will populate the grid with virtual instances.</li>
                     </ol>
 
                     <hr>
 
-                    <h2>Troubleshooting</h2>
+                    <h2>Refining Data</h2>
+                    <ol>
+                        <li>Select the rows you want to modify in the grid.</li>
+                        <li>Click <strong>🧠 AI Refine</strong> in the toolbar.</li>
+                        <li>Describe the change: <em>"Increase the cost of all rare items by 50% and change their description to sound more legendary."</em></li>
+                        <li>Click <strong>Apply</strong>. The tool updates the values in the grid instantly.</li>
+                    </ol>
+
+                    <hr>
+
+                    <h2>Contextual Knowledge</h2>
+                    <p>The AI Architect doesn't just guess; it reads your project's context. In <strong>Settings › AI Configuration</strong>, you can define:</p>
                     <ul>
-                        <li><strong>"JSON Parse Error"</strong>: The AI failed to follow the schema. Try lowering the
-                            <strong>Temperature</strong> or adding <strong>Examples</strong> to guide it.
-                        </li>
-                        <li><strong>"Network Error"</strong>: Check your API Key. For Local LLM/Ollama, ensure the
-                            server is running on the correct port.</li>
-                        <li><strong>"Field Not Populated"</strong>: Ensure the field is <code>public</code> or
-                            <code>[SerializeField]</code>.
-                        </li>
+                        <li><strong>Game Theme</strong>: (e.g., High Fantasy, Cyberpunk, Cozy Farm Sim).</li>
+                        <li><strong>Naming Conventions</strong>: (e.g., "Use all caps for IDs").</li>
+                        <li><strong>Project Description</strong>: Provide a brief overview of your game's world to ensure the AI uses consistent terminology.</li>
                     </ul>
                 </section>
 
                 <section id="configuration" class="docs-section">
                     <h1>Configuration</h1> <!-- File: Configuration.md -->
-                    <p>Customize <strong>Scriptable Studio Pro</strong> to fit your workflow.</p>
+                    <p>Customize <strong>Scriptable Studio Pro</strong> to fit your team's specific workflow and style.</p>
+
+                    <hr>
 
                     <h2>General Settings</h2>
-                    <p>Access settings via <code>Tools > Scriptable Studio Pro > Settings</code>.</p>
+                    <p>Access the main settings window via <strong><code>Tools › Maharaja Studio › Scriptable Studio Pro › Settings</code></strong>.</p>
 
-                    <h3>Folder Rules</h3>
+                    <h3>📂 Folder Rules</h3>
                     <ul>
                         <li><strong>Default Folder Mode</strong>:
                             <ul>
-                                <li><em>Root</em>: Saves all assets in the root of the selected folder.</li>
-                                <li><em>Type Subfolder</em>: Creates a subfolder for each type (e.g.,
-                                    <code>.../Items/</code>, <code>.../Enemies/</code>).
-                                </li>
+                                <li><strong>Root</strong>: Saves all assets directly in the root of the selected folder.</li>
+                                <li><strong>Type Subfolder</strong>: Automatically creates a folder for each type (e.g., <code>Items/</code>, <code>Enemies/</code>).</li>
+                                <li><strong>Single Subfolder</strong>: Creates one subfolder for the entire batch.</li>
                             </ul>
                         </li>
-                        <li><strong>Ping Folder</strong>: If enabled, Unity will highlight the folder after creating
-                            assets.</li>
+                        <li><strong>Ping Folder</strong>: If enabled, Unity will highlight the target folder in the Project window after assets are created.</li>
                     </ul>
 
-                    <h3>Naming Patterns</h3>
-                    <p>Define how new assets are named by default.</p>
+                    <h3>🏷️ Naming Patterns</h3>
+                    <p>Control the default naming format for new assets in <strong>Create Mode</strong>.</p>
                     <ul>
-                        <li><strong>Pattern</strong>: <code>{TYPE}_{i}</code></li>
-                        <li><strong>Placeholders</strong>:
+                        <li><strong>Syntax</strong>: <code>{TYPE}_{i}</code> &rarr; <code>ItemData_1</code>, <code>ItemData_2</code>...</li>
+                        <li><strong>Placeholders</strong>: <code>{TYPE}</code> (class name), <code>{i}</code> (index), <code>{ii}</code> (padded index 01, 02), <code>{DATE}</code> (current date).</li>
+                    </ul>
+
+                    <h3>🎨 Visuals & UI</h3>
+                    <ul>
+                        <li><strong>Pill Height</strong>: Adjust the vertical size of the Pill Strip in the Grid Area.</li>
+                        <li><strong>Assembly Names</strong>: Toggle whether to display the assembly namespace (e.g., <code>[Assembly-CSharp]</code>) in the sidebar.</li>
+                        <li><strong>Grid Lines</strong>: Toggle grid visibility for better readability on high-DPI screens.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>Advanced Configuration</h2>
+
+                    <h3>Native Drawn Types</h3>
+                    <p>By default, <strong>Scriptable Studio Pro</strong> automatically detects types with a <code>CustomPropertyDrawer</code>. If you have a type that should be drawn natively but isn't being detected, add its fully qualified name to this list.</p>
+
+                    <h3>Shortcuts</h3>
+                    <p>Customize your hotkeys using the <strong>Visual Keyboard Mapper</strong> in settings.</p>
+                    <ul>
+                        <li><strong>Standard Defaults</strong>:
                             <ul>
-                                <li><code>{TYPE}</code>: The class name.</li>
-                                <li><code>{i}</code>: Incrementing number (1, 2, 3).</li>
-                                <li><code>{ii}</code>: Two-digit number (01, 02, 03).</li>
-                                <li><code>{iii}</code>: Three-digit number (001, 002, 003).</li>
+                                <li><code>Ctrl+M</code> &mdash; Open Window</li>
+                                <li><code>Ctrl+S</code> &mdash; Save / Create Assets</li>
+                                <li><code>Ctrl+Z</code> &mdash; Undo</li>
+                                <li><code>Ctrl+F</code> &mdash; Open Universal Search</li>
+                                <li><code>Ctrl+D</code> &mdash; Duplicate Row</li>
                             </ul>
                         </li>
                     </ul>
 
-                    <h3>Other Settings</h3>
-                    <ul>
-                        <li><strong>Visuals</strong>: Toggle <strong>Grid Lines</strong> or <strong>Assembly
-                                Names</strong> (e.g., <code>[Assembly-CSharp]</code>).</li>
-                        <li><strong>Workflow</strong>: Enable <strong>Link Dragged Assets</strong> to automatically
-                            assign references when dragging assets into Create Mode.</li>
-                        <li><strong>Safety</strong>:
-                            <ul>
-                                <li><strong>Confirm Deletion</strong>: Toggle the warning dialog when removing rows.
-                                </li>
-                                <li><strong>Max Undo Objects</strong>: Limit the undo history size (default 1000) for
-                                    performance.</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <hr>
 
-                    <h2>Shortcuts</h2>
-                    <p>Customize hotkeys for common actions.</p>
-                    <ol>
-                        <li>Go to <code>Scriptable Studio Pro > Setting > Shortcuts</code>.</li>
-                        <li>The <strong>Visual Keyboard</strong> shows all current bindings.</li>
-                        <li>Select an action from the list on the left.</li>
-                        <li>Click a key on the virtual keyboard to rebind.</li>
-                        <li>Use the <strong>CTRL / SHIFT / ALT</strong> toggles to add modifiers.</li>
-                    </ol>
-
-                    <p><strong>Defaults:</strong></p>
-                    <ul>
-                        <li><code>Ctrl+S</code>: Save / Create Assets</li>
-                        <li><code>Ctrl+D</code>: Duplicate Row</li>
-                        <li><code>Delete</code>: Remove Row</li>
-                        <li><code>F2</code>: Rename Row(Edit mode only)</li>
-                    </ul>
-
-                    <h2>AI Configuration</h2>
-                    <p>See <a href="#ai-asset-architect">AI Assistant</a> for details on configuring AI providers.</p>
                 </section>
 
                 <div class="docs-pagination">
