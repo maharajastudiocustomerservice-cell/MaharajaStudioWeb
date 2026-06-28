@@ -119,4 +119,80 @@ document.addEventListener('DOMContentLoaded', function () {
     animatedElements.forEach(element => {
         observer.observe(element);
     });
+
+    // --- Dynamic Reading Progress Bar ---
+    const docsContent = document.querySelector('.docs-content');
+    if (docsContent) {
+        // Create progress container & bar
+        const progressContainer = document.createElement('div');
+        progressContainer.className = 'scroll-progress-container';
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress-bar';
+        progressContainer.appendChild(progressBar);
+        document.body.appendChild(progressContainer);
+
+        // Update progress on scroll
+        const updateProgressBar = () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            progressBar.style.width = scrolled + '%';
+        };
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar(); // Run once initially
+    }
+
+    // --- Dynamic Read Time Badges ---
+    const docSections = document.querySelectorAll('.docs-section');
+    docSections.forEach(section => {
+        const text = section.innerText || section.textContent || '';
+        const wordCount = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+        const readTime = Math.max(1, Math.ceil(wordCount / 225)); // ~225 WPM average reading speed
+        
+        // Find the first heading of the section
+        const heading = section.querySelector('h1, h2');
+        if (heading && !heading.querySelector('.read-time-badge')) {
+            const badge = document.createElement('span');
+            badge.className = 'read-time-badge';
+            badge.innerHTML = `<i class="far fa-clock"></i> ${readTime} min read`;
+            heading.appendChild(badge);
+        }
+    });
+
+    // --- Code Copy Buttons ---
+    const codeBlocks = document.querySelectorAll('.docs-content pre');
+    codeBlocks.forEach(pre => {
+        // Avoid double wrapping if already processed
+        if (pre.parentNode.classList.contains('code-block-wrapper')) return;
+
+        // Wrap pre block in helper container
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        // Create copy button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-code-btn';
+        copyBtn.type = 'button';
+        copyBtn.innerHTML = '<i class="far fa-copy"></i> Copy';
+        wrapper.appendChild(copyBtn);
+
+        // Copy click handler
+        copyBtn.addEventListener('click', () => {
+            const codeEl = pre.querySelector('code');
+            const textToCopy = codeEl ? codeEl.innerText : pre.innerText;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="far fa-copy"></i> Copy';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    });
 });

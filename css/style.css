@@ -692,3 +692,93 @@ body {
 .footer .social-icons a:hover {
     color: var(--primary-color);
 }
+
+/* --- Reading Progress Bar --- */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    z-index: 2000;
+    pointer-events: none;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color), #00e5ff);
+    box-shadow: 0 0 8px var(--primary-color);
+    transition: width 0.1s ease-out;
+}
+
+/* --- Read Time Badge --- */
+.read-time-badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--muted-text-color);
+    margin-left: 12px;
+    padding: 2px 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+[data-theme='light'] .read-time-badge {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* --- Code Copy Button --- */
+.code-block-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.code-block-wrapper pre {
+    margin-bottom: 0 !important;
+}
+
+.copy-code-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(30, 41, 59, 0.75);
+    border: 1px solid var(--border-color);
+    color: var(--muted-text-color);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.code-block-wrapper:hover .copy-code-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.copy-code-btn:hover {
+    color: var(--text-color);
+    background: rgba(30, 41, 59, 0.95);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.2);
+}
+
+.copy-code-btn.copied {
+    color: #10b981 !important; /* Emerald green */
+    border-color: #10b981 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+}
