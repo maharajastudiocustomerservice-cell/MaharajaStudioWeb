@@ -34,6 +34,8 @@ The top toolbar contains global controls for preview setup, play/pause clock man
 * **Auto-Key**: Toggles automatic recording of keyframes when character bones are transformed in the Scene view.
 * **Offset Mode**: When active alongside Auto-Key, transforming a bone shifts the *entire* animation curve by that amount as a constant offset, rather than overwriting only the current frame.
 * **Undo / Redo**: Quick buttons to step backward or forward through your edits.
+* **Live Link (Sync-to-Composition)**: Evaluates the full Composition context (IK, Masks, FX) live in the Scene view instead of just the raw animation clip.
+* **Ghost Preview**: Shows a semi-transparent "ghost" of the full composition context blended in the background while you edit the raw clip.
 * **Export Pose**: Bakes the current pose of the preview character into a new, single-frame Animation Clip asset.
 * **Settings (⚙)**: Opens the settings window to customize colors, row heights, and layout scales.
 

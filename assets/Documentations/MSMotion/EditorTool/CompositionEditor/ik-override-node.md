@@ -68,6 +68,19 @@ When you select a keyframe node in the Scene View, the HUD panel displays the **
 
 ---
 
+## Advanced IK Locks
+
+IK Locks allow you to pin multiple joints (e.g., both hands or feet) to specific world-space coordinates while the rest of the body continues to animate dynamically. 
+
+Under the **IK Locks** tab in the IK Override Node:
+* Click **+ Add IK Lock** to attach a new lock modifier.
+* **Target Bone**: Choose the bone to freeze in place.
+* **Lock Position/Rotation**: Check to freeze translation, rotation, or both.
+* **World Space Constraints**: You can provide a specific transform target to stick the limb to an object during the override duration.
+
+---
+
+
 ## Squash & Stretch and Joint Scale Overrides
 
 For advanced stylized animations, character rigs can utilize squash and stretch behaviors dynamically. The IK Override Node allows you to configure scale multipliers visually or customize joints per keyframe:

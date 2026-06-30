@@ -61,6 +61,13 @@ Enables procedural bone stretching under tension:
 *   **Preserve Volume**: When stretched, squashes the bone's perpendicular scale to maintain volume.
 *   **Compensate Parent Scale**: Ignores parental scale changes to prevent scaling errors.
 
+### Twist Distribution (Roll Solvers)
+Prevents "candy wrapper" twisting artifacts on character limbs (such as forearms and upper arms) by distributing the source bone's twist rotation across multiple twist target bones.
+*   **Enable Twist Distribution**: Toggles the roll solver for this chain.
+*   **Twist Source Bone**: The bone whose twist is measured (usually the wrist/hand).
+*   **Twist Axis (Local)**: The local axis vector around which the source bone naturally twists (usually `1,0,0` for the X-axis).
+*   **Twist Target Bones**: A dynamic list of bones that will receive a fraction of the twist. Add bones (e.g. `ForearmTwist_L`) and adjust their **Weight** sliders (e.g., `0.5` for 50% twist distribution).
+
 ### Bone Paths
 Defines the joints included in the solver:
 *   *Two-Bone Analytic*: Specify the **Root** (shoulder/hip), **Mid** (elbow/knee), and **Tip** (hand/foot) transforms.

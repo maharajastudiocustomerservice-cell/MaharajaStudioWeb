@@ -294,6 +294,8 @@
                         <li><strong>Auto-Key</strong>: Toggles automatic recording of keyframes when character bones are transformed in the Scene view.</li>
                         <li><strong>Offset Mode</strong>: When active alongside Auto-Key, transforming a bone shifts the <em>entire</em> animation curve by that amount as a constant offset, rather than overwriting only the current frame.</li>
                         <li><strong>Undo / Redo</strong>: Quick buttons to step backward or forward through your edits.</li>
+                        <li><strong>Live Link (Sync-to-Composition)</strong>: Evaluates the full Composition context (IK, Masks, FX) live in the Scene view instead of just the raw animation clip.</li>
+                        <li><strong>Ghost Preview</strong>: Shows a semi-transparent "ghost" of the full composition context blended in the background while you edit the raw clip.</li>
                         <li><strong>Export Pose</strong>: Bakes the current pose of the preview character into a new, single-frame Animation Clip asset.</li>
                         <li><strong>Settings (⚙)</strong>: Opens the settings window to customize colors, row heights, and layout scales.</li>
                     </ul>
@@ -1430,6 +1432,15 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                         <li><strong>Bake FK to IK Path</strong>: Samples the base animation over the node's duration and records the joint paths into keyframe nodes.</li>
                     </ul>
 
+                    <h3>Advanced IK Locks</h3>
+                    <p>IK Locks allow you to pin multiple joints (e.g., both hands or feet) to specific world-space coordinates while the rest of the body continues to animate dynamically. Under the <strong>IK Locks</strong> tab in the IK Override Node:</p>
+                    <ul>
+                        <li>Click <strong>+ Add IK Lock</strong> to attach a new lock modifier.</li>
+                        <li><strong>Target Bone</strong>: Choose the bone to freeze in place.</li>
+                        <li><strong>Lock Position/Rotation</strong>: Check to freeze translation, rotation, or both.</li>
+                        <li><strong>World Space Constraints</strong>: You can provide a specific transform target to stick the limb to an object during the override duration.</li>
+                    </ul>
+
                     <h3>Squash & Stretch and Joint Scale Overrides</h3>
                     <p>For advanced stylized animations, character rigs can utilize squash and stretch behaviors dynamically:</p>
                     <ul>
@@ -1475,6 +1486,7 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                         <li><strong>Soft IK Ratio</strong>: A slider (0.0 to 0.5) that prevents limbs from aggressively popping when extending straight.</li>
                         <li><strong>Use Pole Vector</strong>: Toggles custom pole target alignment to direct joint hinge bends.</li>
                         <li><strong>Squash & Stretch</strong>: Toggles bone lengthening when targets are pulled beyond the natural limb span (Allow Stretch, Max Stretch Multiplier, Stretch Axis, Preserve Volume, Compensate Parent Scale).</li>
+                        <li><strong>Twist Distribution (Roll Solvers)</strong>: Prevents "candy wrapper" twisting artifacts on character limbs (such as forearms and upper arms) by distributing the source bone's twist rotation across multiple twist target bones (Enable Twist Distribution, Twist Source Bone, Twist Axis, Twist Target Bones list).</li>
                         <li><strong>Bone Paths</strong>: Defines the joints included in the solver.</li>
                         <li><strong>Per-Joint Scale Overrides</strong>: Manually compress or extend specific bones inside the chain.</li>
                     </ul>
