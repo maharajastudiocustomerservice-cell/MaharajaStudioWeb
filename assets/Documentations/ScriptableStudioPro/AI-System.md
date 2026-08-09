@@ -91,6 +91,14 @@ public int GoldReward;
 public string InternalGUID;
 ```
 
+### 4. AI Prompt Snippet Library *(New in v3.1)*
+
+Save and reuse frequently used prompt instructions globally across the project to accelerate iterative generation and refinement.
+
+- **Persistent Saving**: Save custom prompts directly from the AI Generator or AI Refiner panels using the **Save** button.
+- **Context-Aware Loading**: Tag saved prompts for the Generator, the Refiner, or Both. The load list filters dynamically based on the active tool.
+- **Centralized Management**: Manage, edit, or delete all saved prompt snippets globally from the dedicated **AI Prompts** tab in the main Settings Window.
+
 ---
 
 ## 🔍 How It Works (Architecture)

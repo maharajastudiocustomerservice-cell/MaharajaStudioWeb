@@ -205,6 +205,7 @@
                             <li><a href="#ce-look-at-node" class="docs-nav-link">Look-At Constraint Node</a></li>
                             <li><a href="#ce-jiggle-node" class="docs-nav-link">Jiggle Physics Node</a></li>
                             <li><a href="#ce-trajectory-node" class="docs-nav-link">Trajectory Override Node</a></li>
+                            <li><a href="#ce-bone-subdivision-node" class="docs-nav-link">Bone Subdivision Node (Exp)</a></li>
                         </ul>
                     </li>
 
@@ -239,6 +240,7 @@
                     <li><a href="#rt-core-animation" class="docs-nav-link">Core Animation System</a></li>
                     <li><a href="#rt-rigging-ik" class="docs-nav-link">Rigging & IK System</a></li>
                     <li><a href="#rt-stretch-scale" class="docs-nav-link">Stretch & Scale System</a></li>
+                    <li><a href="#rt-dynamic-bone-subdivision" class="docs-nav-link">Dynamic Bone Subdivision (Exp)</a></li>
                     <li><a href="#rt-fx-event" class="docs-nav-link">FX & Event System</a></li>
                     <li><a href="#rt-optimization" class="docs-nav-link">Optimization & Best Practices</a></li>
                 </ul>
@@ -837,7 +839,7 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                 <!-- 8. Advanced Editorial Tools -->
                 <section id="ae-advanced-tools" class="docs-section" data-tab="animation-editor">
                     <h2>Advanced Editorial Tools</h2>
-                    <p>The Animation Editor includes five advanced tools located in the <strong>Advanced Tools</strong> sidebar foldout. These tools streamline editing tasks like mirroring poses, blending keys, cleaning up noise, and extracting root motion.</p>
+                    <p>The Animation Editor includes seven advanced tools located in the <strong>Advanced Tools</strong> sidebar foldout. These tools streamline editing tasks like mirroring poses, blending keys, cleaning up noise, extracting root motion, removing root motion, and non-linear time warping.</p>
 
                     <hr class="my-4">
 
@@ -931,6 +933,34 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                         </li>
                         <li>Click <strong>Extract Root Motion</strong>. The editor strips translation and rotation from the hips bone and writes it directly onto the clip's root transform curves.</li>
                     </ol>
+
+                    <hr class="my-4">
+
+                    <h3>6. Remove Root Motion</h3>
+                    <p>The <strong>Remove Root Motion</strong> tool deletes existing root transform animations from a clip, converting animations from root-motion to in-place locomotion.</p>
+
+                    <h4>Settings</h4>
+                    <ul>
+                        <li><strong>Remove Position</strong>: Strips translation data from the root node.</li>
+                        <li><strong>Remove Rotation</strong>: Strips rotation data from the root node.</li>
+                        <li><strong>Flatten to First Frame</strong>: Keeps a single keyframe at time <code>0.0</code> locked to the original starting pose instead of deleting the curves entirely. This prevents the character from snapping back to <code>(0,0,0)</code> if the animation was authored with an offset.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>7. Time Warper</h3>
+                    <p>The <strong>Time Warper</strong> is an advanced retiming system that allows you to non-linearly speed up, slow down, or hold specific parts of an animation without shifting hundreds of keyframes manually.</p>
+
+                    <h4>How it Works</h4>
+                    <p>The Time Warper remaps the animation's timing using a <strong>Warp Curve</strong> (Input Time vs. Output Time). A straight diagonal line maintains normal speed, a steep slope speeds the motion up, and a flat slope slows it down.</p>
+                    
+                    <ul>
+                        <li><strong>Global Warp Curve</strong>: Defines baseline timing changes for the clip. Includes built-in presets: <code>Linear</code>, <code>Ease In</code>, <code>Ease Out</code>, <code>Snappy</code> (fast impact), and <code>Anticipate</code>.</li>
+                        <li><strong>Per-Bone Overrides</strong>: By clicking <strong>+ Add Bone Override</strong>, individual bones receive custom timing curves. For Humanoid rigs, the Time Warper automatically consolidates hundreds of directional muscle curves into logical bone names (e.g. <em>Left Arm</em>, <em>Spine</em>).</li>
+                        <li><strong>Push to All Overrides</strong>: Instantly copies the Global Warp Curve to every bone with an active override as a starting baseline.</li>
+                        <li><strong>Bake FPS</strong>: Configurable target frame rate used when re-baking dense warped keyframe curves.</li>
+                        <li><strong>Destructive vs. Export</strong>: Apply the warp directly to the active clip (with full Undo support) or click <strong>Export Warped Copy</strong> to save a new <code>.anim</code> asset file.</li>
+                    </ul>
                 </section>
 
                 <!-- 9. Clip & Asset Management -->
@@ -1693,6 +1723,75 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
 
                     <h3>Workflow: Spline Sub-Path Extraction</h3>
                     <p>If you need to crop the duration of a trajectory node without destroying the shape of the spline curve, click the <strong>Extract Sub-Path</strong> button in the details panel. This uses a <strong>de Casteljau subdivision</strong> algorithm to mathematically calculate new control points and tangents so the cropped segment preserves the exact visual shape of the original path.</p>
+                </section>
+
+                <!-- Bone Subdivision Node (Exp) -->
+                <section id="ce-bone-subdivision-node" class="docs-section" data-tab="composition-editor">
+                    <h2>Bone Subdivision Node (Exp)</h2>
+                    <div class="alert alert-warning border-0 p-3 rounded-3 mb-4">
+                        <i class="fas fa-exclamation-triangle me-2"></i><strong>Experimental Feature:</strong> The Bone Subdivision node is currently an experimental feature and is subject to change in future updates.
+                    </div>
+                    <p>The <strong>Bone Subdivision</strong> node allows you to dynamically divide existing bones into multiple virtual segments. This is useful for creating flexible, bendy, or elongated motions (like a stretchy neck, tail, or tentacle) without requiring the original rig to be authored with extra bones.</p>
+                    <p>At export time, mesh weights are automatically redistributed, and the virtual bones are baked into the resulting animation clip.</p>
+
+                    <hr class="my-4">
+
+                    <h3>Adding the Node</h3>
+                    <ol>
+                        <li>Open the <strong>Composition Editor</strong>.</li>
+                        <li>Right-click on any layer track in the timeline.</li>
+                        <li>Select <strong>Constraints &gt; Bone Subdivision (Exp)</strong>.</li>
+                    </ol>
+                    <p>Once added, select the node in the timeline to view and configure its settings in the Details panel.</p>
+
+                    <hr class="my-4">
+
+                    <h3>Node Settings</h3>
+                    <p>The Bone Subdivision node can be authored entirely inline (within the composition timeline) or via a reusable <strong>Descriptor Asset</strong> to share configurations across multiple animations.</p>
+
+                    <h4>General Configuration</h4>
+                    <ul>
+                        <li><strong>Descriptor Asset</strong>: (Optional) Drag a <code>MSMotionBoneSubdivisionDescriptor</code> ScriptableObject here. When assigned, the node uses the asset's settings and ignores inline fields.</li>
+                        <li><strong>Config Label</strong>: A custom name for this node configuration (e.g., "Bendy Neck Setup").</li>
+                    </ul>
+
+                    <h4>Chain Topology</h4>
+                    <ul>
+                        <li><strong>Subdivision Mode</strong>:
+                            <ul>
+                                <li><strong>Fixed Count</strong>: Creates an exact, fixed number of virtual bones per source bone.</li>
+                                <li><strong>Density</strong>: Creates virtual bones dynamically based on the physical length of the source bone, ensuring spatial resolution regardless of stretch.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Subdivisions Per Bone</strong>: (Fixed Count mode) The exact number of virtual bones injected into each source bone.</li>
+                        <li><strong>Bone Spacing (cm)</strong>: (Density mode) Physical distance between each virtual bone in centimeters.</li>
+                    </ul>
+
+                    <h4>Deformation & Weighting</h4>
+                    <ul>
+                        <li><strong>Weight Falloff Curve</strong>: Defines how original bone skin weights distribute across virtual bones (X-axis: 0 = root, 1 = tip; Y-axis: relative influence). A linear curve (<code>0,1</code> to <code>1,1</code>) provides even distribution.</li>
+                        <li><strong>Preserve Volume</strong>: Applies perpendicular scale compensation when the chain stretches, maintaining character volume without thinning artifacts.</li>
+                    </ul>
+
+                    <h4>Source Bones</h4>
+                    <ul>
+                        <li><strong>Source Bone Chain</strong>: A list of bones to subdivide, ordered from Root to Tip (e.g., <code>Spine</code> &rarr; <code>Chest</code> &rarr; <code>Neck</code>).
+                            <ul>
+                                <li><strong>Humanoid Rigs</strong>: Select <code>HumanBodyBones</code> enum mapping (e.g., <code>Neck</code>).</li>
+                                <li><strong>Generic Rigs</strong>: Set dropdown to <code>LastBone</code> and enter the transform hierarchy path manually.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="alert alert-info border-0 p-3 rounded-3 my-3">
+                        <strong>Tip:</strong> Do not include terminal bones you want to manually animate (like the <code>Head</code>) in the source bone list. Subdivide the <code>Neck</code> instead, and the <code>Head</code> will ride on top of the bendy neck.
+                    </div>
+
+                    <h4>Advanced / Solver Settings</h4>
+                    <ul>
+                        <li><strong>Propagated Tip Children</strong>: Explicitly forces child bones to detach from source bones and re-attach to the tip of the subdivided chain. <em>(Smart Auto-Propagation automatically measures distance to re-parent tip and base children).</em></li>
+                        <li><strong>FABRIK Iterations</strong>: Maximum solver iterations allowed per frame.</li>
+                        <li><strong>FABRIK Tolerance</strong>: Distance threshold (in meters) for solver convergence.</li>
+                    </ul>
                 </section>
 
                 <!-- 11. FX Nodes Overview -->
@@ -2852,6 +2951,52 @@ public class PerformanceManager : MonoBehaviour
         Debug.Log($"[Performance] Adjusted {_applicators.Length} stretch applicators.");
     }
 }</code></pre>
+                </section>
+
+                <!-- Dynamic Bone Subdivision (Exp) -->
+                <section id="rt-dynamic-bone-subdivision" class="docs-section" data-tab="runtime-system">
+                    <h2>Dynamic Bone Subdivision (DBS) (Exp)</h2>
+                    <div class="alert alert-warning border-0 p-3 rounded-3 mb-4">
+                        <i class="fas fa-exclamation-triangle me-2"></i><strong>Experimental System:</strong> The DBS runtime system is an experimental feature and its API is subject to change in future releases.
+                    </div>
+                    <p>The <strong>Dynamic Bone Subdivision (DBS)</strong> system creates fluid, snake-like, or elongated movements for existing bones without requiring the source rig to have extra bones authored. It preserves mesh integrity while producing stylized animations such as long-neck creatures, stretchy arms, or flowing tails.</p>
+
+                    <hr class="my-4">
+
+                    <h3>System Architecture</h3>
+                    <p>The system operates across two main phases:</p>
+
+                    <h4>1. Editor & Baking Phase</h4>
+                    <p>During composition editing, virtual bones are dynamically inserted and solved using a high-performance FABRIK algorithm. Upon export, virtual bone positions and rotations are baked directly into the output <code>.anim</code> clip, embedding a lightweight <code>SubdividedChainMetadata</code> sub-asset alongside it.</p>
+                    
+                    <h5>Dummy Bones & Smart Child Propagation</h5>
+                    <p>When a bone is subdivided, its mesh weights transfer to virtual bones while the original bone becomes a dummy bone (tagged with <code>[DUMMY]</code> in the editor):</p>
+                    <ul>
+                        <li><strong>Smart Re-parenting</strong>: Children located at the tip (e.g. <code>Head</code> on <code>Neck</code>) auto-attach to the virtual chain end; base children (e.g. <code>ShoulderPad</code>) remain at the base.</li>
+                        <li><strong>Tip Rotation Preservation</strong>: Uses minimal-arc <code>FromToRotation</code> so tip children maintain local axes without twisting.</li>
+                    </ul>
+
+                    <h4>2. Runtime Playback Phase</h4>
+                    <p>Runtime playback is zero-solver and lightweight because it does <strong>not</strong> execute IK/FABRIK algorithms per frame:</p>
+                    <ol>
+                        <li>Attach <code>SubdividedChainApplicator</code> to your character (alongside <code>MSMotionAnimator</code> or <code>Animator</code>).</li>
+                        <li>The component detects active <code>SubdividedChainMetadata</code> from the playing clip.</li>
+                        <li>Hierarchy and child propagation are reconstructed seamlessly.</li>
+                        <li>In <code>LateUpdate</code>, baked curves from the animation clip sample and drive virtual bones directly.</li>
+                    </ol>
+
+                    <h4>Additive Blending & Crossfading</h4>
+                    <p>The <code>SubdividedChainApplicator</code> includes a <code>BlendWeight</code> property (0.0 to 1.0):</p>
+                    <pre><code class="language-csharp">// Smoothly transition into a subdivided state over 0.5 seconds
+StartCoroutine(applicator.FadeIn(0.5f));
+
+// Smoothly transition back to original bind pose
+StartCoroutine(applicator.FadeOut(0.5f));</code></pre>
+
+                    <hr class="my-4">
+
+                    <h3>Mesh Preservation (Skin Weight Redistribution)</h3>
+                    <p>To prevent mesh distortion, the <code>SkinWeightRedistributor</code> creates a dynamic copy of the <code>SkinnedMeshRenderer</code>'s mesh during baking. It intelligently extracts the top 4 most significant bone influences per vertex, bypassing Unity vertex buffer limitations while maintaining mesh fidelity.</p>
                 </section>
 
                 <!-- 6. FX & Event System -->

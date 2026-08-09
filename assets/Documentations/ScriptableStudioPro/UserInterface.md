@@ -85,8 +85,9 @@ Appears at the top of the right pane when two or more types are checked in the s
 | **AI Window Button** | Opens the **AI Asset Architect** window. |
 | **Import/Export Button** | Opens the **Data Manager** for CSV/JSON/SQL/Google Sheets. |
 | **Smart Fill Button (✨)** | Opens **Smart Fill** for selected cells. |
+| **Manage Columns (👁️)** | *(New in v4.5)* Opens the **Column Visibility Manager** window to search, show/hide, or bulk-toggle grid columns. |
 | **Grid View** | The spreadsheet. **Rows** = instances, **Columns** = fields. |
-| **Action Menu (⋮)** | Per-row context menu: Duplicate, Delete, Reset, Insert Above/Below, Copy, Paste. |
+| **Action Menu (⋮)** | Per-row context menu: Duplicate, Delete, Reset, Insert Above/Below, Copy, Paste, and quick actions (Create/Update/Save Selected). |
 | **Column Header (right-click)** | Per-column options: Sort, Smart Rename, Set Name from Field. |
 
 ---
@@ -136,6 +137,10 @@ When a `GameObject` reference is assigned:
 | **Search Bar** | Filter visible fields by name |
 | **Previous / Next** | Navigate between instances without closing the panel |
 | **Undo / Redo** | The custom undo stack applies here as well |
+
+### Reference Selection *(Updated in v4.5)*
+
+When selecting an asset reference for a field via the **Reference Selector** window, a **"Clear Reference"** button is now available to quickly unassign the current asset, providing instant UI feedback.
 
 ---
 
@@ -231,6 +236,7 @@ Accessed via the **🐞** icon in the main toolbar.
 |:---|:---|
 | **Type Selector** | Choose which type to validate |
 | **Rule List** | Add, remove, and configure validation rules |
+| **Rule Manager Tab** | *(New in v4.5)* Dedicated tab for managing and editing complex Custom Rules (Formula/Regex) |
 | **Run Validation** | Execute all rules against current instances |
 | **Results List** | Shows failing instances with field name, current value, and violated rule |
 | **Ping Asset** | Highlights the failing asset in the Project window |

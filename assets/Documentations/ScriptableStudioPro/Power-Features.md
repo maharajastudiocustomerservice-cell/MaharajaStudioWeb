@@ -29,6 +29,24 @@ Toggle **Formula Mode** in the main toolbar to display raw formula strings in th
 
 ---
 
+## Formula & Search Aliases *(New in v4.0)*
+
+Formula and Search Aliases allow you to define persistent shorthand tokens for frequently used query filters and complex formula expressions, dramatically speeding up your workflow.
+
+### Alias Classifications
+
+Aliases are organized into two categories depending on where they are used:
+1. **Search Aliases**: Shorthands used in the main search bar to quickly apply complex filters (e.g., `@liverock` or `@rock`).
+2. **FieldValue Aliases**: Shorthands used in Formula Mode or column formula inputs to compute dynamic calculations (e.g., `@up`).
+
+### Usage
+
+- **Defining Aliases**: Open the **Formula Alias Manager** from the toolbar or project settings. You can define global aliases that apply to all types, or restrict aliases to specific component/asset types.
+- **Inline Autocomplete**: Simply type `@` in the search bar or in a formula input field. A dropdown list of available matching aliases will automatically appear with their descriptions. Select a suggestion or press Tab/Enter to expand it.
+- **Execution**: The alias is dynamically expanded behind the scenes before the query parser evaluates the search filter or math operation.
+
+---
+
 ## Smart Fill
 
 Auto-complete sequences of data across multiple rows in seconds.
@@ -143,6 +161,8 @@ Open it via the **🐞 (Validate)** button in the main toolbar.
 | **Built-in** | Detect null references, empty strings, out-of-range values |
 | **Formula** | Write custom expressions (e.g., `[Health] > 0 && [MaxHealth] >= [Health]`) |
 | **Regex** | Pattern-match string fields (e.g., asset IDs must match `^[A-Z]{3}_\d{4}$`) |
+
+*(New in v4.5)* Custom rules (Formula and Regex) are now managed in a spacious, dedicated **Rule Manager** tab within the Validation window, making it easier to manage complex rules.
 
 Each failing instance is listed with its field name, value, and rule that was violated.
 

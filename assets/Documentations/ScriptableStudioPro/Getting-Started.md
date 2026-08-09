@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to **Scriptable Studio Pro v3.0**. This guide will get you set up and creating your first database in minutes.
+Welcome to **Scriptable Studio Pro v4.0**. This guide will get you set up and managing your ScriptableObject and Prefab data in minutes.
 
 ---
 
@@ -11,10 +11,10 @@ Welcome to **Scriptable Studio Pro v3.0**. This guide will get you set up and cr
 
 ---
 
-## Opening the Window
+## Opening the Windows
 
-Go to **`Assets › Scriptable Studio Pro`** or **`Tools › Maharaja Studio › Scriptable Studio Pro › Open Window`**  
-Keyboard shortcut: **`Ctrl + M`** / **`Cmd + M`**
+- **Scriptable Studio Pro**: Go to **`Assets › Scriptable Studio Pro`** or **`Tools › Maharaja Studio › Scriptable Studio Pro › Open Window`** (Shortcut: **`Ctrl + M`** / **`Cmd + M`**).
+- **Prefab Studio Pro**: Go to **`Tools › Maharaja Studio › Prefab Studio Pro`**.
 
 ---
 
@@ -101,6 +101,7 @@ If your `ScriptableObject` has a field like `SerializableDictionary<int, string>
 
 Fields using **Unity Localization** are handled automatically:
 - Values are correctly read from and written to the Localization tables without breaking references.
+- **AI Localization Bridge**: Automatically map AI-generated translations directly to configured String Table Collections, dynamically instantiating runtime keys silently in the background.
 - No manual configuration required.
 
 ---

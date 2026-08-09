@@ -75,3 +75,29 @@ Root motion moves the character's physical coordinate origin in the game world b
    * **Target is Humanoid**: Enable this if working on a humanoid character.
    * **Pos (X/Y/Z)** / **Rot (X/Y/Z)**: Choose which motion axes to extract. For standard locomotion, position X and Z (horizontal movement) and rotation Y (turning direction) are typically extracted, leaving position Y (jumping height) on the hips.
 3. Click **Extract Root Motion**. The editor strips translation and rotation from the hips bone and writes it directly onto the clip's root transform curves.
+
+---
+
+## 6. Remove Root Motion
+
+The **Remove Root Motion** tool deletes existing root transform animations from a clip, which is useful when converting an animation from root-motion to in-place.
+
+### Settings
+* **Remove Position**: Strips translation data from the root.
+* **Remove Rotation**: Strips rotation data from the root.
+* **Flatten to First Frame**: Instead of deleting the curves entirely, it keeps a single keyframe at time `0.0` locked to the original starting pose. This prevents the character from snapping back to `(0,0,0)` if the animation was authored with an offset.
+
+---
+
+## 7. Time Warper
+
+The **Time Warper** is an advanced retiming system that allows you to non-linearly speed up, slow down, or hold specific parts of an animation without shifting hundreds of keyframes manually.
+
+### How it Works
+The Time Warper remaps the animation's timing using a **Warp Curve** (Input Time vs. Output Time). A straight diagonal line means normal speed, a steep slope speeds the motion up, and a flat slope slows it down. 
+
+* **Global Warp Curve**: Defines the baseline timing change for the entire clip. You can select presets like **Snappy** (fast impact), **Ease In**, or **Anticipate**.
+* **Per-Bone Overrides**: By clicking **+ Add Bone Override**, you can give individual bones their own specific timing curves. For Humanoid rigs, the Time Warper automatically groups thousands of muscle properties into clean, logical bone names (e.g., *Left Arm*, *Spine*).
+* **Push to All Overrides**: Instantly copies the Global Warp Curve to every bone you've added an override for, allowing you to use a preset as a starting point.
+* **Bake FPS**: Because warping changes timing non-linearly, the animation curves are re-baked into dense keyframes to preserve the exact motion shape. You can set the target frame rate for this bake.
+* **Destructive vs. Export**: You can apply the warp directly to the current clip (fully Undo-able), or use **Export Warped Copy** to safely save a brand new `.anim` file.

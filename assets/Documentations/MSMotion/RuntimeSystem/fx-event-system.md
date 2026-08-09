@@ -110,11 +110,24 @@ Triggers developer-defined logic callbacks.
 *   `UseSendMessage` (bool): Automatically executes `GameObject.SendMessage` on the target.
 *   `SendMessageMethod` (string): The script method name to invoke.
 
+### 8. DecalFXEvent
+Projects a decal onto a surface using a raycast from the target bone.
+*   `SourceMode` (DecalSourceMode): `Prefab` or `Material`.
+*   `Prefab` / `Prefabs` (GameObject / GameObject[]): Decal prefab(s) to spawn (supports array for random picking).
+*   `Material` (Material): Material to project.
+*   `ProjectionDirection` (Vector3): Raycast direction relative to the bone.
+*   `MaxDistance` (float): Maximum raycast distance.
+*   `Emission` (FXEmissionSettings): Controls spawning over time (`Single`, `TimeBased`, `DistanceBased`).
+*   `MaxSurfaceAngle` (float): Maximum allowable angle between projection direction and surface normal.
+*   `DecalSize` / `ScaleMultiplier` (float): Size controls.
+*   `UseNonUniformScale` / `ScaleX` / `ScaleY` (bool/float): Independent scale adjustments.
+*   `MaxActiveCount` (int): Caps the maximum number of active decals for looping emissions.
+
 ---
 
 ## Spline Trajectory System
 
-Both `ParticleFXEvent` and `VFXGraphFXEvent` support **Bezier Trajectories** (`FXTrajectoryData`). When enabled, the FX Player hands evaluation to `FXTrajectoryEvaluator` to move the effect along a bezier spline path over its active duration:
+Both `ParticleFXEvent`, `VFXGraphFXEvent`, and `TransformFXEvent` support **Bezier Trajectories** (`FXTrajectoryData`). When enabled, the FX Player hands evaluation to `FXTrajectoryEvaluator` to move the effect (or transform) along a bezier spline path over its active duration:
 
 *   **Coordinate Space**: Can evaluate in `AbsoluteWorld` space or `RelativeToAnchor` (relative to the target bone at the moment of spawning).
 *   **Align to Path**: If true, rotates the spawned object to face the forward tangent of the path (useful for projectiles or trailing vfx).
@@ -180,6 +193,7 @@ Exposed in the `MSMotionFXRegistry` ScriptableObject. Each override class corres
 *   **MSMotionScriptFXOverride**: `OverrideMethodName` (string), `OverrideContextTargetMode` (FXOverrideTargetMode), `OverrideCustomContextBoneName` (string), `OverrideCustomContextHumanBone` (HumanBodyBones), `OverrideUseSendMessage` (bool).
 *   **MSMotionCameraShakeFXOverride**: `OverrideImpulseSourcePrefab` (GameObject), `OverrideAmplitude` (float), `OverrideFrequency` (float), `OverrideImpulseDirection` (Vector3), `OverrideUseCharacterForward` (bool).
 *   **MSMotionSpawnFXOverride**: `OverridePrefab` (GameObject), `OverrideDestroyOnEnd` (bool), `OverrideUsePool` (bool), `OverrideAttachToBone` (bool).
+*   **MSMotionDecalFXOverride**: `OverrideSourceMode` (DecalSourceMode), `OverridePrefab` (GameObject), `OverrideMaterial` (Material), `OverrideProjectionDirection` (Vector3), `OverrideMaxDistance` (float), `OverrideDecalSize` (float), `OverrideScaleMultiplier` (float).
 
 ---
 
@@ -209,6 +223,7 @@ All runtime override containers inherit from `MSMotionBaseFXOverride` and expose
 *   **MSMotionScriptFXOverride**: `OverrideMethodName` (string), `OverrideContextTargetMode` (FXOverrideTargetMode), `OverrideCustomContextBoneName` (string), `OverrideCustomContextHumanBone` (HumanBodyBones), `OverrideUseSendMessage` (bool).
 *   **MSMotionCameraShakeFXOverride**: `OverrideImpulseSourcePrefab` (GameObject), `OverrideAmplitude` (float), `OverrideFrequency` (float), `OverrideImpulseDirection` (Vector3), `OverrideUseCharacterForward` (bool).
 *   **MSMotionSpawnFXOverride**: `OverridePrefab` (GameObject), `OverrideDestroyOnEnd` (bool), `OverrideUsePool` (bool), `OverrideAttachToBone` (bool).
+*   **MSMotionDecalFXOverride**: `OverrideSourceMode` (DecalSourceMode), `OverridePrefab` (GameObject), `OverrideMaterial` (Material), `OverrideProjectionDirection` (Vector3), `OverrideMaxDistance` (float), `OverrideDecalSize` (float), `OverrideScaleMultiplier` (float).
 
 #### Programmatic Override Example
 
@@ -371,9 +386,8 @@ Because there are multiple ways to override FX events, MSMotion evaluates them i
 
 1. **Transient Runtime Override:** (`MSMotionBaseFXOverride` passed into `Play()`) - Highest priority, scopes to exact playback instance.
 2. **Global Runtime Override:** (Set via `FXPlayer.SetRuntimeOverride()`) - Applies to all animations until manually cleared.
-3. **Transient Registry:** (`MSMotionFXRegistry` passed into `Play()`)
-4. **Config Registry:** (`FXRegistryOverride` baked into the `MSMotionAnimationConfig` ScriptableObject)
-5. **Global Registry:** (The `MSMotionFXRegistry` assigned directly to the `MSMotionFXPlayer` Inspector).
-6. **Manifest Default:** (The base values authored in the Animation Window) - Lowest priority.
+3. **Config Registry:** (`FXRegistryOverride` baked into the `MSMotionAnimationConfig` ScriptableObject)
+4. **Global Registry:** (The `MSMotionFXRegistry` assigned directly to the `MSMotionFXPlayer` Inspector).
+5. **Manifest Default:** (The base values authored in the Animation Window) - Lowest priority.
 
 > **Next Guide**: Learn how to apply dynamic skeletal constraints in the [Rigging & IK System](rigging-and-ik-system.md).

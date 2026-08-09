@@ -27,6 +27,8 @@ Define how new assets are named by default.
 - **Safety**:
   - **Confirm Deletion**: Toggle the warning dialog when removing rows.
   - **Max Undo Objects**: Limit the undo history size (default 1000) for performance.
+- **Window Behaviors *(New in v3.1)***:
+  - **Auto-Close Panels**: Configure whether operational windows (e.g. AI Generator, AI Refiner, Smart Fill, Batch Rename) automatically close after executing an action or stay open for continuous work.
 
 ## Shortcuts
 
@@ -47,3 +49,10 @@ Customize hotkeys for common actions.
 ## AI Configuration
 
 See [AI Assistant](AI-Assistant.md) for details on configuring AI providers.
+
+## Grammar & Translation Configuration *(New in v4.5)*
+
+Configure your language tools directly from the project settings.
+
+- **Grammar Services**: Create a Grammar Profile (`Create > Scriptable Studio Pro > Grammar > Grammar Profile`) and assign it in Settings. See [Grammar Checking](grammar-checking.md) for full setup instructions.
+- **MT Services**: Create a Translation Profile (`Create > Scriptable Studio Pro > MT > Translation Profile`) and assign it in Settings. See [Machine Translation](machine-translation.md) for full setup instructions.

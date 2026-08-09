@@ -40,6 +40,7 @@ Drag rows by their index number (far-left column) to reorder them. Works in both
 1. Select multiple rows (`Ctrl/Cmd + Click` or `Shift + Click`).
 2. Edit a value in **any** selected row.
 3. The change applies to **all** selected rows simultaneously.
+4. **Creation Scope *(New in v4.5)***: Target your operations explicitly by selecting the scope to be **Selected Rows**, the current **Type**, or **All** instances.
 
 ---
 
@@ -69,6 +70,9 @@ Right-click on any row or index number to access:
 | **Smart Rename** | *(Edit Mode)* Renames the asset file based on a string field |
 | **Insert Row Above / Below** | Adds a blank row at a specific position |
 | **Delete** | Removes the selected instance |
+| **Create Selected** | *(Create Mode)* Instantly generates assets for the selected rows |
+| **Update Selected** | *(Edit Mode)* Saves changes for the selected rows to disk |
+| **Save Selected** | *(Prefab Mode)* Saves changes to the selected prefab variants |
 
 ---
 
@@ -135,6 +139,7 @@ You can drag any `ScriptableObject` file from the **Project Window** into the Sc
 
 - In **Edit Mode**: Adds the asset as a linked row.
 - In **Create Mode** with **Link Dragged Assets** enabled: Adds a linked copy. Duplicate prevention ensures no asset is added twice.
+- **Smart Dragging *(New in v4.5)***: Dragging rows to reorder instances is now smarter and handles visual and data index synchronization seamlessly.
 - Object fields inside the **Detail Panel** also accept individual asset drags.
 
 ---

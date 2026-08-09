@@ -2,11 +2,17 @@
 
 **Scriptable Studio Pro** is the ultimate asset management platform for Unity. It transforms the way you create, edit, and manage `ScriptableObject` data, giving you the speed of a spreadsheet, the depth of a full inspector, and the creative power of Generative AI — all inside a single, cohesive editor window.
 
-Designed for **professional studios and solo developers** alike, version 3.0 marks a major leap forward in type compatibility, navigation ergonomics, and workflow depth.
+Designed for **professional studios and solo developers** alike, version 4.0 marks a major leap forward in type compatibility, navigation ergonomics, and workflow depth.
 
 ---
 
 ## Key Features
+
+### 🏗️ Prefab Studio Pro *(New in 4.0)*
+Inspect and edit your Unity Prefab components in the same high-performance, spreadsheet-like interface.
+- **Component Grouping**: Scans and groups prefabs instantly by their attached component types.
+- **Nested Child Batch Editing**: Edit fields of child components nested deep within a prefab's hierarchy in bulk using wildcard (`*`) path matching and batch navigators.
+- **Delta-Safe Serialization**: Non-destructive saving utilizing only delta overrides, ensuring base prefabs and variant components propagate changes perfectly.
 
 ### 📊 The Grid Editor
 Forget the default Inspector. View and edit hundreds of assets simultaneously in a high-performance, multi-column grid.
@@ -33,9 +39,20 @@ When working with multiple selected types in Batch Mode, a row of **interactive 
 - **Drag-to-reorder** pills to set your preferred workflow order.
 - The container auto-collapses to save space and expands on demand.
 
-### 🌐 Localization Support *(New in 3.0)*
-Fields using **Unity Localization** (`LocalizedString`, `LocalizedAsset`, and any type in the `UnityEngine.Localization` namespace) are now fully supported.
-- Values are correctly read, written, and cloned without breaking internal table references.
+### 🌐 Localization & AI Localization Bridge *(Enhanced in 4.0)*
+Fields using **Unity Localization** (`LocalizedString`, `LocalizedAsset`, and any type in the `UnityEngine.Localization` namespace) are fully supported.
+- **Reference Preservation**: Solves data-loss and persistence issues in the batch editor details panel by securely cloning table references.
+- **AI Localization Bridge**: Automatically routes AI-generated translations to String Table Collections, dynamically setting up runtime keys silently in the background.
+
+### 🏷️ Formula & Search Aliases *(New in 4.0)*
+Create custom shorthand tags to replace long math formulas and complex search query filters.
+- **Classification**: Split into global or type-specific **Search Aliases** (for search bars) and **FieldValue Aliases** (for math/formula inputs).
+- **Inline Autocomplete**: Displays alias suggestions inline as soon as you type `@` in filter or formula fields.
+
+### 🤖 Grammar & Translation *(New in 4.5)*
+Integrated tools to help you manage text data globally across your project.
+- **Machine Translation (MT)**: Instantly translate string and localization fields using providers like DeepL, Google Cloud, and LibreTranslate. [Read the full MT Documentation](./machine-translation.md)
+- **Grammar Checker**: Scan hundreds of string fields simultaneously with LanguageTool to fix spelling and grammar issues. [Read the full Grammar Documentation](./grammar-checking.md)
 
 ### 🛠️ Dual Workflow Modes
 - **Create Mode**: Rapidly prototype data in memory. Create 100 items, tweak them, save only when ready.
