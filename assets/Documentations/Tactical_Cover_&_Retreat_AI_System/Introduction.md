@@ -11,16 +11,19 @@ Instead of a black box that takes over your characters, this system acts as an i
 *   **Extensible & Customizable**: Don't like how the AI evaluates cover? Write your own custom Scorer. Need the AI to recognize a unique type of cover in your game? Write your own custom Provider.
 *   **Environment-Aware**: Use optional helper components to tag your scene with tactical information. Designate cover nodes, danger zones (`Hazards`), strategic areas (`TacticalZones`), and even soft cover like smoke (`VolumetricCover`).
 *   **Dynamic Behavior**: Use the `SearchProfile` API to change an AI's "mood" or tactics on the fly in response to game events like taking damage or receiving a squad command.
+*   **Built-in Scene & Agent Validator**: An intelligent diagnostic and auto-repair window that verifies your NavMesh, layers, services, and scorer configurations with one-click automatic fixes.
 
 ### Key Concepts at a Glance
 
-*   **`EnemyHider`**: The main MonoBehaviour component you add to your AI. It's the central brain.
-*   **`HidingSettings`**: A ScriptableObject that acts as the AI's "Rulebook" or "Personality," defining how it thinks.
+*   **`EnemyHider` / `TacticalAgent`**: The main MonoBehaviour component you add to your AI. It's the central brain.
+*   **`HidingSettings` / `TacticalAISettings`**: A ScriptableObject that acts as the AI's "Rulebook" or "Personality," defining how it thinks.
 *   **Providers**: ScriptableObjects that **find** potential hiding spots (e.g., "look behind obstacles").
 *   **Scorers**: ScriptableObjects that **rate** those spots (e.g., "spots far from the player are better").
+*   **[Environment Validator](SceneValidatorGuide.md)**: The built-in tool that verifies and auto-fixes your scene configuration.
 
 Ready to begin? Let's get your first AI hiding in under 10 minutes.
 
-**➡️ Next: [Getting Started Guide](2-Getting-Started.md)**
+**➡️ Next: [Getting Started Guide](Getting-Started.md)**
+
 
 

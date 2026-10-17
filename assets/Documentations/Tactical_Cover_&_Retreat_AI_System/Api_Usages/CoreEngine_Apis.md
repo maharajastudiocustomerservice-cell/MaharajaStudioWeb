@@ -48,6 +48,10 @@ This simple, lightweight struct is the common language between all providers and
 **Key Properties:**
 *   `position`: The world-space position of the potential spot.
 *   `coverNormal`: The direction pointing *away* from the surface of the cover object. It is `Vector3.zero` if the provider couldn't determine a cover direction (e.g., `NavMeshRingProviderSO`). This normal is crucial for scorers like `DirectionalCoverScorerSO`.
+*   `customFlags`: An integer bitmask carrying metadata about the point (e.g. `CoverPointFlags.LowStance`, `HighStance`, `EdgePoint`, `Vaultable`, `Destructible`, or custom user bits). Fast and allocation-free.
+*   `customData`: An optional `object` reference payload (e.g. source `CoverNode` or custom metadata class).
+*   `HasFlag(int flag)` / `HasFlag(CoverPointFlags flag)`: Helper methods to test flags.
+*   `GetData<T>()`: Safe cast helper for `customData`.
 
 ---
 
@@ -64,6 +68,8 @@ This is the "mission plan" given back to the `EnemyHider`. It contains not just 
 *   `canPeekLeft` / `canPeekRight`: Booleans indicating if the AI can lean out from cover for a shot.
 *   `peekLeftPosition` / `peekRightPosition`: The world-space positions to move to for peeking.
 *   `safePath`: **(Crucial)** A pre-calculated `NavMeshPath`. The `PathSafetyScorerSO` evaluates this path to ensure it's safe. The `EnemyHider` then uses `agent.SetPath()` to follow this exact route, preventing the agent from taking a different, more dangerous route than the one that was scored.
+*   `customFlags` & `customData`: Transferred automatically from the winning candidate, allowing your AI agent or state machine to inspect stance, edge point status, and custom game logic.
+*   `HasFlag(flag)` & `GetData<T>()`: Convenient helper methods to query flags and custom reference payloads.
 *   `IsValid`: A boolean to check if the spot is valid (i.e., not `HidingSpot.Invalid`).
 
 ---

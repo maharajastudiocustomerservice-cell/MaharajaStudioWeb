@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 542d5546cd6b46f499ed01be859f4e79
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338916
+  packageName: Tactical Cover & Retreat AI System
+  packageVersion: 2.5.0
+  assetPath: Assets/TacticalAISystem/Documentation/Version2/Scorers/RearAttackScorer.md
+  uploadId: 980918

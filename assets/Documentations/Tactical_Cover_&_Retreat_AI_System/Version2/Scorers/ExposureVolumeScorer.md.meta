@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b5e2d6705370d694e964b91c7a01ed19
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338916
+  packageName: Tactical Cover & Retreat AI System
+  packageVersion: 2.5.0
+  assetPath: Assets/TacticalAISystem/Documentation/Version2/Scorers/ExposureVolumeScorer.md
+  uploadId: 980918

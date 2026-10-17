@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 485d2148377a3b74cb177f01cb6d188d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338916
+  packageName: Tactical Cover & Retreat AI System
+  packageVersion: 2.5.0
+  assetPath: Assets/TacticalAISystem/Documentation/Version2/Scorers/RepetitionPenaltyScorer.md
+  uploadId: 980918

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7b5a2978170a22045b791869324aba42
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338916
+  packageName: Tactical Cover & Retreat AI System
+  packageVersion: 2.5.0
+  assetPath: Assets/TacticalAISystem/Documentation/Version2/Scorers/PlayerGazeScorer.md
+  uploadId: 980918

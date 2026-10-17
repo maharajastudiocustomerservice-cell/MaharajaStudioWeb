@@ -73,8 +73,16 @@ public class AIController : MonoBehaviour
 
 Assign your Player object to the `Player Target` field on the `AIController`.
 
+### Step 6: Verify with the Environment Validator
+
+Before entering Play mode, ensure your NavMesh, layers, and agent references are properly set up by opening:
+**Tools > Maharaja Studio > Tactical AI > Windows > Environment & Agent Validator**
+
+Click **Scan Scene** (or **Auto-Fix All** if any issues are detected). For a detailed walkthrough of all diagnostic checks, refer to the **[Scene Validator Guide](SceneValidatorGuide.md)**.
+
 ### You're Done!
 
 Press Play! Move your player into the AI's line of sight. You should see the "I'm exposed!" debug log, and the AI will use your rules to find the best spot behind an obstacle and move there.
 
-**➡️ Next: Learn the underlying principles in [Core Concepts](3-Core-Concepts.md)**
+**➡️ Next: Learn the underlying principles in [Core Concepts](Core-Concepts.md)**
+

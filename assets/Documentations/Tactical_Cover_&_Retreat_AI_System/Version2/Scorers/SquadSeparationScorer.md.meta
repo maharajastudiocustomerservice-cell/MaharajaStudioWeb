@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 801b90073d66abd46a33e8a330a90cea
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338916
+  packageName: Tactical Cover & Retreat AI System
+  packageVersion: 2.5.0
+  assetPath: Assets/TacticalAISystem/Documentation/Version2/Scorers/SquadSeparationScorer.md
+  uploadId: 980918

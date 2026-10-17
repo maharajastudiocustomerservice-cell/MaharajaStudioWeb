@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 71b177bbd417bb04ab74e14be6e36c12
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 338916
+  packageName: Tactical Cover & Retreat AI System
+  packageVersion: 2.5.0
+  assetPath: Assets/TacticalAISystem/Documentation/Version2/Scorers/SectorWatchScorer.md
+  uploadId: 980918

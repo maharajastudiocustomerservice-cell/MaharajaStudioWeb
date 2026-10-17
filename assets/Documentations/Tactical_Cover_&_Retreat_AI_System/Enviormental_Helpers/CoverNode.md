@@ -1,26 +1,64 @@
 # Feature Guide: CoverNode
 
-The `CoverNode` component is a simple and direct way for level designers to manually place a high-quality, explicit hiding spot in the world. It gives you precise, pixel-perfect control over where an AI can take cover, ensuring that tactically important locations are always available for the AI to use.
+The `CoverNode` component provides precise, designer-placed cover positions in the world. It guarantees high-priority tactical spots, supports stance tagging (Low/High/Both), edge points, vaultability, destructible health degradation, weapon mounting, and blind-fire points.
 
 ## Why Use It?
 
-*  **Designer Control:** Guarantees that specific locations are always considered as potential cover, overriding procedural generation.
-*  **Tactical Precision:** Perfect for creating specific flanking routes, ambush points, or defensive strongholds.
-*  **Reliability:** Ensures that cover is available even in complex or geometrically noisy environments where automatic providers might struggle.
-*  **Intelligence:** When used with the DirectionalCoverNodeProviderSO, the AI can intelligently select only the nodes that provide cover relative to the current threat direction.
+* **Designer Control:** Guarantees specific strategic locations are evaluated as potential cover, overriding purely procedural generation.
+* **Tactical Posture & Stance:** Flags low (crouch) vs. high (stand) cover for animation alignment.
+* **Destructible Barriers:** Supports health tracking and damage callbacks; automatically unregisters when destroyed so AI doesn't hide behind rubble.
+* **Weapon Mounting:** Exposes exact barrier rest points for bipod or weapon bracing.
+* **Blind Fire Offsets:** Computes left, right, and overhead blind-fire offsets for combat systems.
 
 ## Setup Guide
 
-1. In your scene, create a new Empty GameObject at the exact position where you want the AI to stand.
-Select the new GameObject and click Add Component. Search for CoverNode and add the script.
-2. In the Scene View, you will now see a cyan arrow gizmo originating from your GameObject. This arrow represents the direction of safety. An AI at this spot is considered "in cover" when the threat is behind them (and the arrow points away from the wall/cover).
-3. Adjust the Cover Direction vector in the Inspector, or simply rotate the GameObject itself, to orient the cover correctly. The arrow should point away from the physical object that provides cover.
+1. Create a GameObject at the exact position where the AI should take cover.
+2. Add the `CoverNode` script.
+3. Align the **Cover Direction** vector (visualized as a cyan arrow in Scene View). The arrow points outwards, away from the protective barrier surface.
+4. Select the **Stance** (`Low`, `High`, or `Both`).
+5. (Optional) Check **Is Vaultable** if agents can mantle over it, or **Is Destructible** with configured health.
 
-## Parameters
+## Parameters & Properties
 
-*  **coverDirection (Vector3):** This vector defines the direction an agent should be facing to be considered "in cover." It's visualized by the cyan arrow in the editor. The DirectionalCoverNodeProviderSO uses this to check if the node is a valid hiding spot from the current threat.
+| Parameter | Type | Description |
+|---|---|---|
+| `coverDirection` | `Vector3` | Facing normal away from the obstacle. Visualized by cyan gizmo arrow. |
+| `stance` | `CoverStance` | Stance requirement: `Low` (crouch), `High` (stand), or `Both`. |
+| `isEdgePoint` | `bool` | Flags this point as a corner or edge (ideal for peeking). |
+| `isVaultable` | `bool` | Allows AI to vault/mantle over this low obstacle. |
+| `isDestructible` | `bool` | Enables health tracking; cover is destroyed when health hits zero. |
+| `maxHealth` / `currentHealth` | `float` | Current barrier durability before being compromised. |
+| `IsDestroyed` | `bool` | True if destructible and current health <= 0. |
 
-## Best Practices
+## Public API Reference
 
-*  **Placement:** Position the CoverNode slightly away from the wall or object providing cover. This ensures the NavMesh Agent has enough space to stand without clipping into the geometry.
-*  **Use with Directional Provider:** For the best results, use the DirectionalCoverNodeProviderSO in your HidingSettings. This provider will intelligently filter the nodes, selecting only those whose coverDirection is pointing away from the player, resulting in much more believable AI behavior.
+```csharp
+namespace MaharajaStudio.TacticalAI.Helper
+```
+
+### Methods
+* **`TakeDamage(float damageAmount)`**: Applies damage to destructible cover. When health reaches zero, fires `OnCoverDestroyed` and automatically unregisters from `CoverNodeRegistry`.
+* **`Repair(float amount)`**: Restores cover durability up to `maxHealth` and re-registers the node if repaired above zero.
+* **`GetMountingPosition(float eyeHeight = 1.6f)`**: Returns the world coordinates along the top ridge of the barrier to brace or mount a weapon.
+* **`GetBlindFirePosition(PeekDirection direction, float lateralOffset = 0.6f)`**: Calculates lateral (Left/Right) or overhead blind-fire positions without exposing the AI's core body.
+
+### Events
+* **`OnCoverDestroyed (Action<CoverNode>)`**: Triggered when damage reduces the cover's health to zero.
+
+## Example: Damaging Cover from Gunfire
+
+```csharp
+using UnityEngine;
+using MaharajaStudio.TacticalAI.Helper;
+
+public class BulletImpact : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<CoverNode>(out var cover))
+        {
+            cover.TakeDamage(25f);
+        }
+    }
+}
+```

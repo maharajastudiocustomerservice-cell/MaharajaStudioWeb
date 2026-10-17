@@ -1,60 +1,451 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's New in Tactical AI 2.0 - Maharaja Studio</title>
+    <title>What's New in Tactical AI (v3.0 & v2.5) - Maharaja Studio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=3.5">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
-        .badge-new {
-            background-color: #28a745;
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8em;
+        .docs-whats-new {
+            max-width: 1300px;
+            margin: 0;
+            padding: 2rem 2rem 6rem 2rem;
+        }
+
+        .badge-v3 {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             vertical-align: middle;
         }
 
-        .component-block {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
+        .badge-v25 {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: #fff;
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
         }
 
-        .component-block h4 {
-            color: var(--primary-color);
-            margin-top: 0;
+        .badge-v2 {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: #fff;
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+
+        /* Smooth scroll margin for sticky navbar offset */
+        [id] {
+            scroll-margin-top: 85px;
+        }
+
+        /* Version Section Dividers */
+        .version-release-section {
+            margin-bottom: 5rem;
+            padding-bottom: 3.5rem;
+            border-bottom: 2px dashed rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme='light'] .version-release-section,
+        [data-bs-theme='light'] .version-release-section {
+            border-bottom-color: #cbd5e1;
+        }
+
+        .version-release-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 2rem;
+            padding-bottom: 0;
+        }
+
+        /* ======================================================== */
+        /* GUARANTEED HIGH CONTRAST TEXT RULES FOR ALL THEMES       */
+        /* Default styles are tailored for dark mode (the default)  */
+        /* ======================================================== */
+
+        /* 1. Sidebar Section Titles & Links */
+        .sidebar-section-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 0.9rem 1rem 0.35rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #ffffff !important;
+        }
+
+        [data-theme='light'] .sidebar-section-title,
+        [data-bs-theme='light'] .sidebar-section-title {
+            color: #0f172a !important;
+        }
+
+        .docs-sidebar .docs-nav-menu li a,
+        .docs-nav-link {
+            display: block;
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.92rem;
+            color: #f1f5f9 !important;
+            font-weight: 500;
+        }
+
+        .docs-sidebar .docs-nav-menu li a:hover,
+        .docs-nav-link:hover {
+            color: #ffffff !important;
+            background: rgba(0, 170, 255, 0.25) !important;
+        }
+
+        .docs-sidebar .docs-nav-menu li a.active,
+        .docs-nav-link.active {
+            color: #ffffff !important;
+            background: #007bff !important;
+            font-weight: 700;
+        }
+
+        [data-theme='light'] .docs-sidebar .docs-nav-menu li a,
+        [data-theme='light'] .docs-nav-link,
+        [data-bs-theme='light'] .docs-sidebar .docs-nav-menu li a,
+        [data-bs-theme='light'] .docs-nav-link {
+            color: #0f172a !important;
+            font-weight: 600;
+        }
+
+        [data-theme='light'] .docs-sidebar .docs-nav-menu li a:hover,
+        [data-theme='light'] .docs-nav-link:hover,
+        [data-bs-theme='light'] .docs-sidebar .docs-nav-menu li a:hover,
+        [data-bs-theme='light'] .docs-nav-link:hover {
+            color: #007bff !important;
+            background: #f1f5f9 !important;
+        }
+
+        [data-theme='light'] .docs-sidebar .docs-nav-menu li a.active,
+        [data-theme='light'] .docs-nav-link.active,
+        [data-bs-theme='light'] .docs-sidebar .docs-nav-menu li a.active,
+        [data-bs-theme='light'] .docs-nav-link.active {
+            color: #ffffff !important;
+            background: #007bff !important;
+            font-weight: 700;
+        }
+
+        /* 2. Main Page Header Lead Text */
+        .doc-lead-text,
+        .lead.doc-lead-text {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #f1f5f9 !important;
+            font-weight: 400 !important;
+        }
+
+        [data-theme='light'] .doc-lead-text,
+        [data-theme='light'] .lead.doc-lead-text,
+        [data-bs-theme='light'] .doc-lead-text,
+        [data-bs-theme='light'] .lead.doc-lead-text {
+            color: #1e293b !important;
+            font-weight: 500 !important;
+        }
+
+        /* 3. Hero Card Description */
+        .version-hero-card {
+            border-left: 4px solid var(--primary-color) !important;
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 2rem;
+            background: #161928 !important;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+        }
+
+        .version-hero-card p,
+        .version-hero-card .hero-desc,
+        .version-hero-card .lead,
+        .hero-desc {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: #f1f5f9 !important;
+        }
+
+        .version-hero-card strong {
+            color: #38bdf8 !important;
+            font-weight: 700;
+        }
+
+        [data-theme='light'] .version-hero-card,
+        [data-bs-theme='light'] .version-hero-card {
+            background: #f8fafc !important;
+            border: 1px solid #cbd5e1 !important;
+            border-left: 4px solid #007bff !important;
+            color: #0f172a !important;
+        }
+
+        [data-theme='light'] .version-hero-card p,
+        [data-theme='light'] .version-hero-card .hero-desc,
+        [data-theme='light'] .version-hero-card .lead,
+        [data-theme='light'] .hero-desc,
+        [data-bs-theme='light'] .version-hero-card p,
+        [data-bs-theme='light'] .version-hero-card .hero-desc,
+        [data-bs-theme='light'] .version-hero-card .lead,
+        [data-bs-theme='light'] .hero-desc {
+            color: #1e293b !important;
+        }
+
+        [data-theme='light'] .version-hero-card strong,
+        [data-bs-theme='light'] .version-hero-card strong {
+            color: #0369a1 !important;
+        }
+
+        /* 4. Glass Box Titles & Descriptions */
+        .glass-box {
+            background: #1a1d2e !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            color: #f8f9fa !important;
+        }
+
+        .glass-box strong,
+        .glass-box h4,
+        .glass-box h5,
+        .glass-box h6 {
+            color: #ffffff !important;
+        }
+
+        .provider-desc,
+        .validator-desc,
+        .scorers-desc,
+        .cta-desc,
+        .sidebar-badge-label,
+        .text-muted {
+            color: #cbd5e1 !important;
+        }
+
+        [data-theme='light'] .glass-box,
+        [data-bs-theme='light'] .glass-box {
+            background: #ffffff !important;
+            border: 1px solid #cbd5e1 !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+            color: #0f172a !important;
+        }
+
+        [data-theme='light'] .glass-box strong,
+        [data-theme='light'] .glass-box h4,
+        [data-theme='light'] .glass-box h5,
+        [data-theme='light'] .glass-box h6,
+        [data-bs-theme='light'] .glass-box strong,
+        [data-bs-theme='light'] .glass-box h4,
+        [data-bs-theme='light'] .glass-box h5,
+        [data-bs-theme='light'] .glass-box h6 {
+            color: #0f172a !important;
+        }
+
+        [data-theme='light'] .provider-desc,
+        [data-theme='light'] .validator-desc,
+        [data-theme='light'] .scorers-desc,
+        [data-theme='light'] .cta-desc,
+        [data-theme='light'] .sidebar-badge-label,
+        [data-theme='light'] .text-muted,
+        [data-bs-theme='light'] .provider-desc,
+        [data-bs-theme='light'] .validator-desc,
+        [data-bs-theme='light'] .scorers-desc,
+        [data-bs-theme='light'] .cta-desc,
+        [data-bs-theme='light'] .sidebar-badge-label,
+        [data-bs-theme='light'] .text-muted {
+            color: #334155 !important;
+        }
+
+        /* 5. Component Block Descriptions */
+        .component-block {
+            background: #161928 !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            color: #f8f9fa !important;
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .component-block h3,
+        .component-block h4,
+        .component-block h5,
+        .component-block h6 {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+
+        .component-block p,
+        .component-block li {
+            color: #cbd5e1 !important;
+            line-height: 1.6;
+        }
+
+        .component-block strong {
+            color: #f8f9fa !important;
+        }
+
+        [data-theme='light'] .component-block,
+        [data-bs-theme='light'] .component-block {
+            background: #ffffff !important;
+            border: 1px solid #cbd5e1 !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            color: #0f172a !important;
+        }
+
+        [data-theme='light'] .component-block h3,
+        [data-theme='light'] .component-block h4,
+        [data-theme='light'] .component-block h5,
+        [data-theme='light'] .component-block h6,
+        [data-bs-theme='light'] .component-block h3,
+        [data-bs-theme='light'] .component-block h4,
+        [data-bs-theme='light'] .component-block h5,
+        [data-bs-theme='light'] .component-block h6 {
+            color: #0f172a !important;
+        }
+
+        [data-theme='light'] .component-block p,
+        [data-theme='light'] .component-block li,
+        [data-bs-theme='light'] .component-block p,
+        [data-bs-theme='light'] .component-block li {
+            color: #334155 !important;
+        }
+
+        [data-theme='light'] .component-block strong,
+        [data-bs-theme='light'] .component-block strong {
+            color: #0f172a !important;
+        }
+
+        /* 6. Parameter Tables */
+        .param-table {
+            border-color: rgba(255, 255, 255, 0.12) !important;
+            color: #e2e8f0 !important;
+        }
+
+        .param-table th {
+            background: rgba(255, 255, 255, 0.06) !important;
+            color: #ffffff !important;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
         }
 
         .param-table td {
-            vertical-align: top;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            color: #cbd5e1 !important;
         }
 
-        .param-name {
-            font-weight: bold;
-            color: var(--code-text-color);
+        [data-theme='light'] .param-table,
+        [data-bs-theme='light'] .param-table {
+            border-color: #cbd5e1 !important;
+            color: #1e293b !important;
+        }
+
+        [data-theme='light'] .param-table th,
+        [data-bs-theme='light'] .param-table th {
+            background: #f1f5f9 !important;
+            color: #0f172a !important;
+            border-bottom: 2px solid #94a3b8 !important;
+        }
+
+        [data-theme='light'] .param-table td,
+        [data-bs-theme='light'] .param-table td {
+            border-color: #e2e8f0 !important;
+            color: #334155 !important;
+        }
+
+        /* 7. Quick Jump Version Toolbar */
+        .version-jump-toolbar {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        .btn-jump-pill {
+            padding: 0.5rem 1.1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.05);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .btn-jump-pill:hover {
+            color: #ffffff !important;
+            background: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--glow-color);
+        }
+
+        [data-theme='light'] .btn-jump-pill {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+            color: #0f172a;
+        }
+
+        [data-theme='light'] .btn-jump-pill:hover {
+            color: #ffffff !important;
+            background: #007bff !important;
+            border-color: #007bff !important;
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo.png" alt="Maharaja Studio" height="40"
-                    class="d-inline-block align-text-top me-2">Maharaja Studio
+            <a class="navbar-brand fw-bold" href="index.html">
+                Maharaja Studio
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span
-                    class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="documentation.html">Docs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tactical-cover-retreat-ai-system.html">Asset Page</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active"
+                            href="tactical-cover-retreat-ai-system-docs.html">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-3">
+                        <div class="theme-switcher">
+                            <i class="fas fa-sun"></i>
+                            <div class="form-check form-switch mx-2">
+                                <input class="form-check-input" type="checkbox" id="theme-switcher" checked>
+                            </div>
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -62,292 +453,914 @@
 
     <div class="container-fluid">
         <div class="row">
-            <aside class="col-md-3 col-lg-2 d-md-block sidebar collapse docs-sidebar">
-                <div class="position-sticky pt-3">
-                    <ul class="docs-nav-menu">
-                        <li><a href="tactical-cover-retreat-ai-system-docs.html" class="docs-nav-link text-primary"><i
-                                    class="fas fa-arrow-left me-2"></i>Back to Main Docs</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
+            <!-- Sticky Sidebar Navigation with ALL Links Visible -->
+            <aside class="col-md-3 col-xl-2 d-md-block sidebar collapse docs-sidebar docs-sidebar-sticky">
+                <div class="pt-3 pb-5">
+                    <!-- Pinned Top Documentation CTA Card -->
+                    <div class="sidebar-cta-card mb-3">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="small fw-bold text-uppercase sidebar-badge-label"><i class="fas fa-book-open text-primary me-1"></i> Reference</span>
+                            <span class="badge bg-primary text-white" style="font-size: 0.65rem;">Manual</span>
+                        </div>
+                        <a href="tactical-cover-retreat-ai-system-docs.html"
+                            class="btn btn-primary btn-sm w-100 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm py-2">
+                            <i class="fas fa-arrow-left"></i> Full Documentation
+                        </a>
+                    </div>
+
+                    <ul class="docs-nav-menu" id="whats-new-sidebar-menu">
+                        <!-- Version 3.0 links -->
+                        <li class="sidebar-section-title">
+                            <span class="badge bg-success me-1">v3.0</span> Version 3.0 (Latest)
                         </li>
-                        <li><a href="#upgrade-guide" class="docs-nav-link active">Upgrade Guide</a></li>
-                        <li><a href="#new-providers" class="docs-nav-link">New Providers (V2)</a></li>
-                        <li><a href="#new-scorers" class="docs-nav-link">New Scorers (V2)</a></li>
+                        <li><a href="#v3-overview" class="docs-nav-link"><i class="fas fa-star text-warning me-2"></i>v3.0 Overview</a></li>
+                        <li><a href="#v3-tacticalagent" class="docs-nav-link"><i class="fas fa-running me-2"></i>Combat Locomotion</a></li>
+                        <li><a href="#v3-squadcoordinator" class="docs-nav-link"><i class="fas fa-users-cog me-2"></i>Squad Maneuvers</a></li>
+                        <li><a href="#v3-scorers" class="docs-nav-link"><i class="fas fa-bullseye me-2"></i>3 New Scorers (v3.0)</a></li>
+                        <li><a href="#v3-stimulus" class="docs-nav-link"><i class="fas fa-volume-up me-2"></i>Stimulus Registry</a></li>
+                        <li><a href="#v3-covermetadata" class="docs-nav-link"><i class="fas fa-shield-virus me-2"></i>Cover Metadata & Stances</a></li>
+                        <li><a href="#v3-scenevalidator" class="docs-nav-link"><i class="fas fa-shield-alt text-success me-2"></i>Scene Validator Tool</a></li>
+                        <li><a href="#v3-code-example" class="docs-nav-link"><i class="fas fa-code me-2"></i>v3.0 Code Example</a></li>
+
+                        <!-- Version 2.5 links -->
+                        <li class="sidebar-section-title mt-3">
+                            <span class="badge bg-info text-dark me-1">v2.5</span> Version 2.5
+                        </li>
+                        <li><a href="#v25-overview" class="docs-nav-link"><i class="fas fa-layer-group text-info me-2"></i>v2.5 Overview</a></li>
+                        <li><a href="#v25-suppression" class="docs-nav-link"><i class="fas fa-crosshairs me-2"></i>Suppression Service</a></li>
+                        <li><a href="#v25-providers" class="docs-nav-link"><i class="fas fa-door-open me-2"></i>CQB & Elevation Providers</a></li>
+                        <li><a href="#v25-scorers" class="docs-nav-link"><i class="fas fa-calculator me-2"></i>Weapon & Flank Scorers</a></li>
+                        <li><a href="#v25-setup-guide" class="docs-nav-link"><i class="fas fa-tools me-2"></i>v2.5 Setup Guide</a></li>
+
+                        <!-- Version 2.0 Archive links -->
+                        <li class="sidebar-section-title mt-3">
+                            <span class="badge bg-secondary me-1">v2.0</span> Version 2.0 Archive
+                        </li>
+                        <li><a href="#v2-upgrade-guide" class="docs-nav-link"><i class="fas fa-exchange-alt me-2"></i>Upgrade & Migration</a></li>
+                        <li><a href="#v2-providers" class="docs-nav-link"><i class="fas fa-cubes me-2"></i>8 Providers (v2.0)</a></li>
+                        <li><a href="#v2-scorers" class="docs-nav-link"><i class="fas fa-star-half-alt me-2"></i>25 Scorers (v2.0)</a></li>
+                        <li><a href="#v2-profiler" class="docs-nav-link"><i class="fas fa-chart-line me-2"></i>Tactical AI Profiler</a></li>
                     </ul>
                 </div>
             </aside>
 
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4 docs-content">
-                <h1 class="mb-4">What's New in Tactical AI 2.0</h1>
+            <!-- Main Content Area with ALL Versions Visible -->
+            <main class="col-md-9 col-xl-10 px-md-4 py-4 docs-whats-new">
 
-                <!-- UPGRADE GUIDE (Shortened for brevity as focusing on new features) -->
-                <section id="upgrade-guide" class="mb-5">
-                    <h2>Upgrade Guide</h2>
-                    <div class="alert alert-warning"><strong>⚠️ Important:</strong> Backup your project before
-                        upgrading. Namespace changed from <code>MaharajaStudio.HidingSystem</code> to
-                        <code>MaharajaStudio.TacticalAI</code>.</div>
-                </section>
+                <!-- Page Header -->
+                <div class="mb-4">
+                    <span class="badge bg-primary px-3 py-2 rounded-pill text-uppercase mb-2"><i
+                            class="fas fa-history me-1"></i> Release Notes & Changelog</span>
+                    <h1 class="display-5 fw-bold">What's New in Tactical AI</h1>
+                    <p class="lead doc-lead-text mb-4">Complete release documentation, architectural highlights, new component references, and upgrade guides for Versions 3.0, 2.5, and 2.0.</p>
 
-                <hr class="my-5">
-
-                <!-- NEW PROVIDERS SECTION -->
-                <section id="new-providers">
-                    <h2 class="mb-4"><i class="fas fa-layer-group me-2"></i>New Providers (V2)</h2>
-
-                    <div id="AdvanceCoverProviderSO" class="component-block">
-                        <h4>Advance Cover Provider</h4>
-                        <p><strong>`AdvanceCoverProviderSO`</strong> facilitates forward movement ("leapfrogging")
-                            towards a target.</p>
-                        <h5>How It Works</h5>
-                        <p>Generates points in a cone towards the target. Unlike simple movement, it validates that the
-                            destination actually has cover (walls/obstacles) nearby using
-                            <code>Physics.CheckSphere</code>.</p>
-                        <h5>Parameters</h5>
-                        <ul>
-                            <li><strong>Advance Distance</strong>: Max forward search distance.</li>
-                            <li><strong>Search Angle</strong>: Width of the advancement cone.</li>
-                        </ul>
+                    <!-- Quick Jump Version Toolbar -->
+                    <div class="version-jump-toolbar">
+                        <div class="d-flex flex-wrap align-items-center gap-2">
+                            <span class="small fw-bold text-uppercase sidebar-badge-label me-1"><i class="fas fa-compass text-primary me-1"></i> Jump To:</span>
+                            <a href="#v3-overview" class="btn-jump-pill">
+                                <i class="fas fa-rocket text-success"></i> Version 3.0 <span class="badge bg-success ms-1">Latest</span>
+                            </a>
+                            <a href="#v25-overview" class="btn-jump-pill">
+                                <i class="fas fa-layer-group text-info"></i> Version 2.5
+                            </a>
+                            <a href="#v2-upgrade-guide" class="btn-jump-pill">
+                                <i class="fas fa-archive text-warning"></i> Version 2.0 Archive
+                            </a>
+                        </div>
+                        <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2 px-3 py-2 fw-bold shadow-sm">
+                            <i class="fas fa-book-open"></i>
+                            <span>Go to Full Documentation</span>
+                            <i class="fas fa-arrow-right small"></i>
+                        </a>
                     </div>
-
-                    <div id="ChokePointProviderSO" class="component-block">
-                        <h4>Choke Point Provider</h4>
-                        <p><strong>`ChokePointProviderSO`</strong> identifies constricted areas like hallways, bridges,
-                            and doorways for ambushes.</p>
-                        <h5>How It Works</h5>
-                        <p>Scans for points where geometry constricts on opposing sides (Left/Right or Forward/Back).
-                            Good for grenade targets or blocking paths.</p>
-                    </div>
-
-                    <div id="CornerEdgeProviderSO" class="component-block">
-                        <h4>Corner Edge Provider</h4>
-                        <p><strong>`CornerEdgeProviderSO`</strong> scans for vertical edges to allow "Tactical Peeking".
-                        </p>
-                        <h5>How It Works</h5>
-                        <p>Performs a high-res radial scan to detect depth discontinuities (corners). Places points
-                            slightly behind the edge.</p>
-                        <h5>Performance</h5>
-                        <span class="badge bg-danger">Heavy</span> - Uses many raycasts. Use selectively.
-                    </div>
-
-                    <div id="FlankPointProviderSO" class="component-block">
-                        <h4>Flank Point Provider</h4>
-                        <p><strong>`FlankPointProviderSO`</strong> generates points at the sides or rear of a target.
-                        </p>
-                        <h5>How It Works</h5>
-                        <p>Calculates arc offsets from the target's forward vector. Alternates between Left/Right
-                            flanks.</p>
-                        <h5>Parameters</h5>
-                        <ul>
-                            <li><strong>Min Flank Angle</strong>: 90=Side, 180=Rear.</li>
-                        </ul>
-                    </div>
-
-                    <div id="PincerFormationProviderSO" class="component-block">
-                        <h4>Pincer Formation Provider</h4>
-                        <p><strong>`PincerFormationProviderSO`</strong> coordinates squad encirclement.</p>
-                        <h5>How It Works</h5>
-                        <p>Calculates the average direction of all allies relative to the target, then finds the "empty"
-                            side (inverse vector) to place new agents, naturally surrounding the enemy.</p>
-                    </div>
-
-                    <div id="RoomClearanceProviderSO" class="component-block">
-                        <h4>Room Clearance Provider</h4>
-                        <p><strong>`RoomClearanceProviderSO`</strong> generates a "pie slice" arc for CQB.</p>
-                        <h5>How It Works</h5>
-                        <p>Detects a doorway/corner and generates a fan of points to allow agents to "slice the pie"
-                            methodically.</p>
-                    </div>
-
-                    <div id="SquadFormationProviderSO" class="component-block">
-                        <h4>Squad Formation Provider</h4>
-                        <p><strong>`SquadFormationProviderSO`</strong> creates strict shapes (Wedge, Line, V) relative
-                            to a leader.</p>
-                        <h5>How It Works</h5>
-                        <p>Queries the <code>SquadCoordinator</code> for the agent's slot index and places them at a
-                            fixed offset from the leader.</p>
-                    </div>
-
-                    <div id="VantagePointProviderSO" class="component-block">
-                        <h4>Vantage Point Provider</h4>
-                        <p><strong>`VantagePointProviderSO`</strong> seeks high ground.</p>
-                        <h5>How It Works</h5>
-                        <p>Biases NavMesh sampling upwards and validates that the point is significantly higher than the
-                            agent. Good for Snipers.</p>
-                    </div>
-                </section>
-
-                <!-- NEW SCORERS SECTION -->
-                <section id="new-scorers">
-                    <h2 class="mb-4"><i class="fas fa-star-half-alt me-2"></i>New Scorers (V2)</h2>
-
-                    <!-- Offensive -->
-                    <div id="AggressiveLOSScorerSO" class="component-block">
-                        <h4>Aggressive Line of Sight</h4>
-                        <p><strong>Offensive.</strong> Rewards spots with a clear line of fire to the target. Unlike
-                            visibility scorers (which hide you), this one ensures you can shoot back.</p>
-                    </div>
-
-                    <div id="PlayerPathPredictionScorerSO" class="component-block">
-                        <h4>Player Path Prediction</h4>
-                        <p><strong>Offensive.</strong> Aims for where the player <em>will be</em> in X seconds based on
-                            their velocity, rather than where they are now.</p>
-                    </div>
-
-                    <div id="HighGroundScorerSO" class="component-block">
-                        <h4>High Ground</h4>
-                        <p><strong>Offensive.</strong> Rewards being vertically higher than the target. Essential for
-                            King of the Hill or Snipers.</p>
-                    </div>
-
-                    <div id="RearAttackScorerSO" class="component-block">
-                        <h4>Rear Attack Bonus</h4>
-                        <p><strong>Offensive.</strong> Rewards spots located behind the target's back (Dot Product
-                            check).</p>
-                    </div>
-
-                    <div id="PushForwardScorerSO" class="component-block">
-                        <h4>Push Forward</h4>
-                        <p><strong>Offensive.</strong> Rewards spots that are physically closer to the target than the
-                            current position. Forces "Rusher" behavior.</p>
-                    </div>
-
-                    <div id="ZoneControlScorerSO" class="component-block">
-                        <h4>Zone Control</h4>
-                        <p><strong>Offensive.</strong> Rewards matching Line of Sight to a specific Objective ID (e.g.,
-                            guarding a flag).</p>
-                    </div>
-
-                    <!-- Defensive -->
-                    <div id="BulletPenetrationScorerSO" class="component-block">
-                        <h4>Bullet Penetration (Material Thickness)</h4>
-                        <p><strong>Defensive.</strong> Raycasts <em>through</em> the cover object to measure its
-                            thickness. Penalizes thin cover (wood) and prefers thick cover (concrete).</p>
-                        <span class="badge bg-danger">Heavy</span>
-                    </div>
-
-                    <div id="FatalFunnelScorerSO" class="component-block">
-                        <h4>Fatal Funnel</h4>
-                        <p><strong>Defensive.</strong> Penalizes standing in narrow doorways or corridors where there is
-                            no room to dodge.</p>
-                    </div>
-
-                    <div id="EscapeRouteScorerSO" class="component-block">
-                        <h4>Escape Route</h4>
-                        <p><strong>Defensive.</strong> Raycasts <em>behind</em> the cover to ensure there is a valid
-                            path for further retreat (avoids dead-ends).</p>
-                    </div>
-
-                    <div id="PlayerGazeScorerSO" class="component-block">
-                        <h4>Player Gaze</h4>
-                        <p><strong>Defensive.</strong> Penalizes spots that the player is currently looking directly at
-                            (Foveal vision).</p>
-                    </div>
-
-                    <div id="WallHuggingScorerSO" class="component-block">
-                        <h4>Wall Hugging</h4>
-                        <p><strong>Defensive.</strong> Encourages staying physically close to walls. Prevents "Open
-                            Field Syndrome" where AI stands in the open.</p>
-                    </div>
-
-                    <div id="SkyliningScorerSO" class="component-block">
-                        <h4>Skylining</h4>
-                        <p><strong>Defensive.</strong> Checks if the agent is silhouetted against the sky (no background
-                            geometry).</p>
-                    </div>
-
-                    <div id="ExposureVolumeScorerSO" class="component-block">
-                        <h4>Exposure Volume</h4>
-                        <p><strong>Defensive.</strong> Casts rays in 360 degrees to measure how "open" the area is.
-                            Prefers tight spaces over open fields.</p>
-                    </div>
-
-                    <div id="CoverClusterScorerSO" class="component-block">
-                        <h4>Cover Cluster</h4>
-                        <p><strong>Defensive.</strong> Rewards spots that have <em>other</em> cover objects nearby
-                            (backup options).</p>
-                    </div>
-
-                    <div id="SmartPathSafetyScorerSO" class="component-block">
-                        <h4>Smart Path Safety</h4>
-                        <p><strong>Defensive.</strong> Advanced pathfinding that looks for "Detours" if the direct path
-                            is dangerous. Calculates safe flanking routes.</p>
-                        <span class="badge bg-danger">Heavy</span>
-                    </div>
-
-                    <!-- Squad -->
-                    <div id="SquadReservationScorerSO" class="component-block">
-                        <h4>Squad Reservation</h4>
-                        <p><strong>Squad.</strong> <span class="badge bg-primary">Essential</span> Prevents two agents
-                            from picking the same spot. Checks the <code>SquadCoordinator</code> registry.</p>
-                    </div>
-
-                    <div id="LineOfFireScorerSO" class="component-block">
-                        <h4>Line of Fire Safety</h4>
-                        <p><strong>Squad.</strong> Prevents agents from standing in the crossfire between an ally and
-                            the target.</p>
-                    </div>
-
-                    <div id="MuzzleDisciplineScorerSO" class="component-block">
-                        <h4>Muzzle Discipline</h4>
-                        <p><strong>Squad.</strong> Prevents agents from crossing directly in front of an ally's gun,
-                            even if not firing.</p>
-                    </div>
-
-                    <div id="SquadSeparationScorerSO" class="component-block">
-                        <h4>Squad Separation</h4>
-                        <p><strong>Squad.</strong> Ensures a minimum physical distance (e.g., 3m) between agents to
-                            prevent bunching.</p>
-                    </div>
-
-                    <div id="SectorWatchScorerSO" class="component-block">
-                        <h4>Sector Watch</h4>
-                        <p><strong>Squad.</strong> Rewards facing directions that allies are <em>not</em> watching.
-                            Automates "Rear Security".</p>
-                    </div>
-
-                    <!-- Utility -->
-                    <div id="RepetitionPenaltyScorerSO" class="component-block">
-                        <h4>Repetition Penalty</h4>
-                        <p><strong>Utility.</strong> Penalizes spots the agent has recently used. Forces
-                            rotation/movement.</p>
-                    </div>
-
-                    <div id="LightProbeScorerSO" class="component-block">
-                        <h4>Light Probe (Shadows)</h4>
-                        <p><strong>Utility.</strong> Uses Unity Light Probes to detect darkness. Good for Stealth.</p>
-                    </div>
-
-                    <div id="CasualtyAversionScorerSO" class="component-block">
-                        <h4>Casualty Aversion</h4>
-                        <p><strong>Utility.</strong> Creates a "Fear Map" around recent ally death locations. Agents
-                            avoid "cursed" ground.</p>
-                    </div>
-
-                    <div id="AudioStimulusScorerSO" class="component-block">
-                        <h4>Audio Stimulus</h4>
-                        <p><strong>Utility.</strong> Pulls agents towards sounds (Gunshots, Footsteps) in the
-                            <code>StimulusRegistry</code>.</p>
-                    </div>
-
-                    <div id="StalemateBreakerScorerSO" class="component-block">
-                        <h4>Stalemate Breaker</h4>
-                        <p><strong>Utility.</strong> If an agent sits in cover too long ("Boredom"), this scorer
-                            aggressively rewards flanking moves to force action.</p>
-                    </div>
-                </section>
-
-                <div class="mt-5 p-4 rounded text-center"
-                    style="background-color: var(--surface-color); border: 1px solid var(--border-color);">
-                    <h4>Ready to use these tools?</h4>
-                    <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary">Go to Main Docs</a>
                 </div>
+
+                <!-- ======================================================== -->
+                <!--                   SECTION 1: VERSION 3.0                 -->
+                <!-- ======================================================== -->
+                <section id="v3-section" class="version-release-section">
+                    <div id="v3-overview" class="pt-2 mb-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="badge-v3 fs-6">VERSION 3.0</span>
+                            <h2 class="fw-bold mb-0">Tactical AI 3.0: Combat Locomotion, Synchronized Squads & Scene Validator</h2>
+                        </div>
+
+                        <div class="version-hero-card">
+                            <p class="lead mb-2"><strong>Tactical AI Version 3.0</strong> represents a major evolutionary leap: bridging the gap between the <strong>Search Phase</strong> (choosing where to hide, introduced in v1 and expanded in v2/v2.5) and the <strong>Execution Phase</strong> (how agents dynamically react, adjust posture, peek corners, vault barriers, and coordinate squad fireteams once in cover).</p>
+                            <p class="hero-desc mb-0">Version 3.0 is <strong>100% backwards-compatible</strong> with existing v2.x projects while adding dedicated locomotion execution APIs, coordinated squad fireteams, 3 new tactical scorers, sensory stimulus management, universal cover metadata, and an automated in-editor scene diagnostic validator with 1-click auto-fix.</p>
+                        </div>
+
+                        <div class="diagram-box">
+Tactical AI 3.0 Architecture
+┌───────────────────────────────────┼───────────────────────────────────┐
+▼                                   ▼                                   ▼
+[ Combat & Locomotion Execution ]   [ Synchronized Squad Maneuvers ]    [ Environment & Agent Validator ]
+• DesiredStance & Auto Posture      • Dynamic Fireteam Splitting        • Automated Scene Diagnosis (7 Categories)
+• TryGetBestPeekDirection (LOS)     • Synchronized Squad Commands       • Smart Grouped Summary View
+• Proactive Flank Warnings (>90°)   • Shared Hivemind Threat Memory     • Safe 1-Click Auto-Fix All (Undoable)
+• Obstacle Vault / Mantle Checks    • 3 New Strategic Scorers           • Direct In-Editor Doc Links & Preflight CI
+• Real-Time Suppression Meter       • StimulusRegistry Sensory Events   • Universal ICoverDataProvider & Tags
+                        </div>
+                    </div>
+
+                    <!-- 1. TacticalAgent Execution APIs -->
+                    <div id="v3-tacticalagent" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-running text-success me-2"></i>1. TacticalAgent: Combat & Locomotion Execution APIs</h3>
+                        <p>Previously, <code>TacticalAgent</code> primarily focused on finding candidate spots and moving towards them. In Version 3.0, your agents can continuously query and execute tactical combat logic while in or navigating to cover:</p>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4><i class="fas fa-user-ninja text-primary"></i> Stance Recommendation (`DesiredStance`)</h4>
+                                    <p>Reads <code>CoverPointFlags</code> from the active cover spot to dynamically inform your animation controller whether the agent should stand, crouch, or is versatile.</p>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>// Listen to stance transitions
+agent.OnStanceChangeRequired += (newStance) => {
+    animator.SetBool("IsCrouching", newStance == CoverStance.Crouching);
+};</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4><i class="fas fa-eye text-primary"></i> Smart Corner Peeking (`TryGetBestPeekDirection`)</h4>
+                                    <p>Evaluates whether stepping left or right from behind cover yields clear line of sight to the enemy without exposing the agent's core mass.</p>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>if (agent.TryGetBestPeekDirection(targetPos, out PeekDirection dir)) {
+    if (dir == PeekDirection.PeekRight) PlayPeekRightAnimation();
+    else if (dir == PeekDirection.PeekLeft) PlayPeekLeftAnimation();
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4><i class="fas fa-exclamation-triangle text-warning"></i> Proactive Flank Warnings (`IsFlanked`)</h4>
+                                    <p>Calculates <code>GetCoverFlankAngle()</code>. If an enemy crosses the cover plane (&gt;90° angle), <code>IsFlanked</code> becomes true, allowing AI to scramble before taking damage.</p>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>if (agent.IsFlanked) {
+    // Enemy is behind our cover line; immediately repath
+    agent.FindTacticalPosition();
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4><i class="fas fa-mountain text-primary"></i> Obstacle Vaulting (`CanVaultCover`)</h4>
+                                    <p>Validates if low barrier cover can be mantled over during rush maneuvers and computes the exact landing coordinate on the NavMesh.</p>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>if (agent.CanVaultCover(out Vector3 landingPos)) {
+    animator.SetTrigger("Vault");
+    navMeshAgent.Warp(landingPos);
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="component-block">
+                                    <h4><i class="fas fa-battery-half text-danger"></i> Live Agent Suppression Meter (`SuppressionLevel` & `IsSuppressed`)</h4>
+                                    <p>Provides a real-time normalized float value (<code>0.0</code> to <code>1.0</code>) reflecting the incoming fire intensity directed at the agent. Integrates with automatic recovery decay over time.</p>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>if (agent.SuppressionLevel > 0.7f) {
+    // Agent is under intense suppressive fire; cower or seek fortified bunker
+    animator.SetTrigger("CowerUnderFire");
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. SquadCoordinator -->
+                    <div id="v3-squadcoordinator" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-users-cog text-success me-2"></i>2. SquadCoordinator: Synchronized Maneuvers & Dynamic Fireteams</h3>
+                        <p>Version 3.0 upgrades squad coordination from passive reservations to active tactical fireteams and synchronized squad maneuvers:</p>
+
+                        <div class="component-block">
+                            <h4><i class="fas fa-chess-knight text-primary"></i> Dynamic Fireteam Splitting (`AssignFireteams`)</h4>
+                            <p>Automatically divides any registered squad into two coordinated sub-teams:</p>
+                            <ul>
+                                <li><strong>Base of Fire (Suppression Element):</strong> Pins the target down with sustained gunfire and holds position.</li>
+                                <li><strong>Maneuver Element (Flanking Force):</strong> Paths around the sides or rear of the pinned enemy using flank providers.</li>
+                            </ul>
+
+                            <h5 class="mt-4">Synchronized Squad Commands (`ExecuteManeuver`)</h5>
+                            <table class="table param-table">
+                                <thead>
+                                    <tr>
+                                        <th>Maneuver Order</th>
+                                        <th>Tactical Execution Behavior</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>TacticalSquadManeuver.SuppressAndFlank</code></td>
+                                        <td>Suppression team engages target directly while flanking team advances to unmonitored angles.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>TacticalSquadManeuver.BoundingOverwatch</code></td>
+                                        <td>Alternating leap-frog advances where one element covers the movement of the second element.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>TacticalSquadManeuver.TacticalFallBack</code></td>
+                                        <td>Coordinated, rearward withdrawal into defensive perimeter cover.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>TacticalSquadManeuver.HoldPerimeter</code></td>
+                                        <td>Agents fan out into 360° defensive cover surrounding an objective or strongpoint.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h5 class="mt-4">Hivemind Threat Memory (`BroadcastSquadThreat`)</h5>
+                            <p>When any squad member acquires line of sight to a hostile, calling <code>BroadcastSquadThreat(squadName, targetPos)</code> updates the shared threat location across all allies in the squad.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. New Scorers v3.0 -->
+                    <div id="v3-scorers" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-bullseye text-success me-2"></i>3. 3 New Tactical Scorers (v3.0)</h3>
+
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="component-block h-100">
+                                    <h4>Zone Control State</h4>
+                                    <p><strong>`ZoneControlStateScorerSO`</strong> evaluates candidate hiding spots based on whether their <code>TacticalZone</code> is <code>FriendlyControlled</code>, <code>Contested</code>, or <code>HostileControlled</code>.</p>
+                                    <table class="table param-table small">
+                                        <tr><td><code>preferredState</code></td><td>Favored zone state</td></tr>
+                                        <tr><td><code>vetoHostileZones</code></td><td>Reject enemy-held zones</td></tr>
+                                        <tr><td><code>vetoContestedZones</code></td><td>Reject contested zones</td></tr>
+                                    </table>
+                                    <p class="small scorers-desc mb-0">Enables defensive medics/snipers to veto hostile territory while rushers prioritize contested objectives.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="component-block h-100">
+                                    <h4>Vault Opportunity</h4>
+                                    <p><strong>`VaultOpportunityScorerSO`</strong> rewards low obstacles that have the <code>CoverPointFlags.Vaultable</code> bit set.</p>
+                                    <table class="table param-table small">
+                                        <tr><td><code>vaultableScore</code></td><td>Score for low barriers (1.0)</td></tr>
+                                        <tr><td><code>nonVaultableScore</code></td><td>Score for high walls (0.2)</td></tr>
+                                        <tr><td><code>requireVaultableOnly</code></td><td>Veto static cover</td></tr>
+                                    </table>
+                                    <p class="small scorers-desc mb-0">Allows shotgunners, rushers, and agile flankers to favor barriers they can immediately mantle over.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="component-block h-100">
+                                    <h4>Sensory Stimulus Filter</h4>
+                                    <p><strong>`SensoryTypeScorerSO`</strong> evaluates proximity to disturbances recorded in <code>StimulusRegistry</code> with category bitmask filtering.</p>
+                                    <table class="table param-table small">
+                                        <tr><td><code>targetStimuli</code></td><td>Gunshot, Footstep, etc.</td></tr>
+                                        <tr><td><code>hearingRange</code></td><td>Audible reaction radius</td></tr>
+                                        <tr><td><code>investigateMode</code></td><td>True = seek, False = flee</td></tr>
+                                    </table>
+                                    <p class="small scorers-desc mb-0">Supports investigation mode (seeking gunshots) or evasion mode (fleeing loud explosions).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Stimulus Registry -->
+                    <div id="v3-stimulus" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-volume-up text-success me-2"></i>4. StimulusRegistry: Global Sensory Events</h3>
+                        <p>High-speed, zero-allocation global sensory registry tracking audio and visual disturbances across your scene:</p>
+
+                        <div class="component-block">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <h5>Stimulus Categories</h5>
+                                    <ul>
+                                        <li><code>StimulusType.Gunshot</code>: High threat, large audible radius.</li>
+                                        <li><code>StimulusType.Footstep</code>: Subtle disturbance with acoustic falloff.</li>
+                                        <li><code>StimulusType.Explosion</code>: Extreme intensity, triggers evasive retreat.</li>
+                                        <li><code>StimulusType.Distraction</code>: Rocks, coins, lure devices.</li>
+                                        <li><code>StimulusType.VoiceCallout</code>: Shoutings, teammate warnings.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Public API Example</h5>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>// Register a disturbance when shooting
+StimulusRegistry.RegisterStimulus(
+    StimulusType.Gunshot,
+    muzzleTransform.position,
+    radius: 40f,
+    intensity: 1.0f
+);
+
+// Query perceived stimuli
+if (StimulusRegistry.TryGetLoudestStimulus(agent.position, threshold: 0.2f, out var stimulus)) {
+    agent.InvestigatePosition(stimulus.Position);
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Cover Metadata & Stances -->
+                    <div id="v3-covermetadata" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-shield-virus text-success me-2"></i>5. Custom Cover Metadata & Universal Stance System</h3>
+                        <p>Tactical AI 3.0 provides a universal metadata pipeline connecting level geometry directly to AI tactical evaluations:</p>
+
+                        <div class="component-block">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <h4>`CoverPointFlags` Enum</h4>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>[Flags]
+public enum CoverPointFlags {
+    None         = 0,
+    LowStance    = 1 &lt;&lt; 0,  // Crouch cover
+    HighStance   = 1 &lt;&lt; 1,  // Standing cover
+    EdgePoint    = 1 &lt;&lt; 2,  // Corner for peeking
+    Vaultable    = 1 &lt;&lt; 3,  // Mantleable barrier
+    Destructible = 1 &lt;&lt; 4   // Thin / penetrable
+}</code></pre>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>`CoverMetadata` Drop-In Component</h4>
+                                    <p>Attach <code>CoverMetadata</code> to any collider, crate, sandbag, or wall in your scene to instantly author:</p>
+                                    <ul>
+                                        <li><strong>Stance</strong>: Low, High, or Both.</li>
+                                        <li><strong>Corner/Edge Toggle</strong>: Informs peeking algorithms.</li>
+                                        <li><strong>Vaultable / Destructible</strong>: Physical flags.</li>
+                                        <li><strong>String Gameplay Tags</strong>: e.g. <code>"SniperNest"</code>, <code>"Reinforced"</code>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Environment & Agent Scene Validator -->
+                    <div id="v3-scenevalidator" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-shield-alt text-success me-2"></i>6. Environment & Agent Scene Validator Tool (v3.0)</h3>
+                        <p>Tactical AI 3.0 includes an in-editor diagnostic and auto-repair suite designed to eliminate silent configuration errors before playtesting:</p>
+
+                        <div class="component-block">
+                            <div class="diagram-box">
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Tactical AI — Environment & Agent Validator [📖 Docs] [⚡ Auto-Fix All] [🔍 Scan]│
+├────────────────────────────────────────────────────────────────────────────┤
+│ [ 12 ] Agents [ 34 ] Helpers [ 0 ] Errors [ 2 ] Warnings [ 5 ] Suggestions │
+├────────────────────────────────────────────────────────────────────────────┤
+│ 🟡 WARNING [Service Dependency] (12 Objects Affected)                      │
+│ Missing SuppressionService In Scene                                        │
+│ Active agents use SuppressionPressureScorerSO, but no service is present. │
+│ 💡 Recommendation: Create a SuppressionService in the scene.               │
+│ [▼ View 12 Affected Objects] [📖 Doc] [⚡ Fix All 12]                       │
+└────────────────────────────────────────────────────────────────────────────┘
+                            </div>
+
+                            <h5 class="fw-bold mt-4">The 7 Diagnostic Inspection Categories:</h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded glass-box">
+                                        <h6><i class="fas fa-map text-primary me-2"></i>1. Scene Environment</h6>
+                                        <p class="small validator-desc mb-0">Checks for unbaked NavMesh, missing light probes for shadow scorers, and missing directional lights.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded glass-box">
+                                        <h6><i class="fas fa-user-cog text-primary me-2"></i>2. Agent Setup</h6>
+                                        <p class="small validator-desc mb-0">Detects missing settings assets, missing NavMeshAgent components, self-occlusion hazards, and stopping distance conflicts.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded glass-box">
+                                        <h6><i class="fas fa-server text-primary me-2"></i>3. Service Dependencies</h6>
+                                        <p class="small validator-desc mb-0">Flags missing <code>SuppressionService</code>, <code>SquadCoordinator</code>, or <code>ThreatMapService</code> singletons required by active agents.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded glass-box">
+                                        <h6><i class="fas fa-boxes text-primary me-2"></i>4. Provider Dependencies</h6>
+                                        <p class="small validator-desc mb-0">Warns when providers like <code>CoverNodeProviderSO</code> or <code>TacticalZoneProviderSO</code> are active but 0 scene helpers exist.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded glass-box">
+                                        <h6><i class="fas fa-tachometer-alt text-primary me-2"></i>5. Scorer Optimization</h6>
+                                        <p class="small validator-desc mb-0">Identifies zero-weight scorers wasting search cycles and flags zone scorers without zones.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded glass-box">
+                                        <h6><i class="fas fa-check-double text-primary me-2"></i>6. Semantic Compatibility</h6>
+                                        <p class="small validator-desc mb-0">Verifies providers supply <code>CoverPointFlags</code> when using posture scorers, and validates path max distances.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="p-3 rounded glass-box">
+                                        <h6><i class="fas fa-unlink text-primary me-2"></i>7. Orphaned Scene Authoring</h6>
+                                        <p class="small validator-desc mb-0">Alerts designers when placed <code>CoverNode</code> or <code>TacticalZone</code> volumes are never referenced by any active agent profile, or if zone colliders were accidentally left non-trigger.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-success mt-4 mb-0">
+                                <strong>⚡ One-Click Auto-Fix & Safe Undo:</strong> Click <strong>"⚡ Auto-Fix All"</strong> or click <strong>"⚡ Fix"</strong> on individual issue cards to safely correct misconfigurations with full Unity Undo (<code>Ctrl+Z</code>) support.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. v3 Code Example -->
+                    <div id="v3-code-example" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-code text-success me-2"></i>7. v3.0 Integration Code Example</h3>
+                        <div class="component-block">
+                            <pre class="bg-dark p-3 rounded text-light"><code>using UnityEngine;
+using MaharajaStudio.TacticalAI;
+using MaharajaStudio.TacticalAI.Helper;
+
+public class SquadAssaultController : MonoBehaviour
+{
+    [SerializeField] private string squadName = "BravoTeam";
+    [SerializeField] private Transform enemyTarget;
+
+    public void ExecutePincerAssault()
+    {
+        // 1. Issue synchronized squad maneuver: suppressors pin enemy, flankers wrap around
+        SquadCoordinator.Instance.ExecuteManeuver(
+            squadName,
+            TacticalSquadManeuver.SuppressAndFlank,
+            enemyTarget
+        );
+
+        // 2. Broadcast high-priority enemy target position across squad hivemind
+        SquadCoordinator.Instance.BroadcastSquadThreat(squadName, enemyTarget.position);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Bottom CTA for Version 3.0 -->
+                    <div class="mt-5 p-4 rounded text-center glass-box">
+                        <h4 class="fw-bold mb-2">Ready to explore full v3.0 technical documentation?</h4>
+                        <p class="cta-desc mb-3">View full class references, method signatures, parameter tables, and cookbooks.</p>
+                        <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary btn-lg shadow-sm">
+                            <i class="fas fa-book-open me-2"></i>Go to Full Documentation
+                        </a>
+                    </div>
+                </section>
+
+                <!-- ======================================================== -->
+                <!--                   SECTION 2: VERSION 2.5                 -->
+                <!-- ======================================================== -->
+                <section id="v25-section" class="version-release-section">
+                    <div id="v25-overview" class="pt-2 mb-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="badge-v25 fs-6">VERSION 2.5</span>
+                            <h2 class="fw-bold mb-0">Tactical AI 2.5: Dynamic Suppression, CQB Stacking & Weapon Sweetspots</h2>
+                        </div>
+
+                        <div class="version-hero-card" style="border-left-color: #0ea5e9 !important;">
+                            <p class="lead mb-2"><strong>Tactical AI Version 2.5</strong> introduces high-fidelity ballistics awareness, tactical CQB spatial analysis, weapon-range behavioral tuning, and high-ground vantage anchor capabilities.</p>
+                            <p class="hero-desc mb-0">Version 2.5 is <strong>100% backwards-compatible</strong> with v2.0 setups, allowing you to selectively add ballistic suppression, doorway stacking breach points, and Gaussian weapon range profiles.</p>
+                        </div>
+
+                        <div class="diagram-box">
+Tactical AI 2.5 Architecture
+┌─────────────────────────────────┼─────────────────────────────────┐
+▼                                 ▼                                 ▼
+[ Tactical CQB & Sniping ]        [ Dynamic Suppression ]           [ Weapon & 360° Security ]
+• DoorStackProviderSO             • SuppressionService              • WeaponSweetspotScorerSO
+• ElevationAnchorProviderSO       • SuppressionPressureScorerSO     • FlankExposureRiskScorerSO
+                        </div>
+                    </div>
+
+                    <!-- 1. Suppression Service -->
+                    <div id="v25-suppression" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-crosshairs text-info me-2"></i>1. Dynamic Suppression & Incoming Fire Awareness</h3>
+                        <p>Provides your AI with real-time awareness of incoming gunfire streams and bullet paths:</p>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4>`SuppressionService`</h4>
+                                    <p>High-performance singleton tracking active gunfire lines and bullet streams in real-time with automatic temporal decay.</p>
+                                    <pre class="bg-dark p-2 rounded text-light"><code>SuppressionService.Instance.RegisterSuppressiveFire(
+    origin: muzzle.position,
+    direction: muzzle.forward,
+    length: 50f,
+    radius: 1.5f,
+    duration: 0.8f
+);</code></pre>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4>`SuppressionPressureScorerSO`</h4>
+                                    <p>High-stakes survival scorer that penalizes or vetoes candidate spots that fall inside active bullet corridors or incoming fire lines.</p>
+                                    <ul class="small validator-desc mb-0">
+                                        <li><strong>strictVeto = true:</strong> Immediately returns <code>-Infinity</code> to reject spots under fire.</li>
+                                        <li><strong>Zero-Allocation:</strong> Fast vector cylinder distance math.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. CQB & Sniping Providers -->
+                    <div id="v25-providers" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-door-open text-info me-2"></i>2. Advanced CQB & High-Ground Spatial Providers</h3>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4>Door Stack Provider (`DoorStackProviderSO`)</h4>
+                                    <p>Dynamically scans geometry to detect doorway openings and choke points, generating wall-hugging "Stack Left" and "Stack Right" candidate points outside the fatal funnel.</p>
+                                    <table class="table param-table">
+                                        <tr>
+                                            <td class="param-name">maxDoorwayWidth</td>
+                                            <td>Max opening width (default: <code>3.0m</code>).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="param-name">stackOffset</td>
+                                            <td>Distance from doorframe edge (default: <code>1.0m</code>).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="param-name">raycastDepth</td>
+                                            <td>Wall depth scan tolerance (default: <code>2.0m</code>).</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4>Elevation Anchor Provider (`ElevationAnchorProviderSO`)</h4>
+                                    <p>Identifies multi-story NavMesh surfaces with significant altitude advantage over the enemy, verifying drop-off ledges for snipers, marksmen, and overwatch units.</p>
+                                    <table class="table param-table">
+                                        <tr>
+                                            <td class="param-name">minElevationAdvantage</td>
+                                            <td>Minimum vertical height difference (default: <code>3.0m</code>).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="param-name">requireLedgeEdge</td>
+                                            <td>Rejects gentle slopes; requires drop-off ledge (default: <code>true</code>).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="param-name">maxSearchRadius</td>
+                                            <td>Maximum altitude search radius (default: <code>40.0m</code>).</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Scorers v2.5 -->
+                    <div id="v25-scorers" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-calculator text-info me-2"></i>3. Weapon Range Sweetspots & 360° Flank Security</h3>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4>Weapon Sweetspot (`WeaponSweetspotScorerSO`)</h4>
+                                    <p>Evaluates distance to target using a tunable Gaussian bell-curve. Allows distinct archetype tuning for Shotguns, Rifles, and Snipers.</p>
+                                    <div class="diagram-box p-2">
+Score
+1.0 ┤      ╭───╮      ◄ Optimal Range (e.g. 18m)
+0.5 ┤   ╭──╯   ╰──╮
+0.0 ┴───┴─────────┴─── Distance (m)
+                                    </div>
+                                    <table class="table param-table small">
+                                        <tr><td>Shotgun Rusher</td><td>optimal: <code>4.0m</code>, stdDev: <code>2.5m</code></td></tr>
+                                        <tr><td>Assault Rifle</td><td>optimal: <code>18.0m</code>, stdDev: <code>8.0m</code></td></tr>
+                                        <tr><td>Sniper</td><td>optimal: <code>40.0m</code>, stdDev: <code>15.0m</code></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="component-block h-100">
+                                    <h4>Flank Exposure Risk (`FlankExposureRiskScorerSO`)</h4>
+                                    <p>Radial 360° raycast scorer that measures ambient exposure. Rewards spots tucked deep into wall corners and penalizes open-field positions.</p>
+                                    <table class="table param-table">
+                                        <tr>
+                                            <td class="param-name">scanRadius</td>
+                                            <td>Barrier scan distance (default: <code>10.0m</code>).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="param-name">rayCount</td>
+                                            <td>Radial ray samples (default: <code>8</code> rays).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="param-name">threatMask</td>
+                                            <td>Layers considered protective occluders.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. v2.5 Setup Guide -->
+                    <div id="v25-setup-guide" class="mt-5">
+                        <h3 class="fw-bold mb-3"><i class="fas fa-tools text-info me-2"></i>4. v2.5 Step-by-Step Setup Guide</h3>
+                        <div class="component-block">
+                            <ol>
+                                <li class="mb-3">
+                                    <strong>Add Suppression Service to Your Scene:</strong><br>
+                                    Create an empty GameObject in your scene named <code>[SuppressionService]</code> and attach the <code>SuppressionService</code> component.
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Create Weapon Sweetspot Profiles:</strong><br>
+                                    Right-click in Unity: <code>Create &gt; TacticalAI &gt; Scorers &gt; Offensive &gt; Weapon Sweetspot</code>.<br>
+                                    Set <code>optimalRange: 4.0</code> for Shotguns, <code>18.0</code> for Assault Rifles, and <code>40.0</code> for Snipers.
+                                </li>
+                                <li class="mb-0">
+                                    <strong>Add v2.5 Providers & Scorers to Settings:</strong><br>
+                                    Add <code>DoorStackProviderSO</code> and <code>ElevationAnchorProviderSO</code> under Providers, and add <code>SuppressionPressureScorerSO</code> and <code>FlankExposureRiskScorerSO</code> under Scorers.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Bottom CTA for Version 2.5 -->
+                    <div class="mt-5 p-4 rounded text-center glass-box">
+                        <h4 class="fw-bold mb-2">Ready to explore full v2.5 technical documentation?</h4>
+                        <p class="cta-desc mb-3">View full class references, method signatures, parameter tables, and cookbooks.</p>
+                        <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary btn-lg shadow-sm">
+                            <i class="fas fa-book-open me-2"></i>Go to Full Documentation
+                        </a>
+                    </div>
+                </section>
+
+                <!-- ======================================================== -->
+                <!--               SECTION 3: VERSION 2.0 ARCHIVE             -->
+                <!-- ======================================================== -->
+                <section id="v20-section" class="version-release-section">
+                    <div id="v2-upgrade-guide" class="pt-2 mb-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="badge-v2 fs-6">VERSION 2.0 ARCHIVE</span>
+                            <h2 class="fw-bold mb-0">Version 2.0 Archive & Upgrade Guide</h2>
+                        </div>
+
+                        <div class="alert alert-warning">
+                            <strong>⚠️ Namespace Rebranding Note:</strong> In Version 2.0, the asset evolved from <em>"Hiding System"</em> to <em>"Tactical Cover & Retreat AI"</em>. The namespace changed from <code>MaharajaStudio.HidingSystem</code> to <code>MaharajaStudio.TacticalAI</code>.
+                        </div>
+
+                        <div class="component-block">
+                            <h4>Namespace & Class Migration Reference</h4>
+                            <table class="table param-table">
+                                <thead>
+                                    <tr>
+                                        <th>Old Term (v1.x)</th>
+                                        <th>New Term (v2.0+)</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>MaharajaStudio.HidingSystem</code></td>
+                                        <td><code>MaharajaStudio.TacticalAI</code></td>
+                                        <td>Root namespace update</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>EnemyHider</code></td>
+                                        <td><code>TacticalAgent</code></td>
+                                        <td>Primary component script</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>HidingSettingsSO</code></td>
+                                        <td><code>TacticalProfileSO</code> / <code>TacticalAISettingsSO</code></td>
+                                        <td>Settings profile asset</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>HideSpotScorerSO</code></td>
+                                        <td><code>TacticalScorerSO</code></td>
+                                        <td>Base class for custom scorers</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>HideSpotProviderSO</code></td>
+                                        <td><code>TacticalSpotProviderSO</code></td>
+                                        <td>Base class for custom providers</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- V2 Providers Summary -->
+                    <div id="v2-providers" class="mt-5">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-cubes text-primary me-2"></i>8 Providers Introduced in Version 2.0</h4>
+                        <div class="row g-3">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>AdvanceCoverProviderSO</strong><br>
+                                    <span class="small provider-desc">Leapfrog forward movement towards targets.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>ChokePointProviderSO</strong><br>
+                                    <span class="small provider-desc">Constricted corridor and doorway ambushes.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>CornerEdgeProviderSO</strong><br>
+                                    <span class="small provider-desc">Vertical corner peeking and wall boundaries.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>FlankPointProviderSO</strong><br>
+                                    <span class="small provider-desc">Side and rear flanking candidate arcs.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>PincerFormationProviderSO</strong><br>
+                                    <span class="small provider-desc">Squad encirclement and pincer formations.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>RoomClearanceProviderSO</strong><br>
+                                    <span class="small provider-desc">Pie-slicing doorways and room breach points.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>SquadFormationProviderSO</strong><br>
+                                    <span class="small provider-desc">Wedge, line, and V squad spatial shapes.</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="p-3 rounded glass-box h-100">
+                                    <strong>VantagePointProviderSO</strong><br>
+                                    <span class="small provider-desc">High-ground sniper bias and elevated perches.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 Scorers Summary -->
+                    <div id="v2-scorers" class="mt-5">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-star-half-alt text-primary me-2"></i>25 Specialized Scorers Introduced in Version 2.0</h4>
+                        <div class="component-block">
+                            <p class="scorers-desc">Version 2.0 introduced 25 specialized scorers organized across tactical disciplines:</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h6><i class="fas fa-crosshairs text-danger me-2"></i>Offensive & Combat Scorers</h6>
+                                    <ul>
+                                        <li><code>AggressiveLOSScorerSO</code> — Rewards clear offensive sightlines.</li>
+                                        <li><code>PlayerPathPredictionScorerSO</code> — Intercepts player heading vectors.</li>
+                                        <li><code>PushForwardScorerSO</code> — Drives rushers towards the front line.</li>
+                                        <li><code>RearAttackScorerSO</code> — Prioritizes blind spots behind targets.</li>
+                                        <li><code>HighGroundScorerSO</code> — Rewards vertical advantage.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6><i class="fas fa-shield-alt text-success me-2"></i>Defensive & Survival Scorers</h6>
+                                    <ul>
+                                        <li><code>FatalFunnelScorerSO</code> — Penalizes standing directly in doorway openings.</li>
+                                        <li><code>EscapeRouteScorerSO</code> — Verifies unobstructed secondary retreat paths.</li>
+                                        <li><code>SkyliningScorerSO</code> — Penalizes silhouetting against open ridgelines.</li>
+                                        <li><code>BulletPenetrationScorerSO</code> — Tests wall thickness against calibers.</li>
+                                        <li><code>CasualtyAversionScorerSO</code> — Flees spots where teammates fell.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6><i class="fas fa-users text-info me-2"></i>Squad & Formation Scorers</h6>
+                                    <ul>
+                                        <li><code>SquadReservationScorerSO</code> — Prevents teammates claiming identical spots.</li>
+                                        <li><code>SquadSeparationScorerSO</code> — Maintains healthy dispersal spacing.</li>
+                                        <li><code>LineOfFireScorerSO</code> — Prevents stepping into friendly firing corridors.</li>
+                                        <li><code>MuzzleDisciplineScorerSO</code> — Penalizes sweeping allies with crosshairs.</li>
+                                        <li><code>SectorWatchScorerSO</code> — Divides 360° defensive surveillance sectors.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6><i class="fas fa-brain text-warning me-2"></i>Spatial & Sensory Scorers</h6>
+                                    <ul>
+                                        <li><code>LightProbeScorerSO</code> — Favors dark, shadowy hiding spots.</li>
+                                        <li><code>AudioStimulusScorerSO</code> — Investigates gunshot / footstep disturbances.</li>
+                                        <li><code>WallHuggingScorerSO</code> — Hugs solid geometry contours.</li>
+                                        <li><code>ZoneControlScorerSO</code> — Scores spots by TacticalZone control state.</li>
+                                        <li><code>StalemateBreakerScorerSO</code> — Applies penalties to campers to break stalemates.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tactical AI Profiler Window -->
+                    <div id="v2-profiler" class="mt-5">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-chart-line text-primary me-2"></i>Tactical AI Profiler Window</h4>
+                        <div class="component-block">
+                            <p class="hero-desc">Introduced in v2.0, the <strong>Tactical AI Profiler</strong> (<code>Window &gt; Analysis &gt; Tactical Cover And Retreat AI &gt; Tactical AI Profiler</code>) provides millisecond-accurate diagnostics for AI searches:</p>
+                            <ul>
+                                <li><strong>Pulse Graph (Live Monitor):</strong> Visualizes computational cost per search request with a 16ms (60 FPS) yellow budget line.</li>
+                                <li><strong>Timeline Breakdown:</strong> Color-coded execution metrics dividing time into Generation, Job Setup, Burst Execution, Scoring, and NavMesh Pathing.</li>
+                                <li><strong>Pause on Fail:</strong> Automatically pauses Unity playmode the instant any agent fails to find cover, allowing immediate inspection in the Tactical Decision Inspector.</li>
+                                <li><strong>Candidate Spatial Map:</strong> Top-down 2D dot cluster showing all evaluated candidate positions and the winning spot.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bottom CTA for Version 2.0 Archive -->
+                    <div class="mt-5 p-4 rounded text-center glass-box">
+                        <h4 class="fw-bold mb-2">Ready to explore full technical documentation?</h4>
+                        <p class="cta-desc mb-3">View full class references, method signatures, parameter tables, and cookbooks.</p>
+                        <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary btn-lg shadow-sm">
+                            <i class="fas fa-book-open me-2"></i>Go to Full Documentation
+                        </a>
+                    </div>
+                </section>
 
             </main>
         </div>
     </div>
 
+    <!-- Floating Quick Navigation Bar -->
+    <div class="floating-doc-nav" id="floating-doc-nav">
+        <a href="#" class="floating-doc-btn" id="scroll-to-top" title="Scroll to top">
+            <i class="fas fa-arrow-up"></i> <span>Top</span>
+        </a>
+        <a href="tactical-cover-retreat-ai-system-docs.html" class="floating-doc-btn btn-accent" title="Go to Full Documentation">
+            <i class="fas fa-book-open"></i> <span>Full Docs</span>
+        </a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll to top button
+            const scrollTopBtn = document.getElementById('scroll-to-top');
+            if (scrollTopBtn) {
+                scrollTopBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Scroll-spy active link highlighting
+            const navLinks = document.querySelectorAll('.docs-sidebar .docs-nav-menu a[href^="#"]');
+            const sections = [];
+            navLinks.forEach(link => {
+                const targetId = link.getAttribute('href').substring(1);
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    sections.push({ id: targetId, link: link, element: targetEl });
+                }
+            });
+
+            function onScroll() {
+                const scrollPos = window.scrollY + 120;
+                let currentSection = null;
+
+                for (let i = 0; i < sections.length; i++) {
+                    const top = sections[i].element.offsetTop;
+                    const height = sections[i].element.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        currentSection = sections[i];
+                        break;
+                    }
+                }
+
+                if (!currentSection && sections.length > 0) {
+                    for (let i = sections.length - 1; i >= 0; i--) {
+                        if (scrollPos >= sections[i].element.offsetTop) {
+                            currentSection = sections[i];
+                            break;
+                        }
+                    }
+                }
+
+                navLinks.forEach(l => l.classList.remove('active'));
+                if (currentSection) {
+                    currentSection.link.classList.add('active');
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    if (!targetId) return;
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (history.pushState) {
+                            history.pushState(null, null, '#' + targetId);
+                        }
+                    }
+                });
+            });
+
+            // Auto check for updates on window focus during local previewing
+            window.addEventListener('focus', () => {
+                fetch(window.location.pathname + '?nocache=' + Date.now(), { method: 'HEAD' })
+                    .then(res => {
+                        const lastMod = res.headers.get('Last-Modified') || res.headers.get('ETag');
+                        if (window._pageLastMod && lastMod && window._pageLastMod !== lastMod) {
+                            window.location.reload();
+                        }
+                        if (lastMod) window._pageLastMod = lastMod;
+                    }).catch(() => {});
+            });
+        });
+    </script>
 </body>
 
 </html>

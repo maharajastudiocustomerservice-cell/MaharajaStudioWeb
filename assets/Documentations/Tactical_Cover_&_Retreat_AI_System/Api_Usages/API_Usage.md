@@ -440,3 +440,112 @@ Manually clears the AI's memory of the `LastKnownPlayerPosition`.
         aiHider.ReturnToPatrol();
     }
     ```
+
+---
+
+## 4. Tactical Stance, Suppression & Combat Query APIs
+
+These high-level APIs connect the tactical hiding search directly to animation controllers, weapon aim systems, and combat brains.
+
+---
+
+### DesiredStance & OnStanceChangeRequired
+
+Provides the recommended stance (`CoverStance.Low`, `CoverStance.High`, or `CoverStance.Both`) based on the active cover point flags.
+
+* **Use Case:** Automatically drive crouching or standing animator parameters when settling into cover.
+* **How to Use:**
+    ```csharp
+    TacticalAgent agent = GetComponent<TacticalAgent>();
+
+    void OnEnable()
+    {
+        agent.OnStanceChangeRequired += HandleStanceChange;
+    }
+
+    void OnDisable()
+    {
+        agent.OnStanceChangeRequired -= HandleStanceChange;
+    }
+
+    private void HandleStanceChange(CoverStance stance)
+    {
+        bool isLow = stance == CoverStance.Low;
+        animator.SetBool("IsCrouching", isLow);
+        agent.SetCurrentEyeHight(isLow ? 0.9f : 1.7f);
+    }
+    ```
+
+---
+
+### SuppressionLevel & IsSuppressed
+
+Tracks the real-time suppression pressure on this agent (0.0 = calm, 1.0 = fully suppressed). Automatically updates from nearby `SuppressionService` gunfire streams and decays over time.
+
+* **Use Case:** Trigger flinching, ducking behind cover, or accuracy penalties under heavy incoming fire.
+* **Methods:**
+    * `ApplySuppression(float amount)`: Manually adds suppression pressure.
+    * `ClearSuppression()`: Instantly clears suppression.
+    * `OnSuppressionChanged (Action<float>)`: Event callback when suppression changes.
+* **How to Use:**
+    ```csharp
+    if (agent.IsSuppressed)
+    {
+        // Agent is pinned down; stay low and hold peek fire
+        animator.SetBool("IsPinnedDown", true);
+    }
+    ```
+
+---
+
+### TryGetBestPeekDirection
+
+Evaluates whether the agent has a line of sight to peek and shoot around its cover barrier without exposing its full body.
+
+* **Signature:** `bool TryGetBestPeekDirection(Transform target, out PeekDirection bestDir, out Vector3 peekWorldPos)`
+* **Returns:** `true` if a left or right peek position has line of sight to the target.
+* **How to Use:**
+    ```csharp
+    if (agent.TryGetBestPeekDirection(playerTarget, out PeekDirection dir, out Vector3 peekPos))
+    {
+        if (dir == PeekDirection.Left)
+            animator.SetTrigger("PeekLeft");
+        else if (dir == PeekDirection.Right)
+            animator.SetTrigger("PeekRight");
+
+        weapon.AimAt(playerTarget.position);
+    }
+    ```
+
+---
+
+### IsFlanked & GetCoverFlankAngle
+
+Warns the AI when a threat has circumnavigated its cover normal, allowing proactive retreats or counter-attacks before taking damage.
+
+* **Signature:** `bool IsFlanked(out Transform flankingThreat)`
+* **Angle Query:** `float GetCoverFlankAngle(Transform threat)` (0° = safe behind barrier, >90° = flanked).
+* **How to Use:**
+    ```csharp
+    if (agent.IsFlanked(out Transform threat))
+    {
+        // Cover is compromised! Scramble to a new hiding spot
+        agent.RetreatToHide();
+    }
+    ```
+
+---
+
+### CanVaultCover
+
+Checks if the current cover point has the `CoverPointFlags.Vaultable` flag and computes the landing position across the barrier on the NavMesh.
+
+* **Signature:** `bool CanVaultCover(out Vector3 vaultLandingPosition)`
+* **How to Use:**
+    ```csharp
+    if (agent.CanVaultCover(out Vector3 landingPos))
+    {
+        // Trigger vault animation and reposition agent
+        characterController.VaultTo(landingPos);
+    }
+    ```

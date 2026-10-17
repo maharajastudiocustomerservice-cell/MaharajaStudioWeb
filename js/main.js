@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const applyTheme = (theme) => {
         html.setAttribute('data-theme', theme);
+        html.setAttribute('data-bs-theme', theme);
         if (themeSwitcher) {
             themeSwitcher.checked = theme === 'dark';
         }

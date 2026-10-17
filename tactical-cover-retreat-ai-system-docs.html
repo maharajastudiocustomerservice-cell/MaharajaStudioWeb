@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tactical Cover & Retreat AI System (v2.0) - Documentation</title>
+    <title>Tactical Cover & Retreat AI System (v3.0) - Documentation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=3.5">
     <style>
         @media (min-width: 993px) {
             .docs-container {
@@ -62,13 +62,14 @@
                     <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
                 </div>
                 <ul class="docs-nav-menu">
-                    <li><a href="tactical_ai_whats_new.html" class="docs-nav-link">What's New in V2?</a></li>
+                    <li><a href="tactical_ai_whats_new.html" class="docs-nav-link text-primary"><i class="fas fa-sparkles me-1"></i>What's New in V3 & V2.5</a></li>
                     <li><a href="#introduction" class="docs-nav-link">Introduction</a></li>
                     <li><a href="#quick-start" class="docs-nav-link">Quick Start Guide</a></li>
+                    <li><a href="#SceneValidator" class="docs-nav-link text-success"><i class="fas fa-shield-alt me-1"></i>Scene Validator (v3.0)</a></li>
                     <li><a href="#for-designers" class="docs-nav-link">How-To Guides (The Cookbook)</a></li>
                     <li><a href="#for-developers" class="docs-nav-link">Core Concepts</a></li>
                     <li class="has-submenu">
-                        <a href="#environmental-helpers" class="docs-nav-link">Environmental Helpers</a>
+                        <a href="#environmental-helpers" class="docs-nav-link">Environmental Helpers & Services</a>
                         <ul class="submenu">
                             <li><a href="#CoverNode" class="docs-nav-link">CoverNode</a></li>
                             <li><a href="#TacticalAgent" class="docs-nav-link">TacticalAgent</a></li>
@@ -76,6 +77,8 @@
                             <li><a href="#PlayerHeightInfo" class="docs-nav-link">PlayerHeightInfo</a></li>
                             <li><a href="#TacticalZone" class="docs-nav-link">TacticalZone</a></li>
                             <li><a href="#VolumetricCover" class="docs-nav-link">VolumetricCover</a></li>
+                            <li><a href="#SquadCoordinator" class="docs-nav-link text-success">SquadCoordinator (v3.0)</a></li>
+                            <li><a href="#SuppressionService" class="docs-nav-link text-info">SuppressionService (v2.5)</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -106,10 +109,11 @@
                                     (V2)</a></li>
                             <li><a href="#RoomClearanceProviderSO" class="docs-nav-link text-success">Room Clearance
                                     (V2)</a></li>
-                            <li><a href="#SquadFormationProviderSO" class="docs-nav-link text-success">Squad Formation
-                                    (V2)</a></li>
-                            <li><a href="#VantagePointProviderSO" class="docs-nav-link text-success">Vantage Point
-                                    (V2)</a></li>
+                            <li><a href="#SquadFormationProviderSO" class="docs-nav-link text-success">Squad Formation (V2)</a></li>
+                            <li><a href="#VantagePointProviderSO" class="docs-nav-link text-success">Vantage Point (V2)</a></li>
+                            <!-- New in V2.5 -->
+                            <li><a href="#DoorStackProviderSO" class="docs-nav-link text-info">Door Stack (v2.5)</a></li>
+                            <li><a href="#ElevationAnchorProviderSO" class="docs-nav-link text-info">Elevation Anchor (v2.5)</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -181,10 +185,16 @@
                                     (V2)</a></li>
                             <li><a href="#StalemateBreakerScorerSO" class="docs-nav-link text-success">Stalemate Breaker
                                     (V2)</a></li>
-                            <li><a href="#WallHuggingScorerSO" class="docs-nav-link text-success">Wall Hugging (V2)</a>
-                            </li>
-                            <li><a href="#ZoneControlScorerSO" class="docs-nav-link text-success">Zone Control (V2)</a>
-                            </li>
+                            <li><a href="#WallHuggingScorerSO" class="docs-nav-link text-success">Wall Hugging (V2)</a></li>
+                            <li><a href="#ZoneControlScorerSO" class="docs-nav-link text-success">Zone Control (V2)</a></li>
+                            <!-- New in V2.5 -->
+                            <li><a href="#FlankExposureRiskScorerSO" class="docs-nav-link text-info">Flank Exposure Risk (v2.5)</a></li>
+                            <li><a href="#SuppressionPressureScorerSO" class="docs-nav-link text-info">Suppression Pressure (v2.5)</a></li>
+                            <li><a href="#WeaponSweetspotScorerSO" class="docs-nav-link text-info">Weapon Sweetspot (v2.5)</a></li>
+                            <!-- New in V3.0 -->
+                            <li><a href="#ZoneControlStateScorerSO" class="docs-nav-link text-success">Zone Control State (v3.0)</a></li>
+                            <li><a href="#VaultOpportunityScorerSO" class="docs-nav-link text-success">Vault Opportunity (v3.0)</a></li>
+                            <li><a href="#SensoryTypeScorerSO" class="docs-nav-link text-success">Sensory Stimulus Filter (v3.0)</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -207,8 +217,8 @@
 
             <article class="docs-content">
                 <div class="alert alert-info text-center mb-4" role="alert">
-                    <strong>VERSION 2.0 DOCUMENTATION</strong><br>
-                    <a href="tactical_ai_whats_new.html" class="alert-link">See What's New in V2</a> |
+                    <strong>VERSION 3.0 DOCUMENTATION (Includes v2.5 & v2.0)</strong><br>
+                    <a href="tactical_ai_whats_new.html" class="alert-link">See What's New in V3.0 & V2.5</a> |
                     <a href="tactical_ai_v1_docs.html" class="alert-link">View Legacy (v1.0) Docs</a>
                 </div>
                 <section id="introduction" class="docs-section">
@@ -1968,15 +1978,21 @@ public class MyAIController : MonoBehaviour
 }
 </code></pre>
                     <ul>
-                        <li><strong>RetreatToHide():</strong> The main function. Initiates the search for a hiding spot
-                            based on the current settings and targets.</li>
+                        <li><strong>RetreatToHide() / FindTacticalPosition():</strong> The main command function. Initiates the search for a tactical hiding/combat spot based on the current settings and targets.</li>
                         <li><strong>CancelSearch():</strong> Immediately stops an ongoing Asynchronous search.</li>
-                        <li><strong>SetPlayers(IReadOnlyList<Transform> playerList):</strong> Sets the list of enemies
-                            to hide from.</li>
-                        <li><strong>SetAllies(IReadOnlyList<Transform> allyList):</strong> Sets the list of teammates
-                            for coordinated tactics.</li>
-                        <li><strong>IsSearching (property):</strong> A read-only boolean that is true while a search is
-                            in progress.</li>
+                        <li><strong>SetPlayers(IReadOnlyList&lt;Transform&gt; playerList):</strong> Sets the list of enemies to evaluate against.</li>
+                        <li><strong>SetAllies(IReadOnlyList&lt;Transform&gt; allyList):</strong> Sets the list of teammates for squad spacing, line-of-fire safety, and pincer tactics.</li>
+                        <li><strong>IsSearching (property):</strong> A read-only boolean that is true while a search is in progress.</li>
+                    </ul>
+
+                    <h3>Combat &amp; Locomotion Execution APIs <span class="badge bg-success ms-2 small">v3.0</span></h3>
+                    <p>Version 3.0 introduces real-time execution queries so agents can make dynamic combat decisions while in or moving to cover:</p>
+                    <ul>
+                        <li><strong><code>DesiredStance</code> &amp; <code>OnStanceChangeRequired</code>:</strong> Inspects the active cover point flags to indicate whether the agent should crouch, stand, or is versatile. Automatically triggers the <code>OnStanceChangeRequired</code> event to update your animator.</li>
+                        <li><strong><code>TryGetBestPeekDirection(Vector3 targetPosition, out PeekDirection direction)</code>:</strong> Evaluates the left and right edges of the agent's cover barrier. Returns <code>PeekDirection.PeekLeft</code> or <code>PeekDirection.PeekRight</code> if a lean/step allows clear line-of-sight to the enemy without fully exposing body mass.</li>
+                        <li><strong><code>IsFlanked</code> &amp; <code>GetCoverFlankAngle()</code>:</strong> Calculates the angle between the cover normal and the direction to the nearest hostile. If the angle exceeds 90°, <code>IsFlanked</code> evaluates to true, signaling your AI to scramble or reposition.</li>
+                        <li><strong><code>CanVaultCover(out Vector3 landingPosition)</code>:</strong> Checks if the cover object has the <code>Vaultable</code> flag, validates NavMesh on the other side of the obstacle, and returns the landing coordinate for seamless mantle animations.</li>
+                        <li><strong><code>SuppressionLevel</code> &amp; <code>IsSuppressed</code>:</strong> Returns a normalized <code>0.0–1.0</code> value representing incoming fire density from the <code>SuppressionService</code>, allowing agents to stay pinned until fire subsides.</li>
                     </ul>
                 </section>
                 <section id="Hazard" class="docs-section">
@@ -2165,6 +2181,118 @@ void OnStandUp()
                         <li>It then returns a high score, effectively turning an otherwise exposed position into a
                             viable hiding spot.</li>
                     </ul>
+                </section>
+
+                <section id="SquadCoordinator" class="docs-section">
+                    <h1>Feature Guide: SquadCoordinator (v3.0)</h1>
+                    <p>The <strong><code>SquadCoordinator</code></strong> is a scene-wide singleton service introduced in Version 2.0 and massively expanded in <strong>Version 3.0</strong>. It manages multi-agent spatial reservations, dynamic fireteam splitting, coordinated synchronized maneuvers, and squad-wide threat awareness.</p>
+                    
+                    <h2>Key Capabilities</h2>
+                    <ul>
+                        <li><strong>Dynamic Fireteam Splitting:</strong> Automatically divides any squad into a base-of-fire suppression element and an aggressive flanking maneuver element via <code>AssignFireteams()</code>.</li>
+                        <li><strong>Synchronized Maneuver Orders:</strong> Issues tactical commands via <code>ExecuteManeuver()</code> to coordinate timing between suppressors and flankers:
+                            <ul>
+                                <li><code>TacticalSquadManeuver.SuppressAndFlank</code>: Pincer attack where suppressors pin the enemy while flankers advance along wide angles.</li>
+                                <li><code>TacticalSquadManeuver.BoundingOverwatch</code>: Alternating leap-frog advances where units take turns providing covering fire.</li>
+                                <li><code>TacticalSquadManeuver.TacticalFallBack</code>: Coordinated orderly withdrawal to defensive rear lines.</li>
+                                <li><code>TacticalSquadManeuver.HoldPerimeter</code>: Distributes agents into 360° defensive perimeter cover surrounding an objective.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Hivemind Shared Threat Memory:</strong> When any scout or sentry spots an enemy, calling <code>BroadcastSquadThreat(squadName, position)</code> immediately updates the shared target location across all squad members.</li>
+                        <li><strong>Squad Spot Reservations:</strong> Prevents friendly units from colliding or choosing the same hiding spot by registering active candidate reservations.</li>
+                    </ul>
+
+                    <h2>Setup Guide</h2>
+                    <ol>
+                        <li>In your scene, create an empty GameObject named <code>[SquadCoordinator]</code>.</li>
+                        <li>Attach the <code>SquadCoordinator</code> script component. (Alternatively, use the Scene Validator's 1-click auto-fix to generate it automatically).</li>
+                        <li>On your AI agents' <code>TacticalAgent</code> components, assign matching squad names (e.g. <code>SquadName = "BravoTeam"</code>).</li>
+                    </ol>
+
+                    <h2>Code Example: Coordinated Suppression & Flank</h2>
+                    <pre><code>using UnityEngine;
+using MaharajaStudio.TacticalAI;
+using MaharajaStudio.TacticalAI.Helper;
+
+public class SquadAssaultManager : MonoBehaviour
+{
+    [SerializeField] private string squadName = "BravoTeam";
+    [SerializeField] private Transform enemyTarget;
+
+    public void TriggerFlankAttack()
+    {
+        // 1. Divide squad into base-of-fire and maneuver elements
+        SquadCoordinator.Instance.AssignFireteams(squadName);
+
+        // 2. Execute coordinated Suppress and Flank maneuver
+        SquadCoordinator.Instance.ExecuteManeuver(
+            squadName, 
+            TacticalSquadManeuver.SuppressAndFlank, 
+            enemyTarget
+        );
+
+        // 3. Broadcast target coordinates to squad hivemind
+        SquadCoordinator.Instance.BroadcastSquadThreat(squadName, enemyTarget.position);
+    }
+}</code></pre>
+                </section>
+
+                <section id="SuppressionService" class="docs-section">
+                    <h1>Feature Guide: SuppressionService (v2.5)</h1>
+                    <p>The <strong><code>SuppressionService</code></strong> is a high-performance runtime helper service introduced in <strong>Version 2.5</strong>. It tracks bullet paths, machine-gun fire lanes, and ballistic danger cylinders in real-time with automatic temporal decay, allowing AI agents to perceive and avoid incoming gunfire.</p>
+
+                    <h2>How It Works</h2>
+                    <ul>
+                        <li><strong>Singleton Architecture:</strong> Accessible globally via <code>SuppressionService.Instance</code> for zero-overhead registration from weapon scripts.</li>
+                        <li><strong>Temporal Danger Corridors:</strong> Each gunfire stream registers a 3D cylindrical danger volume with an expiration timestamp (e.g. <code>0.3s</code> for rifle shots, <code>1.5s</code> for sustained machine-gun fire). Expired streams are automatically cleaned during <code>Update()</code>.</li>
+                        <li><strong>Zero-Allocation Math Queries:</strong> <code>IsPointSuppressed(Vector3 point)</code> evaluates dot products and square-magnitude distance against the active cylinder buffer without running physics raycasts or allocating memory.</li>
+                        <li><strong>Scene View Gizmos:</strong> Renders visual danger tubes and wireframes in the Unity Scene View for easy designer tuning and debugging.</li>
+                    </ul>
+
+                    <h2>Public API</h2>
+                    <pre><code>namespace MaharajaStudio.TacticalAI.Helper
+{
+    public class SuppressionService : MonoBehaviour
+    {
+        public static SuppressionService Instance { get; }
+
+        // Register incoming gunfire or bullet stream
+        public void RegisterSuppressiveFire(
+            Vector3 origin, 
+            Vector3 direction, 
+            float length, 
+            float radius, 
+            float duration
+        );
+
+        // Check if a point is inside an active gunfire stream
+        public bool IsPointSuppressed(Vector3 point);
+    }
+}</code></pre>
+
+                    <h2>Integration Example: Weapon Firing</h2>
+                    <pre><code>using UnityEngine;
+using MaharajaStudio.TacticalAI.Helper;
+
+public class TurretWeapon : MonoBehaviour
+{
+    [SerializeField] private Transform muzzle;
+
+    public void FireContinuousBurst()
+    {
+        // Register a 40m long, 2m wide danger corridor lasting 1.0 second
+        if (SuppressionService.Instance != null)
+        {
+            SuppressionService.Instance.RegisterSuppressiveFire(
+                origin: muzzle.position,
+                direction: muzzle.forward,
+                length: 40f,
+                radius: 2.0f,
+                duration: 1.0f
+            );
+        }
+    }
+}</code></pre>
                 </section>
 
                 <!-- Provider Sections -->
@@ -3186,7 +3314,104 @@ void OnStandUp()
                         raycast per candidate. It is efficient enough for general use.</p>
                 </section>
 
-                <!-- Scorer Sections -->
+                <section id="DoorStackProviderSO" class="docs-section">
+                    <h1>Provider: Door Stack Points (CQB Breach) <span class="badge bg-info text-dark ms-2 small">v2.5</span></h1>
+                    <p><strong><code>DoorStackProviderSO</code></strong> is a specialized tactical provider introduced in <strong>Version 2.5</strong> designed for Close Quarters Battle (CQB) environments. It dynamically scans geometry to detect doorway openings, archways, and narrow choke points, generating wall-hugging "stack-up" candidate points on the walls immediately adjacent to the opening.</p>
+
+                    <h2>How It Works</h2>
+                    <p>Instead of placing agents directly in the doorway center ("the fatal funnel"), this provider ensures agents take up preparatory cover positions hugging the doorframe:</p>
+                    <ol>
+                        <li><strong>Environmental Sampling:</strong> Samples candidate positions across the NavMesh within the effective search radius.</li>
+                        <li><strong>Wall Proximity Detection:</strong> Performs a sphere cast against the occluder mask to identify nearby solid walls and retrieve their surface normals.</li>
+                        <li><strong>Opening Detection:</strong> Steps incrementally along the wall surface perpendicular to the normal. When the ray stops hitting geometry and encounters open space, it identifies the doorframe edge.</li>
+                        <li><strong>Stack Offset Placement:</strong> Projects a candidate offset outward from the edge along the wall (<code>stackOffset</code>) and slightly back along the normal (<code>0.5m</code>).</li>
+                        <li><strong>NavMesh Validation:</strong> Projects the computed stack point back onto the NavMesh and attaches the wall normal as the candidate's cover normal.</li>
+                    </ol>
+
+                    <h2>Parameters</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>maxDoorwayWidth</code></td>
+                                <td><code>float</code></td>
+                                <td><code>3.0</code></td>
+                                <td>Maximum width of a passage in meters to be considered a doorway or breach opening.</td>
+                            </tr>
+                            <tr>
+                                <td><code>stackOffset</code></td>
+                                <td><code>float</code></td>
+                                <td><code>1.0</code></td>
+                                <td>Distance in meters from the doorframe edge to place the stack point.</td>
+                            </tr>
+                            <tr>
+                                <td><code>raycastDepth</code></td>
+                                <td><code>float</code></td>
+                                <td><code>2.0</code></td>
+                                <td>Forward/backward depth tolerance when searching for initial wall geometry.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Use Cases</h2>
+                    <ul>
+                        <li><strong>Room Clearing &amp; Breaching:</strong> Allows squads to stack up outside a room before executing a breach or throwing flashbangs.</li>
+                        <li><strong>Corridor Clearing:</strong> Keeps AI hugged against walls when turning sharp bends rather than exposing themselves in the center of hallways.</li>
+                        <li><strong>Coordinated Entries:</strong> Combined with <code>SquadReservationScorerSO</code>, two squad members will naturally take opposite sides of the door (Stack Left &amp; Stack Right).</li>
+                    </ul>
+                </section>
+
+                <section id="ElevationAnchorProviderSO" class="docs-section">
+                    <h1>Provider: Elevation Anchor (Sniper &amp; Overwatch) <span class="badge bg-info text-dark ms-2 small">v2.5</span></h1>
+                    <p><strong><code>ElevationAnchorProviderSO</code></strong> is a tactical provider introduced in <strong>Version 2.5</strong> that generates high-ground tactical candidate positions with significant vertical height advantage over the enemy (such as rooftops, catwalks, second-story balconies, and elevated watchtowers).</p>
+
+                    <h2>How It Works</h2>
+                    <ol>
+                        <li><strong>Vertical Sampling Expansion:</strong> Unlike standard horizontal sampling, this provider searches along the Y-axis to locate multi-story NavMesh layers.</li>
+                        <li><strong>Elevation Advantage Verification:</strong> Ensures the candidate point's altitude is at least <code>minElevationAdvantage</code> meters above the target's current altitude.</li>
+                        <li><strong>Ledge Edge Raycast Test:</strong> When <code>requireLedgeEdge</code> is enabled, casts a ray downward from just in front of the candidate. If the ray falls a long distance before hitting ground, it confirms the candidate is perched right at a dramatic drop-off or overlook.</li>
+                    </ol>
+
+                    <h2>Parameters</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>minElevationAdvantage</code></td>
+                                <td><code>float</code></td>
+                                <td><code>3.0</code></td>
+                                <td>Minimum vertical height difference in meters required above the target.</td>
+                            </tr>
+                            <tr>
+                                <td><code>requireLedgeEdge</code></td>
+                                <td><code>bool</code></td>
+                                <td><code>true</code></td>
+                                <td>When true, rejects gradual slopes or stairways and only accepts spots directly overlooking a ledge or railing drop-off.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Use Cases</h2>
+                    <ul>
+                        <li><strong>Designated Marksmen &amp; Snipers:</strong> Guides long-range units to naturally ascend stairs or ladders to overlook combat arenas.</li>
+                        <li><strong>Overwatch Roles:</strong> Heavy gunners seeking suppressive sightlines over open courtyards or objective capture zones.</li>
+                        <li><strong>Vertical Arenas:</strong> Essential in multi-story urban environments, warehouses, industrial plants, and canyon maps.</li>
+                    </ul>
+                </section>
                 <section id="scorers" class="docs-section">
                     <h1>Scorers</h1>
                     <p>Scorers are specialized ScriptableObjects that evaluate the hiding spots found by the providers.
@@ -5559,6 +5784,344 @@ void OnStandUp()
                         <li><strong>Cost:</strong> Moderate. Performs one Physics Raycast per candidate spot within
                             range.</li>
                     </ul>
+                </section>
+
+                <section id="FlankExposureRiskScorerSO" class="docs-section">
+                    <h1>Scorer: Flank Exposure Risk (360° Open Angles) <span class="badge bg-info text-dark ms-2 small">v2.5</span></h1>
+                    <p><strong><code>FlankExposureRiskScorerSO</code></strong> is a defensive and survival scorer introduced in <strong>Version 2.5</strong> that measures how exposed a candidate spot is to ambient sightlines from all 360 degrees. It rewards spots safely tucked into deep corners and wall recesses while penalizing spots out in the open that could be flanked from unmonitored angles.</p>
+
+                    <h2>How It Works</h2>
+                    <ol>
+                        <li>Casts a series of radial rays in a full circle around the candidate position at <code>heightOffset</code> (simulating chest level).</li>
+                        <li>For each angle, checks if solid occluding geometry is present within <code>scanRadius</code>.</li>
+                        <li>Calculates the exposure ratio: <code>Score = 1.0 - (Open Angles / Ray Count)</code>.</li>
+                        <li>Spots with walls blocking multiple flanks receive high security scores (<code>0.75</code> - <code>1.0</code>), whereas open-field spots receive <code>0.0</code>.</li>
+                    </ol>
+
+                    <h2>Parameters</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>scanRadius</code></td>
+                                <td><code>float</code></td>
+                                <td><code>10.0</code></td>
+                                <td>Distance in meters to scan for protecting walls or barriers.</td>
+                            </tr>
+                            <tr>
+                                <td><code>rayCount</code></td>
+                                <td><code>int</code></td>
+                                <td><code>8</code></td>
+                                <td>Number of radial rays cast around the 360° circle (8 rays = 45° intervals).</td>
+                            </tr>
+                            <tr>
+                                <td><code>heightOffset</code></td>
+                                <td><code>float</code></td>
+                                <td><code>1.0</code></td>
+                                <td>Vertical offset in meters above candidate ground point.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Use Cases</h2>
+                    <ul>
+                        <li><strong>Deep Corner Protection:</strong> Encourages AI to clear rooms and tuck themselves into corners with minimal exposed flanks.</li>
+                        <li><strong>Open Field Prevention:</strong> Prevents AI from taking "cover" behind a single skinny pole in the middle of a wide open field.</li>
+                        <li><strong>Stealth &amp; Defensive Strongpoints:</strong> Essential for defensive roles and guards holding fortified perimeters.</li>
+                    </ul>
+                </section>
+
+                <section id="SuppressionPressureScorerSO" class="docs-section">
+                    <h1>Scorer: Suppression Pressure <span class="badge bg-info text-dark ms-2 small">v2.5</span></h1>
+                    <p><strong><code>SuppressionPressureScorerSO</code></strong> is a high-stakes survival scorer introduced in <strong>Version 2.5</strong> that prevents AI agents from stepping into or remaining inside active incoming bullet streams and suppressive fire lanes registered in the <code>SuppressionService</code>.</p>
+
+                    <h2>How It Works</h2>
+                    <ol>
+                        <li>Queries the scene's <code>SuppressionService.Instance</code> singleton.</li>
+                        <li>If no active fire streams are registered, returns a baseline neutral score of <code>1.0</code>.</li>
+                        <li>Checks if the candidate position falls within any active gunfire cylinder.</li>
+                        <li>If inside an active gunfire cylinder and <code>strictVeto</code> is true, returns <code>float.NegativeInfinity</code> to immediately disqualify the candidate. If false, applies <code>suppressedPenaltyScore</code>.</li>
+                    </ol>
+
+                    <h2>Parameters</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>strictVeto</code></td>
+                                <td><code>bool</code></td>
+                                <td><code>true</code></td>
+                                <td>When true, completely rejects spots under active gunfire (-Infinity).</td>
+                            </tr>
+                            <tr>
+                                <td><code>suppressedPenaltyScore</code></td>
+                                <td><code>float</code></td>
+                                <td><code>-100.0</code></td>
+                                <td>Heavy penalty score used when strictVeto is disabled.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Performance</h2>
+                    <p><strong>Zero-Allocation &amp; High-Speed:</strong> Evaluates vector projection and cylinder math against the active cone buffer in memory without performing any physics raycasts.</p>
+                </section>
+
+                <section id="WeaponSweetspotScorerSO" class="docs-section">
+                    <h1>Scorer: Weapon Sweetspot (Optimal Range Curve) <span class="badge bg-info text-dark ms-2 small">v2.5</span></h1>
+                    <p><strong><code>WeaponSweetspotScorerSO</code></strong> is an offensive tactical scorer introduced in <strong>Version 2.5</strong> that evaluates candidate positions based on how closely they match the optimal engagement distance of the AI's weapon, using a mathematical Gaussian (bell-curve) distribution.</p>
+
+                    <h2>How It Works</h2>
+                    <p>Calculates the normalized score using the Gaussian probability density formula:</p>
+                    <pre><code>Score = exp( - (distance - optimalRange)^2 / (2 * standardDeviation^2) )</code></pre>
+                    <p>A spot located exactly at <code>optimalRange</code> returns a perfect score of <code>1.0</code>. Positions that are too close or too far drop off smoothly toward <code>0.0</code> based on <code>standardDeviation</code>.</p>
+
+                    <h2>Suggested Archetype Configurations</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Weapon Archetype</th>
+                                <th>Optimal Range</th>
+                                <th>Standard Deviation</th>
+                                <th>Recommended Providers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Shotgun / Melee Rusher</strong></td>
+                                <td><code>4.0m</code></td>
+                                <td><code>2.5m</code></td>
+                                <td><code>AdvanceCoverProviderSO</code>, <code>FlankPointProviderSO</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CQB SMG Operator</strong></td>
+                                <td><code>8.0m</code></td>
+                                <td><code>4.0m</code></td>
+                                <td><code>DoorStackProviderSO</code>, <code>CornerEdgeProviderSO</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Assault Rifle Grunt</strong></td>
+                                <td><code>18.0m</code></td>
+                                <td><code>8.0m</code></td>
+                                <td><code>AutomaticCoverProviderSO</code>, <code>CrossfireScorerSO</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Marksman / Sniper</strong></td>
+                                <td><code>40.0m</code></td>
+                                <td><code>15.0m</code></td>
+                                <td><code>ElevationAnchorProviderSO</code>, <code>VantagePointProviderSO</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="ZoneControlStateScorerSO" class="docs-section">
+                    <h1>Scorer: Zone Control State <span class="badge bg-success ms-2 small">v3.0</span></h1>
+                    <p><strong><code>ZoneControlStateScorerSO</code></strong> is a strategic scorer introduced in <strong>Version 3.0</strong> that evaluates candidate hiding spots based on the dynamic control state of the <code>TacticalZone</code> they fall inside. It enables squad roles to prioritize secure friendly territory or push aggressively into contested combat areas.</p>
+
+                    <h2>How It Works</h2>
+                    <ol>
+                        <li>Identifies if a candidate position is enclosed within any registered <code>TacticalZone</code> bounds.</li>
+                        <li>Evaluates the zone's active <code>ZoneControlState</code> (<code>FriendlyControlled</code>, <code>HostileControlled</code>, <code>Contested</code>, or <code>Unoccupied</code>).</li>
+                        <li>Applies configurable score weights and optional vetoes (returning <code>-Infinity</code>) for hostile or contested zones.</li>
+                    </ol>
+
+                    <h2>Parameters</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>preferredState</code></td>
+                                <td><code>ZoneControlState</code></td>
+                                <td><code>FriendlyControlled</code></td>
+                                <td>The zone control state this AI role actively favors.</td>
+                            </tr>
+                            <tr>
+                                <td><code>preferredScore</code></td>
+                                <td><code>float</code></td>
+                                <td><code>1.0</code></td>
+                                <td>Score awarded when candidate matches preferredState.</td>
+                            </tr>
+                            <tr>
+                                <td><code>vetoHostileZones</code></td>
+                                <td><code>bool</code></td>
+                                <td><code>false</code></td>
+                                <td>If true, candidates inside hostile zones return -Infinity.</td>
+                            </tr>
+                            <tr>
+                                <td><code>vetoContestedZones</code></td>
+                                <td><code>bool</code></td>
+                                <td><code>false</code></td>
+                                <td>If true, candidates inside contested zones return -Infinity.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="VaultOpportunityScorerSO" class="docs-section">
+                    <h1>Scorer: Vault Opportunity <span class="badge bg-success ms-2 small">v3.0</span></h1>
+                    <p><strong><code>VaultOpportunityScorerSO</code></strong> is an offensive scorer introduced in <strong>Version 3.0</strong> that evaluates candidate spots based on whether the obstacle has the <code>CoverPointFlags.Vaultable</code> bit flag set. It enables mobile, aggressive AI units to prioritize cover they can mantle over during combat.</p>
+
+                    <h2>How It Works</h2>
+                    <ul>
+                        <li><strong>Bitmask Inspection:</strong> Inspects <code>candidate.HasFlag(CoverPointFlags.Vaultable)</code> instantaneously.</li>
+                        <li><strong>Zero-Allocation:</strong> Unmanaged, zero-GC bitwise evaluation.</li>
+                        <li><strong>Strict Mode (<code>requireVaultableOnly</code>):</strong> Can veto non-vaultable high walls (<code>-Infinity</code>), forcing the agent to only pick agile traversal spots.</li>
+                    </ul>
+
+                    <h2>Parameters</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>vaultableScore</code></td>
+                                <td><code>float</code></td>
+                                <td><code>1.0</code></td>
+                                <td>Score awarded to candidate spots that can be vaulted over.</td>
+                            </tr>
+                            <tr>
+                                <td><code>nonVaultableScore</code></td>
+                                <td><code>float</code></td>
+                                <td><code>0.2</code></td>
+                                <td>Score awarded to static, high or non-vaultable walls.</td>
+                            </tr>
+                            <tr>
+                                <td><code>requireVaultableOnly</code></td>
+                                <td><code>bool</code></td>
+                                <td><code>false</code></td>
+                                <td>If true, non-vaultable spots are disqualified (-Infinity).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="SensoryTypeScorerSO" class="docs-section">
+                    <h1>Scorer: Sensory Stimulus Filter <span class="badge bg-success ms-2 small">v3.0</span></h1>
+                    <p><strong><code>SensoryTypeScorerSO</code></strong> is a perception scorer introduced in <strong>Version 3.0</strong> that evaluates candidate spots based on their proximity to specific categorized sensory disturbances (<code>StimulusType</code>) recorded in the <code>StimulusRegistry</code>. It supports both <strong>investigation mode</strong> (seeking noise) and <strong>evasion mode</strong> (fleeing loud gunfire/explosions).</p>
+
+                    <h2>How It Works</h2>
+                    <ol>
+                        <li><strong>Category Filtering:</strong> Uses a bitmask (<code>targetStimuli</code>) to isolate specific disturbances (e.g. <code>Gunshot | Explosion</code> while ignoring subtle footsteps).</li>
+                        <li><strong>Temporal Decay:</strong> Automatically ignores stimuli older than <code>maxMemoryAge</code> seconds.</li>
+                        <li><strong>Investigation vs. Evasion:</strong>
+                            <ul>
+                                <li><code>investigateMode = true</code>: Closer spots receive higher scores (useful for guards investigating suspicious noise).</li>
+                                <li><code>investigateMode = false</code>: Farther spots receive higher scores (useful for non-combatants or wounded units fleeing combat).</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h2>Parameters</h2>
+                    <table class="table param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>targetStimuli</code></td>
+                                <td><code>StimulusType</code></td>
+                                <td><code>Gunshot | Explosion</code></td>
+                                <td>Sensory categories to react to.</td>
+                            </tr>
+                            <tr>
+                                <td><code>hearingRange</code></td>
+                                <td><code>float</code></td>
+                                <td><code>40.0</code></td>
+                                <td>Maximum distance in meters to react to sounds.</td>
+                            </tr>
+                            <tr>
+                                <td><code>maxMemoryAge</code></td>
+                                <td><code>float</code></td>
+                                <td><code>6.0</code></td>
+                                <td>Forget disturbances older than this duration (in seconds).</td>
+                            </tr>
+                            <tr>
+                                <td><code>investigateMode</code></td>
+                                <td><code>bool</code></td>
+                                <td><code>true</code></td>
+                                <td>True = attracted to noise; False = flees from noise.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="SceneValidator" class="docs-section">
+                    <h1>Tool Guide: Environment &amp; Agent Scene Validator <span class="badge bg-success ms-2 small">v3.0</span></h1>
+                    <p>The <strong>Environment &amp; Agent Validator</strong> is a dedicated in-editor diagnostic and auto-repair suite introduced in <strong>Tactical AI 3.0</strong>. It inspects your active scene, agents, settings assets, and environment helpers in milliseconds to prevent silent configuration failures, dead scorers, missing services, and authoring mismatches.</p>
+
+                    <h2>Quick Access</h2>
+                    <ul>
+                        <li><strong>Menu Bar:</strong> <code>Tools &gt; Maharaja Studio &gt; Tactical Cover And Retreat AI &gt; Environment Validator</code></li>
+                        <li><strong>TacticalAgent Inspector:</strong> Select any agent and click <strong>"Open Environment Validator"</strong> in the header toolbar.</li>
+                        <li><strong>Quick Start Guide:</strong> Open Quick Start and click <strong>"Validate Scene &amp; Agents"</strong>.</li>
+                    </ul>
+
+                    <h2>The 7 Diagnostic Categories</h2>
+                    <ol>
+                        <li><strong>Scene Environment:</strong> Unbaked NavMesh triangulation, missing light probes for shadow scorers, missing directional lights.</li>
+                        <li><strong>Agent Setup:</strong> Missing settings assets, missing <code>NavMeshAgent</code> components, self-occlusion layer hazards, and stopping distance conflicts.</li>
+                        <li><strong>Service Dependencies:</strong> Automatically detects when active agents require <code>SuppressionService</code>, <code>SquadCoordinator</code>, or <code>ThreatMapService</code> but none exist in the scene.</li>
+                        <li><strong>Provider Dependencies:</strong> Warns when providers like <code>CoverNodeProviderSO</code> are active with 0 scene nodes authored.</li>
+                        <li><strong>Scorer Optimization:</strong> Identifies zero-weight scorers wasting search cycles and flags zone scorers without zones.</li>
+                        <li><strong>Semantic Compatibility:</strong> Verifies providers supply cover flags when using posture scorers, and validates path max distances.</li>
+                        <li><strong>Orphaned Scene Authoring:</strong> Alerts designers when placed <code>CoverNode</code> or <code>TacticalZone</code> volumes are never referenced by any active agent profile, or if zone colliders were accidentally left non-trigger.</li>
+                    </ol>
+
+                    <h2>One-Click Auto-Fix All &amp; Safe Undo</h2>
+                    <ul>
+                        <li>Click <strong>⚡ Fix</strong> on any issue card to automatically resolve that specific problem.</li>
+                        <li>Click <strong>⚡ Auto-Fix All</strong> in the window header to repair all detected issues at once.</li>
+                        <li>Every operation is batched into Unity's Undo stack — press <code>Ctrl+Z</code> to undo at any time.</li>
+                    </ul>
+
+                    <h2>CI / Automated Build Preflight</h2>
+                    <pre><code>using UnityEditor;
+using MaharajaStudio.TacticalAI.Editor;
+
+public static class PreflightChecks
+{
+    [MenuItem("CI/Run Tactical AI Validation")]
+    public static void ValidateScenes()
+    {
+        var report = TacticalAIValidationScanner.ScanScene();
+        if (report.HasErrors)
+        {
+            throw new System.Exception($"Scene validation failed with {report.ErrorCount} errors!");
+        }
+    }
+}</code></pre>
                 </section>
                 <div class="docs-pagination">
                     <button id="prev-doc" class="btn btn-secondary">Previous</button>
