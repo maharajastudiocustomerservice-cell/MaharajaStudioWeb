@@ -1,0 +1,153 @@
+MAHARAJA STUDIO - END USER LICENSE AGREEMENT (EULA)
+SOFTWARE LICENSE AGREEMENT FOR MSULTIMATE CORE (COMMUNITY EDITION)
+
+Last Updated: October 2026
+Effective Date: Immediate upon download, installation, or use.
+
+IMPORTANT – READ CAREFULLY BEFORE DOWNLOADING, INSTALLING, COPYING, OR USING THIS SOFTWARE:
+
+This End User License Agreement ("Agreement" or "EULA") is a legally binding contract between you (either an individual developer or a single legal entity, hereinafter referred to as "Licensee", "you", or "your") and Maharaja Studio ("Licensor", "we", "us", or "our"), governing your use of the software product known as MSUltimate Core (Community Edition), including any associated precompiled binaries, dynamic link libraries (.dll), documentation, sample scenes, and visual assets (collectively, the "Software").
+
+BY DOWNLOADING, IMPORTING, INSTALLING, COPYING, ACCESSING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND BY ALL TERMS AND CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO NOT DOWNLOAD, INSTALL, COPY, OR USE THE SOFTWARE.
+
+THIS SOFTWARE IS NOT LICENSED UNDER THE STANDARD UNITY ASSET STORE EULA. IT IS GOVERNED EXCLUSIVELY BY THIS CUSTOM LICENSE AGREEMENT.
+
+================================================================================
+1. DEFINITIONS
+================================================================================
+
+1.1 "Commercial Entity" means any corporation, limited liability company, partnership, sole proprietorship, studio, or other legal entity organized for commercial operations or financial gain.
+
+1.2 "Gross Annual Revenue" means the total aggregate amount of all gross revenues, gross receipts, funding, venture capital, investor financing, grants, crowdfunding proceeds (e.g., Kickstarter, Indiegogo, Patreon), or other financial support received by the Licensee, its affiliates, or associated entities from all operations worldwide within the most recent twelve (12) consecutive months.
+
+1.3 "Eligibility Threshold" means a Gross Annual Revenue and total aggregate funding of less than Two Hundred Thousand United States Dollars ($200,000 USD), or equivalent value in local currency.
+
+1.4 "End Product" means a completed, compiled interactive digital software application, game, visual simulation, or interactive media created using the Unity engine that incorporates or was authored using the Software, in which the compiled binaries of the Software are not exposed, accessible, or reusable as standalone tooling or editor extensions.
+
+1.5 "Pro Editions" refers to Licensor's commercial paid products, specifically "MSUltimate Core (Pro)" and "MSUltimate Pro - Full Collection", which include complete C# source code and are licensed under the standard Unity Asset Store End User License Agreement on a per-seat basis (one license required per developer seat utilizing the software) without revenue ceilings or financial restrictions.
+
+================================================================================
+2. LICENSE GRANT & ELIGIBILITY THRESHOLD ($200,000 USD CEILING)
+================================================================================
+
+2.1 Eligibility Requirement:
+The Community Edition of the Software is granted FREE OF CHARGE solely to individuals, students, educators, non-profit organizations, indie game developers, and Commercial Entities whose Gross Annual Revenue and aggregate financing do NOT exceed the Eligibility Threshold ($200,000 USD) during the most recent 12-month period.
+
+2.2 Permitted Use:
+Subject to strict compliance with all terms of this Agreement, Licensor grants Licensee a personal, non-exclusive, non-transferable, non-sublicensable, revocable license to:
+(a) Install and execute the Software within the Unity Editor solely for developing internal game projects and interactive digital End Products;
+(b) Publish, ship, and commercially monetize completed interactive End Products (e.g., video games) that utilize the Software, without owing any royalties to Licensor, provided the Licensee continuously meets the Eligibility Threshold.
+
+2.3 Enterprise & Revenue Escalation Clause (Mandatory Upgrade to Unity Standard Per-Seat License):
+If at any point the Licensee's Gross Annual Revenue or aggregate capital financing reaches or exceeds Two Hundred Thousand United States Dollars ($200,000 USD):
+(a) Licensee’s legal right to use, develop with, or maintain projects using the Community Edition of the Software terminates automatically with immediate effect;
+(b) Licensee is legally required to upgrade and purchase commercial licenses for "MSUltimate Core (Pro)" or "MSUltimate Pro - Full Collection" from the official Unity Asset Store, governed by the standard Unity Asset Store EULA on a per-seat basis (one license per developer seat using the Software within Licensee's organization);
+(c) Continued use, development, compilation, or maintenance of any project using the Community Edition after exceeding the $200,000 USD threshold without acquiring valid per-seat commercial Pro licenses constitutes willful copyright infringement and breach of contract.
+
+================================================================================
+3. STRICT RESTRICTIONS & PROHIBITED ACTIONS
+================================================================================
+
+Licensee acknowledges that the Software contains proprietary trade secrets, intellectual property, and copyrighted algorithms owned exclusively by Maharaja Studio. Licensee expressly agrees NOT to engage in, facilitate, or permit any of the following activities:
+
+3.1 No Reverse Engineering, Decompilation, or Extraction:
+Licensee shall not decompile, disassemble, reverse engineer, decrypt, unpack, deobfuscate, modify, decode, translate, or otherwise attempt to derive or reconstruct the source code, internal logic, algorithms, or internal structure of any precompiled binary (.dll) or encrypted asset included with the Software, except solely to the minimum extent that applicable law expressly prohibits such contractual limitation notwithstanding this provision.
+
+3.2 No Redistribution, Sublicensing, or Resale:
+The Software is strictly for Licensee’s internal development. Licensee shall not sell, re-sell, rent, lease, sublicense, distribute, assign, transfer, loan, time-share, host as a service (SaaS), mirror, publish, or upload the Software (or any portion, file, or wrapper thereof) to any third party, marketplace, torrent tracker, file-sharing site, pirate repository, or asset sharing forum.
+
+3.3 Strict Source Control & Repository Policy:
+Licensee may commit the Software binaries (.dll) to private, password-protected internal source control repositories (e.g., private GitHub, GitLab, Perforce, SVN) strictly accessible only by authorized team members working directly on Licensee's projects. Licensee is STRICTLY PROHIBITED from committing, hosting, or making the Software accessible on any public, open-source, or unauthenticated repository.
+
+3.4 No Creation of Competing Tools or Derived Frameworks:
+Licensee shall not use the Software, its architecture, APIs, or concepts to design, develop, package, or distribute any competing Unity editor extension, inspector attribute library, GUI framework, validation tool, or visual styling asset.
+
+3.5 No Standalone Asset Extraction:
+Licensee shall not distribute the Software as raw assets, libraries, or standalone components within any software development kit (SDK), game template, asset store package, or reusable modular engine distributed to third-party developers.
+
+================================================================================
+4. INTELLECTUAL PROPERTY & OWNERSHIP
+================================================================================
+
+4.1 Exclusive Ownership:
+The Software is licensed, not sold. Licensor (Maharaja Studio) retains all legal title, copyright, trademarks, trade secrets, patents, and all other intellectual property rights in and to the Software, including all copies, bug fixes, updates, modifications, and documentation. No rights or licenses are granted to Licensee by implication, estoppel, or otherwise, except for the limited express license rights granted in Section 2.
+
+4.2 Feedback:
+Any feedback, suggestions, ideas, or feature requests provided by Licensee to Licensor regarding the Software may be incorporated into future releases or commercial products of Licensor without any obligation, royalty, compensation, or attribution to Licensee.
+
+================================================================================
+5. COMPLIANCE VERIFICATION & AUDIT RIGHTS
+================================================================================
+
+5.1 Right to Verify:
+Upon reasonable written notice from Licensor, Licensee agrees to provide verifiable documentation (such as financial statements, tax filings, or executive certification) reasonably confirming that Licensee’s Gross Annual Revenue and aggregate financing did not exceed the Eligibility Threshold during the relevant period of Software utilization.
+
+5.2 Ineligibility Remedy:
+In the event that an audit or review reveals that Licensee utilized the Software while exceeding the Eligibility Threshold without purchasing a valid Pro license, Licensee agrees to immediately purchase the required commercial Pro licenses for all historical and active developer seats, pay retroactive commercial license fees, and reimburse Licensor for all reasonable costs incurred in enforcing compliance.
+
+================================================================================
+6. UPDATES, MAINTENANCE & SUPPORT
+================================================================================
+
+6.1 No Mandatory Support:
+This Community Edition is provided as a free courtesy. Licensor is under no legal obligation to provide maintenance, technical support, updates, patches, or bug fixes for the Community Edition. Community support may be available voluntarily via public channels (such as Discord).
+
+6.2 Right to Modify:
+Licensor reserves the right to modify, discontinue, or update the Software or this Agreement at any time in future releases. Continued use of new releases constitutes acceptance of the amended terms.
+
+================================================================================
+7. DISCLAIMER OF WARRANTIES ("AS-IS")
+================================================================================
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITH ALL FAULTS AND WITHOUT WARRANTY OF ANY KIND. MAHARAJA STUDIO HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS, WHETHER EXPRESS, IMPLIED, STATUTORY, OR COLLATERAL, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, SATISFACTORY QUALITY, TITLE, NON-INFRINGEMENT, ACCURACY, QUIET ENJOYMENT, OR FREEDOM FROM BUGS, VIRUSES, INTERRUPTIONS, OR ERRORS.
+
+================================================================================
+8. LIMITATION OF LIABILITY
+================================================================================
+
+TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MAHARAJA STUDIO, ITS FOUNDERS, DIRECTORS, EMPLOYEES, AFFILIATES, OR AGENTS BE LIABLE TO LICENSEE OR ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES (INCLUDING DAMAGES FOR LOSS OF PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, LOSS OF GOODWILL, WORK STOPPAGE, OR HARDWARE FAILURE) ARISING OUT OF OR IN CONNECTION WITH THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF MAHARAJA STUDIO HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+BECAUSE THIS SOFTWARE IS LICENSED TO YOU FREE OF CHARGE, MAHARAJA STUDIO’S ENTIRE AGGREGATE LIABILITY ARISING UNDER OR IN CONNECTION WITH THIS AGREEMENT SHALL BE STRICTLY LIMITED TO TEN UNITED STATES DOLLARS ($10.00 USD).
+
+================================================================================
+9. TERM & TERMINATION
+================================================================================
+
+9.1 Term:
+This Agreement is effective from the first date Licensee downloads, imports, or uses the Software and continues until terminated.
+
+9.2 Termination for Cause:
+This Agreement and Licensee's rights hereunder terminate immediately and automatically without notice from Licensor if Licensee fails to comply with any provision of this Agreement, including exceeding the Eligibility Threshold without upgrading, attempting reverse engineering, or facilitating unauthorized redistribution.
+
+9.3 Effect of Termination:
+Upon termination of this Agreement, Licensee must immediately cease all use of the Software, permanently delete and uninstall all copies of the Software from all computers, servers, storage devices, and source repositories in Licensee's possession or control, and provide written certification of destruction upon request.
+
+================================================================================
+10. GENERAL LEGAL PROVISIONS
+================================================================================
+
+10.1 Severability:
+If any provision of this Agreement is held to be invalid, illegal, or unenforceable, the validity, legality, and enforceability of the remaining provisions shall not in any way be affected or impaired thereby.
+
+10.2 Entire Agreement:
+This Agreement constitutes the entire agreement between Licensee and Maharaja Studio regarding the Software and supersedes all prior agreements, discussions, communications, or understandings regarding its subject matter.
+
+10.3 No Waiver:
+Failure or delay by Licensor to exercise any right, power, or privilege under this Agreement shall not operate as a waiver thereof, nor shall any single or partial exercise thereof preclude any other or further exercise thereof.
+
+================================================================================
+11. CONTACT & OFFICIAL NOTICES
+================================================================================
+
+If you have questions regarding this License Agreement, need to verify eligibility, or wish to purchase commercial Pro licenses or enterprise custom licensing, please contact:
+
+Licensor: Maharaja Studio
+Support & Licensing Email: maharajastudiocustomerservice@gmail.com
+Website: [Your Official Website URL Here]
+Discord Community: [Discord Community Invite Link Here]
+
+--------------------------------------------------------------------------------
+Copyright (c) 2026 Maharaja Studio. All Rights Reserved.
+MSUltimate, MSUltimate Core, and related logos are trademarks of Maharaja Studio.
+================================================================================
+

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate Ecosystem - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="documentation.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Documentation Workspace -->
+    <main>
+        <div class="docs-container">
+            <!-- Mobile Toggle -->
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">MSUltimate</h3>
+                    <span class="badge bg-primary">Ecosystem</span>
+                </div>
+                <p class="text-muted small mb-3">Master Architecture & Edition Guide</p>
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li><a href="#overview" class="docs-nav-link active"><i class="fas fa-compass me-2"></i>Ecosystem Overview</a></li>
+                    <li><a href="#matrix" class="docs-nav-link"><i class="fas fa-table-cells me-2"></i>Comparison Matrix</a></li>
+                    <li><a href="#core-framework" class="docs-nav-link"><i class="fas fa-cubes me-2"></i>Core Framework (Community & Pro)</a></li>
+                    <li><a href="#addons" class="docs-nav-link"><i class="fas fa-puzzle-piece me-2"></i>The 6 Standalone Addons</a></li>
+                    <li><a href="#power-tools" class="docs-nav-link"><i class="fas fa-screwdriver-wrench me-2"></i>4 Developer Power Tools</a></li>
+                    <li><a href="#decision-guide" class="docs-nav-link"><i class="fas fa-diagram-project me-2"></i>Which Edition to Choose?</a></li>
+                    <li><a href="#technical-specs" class="docs-nav-link"><i class="fas fa-sliders me-2"></i>Technical Specifications</a></li>
+                    <li><a href="#licensing" class="docs-nav-link"><i class="fas fa-scale-balanced me-2"></i>Licensing & Fair Use</a></li>
+                    <li><a href="#roadmap" class="docs-nav-link"><i class="fas fa-folder-tree me-2"></i>Docs Workspace Roadmap</a></li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <article class="docs-content">
+
+                <!-- SECTION 1: OVERVIEW -->
+                <section id="overview" class="docs-section active">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                        <h1 class="mb-0">MSUltimate Ecosystem & Edition Guide</h1>
+                        <span class="badge bg-primary fs-6">Unity 6 (6000.x)+</span>
+                    </div>
+
+                    <div class="alert alert-info alert-custom mb-4">
+                        <strong>Welcome to the MSUltimate Architecture.</strong><br>
+                        Built natively for <strong>Unity 6 (6000.x)+</strong> across Universal (URP), High Definition (HDRP), and Built-in (BiRP) Render Pipelines.
+                    </div>
+
+                    <h2>1. Overview & Ecosystem Vision</h2>
+                    <p><strong>MSUltimate</strong> is a modular, enterprise-grade Unity Editor enhancement suite designed to transform the Unity Inspector, Scene Hierarchy, and development toolchain into a fast, beautiful, and deeply structured production environment.</p>
+
+                    <p>Built from the ground up on Unity's modern <strong>UI Toolkit</strong> (with seamless IMGUI fallback), MSUltimate eliminates per-frame layout recalculations, delivers buttery-smooth <strong>120 FPS+ inspector scrolling</strong>, and introduces <strong>zero garbage collection (GC) or build bloat</strong> to your standalone game builds.</p>
+
+                    <div class="glass-box p-4 my-4">
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-layer-group me-2"></i>The Four Distribution Paths</h5>
+                        <ol class="mb-0">
+                            <li class="mb-2"><strong>MSUltimate Core (Community Edition):</strong> A generous, 100% free foundational inspector engine for qualifying indie creators (&lt;$200K annual revenue).</li>
+                            <li class="mb-2"><strong>MSUltimate Core (Pro Edition):</strong> Full C# source code access to the core engine with no revenue restrictions under the standard Unity Asset Store per-seat EULA.</li>
+                            <li class="mb-2"><strong>6 Specialized Standalone Addons:</strong> Individual, decoupled expansion modules covering visual design, animations, hierarchy styling, automated validation, and advanced runtime tooling.</li>
+                            <li class="mb-0"><strong>MSUltimate Pro (Full Collection):</strong> The flagship all-in-one bundle containing the entire universe—Core, all 6 Addons, 4 developer tools, complete C# source code, and 5,500+ automated unit tests at massive bundle savings.</li>
+                        </ol>
+                    </div>
+
+                    <h3>Architecture Topology</h3>
+                    <div class="diagram-box">
+MSUltimate Ecosystem
+ ├── Core Framework (Free Community or Pro Source)
+ │    │
+ │    ├── [Visuals]      ───► MSUltimate - Component Designer
+ │    ├── [Motion]       ───► MSUltimate - Animated Attributes
+ │    ├── [Structure]    ───► MSUltimate - Hierarchy Designer
+ │    ├── [Integrity]    ───► MSUltimate - Validation Module
+ │    ├── [Styling]      ───► MSUltimate - Inspector Customizer
+ │    └── [Productivity] ───► MSUltimate - ToolBox Vol. 1
+ └── Pro Master Bundle   ───► Core + ALL 6 Addons + 4 Tools + 5,500+ Tests
+                    </div>
+                </section>
+
+
+                <!-- SECTION 2: COMPARISON MATRIX -->
+                <section id="matrix" class="docs-section">
+                    <h1>2. Master Package Comparison Matrix</h1>
+                    <p class="lead">The table below provides a comprehensive feature and licensing breakdown across every package in the MSUltimate ecosystem:</p>
+
+                    <div class="table-responsive my-4">
+                        <table class="matrix-table table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Package Name</th>
+                                    <th>Price (USD)</th>
+                                    <th>Primary Domain</th>
+                                    <th>Attributes</th>
+                                    <th>Source Code</th>
+                                    <th>Tests Included</th>
+                                    <th>Included Addons</th>
+                                    <th>Licensing Tier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>MSUltimate Core (Community)</strong></td>
+                                    <td><span class="badge bg-success">FREE</span></td>
+                                    <td>Core Inspector & Serializers</td>
+                                    <td>156+</td>
+                                    <td>Obfuscated DLL</td>
+                                    <td>—</td>
+                                    <td>—</td>
+                                    <td><a href="msultimate-license.html#community-eula">Custom Free EULA (&lt;$200K Rev)</a></td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td><strong>MSUltimate Core (Pro)</strong></td>
+                                    <td>$149.99</td>
+                                    <td>Unrestricted Core Engine</td>
+                                    <td>156+</td>
+                                    <td>Full C# Source</td>
+                                    <td>—</td>
+                                    <td>—</td>
+                                    <td>Standard Unity EULA (Per-Seat)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MSUltimate - Animated Attributes</strong></td>
+                                    <td>$29.99</td>
+                                    <td>Micro-Interactions & VFX</td>
+                                    <td>87</td>
+                                    <td>Full C# Source</td>
+                                    <td>—</td>
+                                    <td>Standalone</td>
+                                    <td>Standard Unity EULA (Per-Seat)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MSUltimate - Component Designer</strong></td>
+                                    <td>$29.99</td>
+                                    <td>Branded Inspector Cards</td>
+                                    <td>75</td>
+                                    <td>Full C# Source</td>
+                                    <td>—</td>
+                                    <td>Standalone</td>
+                                    <td>Standard Unity EULA (Per-Seat)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MSUltimate - Hierarchy Designer</strong></td>
+                                    <td>$29.99</td>
+                                    <td>Scene Hierarchy Window</td>
+                                    <td>83</td>
+                                    <td>Full C# Source</td>
+                                    <td>—</td>
+                                    <td>Standalone</td>
+                                    <td>Standard Unity EULA (Per-Seat)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MSUltimate - Validation Module</strong></td>
+                                    <td>$29.99</td>
+                                    <td>Project Scanning & Fixes</td>
+                                    <td>39</td>
+                                    <td>Full C# Source</td>
+                                    <td>—</td>
+                                    <td>Standalone</td>
+                                    <td>Standard Unity EULA (Per-Seat)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MSUltimate - Inspector Customizer</strong></td>
+                                    <td>$39.99</td>
+                                    <td>Visual Theming Engine</td>
+                                    <td>Templates</td>
+                                    <td>Full C# Source</td>
+                                    <td>—</td>
+                                    <td>Standalone</td>
+                                    <td>Standard Unity EULA (Per-Seat)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MSUltimate - ToolBox Vol. 1</strong></td>
+                                    <td>$44.99</td>
+                                    <td>4 Developer Power Tools</td>
+                                    <td>4 + Tools</td>
+                                    <td>Full C# Source</td>
+                                    <td>—</td>
+                                    <td>Standalone</td>
+                                    <td>Standard Unity EULA (Per-Seat)</td>
+                                </tr>
+                                <tr class="bundle-highlight-row">
+                                    <td><strong>MSUltimate Pro (Full Collection)</strong></td>
+                                    <td><strong>$299.99</strong></td>
+                                    <td>Complete Master Ecosystem</td>
+                                    <td><strong>444+</strong></td>
+                                    <td><strong>Full C# Source</strong></td>
+                                    <td><strong>5,500+ Tests</strong></td>
+                                    <td><strong>ALL 6 Addons</strong></td>
+                                    <td><strong>Standard Unity EULA (Per-Seat)</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 3: CORE FRAMEWORK -->
+                <section id="core-framework" class="docs-section">
+                    <h1>3. Detailed Package Breakdown</h1>
+
+                    <!-- Community Edition -->
+                    <div class="glass-box p-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h3 class="mt-0 mb-0"><i class="fas fa-gift text-success me-2"></i>MSUltimate Core (Community Edition)</h3>
+                            <span class="badge bg-success fs-6">Free</span>
+                        </div>
+                        <p class="fst-italic text-muted">The modern inspector standard for every indie developer.</p>
+                        <ul>
+                            <li><strong>Price:</strong> Free</li>
+                            <li><strong>Format:</strong> Precompiled, high-performance obfuscated DLLs.</li>
+                            <li><strong>Audience:</strong> Solo developers, students, educators, and indie game studios with gross annual revenue under $200,000 USD.</li>
+                        </ul>
+                        <h5 class="fw-bold text-primary mt-3">Key Capabilities:</h5>
+                        <ul>
+                            <li><strong>156+ Core Attributes:</strong> Complete access to layout groups (<code>[BoxGroup]</code>, <code>[TabGroup]</code>, <code>[BeginSplitPane]</code>), smart conditionals (<code>[ShowIf]</code>, <code>[EnableIf]</code>), buttons (<code>[Button]</code>, <code>[ToolbarToggle]</code>), specialized pickers (<code>[MinMaxSlider]</code>, <code>[Dropdown]</code>), in-scene 3D handles, and reactive callbacks (<code>[OnValueChanged]</code>).</li>
+                            <li><strong>Custom Serializers:</strong> Native Unity serialization for <code>SerializableDictionary&lt;K, V&gt;</code>, <code>SerializableHashSet&lt;T&gt;</code>, <code>SerializableMatrix2D/3D</code>, <code>SerializableQueue&lt;T&gt;</code>, and <code>SerializableStack&lt;T&gt;</code> via <code>ISerializationCallbackReceiver</code>.</li>
+                            <li><strong>Extended Data Types:</strong> Integrated visual drawers for <code>SerializableNullable&lt;T&gt;</code>, <code>SerializableDateTime</code>, <code>SerializableRange&lt;T&gt;</code>, <code>SerializableTuple&lt;T1, T2&gt;</code>, and <code>SerializableType</code>.</li>
+                            <li><strong>Modular Window System:</strong> Turn any class or ScriptableObject into a standalone, dockable editor window with tree-based menus (<code>ModularMenuEditorWindow</code>) and modal dialogs.</li>
+                            <li><strong>Zero Boilerplate Collection Cascading:</strong> Decorate items inside <code>List&lt;T&gt;</code>, arrays <code>T[]</code>, and dictionaries seamlessly.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Core Pro Edition -->
+                    <div class="glass-box p-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h3 class="mt-0 mb-0"><i class="fas fa-gem text-info me-2"></i>MSUltimate Core (Pro Edition)</h3>
+                            <span class="badge bg-info text-dark fs-6">$149.99</span>
+                        </div>
+                        <p class="fst-italic text-muted">Unrestricted core power for commercial game studios.</p>
+                        <ul>
+                            <li><strong>Price:</strong> $149.99</li>
+                            <li><strong>Format:</strong> 100% Clean, modular C# Source Code.</li>
+                            <li><strong>Audience:</strong> Studios and professional teams requiring uncompiled source access for custom engine extensions, internal tooling integrations, and source control auditing.</li>
+                        </ul>
+                        <h5 class="fw-bold text-primary mt-3">Key Capabilities:</h5>
+                        <ul>
+                            <li>Everything included in the Community Edition.</li>
+                            <li><strong>Full C# Source Code:</strong> Direct access to all core drawers, layout processors, and reflection engines.</li>
+                            <li><strong>Standard Unity Asset Store License (Per-Seat):</strong> Standard commercial per-seat license with zero financial thresholds or revenue ceilings.</li>
+                            <li><strong>Dedicated Engineering Support:</strong> Direct email support with core framework architects.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pro Full Collection -->
+                    <div class="glass-box p-4 mb-4 border border-warning">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h3 class="mt-0 mb-0"><i class="fas fa-crown text-warning me-2"></i>MSUltimate Pro (Full Collection)</h3>
+                            <span class="badge bg-warning text-dark fs-6 fw-bold">$299.99</span>
+                        </div>
+                        <p class="fst-italic text-muted">The complete AAA development suite at maximum bundle savings (over $350 in combined standalone value).</p>
+                        <ul>
+                            <li><strong>Price:</strong> $299.99</li>
+                            <li><strong>Format:</strong> Complete C# Source Code for Core and ALL 6 Official Addons.</li>
+                            <li><strong>Audience:</strong> Professional studios, technical artists, and tool developers who want the definitive, all-in-one Unity authoring environment.</li>
+                        </ul>
+                        <h5 class="fw-bold text-primary mt-3">What's Included:</h5>
+                        <ul>
+                            <li><strong>MSUltimate Core (Pro):</strong> Full source code for all 156+ core attributes, serializers, types, and window systems.</li>
+                            <li><strong>All 6 Official Addons:</strong> Animated Attributes, Component Designer, Hierarchy Designer, Validation Module, Inspector Customizer, and ToolBox Vol. 1.</li>
+                            <li><strong>444+ Total Attributes:</strong> Exhaustive coverage across 47 functional categories.</li>
+                            <li><strong>4 Standalone Developer Tools:</strong> Advanced Console Pro, History Track, Lifetime Tracker, and Live Track.</li>
+                            <li><strong>Exclusive 5,500+ Centralized Test Suite:</strong> Over 520+ atomic test files with 5,500+ unit and integration tests verifying attribute lifecycles, UI Toolkit visual tree safety, and collection cascading.</li>
+                            <li><strong>VIP Priority Support:</strong> Direct channel access for fast issue resolution and roadmap feature requests.</li>
+                            <li><strong>Standard Unity Asset Store License (Per-Seat):</strong> Unrestricted commercial terms with no revenue limits.</li>
+                        </ul>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 4: THE 6 STANDALONE ADDONS -->
+                <section id="addons" class="docs-section">
+                    <h1>4. The 6 Standalone Addons (A La Carte Modules)</h1>
+                    <p class="lead">Each official Addon is engineered to be 100% decoupled—it can be purchased and imported individually to solve a specific development challenge without requiring the full suite:</p>
+
+                    <div class="row g-4 my-2">
+                        <!-- Addon 1 -->
+                        <div class="col-lg-6" id="addon-animated">
+                            <div class="addon-card">
+                                <h4 class="fw-bold text-primary mb-1"><i class="fas fa-bolt me-2"></i>1. MSUltimate - Animated Attributes</h4>
+                                <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 87 Attributes • 13 Categories</span>
+                                <p class="text-muted small"><strong>Focus:</strong> Micro-interactions, animated telemetry, and sensory feedback.</p>
+                                <p class="small"><strong>Highlights:</strong> Dynamic combat HUD meters (<code>[RageMeterFill]</code>, <code>[CombatShieldRecharge]</code>), sci-fi data visualizers (<code>[CyberpunkMatrixRain]</code>, <code>[HologramProjectorBeam]</code>), particle simulations (<code>[ParticleBurst]</code>, <code>[ElectricArcSparks]</code>), and kinetic typography (<code>[GlitchTextMatrix]</code>, <code>[NeonFlickerSign]</code>).</p>
+                            </div>
+                        </div>
+
+                        <!-- Addon 2 -->
+                        <div class="col-lg-6" id="addon-component">
+                            <div class="addon-card">
+                                <h4 class="fw-bold text-primary mb-1"><i class="fas fa-palette me-2"></i>2. MSUltimate - Component Designer</h4>
+                                <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 75 Attributes • 7 Categories</span>
+                                <p class="text-muted small"><strong>Focus:</strong> AAA MonoBehaviour Inspector card aesthetics and branded component presentation.</p>
+                                <p class="small"><strong>Highlights:</strong> Modern glassmorphism card frames, glowing animated borders, atmospheric particle backgrounds (drifting fog, embers, aurora), breadcrumb headers, and branded sub-system layouts.</p>
+                            </div>
+                        </div>
+
+                        <!-- Addon 3 -->
+                        <div class="col-lg-6" id="addon-hierarchy">
+                            <div class="addon-card">
+                                <h4 class="fw-bold text-primary mb-1"><i class="fas fa-sitemap me-2"></i>3. MSUltimate - Hierarchy Designer</h4>
+                                <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 83 Attributes • 8 Categories</span>
+                                <p class="text-muted small"><strong>Focus:</strong> Complete organizational overhaul of the Unity Scene Hierarchy window.</p>
+                                <p class="small"><strong>Highlights:</strong> Virtual colored folders, branching tree connector lines, live hierarchy telemetry icons (Audio, LOD, NavMesh markers), active toggles, component counters, and real-time performance badges (DrawCalls, Vertices).</p>
+                            </div>
+                        </div>
+
+                        <!-- Addon 4 -->
+                        <div class="col-lg-6" id="addon-validation">
+                            <div class="addon-card">
+                                <h4 class="fw-bold text-primary mb-1"><i class="fas fa-shield-check me-2"></i>4. MSUltimate - Validation Module</h4>
+                                <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 39 Attributes + Diagnostic Window</span>
+                                <p class="text-muted small"><strong>Focus:</strong> Real-time data integrity and project-wide asset scanning.</p>
+                                <p class="small"><strong>Highlights:</strong> Real-time field assertions (<code>[ValidateRequiresCollider]</code>, <code>[ValidateAssetGuidExists]</code>), coupled with an automated project-wide scan window offering 1-click batch auto-repair for broken GUIDs, missing dependencies, and unassigned fields.</p>
+                            </div>
+                        </div>
+
+                        <!-- Addon 5 -->
+                        <div class="col-lg-6" id="addon-customizer">
+                            <div class="addon-card">
+                                <h4 class="fw-bold text-primary mb-1"><i class="fas fa-brush me-2"></i>5. MSUltimate - Inspector Customizer</h4>
+                                <span class="badge bg-primary mb-2 w-auto align-self-start">$39.99 • Visual Theming Workbench</span>
+                                <p class="text-muted small"><strong>Focus:</strong> Visual theming and custom template engine for the Unity Editor.</p>
+                                <p class="small"><strong>Highlights:</strong> Create custom UI Toolkit inspector templates visually, switch between dark/light/cyberpunk theme tokens, and apply full-component makeovers without writing procedural code.</p>
+                            </div>
+                        </div>
+
+                        <!-- Addon 6 -->
+                        <div class="col-lg-6" id="addon-toolbox">
+                            <div class="addon-card">
+                                <h4 class="fw-bold text-primary mb-1"><i class="fas fa-toolbox me-2"></i>6. MSUltimate - ToolBox Vol. 1</h4>
+                                <span class="badge bg-primary mb-2 w-auto align-self-start">$44.99 • 4 Developer Tools + 4 Attributes</span>
+                                <p class="text-muted small"><strong>Focus:</strong> High-throughput developer diagnostics and runtime telemetry.</p>
+                                <p class="small"><strong>Highlights:</strong> 4 standalone developer power tools: Advanced Console Pro, History Track, Lifetime Tracker, and Live Track.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 5: DEVELOPER POWER TOOLS -->
+                <section id="power-tools" class="docs-section">
+                    <h1>5. Developer Power Tools</h1>
+                    <p class="lead">Built for high-throughput profiling, debugging, and memory auditing, these tools are available standalone via ToolBox Vol. 1 or bundled in the Pro Full Collection:</p>
+
+                    <div class="row g-4 my-3">
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h4 class="fw-bold text-primary"><i class="fas fa-terminal me-2"></i>Advanced Console Pro</h4>
+                                <p class="text-muted small">A complete replacement for Unity's default Console window with high-speed log filtering, pattern matching, memory allocation tags, and structured callstack analysis.</p>
+                                <ul class="small mb-0">
+                                    <li>Filter logs by severity, custom channel, assembly, and thread.</li>
+                                    <li>Jump directly to source lines with 1-click deep linking.</li>
+                                    <li>Export structured diagnostic log archives for team reviews.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h4 class="fw-bold text-primary"><i class="fas fa-clock-rotate-left me-2"></i>History Track</h4>
+                                <p class="text-muted small">Timeline-based state auditing and Undo/Redo tracking across your Unity session.</p>
+                                <ul class="small mb-0">
+                                    <li>Diff serialization states between any two historical steps.</li>
+                                    <li>Inspect field mutations across complex nested components.</li>
+                                    <li>Audit who and what modified a serialized property in editor sessions.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h4 class="fw-bold text-primary"><i class="fas fa-heart-pulse me-2"></i>Lifetime Tracker</h4>
+                                <p class="text-muted small">Dedicated allocation profiling and memory leak auditing for GameObjects, ScriptableObjects, and native Unity resources.</p>
+                                <ul class="small mb-0">
+                                    <li>Audit object lifecycles from instantiation to destruction.</li>
+                                    <li>Detect leaked textures, meshes, and unmanaged listeners.</li>
+                                    <li>Surface warning badges for orphaned components.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h4 class="fw-bold text-primary"><i class="fas fa-chart-line me-2"></i>Live Track</h4>
+                                <p class="text-muted small">In-scene floating telemetry HUD and real-time variable graphing engine.</p>
+                                <ul class="small mb-0">
+                                    <li>Graph variable fluctuations (speeds, health, physics vectors) in real time.</li>
+                                    <li>Display floating 3D world-space badges attached to game actors.</li>
+                                    <li>Evaluate AI states and behavior tree conditions dynamically.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 6: DECISION GUIDE -->
+                <section id="decision-guide" class="docs-section">
+                    <h1>6. Which Edition Should You Choose?</h1>
+                    <p class="lead">Use this quick decision tree to identify the most cost-effective package for your project:</p>
+
+                    <div class="diagram-box mb-4">
+┌────────────────────────────────────────────────────────┐
+│             What best describes your project?          │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+         ┌─────────────────┴─────────────────┐
+         ▼                                   ▼
+[Indie / Solo / Student]           [Commercial Studio / Team]
+         │                                   │
+         ▼                                   ▼
+Gross revenue under $200K?         Need full source code or all tools?
+   ├─ YES ──► MSUltimate Core (Community)    ├─ Core only ──► MSUltimate Core (Pro)
+   └─ NO  ──► MSUltimate Core (Pro)          └─ Everything──► MSUltimate Pro (Full Collection)
+                                                     │
+                                       (Want only specific features?)
+                                                     ▼
+                                       Specific Standalone Addon
+                                       (Hierarchy, Validation, etc.)
+                    </div>
+
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h5 class="fw-bold text-success mb-2">Choose MSUltimate Core (Community) if:</h5>
+                                <ul class="small text-muted mb-0">
+                                    <li>You are an indie developer, hobbyist, student, or startup with under $200K USD annual revenue.</li>
+                                    <li>You want an immediate, massive upgrade to the default Unity Inspector with zero financial investment.</li>
+                                    <li>You want 156+ battle-tested attributes, custom serializers, and windowing tools in a clean, drop-in DLL package.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h5 class="fw-bold text-info mb-2">Choose MSUltimate Core (Pro) if:</h5>
+                                <ul class="small text-muted mb-0">
+                                    <li>Your studio earns more than $200K USD annually or requires uncompiled C# source code.</li>
+                                    <li>You need to customize drawer internals or integrate private tooling hooks into your internal engine pipeline.</li>
+                                    <li>You only need the foundational inspector framework and serializers without the extra styling or diagnostics addons.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h5 class="fw-bold text-warning mb-2">Choose MSUltimate Pro (Full Collection) if:</h5>
+                                <ul class="small text-muted mb-0">
+                                    <li>You want the complete, ultimate development experience with all 444+ attributes, 6 addons, and 4 tools.</li>
+                                    <li>You want continuous integration (CI) safety backed by the official <strong>5,500+ automated test suite</strong>.</li>
+                                    <li>You want maximum cost efficiency (saves over $100 compared to buying packages individually).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass-box p-4 h-100">
+                                <h5 class="fw-bold text-primary mb-2">Choose Individual Addons if:</h5>
+                                <ul class="small text-muted mb-0">
+                                    <li>You already have an established inspector workflow, but specifically need hierarchy organization (<code>Hierarchy Designer</code>), scene validation (<code>Validation Module</code>), or advanced diagnostics (<code>ToolBox Vol. 1</code>).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 7: TECHNICAL SPECS -->
+                <section id="technical-specs" class="docs-section">
+                    <h1>7. Technical Specifications & Requirements</h1>
+                    <div class="glass-box p-4 my-3">
+                        <ul class="mb-0">
+                            <li class="mb-3">
+                                <strong>Unity Editor Version:</strong> <strong>Unity 6 (6000.x) and newer</strong>.
+                            </li>
+                            <li class="mb-3">
+                                <strong>Render Pipelines:</strong> 100% compatible with Universal Render Pipeline (URP), High Definition Render Pipeline (HDRP), and Built-in Render Pipeline (BiRP).
+                            </li>
+                            <li class="mb-3">
+                                <strong>Runtime Platforms:</strong> Windows, macOS, Linux, iOS, Android, WebGL, Xbox, PlayStation, Nintendo Switch. (All editor tooling code is editor-only and automatically stripped from runtime player builds).
+                            </li>
+                            <li class="mb-0">
+                                <strong>Architecture:</strong> Native UI Toolkit with IMGUI compatibility layer. <strong>Zero runtime Garbage Collection (GC) allocations</strong>.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 8: LICENSING -->
+                <section id="licensing" class="docs-section">
+                    <h1>8. Licensing & Fair Use Summary</h1>
+                    <div class="alert alert-warning alert-custom mb-4">
+                        <h5 class="fw-bold mb-2"><i class="fas fa-balance-scale me-2"></i>Dual Licensing Model</h5>
+                        <p class="mb-0">MSUltimate operates on a fair, developer-first dual licensing model to ensure accessible tooling for indie creators while providing enterprise compliance for commercial studios.</p>
+                    </div>
+
+                    <ul>
+                        <li class="mb-2"><strong>Community Edition:</strong> Free to use for commercial and non-commercial games by creators and studios with annual gross revenues and funding below $200,000 USD under our dedicated Custom License. If your revenue or capital funding exceeds this threshold, upgrading to a Pro license is required.</li>
+                        <li class="mb-2"><strong>Pro Editions & Addons:</strong> Governed by the <strong>standard Unity Asset Store End User License Agreement (EULA) on a per-seat basis</strong> (one license required per developer seat utilizing the software in your studio), with no gross revenue ceilings or royalty obligations.</li>
+                        <li class="mb-2"><strong>Redistribution Policy:</strong> Redistribution, sublicensing, decompilation, reverse engineering, or hosting on public repositories is strictly prohibited across all editions.</li>
+                    </ul>
+
+                    <div class="p-3 border rounded glass-box mt-4">
+                        <h6 class="fw-bold text-primary mb-2">Need full legal agreements?</h6>
+                        <p class="small text-muted mb-3">Read the complete 11-section End User License Agreement for the Community Edition and commercial terms on our dedicated legal page.</p>
+                        <a href="msultimate-license.html#community-eula" class="btn btn-outline-primary btn-sm me-2"><i class="fas fa-file-contract me-1"></i>Read Community EULA</a>
+                        <a href="assets/Notice/MSUltimate_Core_Community_EULA.txt" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fas fa-download me-1"></i>Download Plaintext (.txt)</a>
+                    </div>
+                </section>
+
+
+                <!-- SECTION 9: ROADMAP -->
+                <section id="roadmap" class="docs-section">
+                    <h1>9. Documentation Roadmap & Workspace Structure</h1>
+                    <div class="alert alert-info alert-custom mb-4">
+                        <h5 class="fw-bold mb-2"><i class="fas fa-folder-open me-2"></i>All Required Documentation Assets Staged in Proper Folders</h5>
+                        <p class="mb-0">The complete source documentation for all 444+ attributes, tools, and extensions is organized into dedicated markdown and metadata files inside the workspace directory. Individual interactive attribute references will be mapped into this documentation portal systematically.</p>
+                    </div>
+
+                    <h3>Workspace Directory Layout</h3>
+                    <div class="diagram-box">
+assets/Documentations/MSUltimate/
+ ├── Addons/
+ │    ├── AnimatedAttributes/Documentation/attributes/  (87 Attributes)
+ │    ├── ComponentDesigner/Documentation/              (75 Attributes)
+ │    ├── HierarchyDesigner/Documentation/              (83 Attributes)
+ │    ├── InspectorCustomizer/Documentation/            (Templates & Tokens)
+ │    ├── ToolBox_Vol1/Documentation/                   (4 Power Tools)
+ │    └── ValidationModule/Documentation/               (39 Attributes)
+ └── Documentation/
+      ├── attributes/                                   (156+ Core Attributes)
+      │    ├── conditionals/
+      │    ├── custom-drawers/
+      │    ├── decorators/
+      │    ├── groups-and-layouts/
+      │    ├── meta-and-serialization/
+      │    └── windowing/
+      ├── core-systems/                                 (Serializers & Window Systems)
+      └── tutorials/                                    (Quickstart & Recipes)
+                    </div>
+
+                    <div class="card glass-box mt-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary mb-2"><i class="fas fa-compass me-2"></i>What's Next?</h5>
+                            <p class="text-muted small mb-0">The above master guide covers the complete ecosystem vision, package breakdown, pricing matrix, and technical specs. Full per-attribute interactive API references and code samples from each folder will be published directly into this hub in upcoming documentation releases.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documentation Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary"><i class="fas fa-arrow-left me-2"></i>Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next<i class="fas fa-arrow-right ms-2"></i></button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html"
+                    class="text-decoration-none">MSUltimate License (EULA)</a></p>
+            <div class="social-icons mt-3">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="me-3"><i
+                        class="fab fa-youtube fa-lg"></i></a>
+                <a href="https://discord.gg/GamF5bez3h" class="me-3"><i class="fab fa-discord fa-lg"></i></a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const linkText = li.querySelector('a').textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        window.location.hash = `#${sections[currentIndex - 1].id}`;
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) {
+                        window.location.hash = `#${sections[currentIndex + 1].id}`;
+                    }
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+</body>
+
+</html>
