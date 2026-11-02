@@ -38,6 +38,21 @@
         </div>
     </nav>
 
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn active"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
     <!-- Main Documentation Workspace -->
     <main>
         <div class="docs-container">
@@ -55,12 +70,13 @@
                 </div>
                 <p class="text-muted small mb-3">Master Architecture & Edition Guide</p>
                 <div class="mb-3">
-                    <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
                 </div>
 
                 <ul class="docs-nav-menu">
                     <li><a href="#overview" class="docs-nav-link active"><i class="fas fa-compass me-2"></i>Ecosystem Overview</a></li>
                     <li><a href="#matrix" class="docs-nav-link"><i class="fas fa-table-cells me-2"></i>Comparison Matrix</a></li>
+                    <li><a href="#master-directory" class="docs-nav-link"><i class="fas fa-layer-group text-warning me-2"></i>Full Collection Master Directory</a></li>
                     <li><a href="#core-framework" class="docs-nav-link"><i class="fas fa-cubes me-2"></i>Core Framework (Community & Pro)</a></li>
                     <li><a href="#addons" class="docs-nav-link"><i class="fas fa-puzzle-piece me-2"></i>The 6 Standalone Addons</a></li>
                     <li><a href="#power-tools" class="docs-nav-link"><i class="fas fa-screwdriver-wrench me-2"></i>4 Developer Power Tools</a></li>
@@ -233,6 +249,211 @@ MSUltimate Ecosystem
                 </section>
 
 
+                <!-- SECTION: MASTER ATTRIBUTE DIRECTORY (FULL COLLECTION QUICK-FINDER) -->
+                <section id="master-directory" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">Full Collection: Master Attribute Directory</h1>
+                        <span class="badge bg-warning text-dark fs-6"><i class="fas fa-crown me-1"></i>Full Suite Index (444+ Attributes)</span>
+                    </div>
+
+                    <div class="glass-box p-4 mb-4 border border-warning" style="background: rgba(245, 158, 11, 0.05);">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fas fa-boxes-stacked fa-2x text-warning mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold text-warning mb-1">Unified Multi-Package Navigation</h5>
+                                <p class="text-muted small mb-0">
+                                    Whether you own the complete <strong>MSUltimate Pro (Full Collection)</strong> or individual standalone modules, this master index helps you instantly locate, filter, and inspect any attribute or system across all 7 packages. Click any pill to jump straight to its dedicated documentation workspace.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text bg-dark border-secondary text-primary"><i class="fas fa-search"></i></span>
+                            <input type="text" id="ecosystem-attribute-search" class="form-control bg-dark text-light border-secondary" placeholder="Instant Search 444+ Attributes across the Entire Full Collection (e.g., [Button], BossHealthBar, Collider, Hierarchy, Sound, LiveTrack)...">
+                        </div>
+                        <div class="small text-muted mt-2 d-flex gap-3 align-items-center">
+                            <span><span class="badge bg-success me-1">Live</span> Fully documented with interactive Unity Inspector simulation preview</span>
+                            <span><span class="badge bg-secondary me-1">Indexed</span> Staged in asset documentation repository</span>
+                        </div>
+                    </div>
+
+                    <div class="row g-4" id="directory-cards-container">
+                        <!-- Module 1: Core Framework -->
+                        <div class="col-lg-6 dir-module-card">
+                            <div class="master-dir-card" style="border-top: 3px solid #00aaff;">
+                                <div class="master-dir-header">
+                                    <div>
+                                        <h5 class="fw-bold mb-0 text-primary"><i class="fas fa-cubes me-2"></i>Core Framework</h5>
+                                        <small class="text-muted">156+ Attributes • Included in Free Community, Pro & Full Collection</small>
+                                    </div>
+                                    <a href="msultimate-core-docs.html" class="btn btn-sm btn-outline-primary">Open Docs <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                                <div class="attr-pills-container">
+                                    <a href="msultimate-core-docs.html#attr-button" class="attr-pill-link live-pill"><i class="fas fa-play"></i> [Button]</a>
+                                    <a href="msultimate-core-docs.html#attr-enable-if" class="attr-pill-link live-pill"><i class="fas fa-toggle-on"></i> [EnableIf]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-eye"></i> [ShowIf]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-box-archive"></i> [BoxGroup]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-folder"></i> [TabGroup]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-sliders"></i> [MinMaxSlider]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-list"></i> [Dropdown]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-bolt"></i> [OnValueChanged]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-heading"></i> [Title]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-circle-info"></i> [InfoBox]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-magnifying-glass"></i> [Searchable]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-bars-progress"></i> [ProgressBar]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-file-code"></i> [FilePath]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-image"></i> [AssetPreview]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-table-columns"></i> [BeginSplitPane]</a>
+                                    <a href="msultimate-core-docs.html#staged-core" class="attr-pill-link"><i class="fas fa-database"></i> SerializableDictionary</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Module 2: Animated Attributes -->
+                        <div class="col-lg-6 dir-module-card">
+                            <div class="master-dir-card" style="border-top: 3px solid #ef4444;">
+                                <div class="master-dir-header">
+                                    <div>
+                                        <h5 class="fw-bold mb-0 text-danger"><i class="fas fa-bolt me-2"></i>Animated Attributes</h5>
+                                        <small class="text-muted">87 Attributes • Motion Telemetry & Sensory Audio</small>
+                                    </div>
+                                    <a href="msultimate-animated-docs.html" class="btn btn-sm btn-outline-danger">Open Docs <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                                <div class="attr-pills-container">
+                                    <a href="msultimate-animated-docs.html#attr-boss-health-bar" class="attr-pill-link live-pill"><i class="fas fa-heart-pulse"></i> [BossHealthBar]</a>
+                                    <a href="msultimate-animated-docs.html#attr-editor-sound-effect" class="attr-pill-link live-pill"><i class="fas fa-volume-high"></i> [EditorSoundEffect]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-fire"></i> [RageMeterFill]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-shield-halved"></i> [CombatShieldRecharge]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-terminal"></i> [CyberpunkMatrixRain]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-lightbulb"></i> [HologramProjectorBeam]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-wand-magic-sparkles"></i> [ParticleBurst]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-triangle-exclamation"></i> [GlitchTextMatrix]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-sign-hanging"></i> [NeonFlickerSign]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-wave-square"></i> [AudioReactivePulse]</a>
+                                    <a href="msultimate-animated-docs.html#staged-animated" class="attr-pill-link"><i class="fas fa-bolt-lightning"></i> [ElectricArcSparks]</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Module 3: Component Designer -->
+                        <div class="col-lg-6 dir-module-card">
+                            <div class="master-dir-card" style="border-top: 3px solid #8b5cf6;">
+                                <div class="master-dir-header">
+                                    <div>
+                                        <h5 class="fw-bold mb-0 text-info"><i class="fas fa-palette me-2"></i>Component Designer</h5>
+                                        <small class="text-muted">75 Attributes • Glassmorphism Frames & Atmospheric FX</small>
+                                    </div>
+                                    <a href="msultimate-component-docs.html" class="btn btn-sm btn-outline-info">Open Docs <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                                <div class="attr-pills-container">
+                                    <a href="msultimate-component-docs.html#attr-component-animated-border" class="attr-pill-link live-pill"><i class="fas fa-square"></i> [ComponentAnimatedBorder]</a>
+                                    <a href="msultimate-component-docs.html#attr-component-header-button" class="attr-pill-link live-pill"><i class="fas fa-circle-play"></i> [ComponentHeaderButton]</a>
+                                    <a href="msultimate-component-docs.html#staged-component" class="attr-pill-link"><i class="fas fa-angles-right"></i> [ComponentBreadcrumbs]</a>
+                                    <a href="msultimate-component-docs.html#staged-component" class="attr-pill-link"><i class="fas fa-smog"></i> [AtmosphericFogBackground]</a>
+                                    <a href="msultimate-component-docs.html#staged-component" class="attr-pill-link"><i class="fas fa-fire-flame-curved"></i> [EmbersBackground]</a>
+                                    <a href="msultimate-component-docs.html#staged-component" class="attr-pill-link"><i class="fas fa-wind"></i> [AuroraBackground]</a>
+                                    <a href="msultimate-component-docs.html#staged-component" class="attr-pill-link"><i class="fas fa-window-restore"></i> [GlassmorphicCardFrame]</a>
+                                    <a href="msultimate-component-docs.html#staged-component" class="attr-pill-link"><i class="fas fa-diagram-project"></i> [SubsystemHeader]</a>
+                                    <a href="msultimate-component-docs.html#staged-component" class="attr-pill-link"><i class="fas fa-capsules"></i> [HeaderStatusPill]</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Module 4: Hierarchy Designer -->
+                        <div class="col-lg-6 dir-module-card">
+                            <div class="master-dir-card" style="border-top: 3px solid #10b981;">
+                                <div class="master-dir-header">
+                                    <div>
+                                        <h5 class="fw-bold mb-0 text-success"><i class="fas fa-sitemap me-2"></i>Hierarchy Designer</h5>
+                                        <small class="text-muted">83 Attributes • Virtual Folders & Real-Time Performance Badges</small>
+                                    </div>
+                                    <a href="msultimate-hierarchy-docs.html" class="btn btn-sm btn-outline-success">Open Docs <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                                <div class="attr-pills-container">
+                                    <a href="msultimate-hierarchy-docs.html#attr-hierarchy-badge" class="attr-pill-link live-pill"><i class="fas fa-tag"></i> [HierarchyBadge]</a>
+                                    <a href="msultimate-hierarchy-docs.html#attr-hierarchy-folder" class="attr-pill-link live-pill"><i class="fas fa-folder-closed"></i> [HierarchyFolder]</a>
+                                    <a href="msultimate-hierarchy-docs.html#staged-hierarchy" class="attr-pill-link"><i class="fas fa-code-branch"></i> [HierarchyTreeConnector]</a>
+                                    <a href="msultimate-hierarchy-docs.html#staged-hierarchy" class="attr-pill-link"><i class="fas fa-volume-low"></i> [HierarchyAudioTelemetry]</a>
+                                    <a href="msultimate-hierarchy-docs.html#staged-hierarchy" class="attr-pill-link"><i class="fas fa-map-location-dot"></i> [HierarchyNavMeshMarker]</a>
+                                    <a href="msultimate-hierarchy-docs.html#staged-hierarchy" class="attr-pill-link"><i class="fas fa-gauge-high"></i> [HierarchyPerformanceMarker]</a>
+                                    <a href="msultimate-hierarchy-docs.html#staged-hierarchy" class="attr-pill-link"><i class="fas fa-power-off"></i> [HierarchyActiveToggle]</a>
+                                    <a href="msultimate-hierarchy-docs.html#staged-hierarchy" class="attr-pill-link"><i class="fas fa-cubes-stacked"></i> [HierarchyComponentCounter]</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Module 5: Validation Module -->
+                        <div class="col-lg-6 dir-module-card">
+                            <div class="master-dir-card" style="border-top: 3px solid #3b82f6;">
+                                <div class="master-dir-header">
+                                    <div>
+                                        <h5 class="fw-bold mb-0 text-primary"><i class="fas fa-shield-check me-2"></i>Validation Module</h5>
+                                        <small class="text-muted">39 Attributes • Field Assertions & 1-Click Auto-Repair Scanner</small>
+                                    </div>
+                                    <a href="msultimate-validation-docs.html" class="btn btn-sm btn-outline-primary">Open Docs <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                                <div class="attr-pills-container">
+                                    <a href="msultimate-validation-docs.html#attr-validate-not-null" class="attr-pill-link live-pill"><i class="fas fa-triangle-exclamation"></i> [ValidateNotNull]</a>
+                                    <a href="msultimate-validation-docs.html#attr-validate-range" class="attr-pill-link live-pill"><i class="fas fa-ruler-horizontal"></i> [ValidateRange]</a>
+                                    <a href="msultimate-validation-docs.html#staged-validation" class="attr-pill-link"><i class="fas fa-shapes"></i> [ValidateRequiresCollider]</a>
+                                    <a href="msultimate-validation-docs.html#staged-validation" class="attr-pill-link"><i class="fas fa-fingerprint"></i> [ValidateAssetGuidExists]</a>
+                                    <a href="msultimate-validation-docs.html#staged-validation" class="attr-pill-link"><i class="fas fa-spell-check"></i> [ValidateRegex]</a>
+                                    <a href="msultimate-validation-docs.html#staged-validation" class="attr-pill-link"><i class="fas fa-clapperboard"></i> [ValidateSceneReference]</a>
+                                    <a href="msultimate-validation-docs.html#staged-validation" class="attr-pill-link"><i class="fas fa-layer-group"></i> [ValidateLayerMask]</a>
+                                    <a href="msultimate-validation-docs.html#staged-validation" class="attr-pill-link"><i class="fas fa-radar"></i> Diagnostic Scanner Window</a>
+                                    <a href="msultimate-validation-docs.html#staged-validation" class="attr-pill-link"><i class="fas fa-wrench"></i> 1-Click Batch Auto-Repair</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Module 6: Inspector Customizer -->
+                        <div class="col-lg-6 dir-module-card">
+                            <div class="master-dir-card" style="border-top: 3px solid #ec4899;">
+                                <div class="master-dir-header">
+                                    <div>
+                                        <h5 class="fw-bold mb-0 text-warning"><i class="fas fa-brush me-2"></i>Inspector Customizer</h5>
+                                        <small class="text-muted">UI Toolkit Theming Workbench & Token Injector</small>
+                                    </div>
+                                    <a href="msultimate-customizer-docs.html" class="btn btn-sm btn-outline-warning">Open Docs <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                                <div class="attr-pills-container">
+                                    <a href="msultimate-customizer-docs.html#feature-makeover-engine" class="attr-pill-link live-pill"><i class="fas fa-wand-magic-sparkles"></i> 1-Click Makeover Engine</a>
+                                    <a href="msultimate-customizer-docs.html#feature-theme-tokens" class="attr-pill-link live-pill"><i class="fas fa-code"></i> UXML & USS Token Injector</a>
+                                    <a href="msultimate-customizer-docs.html#staged-customizer" class="attr-pill-link"><i class="fas fa-desktop"></i> Visual Theme Workbench</a>
+                                    <a href="msultimate-customizer-docs.html#staged-customizer" class="attr-pill-link"><i class="fas fa-moon"></i> Dark Theme Token Set</a>
+                                    <a href="msultimate-customizer-docs.html#staged-customizer" class="attr-pill-link"><i class="fas fa-sun"></i> Light Theme Token Set</a>
+                                    <a href="msultimate-customizer-docs.html#staged-customizer" class="attr-pill-link"><i class="fas fa-laptop-code"></i> Cyberpunk Neon Token Set</a>
+                                    <a href="msultimate-customizer-docs.html#staged-customizer" class="attr-pill-link"><i class="fas fa-file-export"></i> Inspector Template Exporter</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Module 7: ToolBox Vol. 1 -->
+                        <div class="col-lg-6 dir-module-card">
+                            <div class="master-dir-card" style="border-top: 3px solid #f59e0b;">
+                                <div class="master-dir-header">
+                                    <div>
+                                        <h5 class="fw-bold mb-0 text-warning"><i class="fas fa-toolbox me-2"></i>ToolBox Vol. 1</h5>
+                                        <small class="text-muted">4 Developer Power Tools + Runtime Diagnostics</small>
+                                    </div>
+                                    <a href="msultimate-toolbox-docs.html" class="btn btn-sm btn-outline-warning">Open Docs <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                                <div class="attr-pills-container">
+                                    <a href="msultimate-toolbox-docs.html#tool-advanced-console" class="attr-pill-link live-pill"><i class="fas fa-terminal"></i> [ConsoleCommand] & Advanced Console</a>
+                                    <a href="msultimate-toolbox-docs.html#tool-live-track" class="attr-pill-link live-pill"><i class="fas fa-chart-line"></i> [LiveTrack] Telemetry HUD</a>
+                                    <a href="msultimate-toolbox-docs.html#staged-toolbox" class="attr-pill-link"><i class="fas fa-clock-rotate-left"></i> History Track (Undo Differ)</a>
+                                    <a href="msultimate-toolbox-docs.html#staged-toolbox" class="attr-pill-link"><i class="fas fa-heart-pulse"></i> Lifetime Tracker (Leak Auditor)</a>
+                                    <a href="msultimate-toolbox-docs.html#staged-toolbox" class="attr-pill-link"><i class="fas fa-arrows-up-down-left-right"></i> [LiveTrackVector3]</a>
+                                    <a href="msultimate-toolbox-docs.html#staged-toolbox" class="attr-pill-link"><i class="fas fa-keyboard"></i> [ConsoleShortcut]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
                 <!-- SECTION 3: CORE FRAMEWORK -->
                 <section id="core-framework" class="docs-section">
                     <h1>3. Detailed Package Breakdown</h1>
@@ -257,6 +478,9 @@ MSUltimate Ecosystem
                             <li><strong>Modular Window System:</strong> Turn any class or ScriptableObject into a standalone, dockable editor window with tree-based menus (<code>ModularMenuEditorWindow</code>) and modal dialogs.</li>
                             <li><strong>Zero Boilerplate Collection Cascading:</strong> Decorate items inside <code>List&lt;T&gt;</code>, arrays <code>T[]</code>, and dictionaries seamlessly.</li>
                         </ul>
+                        <div class="mt-3 pt-2 border-top">
+                            <a href="msultimate-core-docs.html" class="btn btn-outline-success"><i class="fas fa-book-open me-2"></i>Explore Core Framework Docs (156+ Attributes)</a>
+                        </div>
                     </div>
 
                     <!-- Core Pro Edition -->
@@ -319,6 +543,7 @@ MSUltimate Ecosystem
                                 <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 87 Attributes • 13 Categories</span>
                                 <p class="text-muted small"><strong>Focus:</strong> Micro-interactions, animated telemetry, and sensory feedback.</p>
                                 <p class="small"><strong>Highlights:</strong> Dynamic combat HUD meters (<code>[RageMeterFill]</code>, <code>[CombatShieldRecharge]</code>), sci-fi data visualizers (<code>[CyberpunkMatrixRain]</code>, <code>[HologramProjectorBeam]</code>), particle simulations (<code>[ParticleBurst]</code>, <code>[ElectricArcSparks]</code>), and kinetic typography (<code>[GlitchTextMatrix]</code>, <code>[NeonFlickerSign]</code>).</p>
+                                <a href="msultimate-animated-docs.html" class="btn btn-outline-primary btn-sm mt-auto"><i class="fas fa-book-open me-2"></i>Open Animated Attributes Docs (87 Attrs)</a>
                             </div>
                         </div>
 
@@ -329,6 +554,7 @@ MSUltimate Ecosystem
                                 <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 75 Attributes • 7 Categories</span>
                                 <p class="text-muted small"><strong>Focus:</strong> AAA MonoBehaviour Inspector card aesthetics and branded component presentation.</p>
                                 <p class="small"><strong>Highlights:</strong> Modern glassmorphism card frames, glowing animated borders, atmospheric particle backgrounds (drifting fog, embers, aurora), breadcrumb headers, and branded sub-system layouts.</p>
+                                <a href="msultimate-component-docs.html" class="btn btn-outline-primary btn-sm mt-auto"><i class="fas fa-book-open me-2"></i>Open Component Designer Docs (75 Attrs)</a>
                             </div>
                         </div>
 
@@ -339,6 +565,7 @@ MSUltimate Ecosystem
                                 <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 83 Attributes • 8 Categories</span>
                                 <p class="text-muted small"><strong>Focus:</strong> Complete organizational overhaul of the Unity Scene Hierarchy window.</p>
                                 <p class="small"><strong>Highlights:</strong> Virtual colored folders, branching tree connector lines, live hierarchy telemetry icons (Audio, LOD, NavMesh markers), active toggles, component counters, and real-time performance badges (DrawCalls, Vertices).</p>
+                                <a href="msultimate-hierarchy-docs.html" class="btn btn-outline-primary btn-sm mt-auto"><i class="fas fa-book-open me-2"></i>Open Hierarchy Designer Docs (83 Attrs)</a>
                             </div>
                         </div>
 
@@ -349,6 +576,7 @@ MSUltimate Ecosystem
                                 <span class="badge bg-primary mb-2 w-auto align-self-start">$29.99 • 39 Attributes + Diagnostic Window</span>
                                 <p class="text-muted small"><strong>Focus:</strong> Real-time data integrity and project-wide asset scanning.</p>
                                 <p class="small"><strong>Highlights:</strong> Real-time field assertions (<code>[ValidateRequiresCollider]</code>, <code>[ValidateAssetGuidExists]</code>), coupled with an automated project-wide scan window offering 1-click batch auto-repair for broken GUIDs, missing dependencies, and unassigned fields.</p>
+                                <a href="msultimate-validation-docs.html" class="btn btn-outline-primary btn-sm mt-auto"><i class="fas fa-book-open me-2"></i>Open Validation Module Docs (39 Attrs)</a>
                             </div>
                         </div>
 
@@ -359,6 +587,7 @@ MSUltimate Ecosystem
                                 <span class="badge bg-primary mb-2 w-auto align-self-start">$39.99 • Visual Theming Workbench</span>
                                 <p class="text-muted small"><strong>Focus:</strong> Visual theming and custom template engine for the Unity Editor.</p>
                                 <p class="small"><strong>Highlights:</strong> Create custom UI Toolkit inspector templates visually, switch between dark/light/cyberpunk theme tokens, and apply full-component makeovers without writing procedural code.</p>
+                                <a href="msultimate-customizer-docs.html" class="btn btn-outline-primary btn-sm mt-auto"><i class="fas fa-book-open me-2"></i>Open Inspector Customizer Docs</a>
                             </div>
                         </div>
 
@@ -369,6 +598,7 @@ MSUltimate Ecosystem
                                 <span class="badge bg-primary mb-2 w-auto align-self-start">$44.99 • 4 Developer Tools + 4 Attributes</span>
                                 <p class="text-muted small"><strong>Focus:</strong> High-throughput developer diagnostics and runtime telemetry.</p>
                                 <p class="small"><strong>Highlights:</strong> 4 standalone developer power tools: Advanced Console Pro, History Track, Lifetime Tracker, and Live Track.</p>
+                                <a href="msultimate-toolbox-docs.html" class="btn btn-outline-primary btn-sm mt-auto"><i class="fas fa-book-open me-2"></i>Open ToolBox Vol. 1 Docs (4 Tools)</a>
                             </div>
                         </div>
                     </div>
@@ -582,8 +812,8 @@ assets/Documentations/MSUltimate/
 
                 <!-- Documentation Pagination -->
                 <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
-                    <button id="prev-doc" class="btn btn-outline-primary"><i class="fas fa-arrow-left me-2"></i>Previous</button>
-                    <button id="next-doc" class="btn btn-outline-primary">Next<i class="fas fa-arrow-right ms-2"></i></button>
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
                 </div>
 
             </article>
@@ -652,6 +882,34 @@ assets/Documentations/MSUltimate/
                 });
             }
 
+            // Full Collection Master Attribute Directory Instant Filter
+            const ecoAttrSearch = document.getElementById('ecosystem-attribute-search');
+            if (ecoAttrSearch) {
+                ecoAttrSearch.addEventListener('input', () => {
+                    const query = ecoAttrSearch.value.toLowerCase().trim();
+                    const moduleCards = document.querySelectorAll('.dir-module-card');
+
+                    moduleCards.forEach(card => {
+                        const pills = card.querySelectorAll('.attr-pill-link');
+                        let hasVisiblePills = false;
+
+                        pills.forEach(pill => {
+                            const text = pill.textContent.toLowerCase();
+                            const matches = query === '' || text.includes(query);
+                            pill.style.display = matches ? 'inline-flex' : 'none';
+                            if (matches) hasVisiblePills = true;
+                        });
+
+                        const headerText = card.querySelector('.master-dir-header').textContent.toLowerCase();
+                        if (query === '' || hasVisiblePills || headerText.includes(query)) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
             window.addEventListener('hashchange', updateUI);
 
             if (prevButton) {
@@ -673,6 +931,8 @@ assets/Documentations/MSUltimate/
             updateUI();
         });
     </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
 </body>
 
 </html>

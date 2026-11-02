@@ -50,6 +50,8 @@ Provides global controls for active preview, playback, asset actions, and utilit
 *   **New Composition (📄 Page Icon)**: Creates a new, blank Composition asset (.asset) in the project folders.
 *   **Open Composition (📂 Folder Icon)**: Displays a file finder to select and open an existing Composition asset.
 *   **Rig Config (🦴 Bone Icon)**: Opens the **IK Rig Config Editor Window** to set up custom inverse kinematics chains, solvers, presets, and joint constraints. See [IK Rig Configuration](ik-rig-configuration.md) for more details.
+*   **Actor Roster (👥 Actors Icon)**: Opens the **Actor Roster & Alignment Window** to add and manage participant characters (Humanoid or Generic), assign roles, accent colors, and configure dynamic summons. See [Actor Roster & Dynamic Alignment](actor-roster-window.md).
+*   **Dynamic Alignment (⚡ Alignment Icon)**: Quick-access button opening the Dynamic Alignment configuration panel for pre-interaction approach locomotion, speed bounds, and terrain adaptation. See [Actor Roster & Dynamic Alignment](actor-roster-window.md#tab-2-dynamic-alignment-motion-warping).
 *   **Export (💾 Disk Icon)**: Opens the **Export Options Window** to bake the multi-layer timeline composition into a single, clean Animation Clip or FBX asset. See [Export Options](export-options.md) for details.
 *   **Cleanup Sub-Assets (🧹 Broom Icon)**: Scans the composition asset for orphaned or unused sub-clip assets and permanently deletes them to optimize project asset sizes.
     > [!CAUTION]
@@ -149,7 +151,9 @@ Use these hotkeys to navigate the timeline and perform edits inside the Composit
 * **Core Nodes**: Learn about the primary timeline blocks in [Animation Clip Nodes](animation-clip-node.md) and [Pose Nodes](pose-node.md).
 * **Solvers & Constraints**: Configure limb targets in [IK Override Nodes](ik-override-node.md), face-tracking in [Look-At Nodes](look-at-node.md), and grounding in [Foot IK Nodes](foot-ik-node.md).
 * **Procedural Modifiers**: Add simulation behaviors in [Jiggle Physics Nodes](jiggle-physics-node.md) and drive pathways in [Trajectory Override Nodes](trajectory-override-node.md).
-* **FX Triggers**: Attach runtime triggers, audio, or particle events using the [FX Nodes Overview](fx-nodes-overview.md).
+* **Multi-Character Choreography**: Manage participant rosters, dynamic actors, and approach warping in [Actor Roster & Dynamic Alignment](actor-roster-window.md), and author summon entries/exits with [Dynamic Actor Lifecycle Nodes](actor-lifecycle-nodes.md).
+* **Post-Export Customization**: Author body spacing, clip variants, granular dynamic alignment foldouts, and prop handovers in the [Interaction Overrides Inspector](interaction-overrides-inspector.md).
+* **FX Triggers & Decals**: Attach runtime triggers, audio, surface decals, or particle events using the [FX Nodes Overview](fx-nodes-overview.md) and [Decal FX Nodes](decal-fx-node.md).
 * **Baking & Pipelines**: Configure [Export Options](export-options.md), manage [Batch Export Queue](batch-export.md), and adjust preferences in [Editor Settings](editor-settings.md).
 * **Project Maintenance**: Purge and manage embedded clip data in the [Metadata Manager](metadata-manager.md) or resolve layout errors in [Troubleshooting](troubleshooting.md).
 

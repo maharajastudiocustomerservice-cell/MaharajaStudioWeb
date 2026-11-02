@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate ToolBox Vol. 1 - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn active"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">ToolBox Vol. 1</h3>
+                    <span class="badge bg-primary">$44.99 • 4 Tools</span>
+                </div>
+                <p class="text-muted small mb-3">Developer Diagnostics & Telemetry</p>
+
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Developer Power Tools</li>
+                    <li><a href="#tool-console-command" class="docs-nav-link active"><i class="fas fa-terminal text-primary me-2"></i>[ConsoleCommand] & Console <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#tool-live-track" class="docs-nav-link"><i class="fas fa-chart-line text-info me-2"></i>[LiveTrack] Telemetry HUD <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-toolbox" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>History Track (Undo/Redo Diff) <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-toolbox" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>Lifetime Tracker (Leaks Audit) <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="docs-content">
+
+                <!-- 1. [ConsoleCommand] & Advanced Console Pro -->
+                <section id="tool-console-command" class="docs-section active">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[ConsoleCommand] & Advanced Console Pro</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Method (static)</span>
+                            <span class="badge bg-warning text-dark">Tool: Advanced Console</span>
+                            <span class="badge bg-info text-dark">Reflection Auto-Bind</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Registers static C# methods as invokable developer console commands within the Advanced Runtime Console overlay, supporting argument deserialization, categories, and fuzzy autocomplete.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card" style="background: #181818; border-color: #00aaff;">
+                        <div class="preview-header text-info">
+                            <i class="fas fa-terminal"></i> In-Game Runtime Console Overlay • [F1 Toggle]
+                        </div>
+                        <div class="font-monospace small mb-2 text-success">
+                            &gt; spawn_item sword_legendary 1<br>
+                            <span class="text-light">[14:32:05] [Combat] Spawned item 'sword_legendary' x1 at player position.</span><br>
+                            &gt; god_mode true<br>
+                            <span class="text-light">[14:32:11] [Cheats] Invulnerability enabled for local player.</span>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center border-top border-secondary pt-2">
+                            <span class="text-info fw-bold">&gt;</span>
+                            <input type="text" class="unity-inspector-input w-100 font-monospace" value="heal_player 100" readonly>
+                            <span class="badge bg-primary">Tab to Complete</span>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Turns static C# methods into executable console commands with zero manual registry setup. Typing into the in-game developer console provides fuzzy search, command syntax help, and auto-conversion of string arguments into C# types.</p>
+                    <p><strong>The Problem:</strong> Building custom in-game consoles requires writing manual argument dispatchers, maintaining fragile string dictionaries, and constantly updating autocomplete registries.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Zero-Boilerplate Reflection:</strong> Automatically discovers decorated static methods at runtime startup.</li>
+                        <li><strong>Automatic Argument Conversion:</strong> Parses integers, floats, booleans, strings, and <code>Vector3</code> coordinates automatically.</li>
+                        <li><strong>Categorized Autocomplete:</strong> Groups commands into clean tabs (e.g. <code>Combat</code>, <code>Network</code>, <code>Cheats</code>).</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
+
+public static class DebugCommands
+{
+    [ConsoleCommand("heal_player", "Restores the local player to full health.", Category = "Player")]
+    public static void HealPlayer()
+    {
+        Debug.Log("Player restored to full health.");
+    }
+
+    [ConsoleCommand("give_gold", "Grants gold currency to player inventory.", Category = "Economy", Usage = "give_gold <amount>")]
+    public static void GiveGold(int amount)
+    {
+        Debug.Log($"Granted {amount} gold to inventory.");
+    }
+}</code></pre>
+                </section>
+
+                <!-- 2. [LiveTrack] Telemetry HUD -->
+                <section id="tool-live-track" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[LiveTrack] In-Scene Telemetry HUD</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Field | Property</span>
+                            <span class="badge bg-success">Real-Time Oscillating Graphs</span>
+                            <span class="badge bg-info text-dark">World Space HUD</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Draws real-time floating 3D world-space telemetry badges and oscillating variable wave graphs above GameObjects in the Scene view to monitor physics velocities, AI states, and combat values.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Scene View Floating Telemetry HUD
+                        </div>
+                        <div class="p-3 border rounded" style="background: rgba(0, 0, 0, 0.6);">
+                            <div class="d-flex justify-content-between small text-info fw-bold mb-1">
+                                <span>ActorVelocity (RigidBody)</span>
+                                <span>14.8 m/s [MAX: 22.0]</span>
+                            </div>
+                            <div style="height: 35px; background: #000; border: 1px solid #333; position: relative; overflow: hidden;">
+                                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(180deg, rgba(0, 170, 255, 0.4), rgba(0, 170, 255, 0.05)); border-top: 2px solid #00aaff;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Plots continuous mathematical curves and numerical badges directly above game actors in the Unity Scene view. Inspect changes in velocity, AI threat ratings, or health values while moving through the scene.</p>
+                </section>
+
+                <!-- Staged Section -->
+                <section id="staged-toolbox" class="docs-section">
+                    <h1>ToolBox Vol. 1 Architecture & Tools</h1>
+                    <div class="alert alert-info alert-custom">
+                        <h5 class="fw-bold"><i class="fas fa-toolbox me-2"></i>4 Developer Tools Staged in Workspace</h5>
+                        <p class="mb-0">Manuals for Advanced Console Pro, History Track, Lifetime Tracker, and Live Track are staged inside <code>assets/Documentations/MSUltimate/Addons/ToolBox_Vol1/Documentation/</code>.</p>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const link = li.querySelector('a');
+                        if (!link) return;
+                        const linkText = link.textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
+</body>
+
+</html>

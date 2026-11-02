@@ -39,3 +39,13 @@ To prevent sudden bone pops, you can automate easing transitions:
 * **Use Rotation Transition In / Out**: Enables rotation blending curves.
 * **Use Scale Transition In / Out**: Enables scale blending curves.
   * *Curves:* Each enabled transition features a curve driving target weight (Y-axis = influence multiplier, X-axis = normalized time).
+
+---
+
+## Spline Trajectory Movement
+
+The Transform FX Node supports 3D Bezier spline trajectories, enabling a bone, socket, or attached prop to travel along a curved path over the node's duration (e.g. dynamic weapon retrieval, boomerang returns, or acrobatic limb flourishes).
+
+*   **Use Trajectory**: Enables spline-driven translation for the target bone.
+*   **FX Path Tools Integration**: Selecting the node with trajectory enabled displays the interactive **FX Path Tools** panel in the Scene View. You can add, delete, and re-time Bezier control nodes or apply one-click motion presets (Arcs, Helixes, Waves, Spirals). See [FX Nodes Overview](fx-nodes-overview.md#fx-path-tools-scene-panel) for complete spline editing instructions.
+

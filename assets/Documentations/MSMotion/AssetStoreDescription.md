@@ -1,89 +1,97 @@
 MaharajaStudio MSMotion — Animate. Simulate. React. All in One Place.
+Create complex, FX-driven animations and synchronized multi-character choreography in minutes—without writing a single script.
 
-Your game's attack has a sword trail. A footstep kicks up dust and plays a crunch. A leap follows a perfect arc and lands with a camera shake. MSMotion is built around this reality — it is the only Unity tool that connects your animations, visual effects, physics, and gameplay logic on a single shared timeline.
+Your game's attack has a sword trail. A footstep kicks up dust and plays a crunch. A leap follows a perfect arc and lands with a camera shake. A partner character catches the hero in mid-air and spins into a synchronized dance lift. MSMotion connects animations, visual effects, secondary physics, multi-character choreography, and gameplay logic on a single shared timeline.
 
-No more jumping between an Animator window, a Particle System, and a script. MSMotion does it all, in one editor, with real-time preview — and zero performance cost at runtime.
+No more jumping between an Animator window, Particle Systems, and scripts. MSMotion does it all in one editor with real-time Scene View preview — and zero performance cost at runtime.
 
 
 🌟 Why MSMotion Is Different
+Most animation tools stop at the clip. MSMotion starts there and goes much further:
 
-Most animation tools stop at the clip. MSMotion starts there and goes much further.
-
-✅  Place an IK Override on the same timeline as your attack animation — the arm reaches exactly where you want, exactly when you want.
-✅  Drop an Audio event on the same frame as the impact — frame-perfect sync, every time.
-✅  Add Jiggle Physics to a ponytail, a cape, or a chain — it reacts to movement automatically.
-✅  Draw a Bezier path for a dash or a leap — the character follows it smoothly without touching root motion baking.
-✅  Trigger your own gameplay code (hitboxes, combo windows, state changes) directly from the timeline — no polling, no guessing.
-
-Everything previews live in the Scene View, inside the Unity Editor, without entering Play Mode.
+🔹 Zero-Code Syncing: Drop Audio, particles, or surface decals on the exact impact frame.
+🔹 Multi-Actor Choreography: Direct dance duets, martial arts grapples, co-op takedowns, and cinematics with 0ms frame drift.
+🔹 Live Editor Preview: Everything previews live in the Scene View without entering Play Mode.
+🔹 Interactive Physics & IK: Add Jiggle Physics, Foot IK, or IK Overrides with interactive handles.
+🔹 Dynamic Summons: Spawn temporary weapons, familiars, dragons, or Stand avatars with automatic object pooling and 1-line playback.
+🔹 Dynamic Motion Warping: Automatically scales approach locomotion and adapts to terrain so characters arrive at authored sync spots without foot sliding.
+🔹 Custom Logic Triggers: Fire hitboxes, combo windows, and state changes directly from the timeline via typed C# events.
+🔹 Scene-Independent: Build your sequence once and reuse it anywhere across your project.
 
 
 🎛️ The Composition Editor
+Your primary timeline workspace for character motion, layers, and gameplay events:
 
-This is your main workspace. Think of it like a video editor, but for character animation and gameplay events.
+🔹 Unlimited Layers: Stack Override and Additive layers with AvatarMasks for seamless upper/lower body isolation.
+🔹 Actor Roster & Routing: Manage participants in the Actor Roster (`👥 Actors`) and route timeline slots to designated characters with visual color badges and accent strips.
+🔹 Non-Destructive Slot Editing: Drag, trim, split, duplicate, cut/copy/paste, and ripple-delete any slot.
+🔹 6 Crossfade Transitions: Smoothly blend slots using Linear, Smooth, EaseIn, EaseOut, Cubic, or Bounce curves.
+🔹 Markers & Loop Region: Annotate impact frames and loop sub-ranges for rapid iteration.
+🔹 Viewport Controls: Real-time IK handle dragging, auto-keying, bone overlay, and breadcrumb navigation.
 
-🔹 Stack unlimited layers — blend full-body animations, upper-body overrides, and physics reactions all at once.
-🔹 Mix Override and Additive layers with AvatarMasks — for perfect upper/lower body blending.
-🔹 Every layer accepts Animation Clips, Pose Holds, IK Nodes, Physics Nodes, and FX Events as slots.
-🔹 Drag, trim, split, duplicate, and ripple-delete any slot — a full non-destructive editing workflow.
-🔹 Set crossfade curves per slot with 6 transition shapes.
-🔹 Place color-coded Markers to annotate combo windows, impact frames, or cutscene beats.
-🔹 Real-time IK handle dragging in the Scene View — keyframes write back automatically.
+
+👥 Multi-Actor Choreography & Dynamic Summons (v2.0.0)
+Direct multi-character choreography and companion summons right from the timeline:
+
+🎭 Synchronized Duets & Grapples: Coordinate 2, 3+ characters with 0ms frame drift.
+🐾 Humanoid & Generic Rigs: Mix Humanoids with Generic rigs (quadrupeds, monsters, robots, props) in the same sequence.
+⚡ Motion Warping & Dynamic Alignment: Pre-interaction entry phase dynamically scales locomotion speed to match distance and terrain, eliminating foot sliding. Includes Auto Stride speed derivation and Scene View alignment discs.
+🐉 Dynamic / Temporary Actors: Ephemeral summons (weapons, dragons, familiars) auto-spawn, track sockets, animate, and recycle back to the zero-allocation `MSMotionActorPool`.
+🔄 Cross-Actor FX & Prop Handover: Seamlessly pass props, weapons, torches, or spell effects between characters (Instant, SmoothInterpolation, or FollowTrajectory). Transferred items can persist via `RetainOnEnd`.
+🎯 Cross-Actor Partner Targeting: Hand/foot IK effectors and Look-At modifiers can directly target partner bones.
+▶️ 1-Line Runtime API: `MSMotionInteraction.Play(duetConfig, leadActor, partnerActor)` coordinates independent PlayableGraphs without race conditions.
+🚪 Dynamic Participant Departure: Characters can break away early via `session.StopActor()` using `ContinueRemaining` or `StopAll` cascade policies.
 
 
 🧩 Modifier Nodes — The Power Behind the Animator
+Stackable, timeline-driven procedural solvers:
 
-These are stackable, timeline-driven solvers that run live on top of your animation:
-
-🦾  IK Override Node — Keyframe a hand or foot position in world space over time. Drag interactive handles in the Scene View. Add Squash & Stretch on impact frames — all without touching the base clip.
-
-👣  Foot IK Node — Automatically plants feet on uneven terrain, stairs, and slopes. Handles pelvis drop, foot locking, and toe rotation. Works out-of-the-box on Humanoid rigs, and supports Generic rigs via manual bone mapping.
-
-👀  Look-At Node — Makes a character's head, spine, and eyes smoothly track a target. Includes realistic eye micro-jitter (saccades) and soft angle limits. Reusable across any character.
-
-🌊  Jiggle Physics Node — Secondary motion for hair, tails, capes, and chains. Add wind, turbulence, gravity, and collision bodies. Results feel physical and alive, not hand-keyed.
-
-🛤️  Spline Trajectory Node — Draw a Bezier path in the Scene View and the character follows it during playback. Great for dashes, leaps, and cutscene movement — with ground snapping and banking.
-
-🔒  IK Lock Node — Freeze a hand or foot to a surface contact point while the body continues to animate freely.
+🦾 IK Override: Multiple IK chains, effector/pole handles in Scene View, Squash & Stretch handles, Twist Distribution for limb rolls, FBIK solver, and Advanced IK Locks to pin multiple joints.
+👣 Foot IK: Raycast terrain adaptation, pelvis drop, foot lock, toe rotation, and ground normal alignment. Auto-detects Humanoids and supports Generic rigs.
+👀 Look-At: Head, spine, and eyes smoothly track targets. Includes biological saccade micro-jitter, soft angle limits, and partner bone targeting.
+🌊 Jiggle Physics: Spring-mass chain simulation with stiffness, damping, mass, gravity, wind, turbulence, 4 collision shapes (Sphere, Capsule, Box, Plane), and volume preservation (Squash & Stretch).
+🛤️ Spline Trajectory: Draw Bezier paths in Scene View for dashes, leaps, and cutscene motion with banking, ground snapping, and speed heatmaps.
+🔒 IK Lock: Freeze a hand or foot to a surface contact point while the body continues animating.
+🦴 Dynamic Bone Subdivision (DBS): Procedural multi-joint chain deformation with balanced weight distribution.
 
 
-✨ FX & Gameplay Event Lanes
+✨ FX & Gameplay Event Nodes — 8 Types + Summons
+Trigger synchronized effects and logic directly from the timeline:
 
-Place events directly on the composition timeline, in sync with your animation:
-
-🔊  Audio — Trigger a sound at any frame, with volume, pitch, and 3D distance settings.
-💥  Particle FX — Spawn particles attached to any bone, with movement paths and blend envelopes.
-🎇  VFX Graph — Drive Unity VFX Graph effects and their parameters from the timeline.
-📷  Camera Shake — Cinemachine Impulse shakes triggered on a specific frame.
-📦  Spawn FX — Instantiate any prefab (sword trails, decals, muzzle flashes) from the timeline.
-🦴  Transform FX — Animate any bone or object property from the timeline (great for eye blinks, wing folds, shield raises).
-⚙️  Script Event — Notify your own C# code at any point in the animation, passing typed parameters (float, int, bool, string, or GameObject). Great for signalling gameplay systems, triggering sound managers, or driving UI — pair it with the runtime query API for critical logic.
-
-Change the look of spawned effects per-character without making duplicate prefabs — just override the properties you need, per slot.
+🔁 4-Tier Property Overrides: Customize prefab fields, light intensity, or material colors per slot, via global FXRegistry, or through runtime C# scripts.
+🔊 Audio FX: Volume, pitch, stereo pan, 3D distance, and volume fade envelopes.
+💥 Particle FX: Bone attachment, sustained/oneshot modes, and Bezier movement paths.
+🎨 Decal FX: Project decals onto dynamic geometry with raycast slope angle limits, URP Decal Projector normal blending, non-uniform scaling, moving platform attachment, and pooling.
+🎇 VFX Graph: Drive Unity VFX Graphs and exposed parameters from the timeline.
+📷 Camera Shake: Cinemachine Impulse shakes triggered on specific impact frames.
+📦 Spawn FX: Instantiate prefabs at bone sockets with zero runtime GC spikes.
+🦴 Transform FX: Dynamic bone/socket offsets with 3D Bezier spline flight paths.
+⚙️ Script Event: Dispatch typed callbacks via `MSMotionScriptEventBus` (float, int, bool, string, GameObject).
+👥 Spawn & Destroy Actor: Control frame timing, sockets, scale curves, and pool recycling of dynamic summon entities.
+🔄 Cross-Actor Handover: Smoothly transfer props and effects between characters.
+🛣️ FX Path Tools HUD: Viewport overlay with preset path generators (Arcs, Helixes, Spirals, Waves).
 
 
 🎬 Animation Editor
+Inspect and refine raw animation clips directly inside Unity:
 
-For when you need to go deep into a clip:
-
-🔓  Extract any locked FBX animation into a fully editable .anim asset in one click.
-✂️  Trim, scale, reverse, insert, and crop time ranges directly.
-📐  Edit individual keyframes — time, value, tangents, and tangent modes.
-🔁  Mirror animations, smooth curves, remove redundant keys, and extract root motion.
-🎯  Move bones in the Scene View and Auto-Key writes the keyframes for you.
-👻  Ghost preview — edit a clip while seeing the full composition context blended behind it.
+🔓 1-Click Extraction: Convert locked FBX model clips into editable local `.anim` assets.
+✂️ Range Operations: Insert, Delete (with ripple), Scale, Reverse, Crop, and Remove with Transition.
+📐 Keyframe Control: Edit time, value, tangents, and tangent modes (Auto, Linear, Manual).
+🔁 Curve Tools: Mirror, curve smoothing (Median/Gaussian/Average), keyframe optimization, and root motion extraction.
+🎯 Auto-Key: Move bones in Scene View to auto-write keyframes.
+👻 Live Link & Ghost Preview: Evaluate full composition context (IK, layers, FX) live in Scene View while editing raw clips.
 
 
 ⚡ Runtime — Zero GC. Maximum Performance.
+MSMotion runs on Unity's low-level PlayableGraph API — no Animator Controller overhead:
 
-At runtime, MSMotion uses Unity's low-level PlayableGraph API. There are no Animator Controller state machines. No GC spikes. No string lookups.
-
-▶️  Play, CrossFade, and sequence animations with a simple C# API.
-🎭  Unlimited animation layers, allocated only when needed.
-🎚️  FX events fire frame-accurately alongside the animation, with automatic intensity scaling during crossfades.
-🔗  IK constraints activate and deactivate per animation — point a hand at a weapon target with one line of code.
-♻️  All audio and particle effects are pooled — zero Instantiate/Destroy calls during gameplay.
+▶️ 1-Line Playback: `animator.Play(config)`, `CrossFade(config)`, and `PlayThenCrossFade(a, b)`.
+👥 Multi-Actor Runner: `MSMotionInteraction.Play()` coordinates multiple characters with zero frame drift.
+🎭 Dynamic Layers: Mixers allocated on-demand, keeping memory footprint minimal.
+🎚️ Frame-Accurate FX: Audio, particles, decals, and camera shakes fire with automatic intensity scaling during crossfades.
+🔗 Procedural Rigging: Activate/deactivate IK constraints per animation; retarget limbs at runtime.
+♻️ Zero-Allocation Pooling: `MSMotionActorPool` and `MSMotionFXPool` eliminate runtime heap allocations.
 
 
 🛠️ Compatibility
@@ -92,14 +100,23 @@ Engine: Unity 6 and above
 Rig Support: Full support for both Humanoid and Generic rigs
 Source Code: Full C# source included — no DLLs, no black boxes
 Optional Integrations: Cinemachine · Unity VFX Graph · Unity Animation Rigging
-Documentation: Full guides included in the Documentation~ folder
+Documentation: Full guides included in the Documentation folder and Website
 
 
 📞 Support & Community
-
-📧 Email: [Insert Support Email Here]
-🌐 Website: [Insert Website URL Here]
-💬 Discord: [Insert Discord Invite Link Here]
+📧 Email: maharajastudiocustomerservice@gmail.com
+🌐 Website: https://maharajastudiocustomerservice-cell.github.io/MaharajaStudioWeb/ms-motion.html
+💬 Discord: https://discord.gg/GamF5bez3h
 📖 Docs: https://maharajastudiocustomerservice-cell.github.io/MaharajaStudioWeb/ms-motion-docs.html
+▶️ Tutorials: https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao
+🎮 Demo : https://github.com/maharajastudiocustomerservice-cell/MSMotion-Demo-Build-win/releases/tag/Demo
+
+🎮 Try the Interactive Windows Demo!
+Want to see the system in action before you buy? We have put together a highly polished, high-fidelity cinematic demo showcasing exactly how the tool drives complex FX and animation paths at runtime with peak Burst-compiled performance.
+
+👉 [Download the Free Windows Demo Build via GitHub](https://github.com/maharajastudiocustomerservice-cell/MSMotion-Demo-Build-win/releases/tag/Demo)
+
+⚠️ Note on Windows SmartScreen: Because this is an unsigned indie executable demo distributed outside a major launcher, Windows Defender may show a "Windows protected your PC" popup when you launch it. This is completely normal! Simply click "More info" and then "Run anyway" to play.
+
 
 MSMotion is built for developers who want AAA-quality animation pipelines without sacrificing performance, flexibility, or creative control.

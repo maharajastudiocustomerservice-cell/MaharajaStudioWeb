@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate Core - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn active"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">MSUltimate Core</h3>
+                    <span class="badge bg-success">156+ Attrs</span>
+                </div>
+                <p class="text-muted small mb-3">Community & Pro Core Framework</p>
+
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Actions & Buttons</li>
+                    <li><a href="#attr-button" class="docs-nav-link active"><i class="fas fa-hand-pointer text-primary me-2"></i>[Button] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[IconButton] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[CopyPaste] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Conditionals & Logic</li>
+                    <li><a href="#attr-enable-if" class="docs-nav-link"><i class="fas fa-toggle-on text-primary me-2"></i>[EnableIf] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ShowIf] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[DisableIf] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Groups & Layouts</li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[BoxGroup] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[TabGroup] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[BeginSplitPane] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Serializers & Types</li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>SerializableDictionary <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>SerializableHashSet <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-core" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>SerializableMatrix2D/3D <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="docs-content">
+
+                <!-- 1. [Button] -->
+                <section id="attr-button" class="docs-section active">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[Button]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Method | Field | Property</span>
+                            <span class="badge bg-success">Allow Multiple: Yes</span>
+                            <span class="badge bg-info text-dark">Zero GC</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Renders an interactive, styled execution button in the Unity Inspector that invokes C# methods with custom icons, colors, parameter input panels, and layout sizing.
+                    </p>
+
+                    <!-- Interactive Live Preview Simulation -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • Spawner.cs
+                        </div>
+                        <div class="unity-inspector-row">
+                            <span class="unity-inspector-label">Wave Number</span>
+                            <input type="text" class="unity-inspector-input" value="3" readonly>
+                        </div>
+                        <div class="mt-2">
+                            <button class="unity-btn-mock" style="background: #27ae60; color: #ffffff; height: 32px; font-weight: bold;">
+                                <i class="fas fa-skull me-1"></i> Spawn Wave (1-Click Trigger)
+                            </button>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Turns regular C# methods into clickable, styled execution buttons right in the Unity Inspector.</p>
+                    <p><strong>The Problem:</strong> In standard Unity, there is no native way to test or trigger methods from the Inspector. You typically have to write custom editor scripts or enter Play Mode and wire debug keys.</p>
+                    <p><strong>The Solution:</strong> Adding <code>[Button]</code> gives you:</p>
+                    <ul>
+                        <li><strong>1-Click Execution:</strong> Run methods directly in Edit Mode or Play Mode with a single click.</li>
+                        <li><strong>Custom Styling:</strong> Modify button label, background color, text color, icons, and height.</li>
+                        <li><strong>Parameter Support:</strong> Automatically renders foldout parameter panels for methods with arguments.</li>
+                        <li><strong>Conditional Logic:</strong> Supports inline <code>ShowIf</code> and <code>EnableIf</code> to dynamically disable or hide buttons.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
+
+public class Spawner : MonoBehaviour
+{
+    public int currentWave = 3;
+
+    [Button("Spawn Wave", colorHex: "#27AE60", Icon = "d_PlayButton", Height = 32)]
+    public void TriggerSpawn()
+    {
+        Debug.Log("Spawning wave " + currentWave + " of enemies!");
+    }
+
+    [Button("Reset Spawner", colorHex: "#E74C3C")]
+    public void ResetWave()
+    {
+        currentWave = 1;
+    }
+}</code></pre>
+
+                    <h2>3. Customization Options & Properties</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>Label</code></td>
+                                    <td><code>string</code></td>
+                                    <td><code>null</code></td>
+                                    <td>Custom button label (defaults to TitleCase method name).</td>
+                                </tr>
+                                <tr>
+                                    <td><code>ColorHex</code> / <code>BackgroundColor</code></td>
+                                    <td><code>string</code></td>
+                                    <td><code>null</code></td>
+                                    <td>Hex color code applied to button background (e.g. <code>"#27AE60"</code>).</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Height</code></td>
+                                    <td><code>int</code></td>
+                                    <td><code>30</code></td>
+                                    <td>Pixel height of the button element.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Icon</code></td>
+                                    <td><code>string</code></td>
+                                    <td><code>null</code></td>
+                                    <td>Unity Editor icon name (e.g. <code>"d_PlayButton"</code>, <code>"d_Refresh"</code>).</td>
+                                </tr>
+                                <tr>
+                                    <td><code>FullWidth</code></td>
+                                    <td><code>bool</code></td>
+                                    <td><code>false</code></td>
+                                    <td>Expands button horizontally across the full inspector width.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 2. [EnableIf] -->
+                <section id="attr-enable-if" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[EnableIf]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Field | Property | Method</span>
+                            <span class="badge bg-success">Compound Expressions: Yes</span>
+                            <span class="badge bg-info text-dark">UI Toolkit Native</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Enables user interaction with a serialized field, property, or button only when a specified condition evaluates to true (greying it out otherwise).
+                    </p>
+
+                    <!-- Interactive Live Preview Simulation -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • CharacterShield.cs
+                        </div>
+                        <div class="unity-inspector-row">
+                            <span class="unity-inspector-label">Has Energy Shield</span>
+                            <input type="checkbox" checked style="width: auto;">
+                        </div>
+                        <div class="unity-inspector-row">
+                            <span class="unity-inspector-label">Max Capacity</span>
+                            <input type="text" class="unity-inspector-input" value="100.0">
+                        </div>
+                        <div class="unity-inspector-row opacity-50">
+                            <span class="unity-inspector-label text-muted">Overcharge Multiplier 🔒</span>
+                            <input type="text" class="unity-inspector-input" value="1.5" disabled title="Requires Level > 10!">
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Keeps dependent settings visible so designers know they exist, but locks them interactively in a disabled state until criteria are satisfied.</p>
+                    <p><strong>The Problem:</strong> In standard Unity, secondary fields sit wide open even when their parent feature flag is turned off. Game designers adjust phantom values that have no effect, causing confusing bug reports.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Prerequisite Enforcement:</strong> Visually greys out fields until conditions evaluate to true.</li>
+                        <li><strong>Disabled Tooltips:</strong> Shows why a field is locked (e.g. <code>DisabledTooltip = "Requires Level 10!"</code>).</li>
+                        <li><strong>Inline Expressions:</strong> Supports compound comparisons like <code>[EnableIf("$playerLevel >= 10 && $isLicensed")]</code>.</li>
+                        <li><strong>Zero Polling:</strong> Directly binds to UI Toolkit visual change events with zero per-frame recalculations.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
+
+public class CharacterShield : MonoBehaviour
+{
+    public bool hasEnergyShield = true;
+
+    // 1. Basic Boolean Toggle with Custom Tooltip
+    [EnableIf(nameof(hasEnergyShield), DisabledTooltip = "Enable Energy Shield to edit capacity!")]
+    public float maxShieldCapacity = 100f;
+
+    // 2. Compound Inline Expression
+    [EnableIf("$hasEnergyShield && $maxShieldCapacity > 50")]
+    public float shieldRechargeRate = 12.5f;
+}</code></pre>
+
+                    <h2>3. Customization Options & Properties</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>Condition</code></td>
+                                    <td><code>string</code></td>
+                                    <td>*Required*</td>
+                                    <td>Member name, method name, or compound C# expression (prefixed with <code>$</code>).</td>
+                                </tr>
+                                <tr>
+                                    <td><code>DisabledTooltip</code></td>
+                                    <td><code>string</code></td>
+                                    <td><code>null</code></td>
+                                    <td>Custom hover tooltip shown when the field is greyed out.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>TargetValue</code></td>
+                                    <td><code>object</code></td>
+                                    <td><code>true</code></td>
+                                    <td>Target value to compare against when matching enum or integer values.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Staged Placeholders Notice -->
+                <section id="staged-core" class="docs-section">
+                    <h1>Core Framework Architecture & Staged Attributes</h1>
+                    <div class="alert alert-info alert-custom">
+                        <h5 class="fw-bold"><i class="fas fa-folder-open me-2"></i>156+ Attributes Staged in Workspace</h5>
+                        <p class="mb-0">All 156+ core attributes, custom serializers, and window systems are organized inside <code>assets/Documentations/MSUltimate/Documentation/attributes/</code>. The two reference attributes above demonstrate the complete documentation standard.</p>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const link = li.querySelector('a');
+                        if (!link) return;
+                        const linkText = link.textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
+</body>
+
+</html>

@@ -1,19 +1,13 @@
 MSMotion — Technical Details & Feature Reference
-
 📖 Full Documentation: https://maharajastudiocustomerservice-cell.github.io/MaharajaStudioWeb/ms-motion-docs.html
-
-
 📦 Package Contents
-
-✔  Full C# source code — no DLLs, no black boxes
-✔  UI Toolkit editor scripts and USS stylesheets
-✔  High-performance runtime API (PlayableGraph-based, Zero-GC)
-✔  Comprehensive local documentation (Documentation~ folder)
-✔  Example scenes and starter guides
-
+✔ Full C# source code — no DLLs, no black boxes
+✔ UI Toolkit editor scripts and USS stylesheets
+✔ High-performance runtime API (PlayableGraph-based, Zero-GC)
+✔ Comprehensive local documentation (Documentation folder)
+✔ Example scenes and starter guides
 
 🛠️ Compatibility
-
 | Property              | Detail                                               |
 |-----------------------|------------------------------------------------------|
 | Unity Version         | Unity 6+                                             |
@@ -25,146 +19,98 @@ MSMotion — Technical Details & Feature Reference
 
 
 🎛️ Composition Editor
-
 Multi-layer, non-destructive character timeline.
 
-Layers
-→ Unlimited named layers · Override or Additive blend mode
-→ Per-layer weight: static or AnimationCurve-driven over time
-→ Per-layer AvatarMask (upper/lower body isolation)
-→ Enable · Disable · Solo · Lock · Drag-to-reorder · Duplicate
+→ Layers: Unlimited named layers · Override or Additive blend modes · Curve-driven weights · AvatarMask isolation · Solo · Lock · Mute · Drag-to-reorder · Duplicate
+→ Slot Operations: Move across layers · Edge trimming · Split at playhead · Duplicate clip copy · Cut / Copy / Paste · Ripple-delete · Custom tint · Speed easing curve · 6 transition curve shapes (Linear, Smooth, EaseIn, EaseOut, Cubic, Bounce)
+→ Slot Types: AnimationClip · Pose Hold · IK Override · Foot IK · Look-At · Jiggle Physics · Spline Trajectory · IK Lock · Dynamic Bone Subdivision (DBS) · AudioFX · ParticleFX · DecalFX · VFXGraphFX · SpawnFX · TransformFX · CameraShakeFX · ScriptEventFX · SpawnActor · DestroyActor
+→ Editor Features: Actor Roster Window (`MSMotionActorRosterWindow`) · Dynamic Alignment (Motion Warping) · Color-coded Markers · Loop Region · Real-time Scene Preview (PlayableGraph inside AnimationMode) · IK Scene View Handles · Breadcrumb Navigation · Bone Scene Overlay
 
-Slot Operations
-→ Move across layers · Trim from either edge · Split at playhead
-→ Duplicate (independent embedded clip copy) · Cut / Copy / Paste
-→ Ripple-delete · Custom tint color · Speed override with easing curve
-→ Per-slot Blend-In/Out with 6 curve shapes (Linear, Smooth, EaseIn, EaseOut, Cubic, Bounce)
 
-Slot Types
-🎞  AnimationClip · Pose Hold · IK Override · Foot IK · Look-At
-🌊  Jiggle Physics · Spline Trajectory · IK Lock
-🔊  AudioFX · ParticleFX · VFXGraphFX · SpawnFX · TransformFX · CameraShakeFX · ScriptEventFX
+👥 Multi-Actor Choreography & Dynamic Summons (v2.0.0)
+Direct multi-character choreography and companion summons right from the timeline:
 
-Other Features
-→ Color-coded Composition Markers with drag-to-reposition
-→ Configurable Loop Region for rapid authoring iteration
-→ Real-time Scene Preview — live PlayableGraph inside AnimationMode, no Play Mode needed
-→ IK Scene Controller — drag effector/pole handles in Scene View; keyframes auto-write back
-→ Breadcrumb Navigation — drill into any slot's clip and return with one click
-→ Bone Scene Overlay — all bones visible, animated bones highlighted
+→ Choreography & Rigs: Synchronized 2, 3+ character choreography with 0ms frame drift · Humanoid & Generic rig mixing (creatures, quadrupeds, robots, props) in the same sequence · Actor Roster Window role assignments, accent swatches, and bound scene objects · Visual actor badge pills & tinted strips on timeline blocks · Details Panel & context menu slot routing · Independent root motion evaluation per actor channel (prevents sliding) · Multi-output PlayableGraph preview & synchronized scrubbing · Target actor event dispatching · Cross-actor partner bone pinning (`IKChainModifier`) and look-at tracking (`MSMotionLookAtModifier`)
+→ Dynamic / Temporary Actors: Author ephemeral summons (weapons, dragons, Stand avatars, familiars) in Actor Roster · Timing presets (`0`, `0.25`, `0.5`, `0.75`, `1.0`, `Custom`) · `SpawnActorSlot` & `DestroyActorSlot` timeline blocks (socket parenting, spatial offsets, entry/exit scale curves) · Zero-allocation pooling (`MSMotionActorPool`) · 1-line playback (`animator.Play`) auto-spawns, transforms, animates, and recycles
+→ Motion Warping & Dynamic Alignment: Pre-interaction entry phase bridges gameplay starting distances without timeline padding · Dynamic speed scaling eliminates foot sliding · Early arrival waiting idles · Auto Stride derivation from root motion curves · Downward terrain raycasting for slopes/stairs · Scene View visualizer (arrival discs, lead sync origin, live trajectory readouts, Snap & Test tools)
+→ Cross-Actor FX & Prop Handover: Dynamically pass props, weapons, torches, or visual spell effects between characters (`Instant`, `SmoothInterpolation`, `FollowTrajectory`) · `RetainOnEnd` setting persists transferred items on the receiver actor
 
 
 🧩 Modifier Nodes
+Stackable, timeline-driven procedural solvers:
 
-All nodes are stackable, timed, and blend in/out on the composition timeline.
-
-🦾  IK Override Node
-Multiple IK chains · Animated effector + pole keyframes in Scene View
-Per-chain Squash & Stretch scale handles · FBIK solver
-
-👣  Gait-Adaptive Foot IK Node
-Algorithms: Standard, RootRelative, SimpleSnap, Legacy
-Swing/plant phase from animated foot velocity · Raycast terrain adaptation
-Pelvis drop · Foot lock · Toe rotation · Ground normal alignment · Humanoid auto-detect / Generic support
-
-👀  Look-At Node
-Head · Spine chain · Left/Right eye — independently weighted
-Biological saccade micro-jitter · Soft angle limits · Humanoid auto-detect / Generic support
-
-🌊  Jiggle Physics Node
-Spring-mass chain simulation · Stiffness, Damping, Mass, Gravity, Centrifugal force
-Per-bone falloff curves · Wind + Turbulence · Self-collision
-4 collider shapes: Sphere, Capsule, Box, Plane · Volume preservation (Squash & Stretch)
-
-🛤️  Spline Trajectory Node
-Bezier root motion path in Scene View · Relative or Absolute space
-Procedural rotation + banking · Easing curve · Ground-snap raycasting
-Speed heatmap HUD · Closed-loop paths
-
-🔒  IK Lock Node
-Freeze a limb at world-space contact while the body continues animating
+→ 🦾 IK Override: Multiple IK chains · Effector + pole keyframes in Scene View · Squash & Stretch scale handles · Twist Distribution for limb rolls · Advanced IK Locks to freeze multiple joints · FBIK solver
+→ 👣 Foot IK: Standard, RootRelative, SimpleSnap algorithms · Raycast terrain adaptation · Pelvis drop · Foot lock · Toe rotation · Normal alignment · Humanoid & Generic support
+→ 👀 Look-At: Head, spine, and eyes track targets · Biological saccade micro-jitter · Soft angle limits · Partner bone targeting · Humanoid & Generic support
+→ 🌊 Jiggle Physics: Spring-mass chain simulation · Stiffness, damping, mass, gravity, wind, turbulence · 4 colliders (Sphere, Capsule, Box, Plane) · Volume preservation (Squash & Stretch)
+→ 🛤️ Spline Trajectory: Bezier root motion paths in Scene View · Procedural banking · Ground-snap raycasting · Speed heatmap HUD · Closed-loop paths
+→ 🔒 IK Lock: Freeze limb at world-space contact while body continues animating
+→ 🦴 Dynamic Bone Subdivision (DBS): Procedural multi-joint chain deformation with balanced weight distribution
 
 
-✨ FX Event Nodes — 7 Types
+✨ FX Event Nodes — 8 Types + Dynamic Actor Nodes
 
-🔊  AudioFX — Volume, Pitch, SpatialBlend, StereoPan, 3D distance · Blend envelope
-💥  ParticleFX — OneShot or Sustained · Bone attachment · Detach mode · Trajectory path
-🎇  VFXGraphFX — Drive all VFX Graph parameter types (float, Color, Texture, Gradient, Mesh, etc.)
-📷  CameraShakeFX — Cinemachine Impulse trigger on a specific frame
-📦  SpawnFX — Instantiate any prefab at a bone-relative position · Zero Instantiate/Destroy
-🦴  TransformFX — Bone override (Local/World/Bone-Relative space) · Blend-In/Out envelope
-⚙️  ScriptEventFX — Typed C# callbacks via MSMotionScriptEventBus · Passes float/int/bool/string/GameObject
-
-Shared FX Features
-→ Property Overrides — override any spawned prefab field (Light intensity, Material color, etc.) per slot
-→ FX Trajectory Paths — Bezier movement paths for Particle/VFX effects in Scene View
-→ Three-tier Override System: Manifest → Global FXRegistry → per-instance runtime API
-→ AvatarMask-aware dispatch — lower-body layers don't fire upper-body FX events
-→ Layer-weight-scaled intensity — FX volume/emission scales with blend weight during crossfades
+→ 🔊 AudioFX: Volume, pitch, spatial blend, stereo pan, 3D distance, volume fade envelope
+→ 💥 ParticleFX: OneShot or sustained, bone attachment, detach mode, Bezier movement paths
+→ 🎨 DecalFX: Raycast surface projection (slope normal angle limits, distance, layers) · Prefab or Material mode · URP Decal Projector normal blending · Uniform & non-uniform scaling · Moving platform attachment · Fade in/out · Fully pooled
+→ 🎇 VFXGraphFX: Drive all VFX Graph parameter types (float, Color, Texture, Gradient, Mesh)
+→ 📷 CameraShakeFX: Cinemachine Impulse trigger on a specific frame
+→ 📦 SpawnFX: Instantiate prefabs at bone-relative sockets with zero runtime GC spikes
+→ 🦴 TransformFX: Bone override (Local/World/Bone-Relative) · Blend envelope · Bezier spline flight paths
+→ ⚙️ ScriptEventFX: Typed C# callbacks via `MSMotionScriptEventBus` (float, int, bool, string, GameObject)
+→ 👥 SpawnActorFX / DestroyActorFX: Spawns and recycles dynamic actors (summons, familiars, props) · Socket attachment · Scale curves · Pool integration
+→ Shared FX Features: Cross-Actor Handover · 4-tier Property Overrides (Manifest → Global FXRegistry → Per-Slot Overrides → Dynamic Runtime Overrides API) · FX Path Tools HUD overlay with preset generators · AvatarMask-aware dispatch · Layer-weight-scaled intensity
 
 
 🎬 Animation Editor
 
-→ 1-click FBX clip extraction to editable standalone .anim assets
-→ Range operations: Insert, Delete (with ripple), Scale, Reverse, Crop, Remove with Transition
-→ Three paste modes: Merge · Overwrite · Insert
-→ Keyframe edit: time, value, in/out tangent, tangent mode (Auto, Linear, Manual)
-→ Snap to frame · Bake curves to target frame rate
-→ Keyframe Optimizer — remove redundant keys within position/rotation tolerances
-→ Curve Smoother — Median, Gaussian, or Average filter · configurable window and iteration
-→ Root Motion Extractor — per-axis (X/Y/Z) extraction to Humanoid RootT/RootQ or Generic root
-→ Mirror · Tween slider · Auto-Key in Scene View
-→ Sync-to-Composition Ghost Preview — author a clip with the full composition context behind it
+→ 1-Click FBX Extraction: Convert model clips to editable local `.anim` assets
+→ Range Operations: Insert, Delete (with ripple), Scale, Reverse, Crop, Remove with Transition
+→ 3 Paste Modes: Merge, Overwrite, Insert
+→ Keyframe Control: Time, value, in/out tangents, tangent modes (Auto, Linear, Manual)
+→ Optimization & Smoothing: Median/Gaussian/Average curve smoothing, keyframe reduction, root motion extractor
+→ Live Link & Ghost Preview: Evaluate full composition context (IK, layers, FX) live in Scene View while editing raw clips
 
 
-⚠️ Known Limitation — FX Event Dispatch (Current Version)
+⚠️ Known Limitation — FX Event Dispatch
+FX events are triggered via Unity's AnimationEvent system embedded in exported clips. Animation events can skip during fast time jumps or non-linear crossfades.
+✔ Use FX events for visual/audio effects (particles, sounds, camera shakes, decals).
+✘ Do NOT rely on FX events for critical gameplay logic (hitbox activation, damage, state transitions).
+For gameplay-critical timing, use `MSMotionAnimator` state queries (`GetNormalizedTime`, `GetCurrentTime`, `IsPlaying`) from your Update loop, or use ScriptEventFX with a gameplay fallback.
 
-FX events are currently triggered via Unity's AnimationEvent system embedded in the exported
-animation clip. While this works reliably in most cases, Unity's AnimationEvent mechanism can
-skip events under certain conditions — for example, during fast time jumps, large frame rate
-drops, or when a CrossFade causes the clip time to advance non-linearly.
-
-Because of this, we strongly recommend the following:
-
-✔  Use FX events for visual and audio effects (particles, sounds, camera shakes, VFX).
-✘  Do NOT rely on FX events for critical gameplay logic such as hitbox activation,
-    damage dealing, collision triggers, or state machine transitions.
-
-For gameplay-critical timing, use the MSMotionAnimator state query API (GetNormalizedTime,
-GetCurrentTime, IsPlaying) to drive logic from your own Update loop, or use the ScriptEventFX
-node as a signal — but always guard it with a fallback in your gameplay code.
-
-🔜 Upcoming: A future update will replace the AnimationEvent dispatch system with an
-event-free FX cursor driven directly by MSMotionAnimator's PlayableGraph time. This will
-eliminate skipped events entirely and make FX dispatch 100% reliable regardless of crossfade,
-time scale, or frame rate. Existing authored compositions will migrate automatically.
+🔜 Upcoming: An event-free FX cursor driven directly by PlayableGraph time will eliminate skipped events entirely.
 
 
 ⚡ Runtime API Summary
-
 MSMotionAnimator
+
 → Play(config) · CrossFade(config) · PlayThenCrossFade(a, b) — async-await sequencing
 → Stop · StopSmoothly · StopAll · Pause · Resume
-→ Delay-start-during-crossfade — holds clip at frame 0 during blend-in to preserve root motion
+→ Delay-start-during-crossfade — preserves frame-0 root motion during crossfade blend-in
 → Query: IsPlaying · IsFading · GetNormalizedTime · GetTimeRemaining · GetActiveWeight
-
+MSMotionInteraction *(Multi-Actor Choreography)*
+→ Play(config, lead, partner...) — 1-line synchronized multi-character playback
+→ StopActor(actor, fade, policy) — dynamic departure (`ContinueRemaining` or `StopAll`)
+→ Builder: SetSyncPoint · SetFadeIn · SetFadeOut · OnComplete · OnActorStopped · OnTick
+MSMotionActorPool
+→ Zero-allocation runtime pooling for ephemeral summons, companion entities, and decals
 MSMotionFXPlayer
-→ Fires all 7 FX types frame-accurately · Fully pooled (AudioSource + ParticleSystem)
+→ Fires all 8 FX types frame-accurately · Fully pooled (AudioSource + ParticleSystem + Decals)
 → Layer-weight-scaled intensity · AvatarMask-aware per-layer FX dispatch
+MSMotionRigController *(requires Unity Animation Rigging)*
+→ Named IK constraint registry · SetTarget(id, transform) · Cross-layer suppression via AvatarMask
+MSMotionStretchApplicator
+→ Applies Squash & Stretch scale transformations at runtime · Built-in LOD distance culling
+MSMotionAnimationConfig & MSMotionInteractionConfig
+→ ScriptableObject assets storing clips, masks, layers, IK entries, and multi-actor sync alignments
 
-MSMotionRigController  *(requires Unity Animation Rigging)*
-→ Named IK constraint registry — activate/deactivate per animation config
-→ SetTarget(id, transform) — point IK at any runtime target (enemy, ledge, weapon)
-→ Cross-layer IK suppression via AvatarMask
 
-MSMotionAnimationConfig *(ScriptableObject per animation)*
-Clip · FX Manifest · Layer · AvatarMask · Additive flag · Loop flag
-Fade-In/Out · Playback Speed · IK Override entries · FX Registry override · Delay-start flag
+🎮 Interactive Windows Demo Build
+👉 Download: https://github.com/maharajastudiocustomerservice-cell/MSMotion-Demo-Build-win/releases/tag/Demo
 
 
 📞 Support
-
-📧  Email: [Insert Support Email]
-🌐  Website: [Insert Website URL]
-💬  Discord: [Insert Discord Link]
-📖  Full Docs: https://maharajastudiocustomerservice-cell.github.io/MaharajaStudioWeb/ms-motion-docs.html
+📧 Email: maharajastudiocustomerservice@gmail.com
+🌐 Website: https://maharajastudiocustomerservice-cell.github.io/MaharajaStudioWeb/ms-motion.html
+💬 Discord: https://discord.gg/GamF5bez3h
+📖 Full Docs: https://maharajastudiocustomerservice-cell.github.io/MaharajaStudioWeb/ms-motion-docs.html

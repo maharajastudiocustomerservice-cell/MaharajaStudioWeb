@@ -38,8 +38,11 @@
     <header class="asset-header text-center">
         <div class="asset-header-background" style="background-image: url('assets/Images/MSMotion.png');"></div>
         <div class="container">
+            <div class="d-inline-flex align-items-center gap-2 mb-3">
+                <span class="badge bg-primary px-3 py-2 text-white fs-6 shadow-sm"><i class="fas fa-sparkles me-2"></i>MSMotion 2.0 Choreography & FX</span>
+            </div>
             <h1 class="display-2 fw-bold">MSMotion</h1>
-            <p class="lead my-4 col-md-8 mx-auto">Connect animations, visual effects, physics, and gameplay logic on a single shared timeline in Unity.</p>
+            <p class="lead my-4 col-md-8 mx-auto">Connect animations, visual effects, secondary physics, multi-character choreography, and gameplay logic on a single shared timeline in Unity.</p>
         </div>
     </header>
 
@@ -48,10 +51,11 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <h2 class="section-title mb-3">Animate. Simulate. React. All in One Place.</h2>
-                    <p class="lead">MSMotion is a comprehensive motion and event composition system that brings your character animations, visual effects, secondary physics, and gameplay logic together onto a single shared timeline. With real-time scene preview and zero performance cost at runtime, MSMotion enables you to author and preview frame-accurate character actions entirely within the Unity Editor without entering Play Mode.</p>
-                    <div class="d-flex gap-2 mt-4">
+                    <p class="lead">Create complex, FX-driven animations and synchronized multi-character choreography in minutes—without writing a single script. Direct dance duets, martial arts grapples, co-op takedowns, and companion summons with 0ms frame drift. MSMotion connects your animations, visual effects, secondary physics, multi-character choreography, and gameplay logic on a single shared timeline with real-time Scene View preview and zero runtime performance cost.</p>
+                    <div class="d-flex flex-wrap gap-2 mt-4">
                         <a href="https://assetstore.unity.com/packages/slug/347520" class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart me-2"></i>Get on Asset Store</a>
                         <a href="ms-motion-docs.html" class="btn btn-outline-secondary btn-lg"><i class="fas fa-book me-2"></i>Read Docs</a>
+                        <a href="#interactive-demo" class="btn btn-outline-info btn-lg"><i class="fas fa-gamepad me-2"></i>Try Demo Build</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -65,57 +69,143 @@
                 <h2 class="text-center section-title mb-5">Intuitive & Powerful Features</h2>
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="feature-list-item glass-box h-100">
+                            <div class="icon"><i class="fas fa-users"></i></div>
                             <div>
-                                <h5>Layered Motion & Modifier Nodes</h5>
-                                <p>Compose complex sequences using layered overrides and additive blending. Add spring-mass Jiggle Physics for capes, hair, and chains, plus Look-At tracking and spline trajectories.</p>
+                                <h5>Multi-Actor Choreography & Duets</h5>
+                                <p>Direct synchronized 2, 3+ character choreography (dance duets, grapples, shared lifts, combat finishers) with 0ms frame drift. Mix Humanoid and Generic creature/robot rigs in the exact same sequence.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <div class="feature-list-item glass-box h-100">
+                            <div class="icon"><i class="fas fa-dragon"></i></div>
                             <div>
-                                <h5>FX & Gameplay Event Lanes</h5>
-                                <p>Trigger pooled audio, particle systems, VFX Graph parameters, and Cinemachine Camera Shakes frame-accurately on the timeline, scaling intensity dynamically during crossfades.</p>
+                                <h5>Dynamic Summons & Lifecycles</h5>
+                                <p>Author ephemeral summons (weapons, familiars, dragons, or Stand avatars) with automatic timeline lifecycle nodes (<code>SpawnActor</code> / <code>DestroyActor</code>), bone attachments, and zero-allocation object pooling.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
+                        <div class="feature-list-item glass-box h-100">
+                            <div class="icon"><i class="fas fa-shoe-prints"></i></div>
+                            <div>
+                                <h5>Dynamic Motion Warping</h5>
+                                <p>Pre-interaction approach locomotion automatically bridges starting distances, scaling movement speed and adapting to terrain normals so characters arrive at sync spots without foot sliding.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-list-item glass-box h-100">
+                            <div class="icon"><i class="fas fa-bullseye"></i></div>
+                            <div>
+                                <h5>8 Frame-Accurate FX Lanes & Decals</h5>
+                                <p>Trigger pooled audio, particle systems, surface decals, VFX Graph, transform splines, spawns, camera shakes, and typed C# script callbacks frame-accurately on the shared timeline.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-list-item glass-box h-100">
+                            <div class="icon"><i class="fas fa-hand-holding-hand"></i></div>
+                            <div>
+                                <h5>Cross-Actor Prop & FX Handover</h5>
+                                <p>Transfer weapons, torches, and spell effects between characters with phase-aware Scene View gizmos, interactive floating HUD bar, and real-time auto-keying.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-list-item glass-box h-100">
                             <div class="icon"><i class="fas fa-sliders"></i></div>
                             <div>
-                                <h5>Built-in Clip Editor</h5>
-                                <p>Extract FBX animations, crop/scale ranges, smooth curves, remove redundant keyframes, and mirror clips non-destructively in the editor with ghost preview support.</p>
+                                <h5>Post-Export Interaction Overrides</h5>
+                                <p>Modify character body spacing (eliminating monster mesh clipping), swap clips, and fine-tune 4 dynamic alignment foldouts with 16px granular toggles—zero re-exporting and zero code modifications.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
+                        <div class="feature-list-item glass-box h-100">
                             <div class="icon"><i class="fas fa-gauge-high"></i></div>
                             <div>
-                                <h5>High-Performance Runtime</h5>
-                                <p>Powered by Unity's low-level PlayableGraph API with zero GC spikes. Features pooled audio/particle effects and robust, state-query APIs for precise gameplay integration.</p>
+                                <h5>High-Performance Runtime (Zero GC)</h5>
+                                <p>Powered by Unity's low-level PlayableGraph API with 1-line async playback (<code>MSMotionInteraction.Play</code>), on-demand layers, dynamic avatar rebinding, and pre-warmed pooling.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-bone"></i></div>
+                        <div class="feature-list-item glass-box h-100">
+                            <div class="icon"><i class="fas fa-film"></i></div>
                             <div>
-                                <h5>Dynamic Bone Subdivision (Exp)</h5>
-                                <p>Dynamically divide existing bones into virtual segments for stretchy necks, tails, and tentacles. Features smart auto-propagation for child transforms and zero-solver runtime evaluation.</p>
+                                <h5>Built-in Clip & Animation Editor</h5>
+                                <p>Extract FBX model animations into editable local <code>.anim</code> assets in 1 click. Crop/scale ranges, smooth curves (Median/Gaussian), remove redundant keys, and auto-key with live ghost preview.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-clock"></i></div>
-                            <div>
-                                <h5>Time Warper & Advanced Editorial</h5>
-                                <p>Non-linearly retime animations with custom warp curves, per-bone overrides, and intelligent Humanoid muscle grouping. Includes root motion extraction, stripping, and curve smoothing.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Showcase Section -->
+        <section id="interactive-demo" class="py-5">
+            <div class="container">
+                <div class="glass-box p-4 p-md-5 rounded-4 border border-primary shadow-lg">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-inline-flex align-items-center gap-2 mb-2">
+                                <span class="badge bg-success px-3 py-1 text-white"><i class="fas fa-check-circle me-1"></i>Free Interactive Demo</span>
                             </div>
+                            <h3 class="fw-bold mb-3">Try the Interactive Windows Cinematic Demo!</h3>
+                            <p class="lead mb-3">Want to see the system in action before you buy? We have put together a highly polished, high-fidelity cinematic demo showcasing exactly how MSMotion drives complex FX and animation paths at runtime with peak Burst-compiled performance.</p>
+                            <p class="small text-muted mb-4">
+                                <i class="fas fa-shield-halved me-1 text-warning"></i>
+                                <strong>Note on Windows SmartScreen:</strong> Because this is an unsigned indie executable demo distributed outside a major launcher, Windows Defender may show a "Windows protected your PC" popup when you launch it. Simply click <strong>"More info"</strong> and then <strong>"Run anyway"</strong> to play.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 text-center text-lg-end">
+                            <a href="https://github.com/maharajastudiocustomerservice-cell/MSMotion-Demo-Build-win/releases/tag/Demo" target="_blank" class="btn btn-primary btn-lg px-4 py-3 shadow mb-2 w-100 w-lg-auto">
+                                <i class="fab fa-windows me-2"></i>Download Demo Build
+                            </a>
+                            <div class="mt-2">
+                                <a href="ms-motion-docs.html#rt-multi-actor-interaction" class="text-decoration-none small text-muted">
+                                    <i class="fas fa-book-open me-1"></i>Explore Multi-Actor Docs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Compatibility Section -->
+        <section id="compatibility" class="py-4">
+            <div class="container">
+                <h3 class="text-center section-title mb-4">Technical Details & Compatibility</h3>
+                <div class="row g-3">
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="glass-box p-3">
+                            <i class="fab fa-unity fa-2x text-primary mb-2"></i>
+                            <h6 class="fw-bold mb-1">Engine Support</h6>
+                            <p class="small text-muted mb-0">Unity 6 and above</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="glass-box p-3">
+                            <i class="fas fa-person-walking fa-2x text-info mb-2"></i>
+                            <h6 class="fw-bold mb-1">Rig Types</h6>
+                            <p class="small text-muted mb-0">Humanoid & Generic Rigs</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="glass-box p-3">
+                            <i class="fas fa-code fa-2x text-success mb-2"></i>
+                            <h6 class="fw-bold mb-1">Source Code</h6>
+                            <p class="small text-muted mb-0">100% C# Source (No DLLs)</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center">
+                        <div class="glass-box p-3">
+                            <i class="fas fa-puzzle-piece fa-2x text-warning mb-2"></i>
+                            <h6 class="fw-bold mb-1">Integrations</h6>
+                            <p class="small text-muted mb-0">Cinemachine · VFX Graph · Animation Rigging</p>
                         </div>
                     </div>
                 </div>

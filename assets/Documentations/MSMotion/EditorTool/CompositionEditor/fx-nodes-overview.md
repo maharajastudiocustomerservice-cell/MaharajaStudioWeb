@@ -101,17 +101,87 @@ Each FX node has specific parameters tailored to its trigger target. Read the de
 
 * **Audio**: [Audio FX Node](audio-fx-node.md)
 * **Particles**: [Particle FX Node](particle-fx-node.md)
+* **Decals**: [Decal FX Node](decal-fx-node.md)
 * **Spawning**: [Spawn FX Node](spawn-fx-node.md)
 * **Transform**: [Transform FX Node](transform-fx-node.md)
 * **VFX Graph**: [VFX Graph FX Node](vfx-graph-fx-node.md)
 * **Custom Scripts**: [Script Event FX Node](script-event-fx-node.md)
 * **Camera Shake**: [Camera Shake FX Node](camera-shake-fx-node.md)
+* **Dynamic Actors**: [Dynamic Actor Lifecycle Nodes](actor-lifecycle-nodes.md) (Spawn & Destroy Actor)
+
+---
+
+## Cross-Actor FX & Prop Handover
+
+In multi-character choreography compositions, FX nodes support **Cross-Actor Handover**. This allows props, weapons, spell projectiles, or visual attachments to dynamically transfer from one participant to another during the interaction (such as passing a torch, disarming a weapon, or transferring a shared physical object).
+
+### Supported FX Nodes
+Handover is supported across all FX nodes that instantiate or control independent scene objects/components:
+* **Spawn FX**: Transfer instantiated props, weapons, and items between characters.
+* **Particle FX**: Transfer particle systems (auras, sparks, torches) across participant sockets.
+* **VFX Graph FX**: Transfer Visual Effect Graph instances between actors.
+* **Decal FX**: Transfer projected surface decals or decal projectors between participants.
+* **Audio FX**: Move 3D spatialized audio emitters between characters.
+* **Camera Shake FX**: Transfer dedicated impulse source origins between actors.
+
+> [!NOTE]
+> **Transform FX Role:**  
+> Transform FX is dedicated to procedural bone curves, offsets, and spline trajectories on the character's own anatomical skeleton (e.g. Spine, Head, Hands). Because reparenting a character's skeleton bone to a partner actor would break the character rig hierarchy, Handover is not applied to Transform FX nodes. Use **Spawn FX** when an item or prop needs to change physical ownership between characters.
+
+To configure handover, open the **Handover** tab in the FX slot details panel:
+
+*   **Enable Handover**: Master switch activating the transfer sequence.
+*   **Receiver Actor**: Dropdown selecting which participant receives the object.
+*   **Receiver Bone**: Target bone on the receiving character (supports Humanoid dropdown or generic bone path).
+*   **Handover Time**: Normalized time (0.0 to 1.0) along the slot duration at which the handover initiates.
+*   **Transition Duration**: Normalized duration over which the object travels from the source socket to the receiver socket.
+*   **Transition Mode**:
+    *   **Smooth Interpolation**: The object smoothly glides from the source bone to the receiver bone during the transit window using Hermite interpolation.
+    *   **Instant**: The object snaps immediately to the receiver socket at the designated handover time.
+    *   **Follow Trajectory**: The object follows an authored Bezier spline trajectory curve from source to receiver before parenting.
+*   **Retain on End**: When enabled, the object remains parented to the receiving character after the composition completes (ideal for weapon disarms or persistent item exchanges).
+
+### Visual Scene View Gizmos & Catch Alignment
+
+To ensure physical props, weapons, and spell effects align naturally in the receiving character's hand or socket, MSMotion provides a dedicated **Phase-Aware Scene View Gizmo** and **Auto-Keying** workflow:
+
+```
+[Source Actor Bone] (Cyan 🔘) --------(Transit Arc)--------> [Receiver Catch Bone] (Amber 🎯)
+```
+
+#### 1. Phase-Aware Target Switching
+The Scene View gizmo automatically tracks the state of the handover based on your timeline playhead:
+* **Source Socket Phase (`t < HandoverTime`)**: The Move/Rotate gizmo anchors to the source actor's bone socket (rendered in **Cyan**). Manipulating handles adjusts `Local Position` and `Local Rotation`.
+* **Receiver Catch Phase (`t >= HandoverTime`)**: The Move/Rotate gizmo automatically transitions to the receiving actor's bone socket (rendered in **Warm Amber/Gold**). Manipulating handles interactively adjusts `Receiver Local Offset` and `Receiver Local Rotation Euler`.
+* **In-Flight Visualizer**: An amber dotted line connects the source origin to the receiver destination socket in the Scene View, giving instant visual feedback on the handover trajectory.
+
+#### 2. Floating Scene View HUD Bar
+When an FX slot with Handover enabled is selected in the timeline, an interactive pill toolbar floats at the top-center of the Scene View:
+* **Status Badge**: Indicates whether you are currently manipulating the `🔘 Source Socket` or `🎯 Receiver Catch`.
+* **`Auto`**: Automatically switches the active handle between Source and Receiver depending on the timeline scrub position.
+* **`Src`**: Forces the Scene View gizmo to remain on the source character's release socket.
+* **`Rec`**: Forces the Scene View gizmo to remain on the receiver character's catch socket.
+* **`⏱️ Catch Frame`**: One-click jump button that scrubs the composition timeline directly to the exact frame where the receiver catches the object (`HandoverTime`).
+
+#### 3. Real-Time Auto-Keying (`🔑`)
+When the timeline toolbar's **`🔑` (Auto-Key)** mode is toggled on:
+* Selecting and manipulating the spawned prop directly in the Scene View or Hierarchy automatically detects whether the sequence is currently in the Source or Receiver phase.
+* All translations and rotations are instantaneously recorded into the corresponding offset properties with full Undo/Redo (`Ctrl+Z` / `Ctrl+Y`) and dirty-state tracking.
+* The live FX preview adapter repositions the spawned instance at 60 FPS without destroying or recreating preview instances.
+
+#### 4. Catch Alignment Inspector Utilities
+Under the **Receiver Offsets & Catch Alignment** card in the inspector:
+* **Active Scene Gizmo**: Dropdown allowing you to switch between `Auto`, `Source`, and `Receiver` modes directly from the details panel.
+* **`[⏱️ Scrub to Catch Frame]`**: Scrubs the timeline to the catch point and immediately focuses the gizmo on the receiver's socket.
+* **`[📋 Copy from Source]`**: Copies the position and rotation from the source socket to the receiver offset as a starting baseline.
+* **`[🔄 Reset Offsets]`**: Resets receiver local position and rotation offsets to zero.
+* **Manual Offset Fields**: Vector3 fields for `Position Offset` and `Rotation Offset` with instant Scene View repainting.
 
 ---
 
 ## FX Path Tools Scene Panel
 
-When editing a spline trajectory on an FX node (such as Particle FX, VFX Graph, or Spawn FX nodes), a floating overlay panel titled **FX Path Tools** appears in the Scene View. This context-aware panel provides tabs and controls to quickly edit nodes, generate path presets, and perform coordinate manipulation directly in the viewport.
+When editing a spline trajectory on an FX node (such as Particle FX, VFX Graph, Spawn FX, or Transform FX nodes), a floating overlay panel titled **FX Path Tools** appears in the Scene View. This context-aware panel provides tabs and controls to quickly edit nodes, generate path presets, and perform coordinate manipulation directly in the viewport.
 
 ### Node Tab
 The **Node** tab displays context-sensitive properties based on your viewport selection:

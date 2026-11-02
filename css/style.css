@@ -1559,3 +1559,379 @@ pre code {
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
+
+/* --- Ecosystem Documentation Sticky Navigation --- */
+.ecosystem-nav-bar {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 56px;
+    z-index: 995;
+    backdrop-filter: blur(10px);
+}
+
+.eco-nav-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted-text-color);
+    padding: 0.35rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.eco-nav-btn:hover {
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+}
+
+.eco-nav-btn.active {
+    color: var(--primary-color);
+    background: rgba(0, 170, 255, 0.12);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.2);
+}
+
+.eco-nav-divider {
+    height: 16px;
+    width: 1px;
+    background-color: var(--border-color);
+    margin: 0 0.25rem;
+    flex-shrink: 0;
+}
+
+/* --- Simulated Unity Inspector Preview Component --- */
+.unity-preview-card {
+    background: #282828;
+    border: 1px solid #3c3c3c;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #d2d2d2;
+    margin: 1.5rem 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.unity-preview-card .preview-header {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #9e9e9e;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-bottom: 1px solid #3c3c3c;
+    padding-bottom: 0.4rem;
+}
+
+.unity-inspector-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.82rem;
+}
+
+.unity-inspector-label {
+    color: #c4c4c4;
+    width: 40%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.unity-inspector-input {
+    background: #1e1e1e;
+    border: 1px solid #141414;
+    color: #d2d2d2;
+    border-radius: 3px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.82rem;
+    width: 58%;
+}
+
+.unity-inspector-input:disabled {
+    background: #202020;
+    color: #6a6a6a;
+    border-color: #2a2a2a;
+    cursor: not-allowed;
+}
+
+.unity-btn-mock {
+    background: #3e3e3e;
+    border: 1px solid #242424;
+    color: #eeeeee;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.unity-btn-mock:hover {
+    background: #4a4a4a;
+}
+
+/* Pulsing animated border simulation */
+@keyframes pulseBorder {
+    0% { border-color: #00bcd4; box-shadow: 0 0 10px rgba(0, 188, 212, 0.4); }
+    50% { border-color: #e040fb; box-shadow: 0 0 12px rgba(224, 64, 251, 0.4); }
+    100% { border-color: #00bcd4; box-shadow: 0 0 10px rgba(0, 188, 212, 0.4); }
+}
+
+.simulated-animated-border {
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    padding: 0.75rem;
+    animation: pulseBorder 3s infinite ease-in-out;
+}
+
+/* Simulated Hierarchy Row */
+.unity-hierarchy-row {
+    background: #2a2a2a;
+    padding: 0.35rem 0.6rem;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    font-size: 0.82rem;
+    color: #c4c4c4;
+    border-left: 3px solid transparent;
+}
+
+.unity-hierarchy-row.folder-row {
+    background: #1e272e;
+    border-left: 4px solid #10b981;
+    font-weight: 700;
+    color: #f1f2f6;
+    letter-spacing: 0.5px;
+}
+
+.unity-hierarchy-badge {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    margin-left: auto;
+    letter-spacing: 0.5px;
+}
+
+/* Boss Health Bar Mock */
+.boss-health-mock {
+    background: #111;
+    border: 1px solid #444;
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.35rem;
+}
+
+.boss-health-ghost {
+    background: #f59e0b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78%;
+    transition: width 0.5s ease;
+}
+
+.boss-health-fill {
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 65%;
+    z-index: 2;
+}
+
+.boss-health-notch {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 3;
+}
+
+/* Master Directory & Quick Finder Component */
+.master-dir-card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.master-dir-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px var(--glow-color);
+}
+
+.master-dir-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.attr-pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.attr-pill-link {
+    text-decoration: none;
+    font-size: 0.78rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'Consolas', 'Courier New', monospace;
+    transition: all 0.18s ease;
+}
+
+.attr-pill-link:hover {
+    background: rgba(0, 170, 255, 0.15);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: scale(1.04);
+}
+
+.attr-pill-link.live-pill {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #10b981;
+    font-weight: 600;
+}
+
+.attr-pill-link.live-pill:hover {
+    background: rgba(16, 185, 129, 0.25);
+    border-color: #10b981;
+    color: #34d399;
+}
+
+/* MSUltimate Ecosystem Omni-Search Dropdown */
+.ecosystem-search-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    max-height: 440px;
+    overflow-y: auto;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    z-index: 1060;
+    padding: 0.5rem;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+}
+
+.eco-search-header {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted-text-color);
+    padding: 0.4rem 0.6rem 0.3rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eco-search-item {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background 0.15s ease, transform 0.15s ease;
+    border-left: 3px solid transparent;
+    margin-bottom: 0.3rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.eco-search-item:hover,
+.eco-search-item.active {
+    background: rgba(0, 170, 255, 0.12);
+    border-left-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.eco-search-item .item-title {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.eco-search-item .item-desc {
+    font-size: 0.78rem;
+    color: var(--muted-text-color);
+    margin-top: 0.25rem;
+    line-height: 1.35;
+}
+
+.eco-search-item .item-dest {
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-top: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.eco-search-item.is-other-addon .item-dest {
+    color: #f59e0b;
+}
+
+.eco-search-item.is-current-page .item-dest {
+    color: #10b981;
+}
+
+.eco-search-empty {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: var(--muted-text-color);
+    font-size: 0.85rem;
+}
+
+
+

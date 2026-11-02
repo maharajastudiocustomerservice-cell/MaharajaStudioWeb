@@ -10,11 +10,11 @@ To open the Export Options window, click the **Export (💾 Icon)** on the compo
 
 The window features a top header showing the active composition name, total duration, frame count, and baking frame rate. The bottom bar contains buttons to **Reset Defaults**, **View Queue** (for batch exports), **Cancel**, **Add to Queue** (for batch processing), and **Export Now**.
 
-Settings are organized across five specialized tabs:
+Settings are organized across six specialized tabs:
 
 ```
 +-----------------------------------------------------------------+
-| General | Timeline | Root Motion | Filtering | Output          |
+| General | Timeline | Actors | Root Motion | Filtering | Output  |
 +-----------------------------------------------------------------+
 ```
 
@@ -51,7 +51,26 @@ Allows you to bake a specific segment of the timeline rather than the full compo
 
 ---
 
-## 3. Root Motion Tab
+## 3. Actors Tab (Multi-Actor System)
+Controls which participant characters are baked and how individual actor animation files and companion interaction configs are generated.
+
+*   **Export Scope**:
+    *   **All Actors as Separate Clips**: Bakes every actor present in the composition into an individual animation clip (e.g., `Attack_Hero.anim`, `Attack_Boss.anim`).
+    *   **Active Actor Only**: Bakes only one chosen participant actor into a single animation clip.
+    *   **Custom Selection**: Displays an interactive checklist allowing you to pick an arbitrary subset of actors to bake.
+*   **Target Actor**: When Scope is set to *Active Actor Only*, selects the specific character from the composition to bake.
+*   **Actor Selection Checklist**: When Scope is set to *Custom Selection*, provides toggle checkboxes alongside each character's avatar color badge, role name, and rig type.
+*   **Filename Suffix Style**: Defines how secondary actor output files are suffixed:
+    *   *ActorDisplayName*: Appends the sanitized actor display name (e.g., `_Hero`, `_Partner`).
+    *   *ActorId*: Appends the internal actor ID (e.g., `_actor_0`, `_actor_1`).
+*   **Multi-Actor Pipeline Behaviors**:
+    *   **Isolate FX Per Actor**: Filters companion FX manifest events so each actor's companion manifest only contains FX nodes assigned to that specific character.
+    *   **Reset Origin On Export**: Restores participant preview instances to their canonical track/scene origin before and after each bake pass to prevent spatial coordinate drift.
+*   **Export Output Summary**: An info box summarizing how many animation clips and companion assets will be created.
+
+---
+
+## 4. Root Motion Tab
 Configures how the character's overall movement and root coordinates are processed and baked.
 
 *   **Export Mode (Base Mode)**:
@@ -72,7 +91,7 @@ Configures how the character's overall movement and root coordinates are process
 
 ---
 
-## 4. Filtering Tab
+## 5. Filtering Tab
 Filters which bones and properties are written to the final output file to minimize file size.
 
 *   **Mask Asset**: Restricts the export to a subset of character joints. Accepts a Unity AvatarMask asset:
@@ -87,25 +106,18 @@ Filters which bones and properties are written to the final output file to minim
 
 ---
 
-## 5. Output Tab
+## 6. Output Tab
 Controls quality compression, event integration, and runtime manifest generation.
 
-*   **Bake Events**: Embeds all custom animation events from the composition timeline into the exported clip.
-*   **Baking Mode**:
-    *   **AllCycles**: Bakes animation events across all loops in the range.
-    *   **FirstCycleOnly**: Bakes events only during the first loop iteration to prevent duplicate triggers in looping clips.
-*   **Bake Timeline Markers**: Embeds custom markers from the timeline ruler as standard animation events (invokes function name `'OnMarker'` with the marker's text label as a string parameter).
-*   **Rotation Mode**: Defines how rotation curves are written:
-    *   **Quaternion**: Recommended for game engines. Avoids gimbal lock and matches runtime interpolation.
-    *   **Euler**: Best for exporting to external 3D modeling programs.
-    *   > [!WARNING]
-    *   > Humanoid rigs natively use Quaternions for root and muscle curves. Euler mode only applies to Generic rigs.
 *   **Float Compression**: Quantizes floating-point values to clean precision noise. This reduces `.anim` file size in version control repositories.
 *   **Decimal Places**: The precision depth (range: `1` to `6` decimal places, where `4` decimal places equates to a precision of `0.0001`).
+*   **Foot IK Export**: Euler angle rotation offset applied to the final calculated Unity Foot IK rotation curves.
 *   **Keyframe Optimization**: Removes redundant keyframes that fall within tolerance limits:
     *   **Position Error**: Redundancy tolerance in meters.
     *   **Rotation Error**: Redundancy tolerance in rotation angles/muscles.
     *   **Scale Error**: Redundancy tolerance for scale parameters (Generic only).
+*   **Runtime Configuration**:
+    *   **Create Animation Config**: Automatically generates an `MSMotionAnimationConfig` asset linking the clip, metadata, and FX manifest. In multi-actor exports, this also generates the master `MSMotionInteractionConfig` asset binding all participant tracks, initial relative offsets, and dynamic alignment data.
 *   **Runtime FX (MSMotion FX Layer)**:
     *   **Generate FX Manifest**: Automatically exports a custom FX manifest asset (`_fx.asset` ScriptableObject) alongside the clip. This file is read by runtime components to play spatial audio, spawn particles, trigger VFX, or call scripts.
     *   **Embed FX Trigger Events**: Embeds a single event wrapper (`OnFXTrigger`) per FX node on the clip. This allows runtime players to synchronize FX playback with animator states.

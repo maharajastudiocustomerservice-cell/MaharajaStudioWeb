@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate Component Designer - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn active"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">Component Designer</h3>
+                    <span class="badge bg-primary">$29.99 • 75 Attrs</span>
+                </div>
+                <p class="text-muted small mb-3">AAA MonoBehaviour Inspector Cards</p>
+
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Core Styling & Frames</li>
+                    <li><a href="#attr-animated-border" class="docs-nav-link active"><i class="fas fa-square-full text-info me-2"></i>[ComponentAnimatedBorder] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-component" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ComponentBackground] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-component" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ComponentAuroraEffect] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Header Bar Controls</li>
+                    <li><a href="#attr-header-button" class="docs-nav-link"><i class="fas fa-grip-lines-vertical text-success me-2"></i>[ComponentHeaderButton] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-component" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ComponentHeaderMenu] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-component" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ComponentPresetManager] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Atmospheric VFX Backdrops</li>
+                    <li><a href="#staged-component" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ComponentCircuitFlow] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-component" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ComponentBlackHole] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-component" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ComponentBioluminescence] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="docs-content">
+
+                <!-- 1. [ComponentAnimatedBorder] -->
+                <section id="attr-animated-border" class="docs-section active">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[ComponentAnimatedBorder]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Class</span>
+                            <span class="badge bg-warning text-dark">Slot: BodyWrapper</span>
+                            <span class="badge bg-info text-dark">UI Toolkit Native</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Wraps the entire component inspector in a kinetic border frame that smoothly pulses between two designated alternating colors.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • NetworkSyncManager.cs
+                        </div>
+                        <div class="simulated-animated-border">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="fw-bold text-light">📡 NetworkSyncManager (Master Node)</span>
+                                <span class="badge bg-success">LIVE SERVER</span>
+                            </div>
+                            <div class="unity-inspector-row">
+                                <span class="unity-inspector-label">Server Address</span>
+                                <input type="text" class="unity-inspector-input" value="127.0.0.1" readonly>
+                            </div>
+                            <div class="unity-inspector-row">
+                                <span class="unity-inspector-label">Port</span>
+                                <input type="text" class="unity-inspector-input" value="7777" readonly>
+                            </div>
+                        </div>
+                        <div class="small text-muted mt-2 text-center">
+                            <i class="fas fa-sparkles text-info me-1"></i> Pulses continuously between Cyan (#00BCD4) and Purple (#E040FB).
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Encapsulates critical MonoBehaviour inspectors with a pulsing animated border. Driven by UI Toolkit's style engine, it calculates a smooth sinusoidal color interpolation without frame stuttering or garbage collection.</p>
+                    <p><strong>The Problem:</strong> In massive scenes with hundreds of components, critical managers (like network directors, game state machines, or save controllers) look identical to generic scripts.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Instant Visual Priority:</strong> Commands immediate attention for high-impact scripts.</li>
+                        <li><strong>Hardware Accelerated:</strong> Directly animates style values without invalidating layout trees.</li>
+                        <li><strong>Safe Lifecycle:</strong> Automatically pauses when the inspector window is minimized or hidden.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.ComponentDesigner;
+
+[ComponentAnimatedBorder("#00BCD4", "#E040FB", Width = 2.5f, Radius = 8f, Speed = 2.0f)]
+public class NetworkSyncManager : MonoBehaviour
+{
+    public string serverAddress = "127.0.0.1";
+    public int port = 7777;
+}</code></pre>
+                </section>
+
+                <!-- 2. [ComponentHeaderButton] -->
+                <section id="attr-header-button" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[ComponentHeaderButton]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Class</span>
+                            <span class="badge bg-success">Allow Multiple: Yes</span>
+                            <span class="badge bg-warning text-dark">Slot: BeforeContent</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Adds clickable action buttons directly inside the component header bar to invoke MonoBehaviour methods with custom labels, icons, and colors.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • DungeonRoomGenerator.cs
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between p-2 rounded mb-2" style="background: #333;">
+                            <span class="fw-bold">🏰 Dungeon Generator</span>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-success py-0 px-2" style="font-size: 0.75rem;"><i class="fas fa-rotate me-1"></i>Rebuild</button>
+                                <button class="btn btn-sm btn-danger py-0 px-2" style="font-size: 0.75rem;"><i class="fas fa-skull me-1"></i>Purge</button>
+                            </div>
+                        </div>
+                        <div class="unity-inspector-row">
+                            <span class="unity-inspector-label">Dungeon Seed</span>
+                            <input type="text" class="unity-inspector-input" value="1337" readonly>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Pins operational trigger buttons directly at the top of the component header for instant access without scrolling through long inspector fields.</p>
+                    <p><strong>The Problem:</strong> Testing routines like spawning items, re-baking world seeds, or purging pools requires scrolling through 50+ variables to reach action buttons.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Header Pinning:</strong> Keeps critical buttons pinned at the top of the inspector card.</li>
+                        <li><strong>Multi-Button Docking:</strong> Supports chaining multiple buttons side-by-side with <code>AllowMultiple = true</code>.</li>
+                        <li><strong>Custom Iconography:</strong> Supports expressive emojis or icons and custom hex colors.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.ComponentDesigner;
+
+[ComponentHeaderButton("RebuildDungeon", Label = "Rebuild", Icon = "🔄", Color = "#10B981")]
+[ComponentHeaderButton("ClearMonsters", Label = "Purge", Icon = "💀", Color = "#EF4444")]
+public class DungeonRoomGenerator : MonoBehaviour
+{
+    public int dungeonSeed = 1337;
+
+    public void RebuildDungeon()
+    {
+        Debug.Log("Rebuilding dungeon with seed: " + dungeonSeed);
+    }
+
+    public void ClearMonsters()
+    {
+        Debug.Log("Purging all active monsters.");
+    }
+}</code></pre>
+                </section>
+
+                <!-- Staged Section -->
+                <section id="staged-component" class="docs-section">
+                    <h1>Component Designer Catalog (75 Total)</h1>
+                    <div class="alert alert-info alert-custom">
+                        <h5 class="fw-bold"><i class="fas fa-palette me-2"></i>75 Styling Attributes Staged in Workspace</h5>
+                        <p class="mb-0">All 75 component styling attributes across 7 categories are staged inside <code>assets/Documentations/MSUltimate/Addons/ComponentDesigner/Documentation/attributes/</code>.</p>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const link = li.querySelector('a');
+                        if (!link) return;
+                        const linkText = link.textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
+</body>
+
+</html>

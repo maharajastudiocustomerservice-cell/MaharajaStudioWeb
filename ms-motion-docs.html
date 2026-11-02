@@ -235,9 +235,19 @@
                             <li><a href="#ce-camera-shake-node" class="docs-nav-link">Camera Shake FX Node</a></li>
                             <li><a href="#ce-particle-fx-node" class="docs-nav-link">Particle FX Node</a></li>
                             <li><a href="#ce-vfx-graph-node" class="docs-nav-link">VFX Graph FX Node</a></li>
+                            <li><a href="#ce-decal-fx-node" class="docs-nav-link">Decal FX Node</a></li>
                             <li><a href="#ce-spawn-fx-node" class="docs-nav-link">Spawn FX Node</a></li>
                             <li><a href="#ce-script-event-node" class="docs-nav-link">Script Event FX Node</a></li>
                             <li><a href="#ce-transform-fx-node" class="docs-nav-link">Transform FX Node</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="#" class="submenu-toggle">Multi-Actor & Choreography</a>
+                        <ul class="submenu">
+                            <li><a href="#ce-actor-roster-window" class="docs-nav-link">Actor Roster & Alignment</a></li>
+                            <li><a href="#ce-actor-lifecycle-nodes" class="docs-nav-link">Actor Lifecycle Nodes</a></li>
+                            <li><a href="#ce-interaction-overrides-inspector" class="docs-nav-link">Interaction Overrides Inspector</a></li>
                         </ul>
                     </li>
 
@@ -256,6 +266,8 @@
                     <li><a href="#rt-intro" class="docs-nav-link">Overview</a></li>
                     <li><a href="#rt-quick-start" class="docs-nav-link">Quick Start Guide</a></li>
                     <li><a href="#rt-core-animation" class="docs-nav-link">Core Animation System</a></li>
+                    <li><a href="#rt-multi-actor-interaction" class="docs-nav-link">Multi-Actor Interaction</a></li>
+                    <li><a href="#rt-interaction-overrides" class="docs-nav-link">Interaction Overrides System</a></li>
                     <li><a href="#rt-rigging-ik" class="docs-nav-link">Rigging & IK System</a></li>
                     <li><a href="#rt-stretch-scale" class="docs-nav-link">Stretch & Scale System</a></li>
                     <li><a href="#rt-dynamic-bone-subdivision" class="docs-nav-link">Dynamic Bone Subdivision (Exp)</a>
@@ -1481,6 +1493,12 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                         <li><strong>Rig Config (🦴 Bone Icon)</strong>: Opens the <strong>IK Rig Config Editor
                                 Window</strong> to set up custom inverse kinematics chains, solvers, presets, and joint
                             constraints.</li>
+                        <li><strong>Actor Roster (👥 Actors Icon)</strong>: Opens the <strong>Actor Roster & Alignment
+                                Window</strong> to add and manage participant characters (Humanoid or Generic), assign roles, accent
+                            colors, and configure dynamic summons. See <a href="#ce-actor-roster-window">Actor Roster & Dynamic Alignment</a>.</li>
+                        <li><strong>Dynamic Alignment (⚡ Alignment Icon)</strong>: Quick-access button opening the Dynamic
+                            Alignment configuration panel for pre-interaction approach locomotion, speed bounds, and terrain adaptation.
+                            See <a href="#ce-actor-roster-window">Actor Roster & Dynamic Alignment</a>.</li>
                         <li><strong>Export (💾 Disk Icon)</strong>: Opens the <strong>Export Options Window</strong> to
                             bake the multi-layer timeline composition into a single, clean Animation Clip or FBX asset.
                         </li>
@@ -1749,6 +1767,30 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                             representation.</li>
                         <li><strong>Onion Skinning</strong>: Renders semi-transparent ghost poses of past and future
                             frames to help visualize the motion curve.</li>
+                    </ul>
+
+                    <h3>6. Export Workflow Category</h3>
+                    <p>Configures default paths, one-click bypass behaviors, companion asset packaging, and global multi-actor export rules:</p>
+                    <ul>
+                        <li><strong>Default Export Directory</strong>: The default folder where baked Animation Clips, FBX files, and companion assets are created.</li>
+                        <li><strong>Bypass Save Prompt</strong>: When enabled, clicking one-click export immediately writes to the Default Export Directory without displaying an OS file save dialog.</li>
+                        <li><strong>Companion Assets (Config, Manifest & Interaction)</strong>: Controls where auto-generated companion assets are saved relative to the exported animation clip (<code>NextToClip</code>, <code>Subfolder</code>, or <code>CustomDirectory</code>) for:
+                            <ul>
+                                <li><code>MSMotionAnimationConfig</code> (<code>_config.asset</code>)</li>
+                                <li><code>MSMotionFXManifest</code> (<code>_fx.asset</code>)</li>
+                                <li><code>MSMotionInteractionConfig</code> (<code>_interaction.asset</code>)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Multi-Actor Export Defaults Panel</strong>:
+                            <ul>
+                                <li><strong>Default Export Scope</strong>: <code>AllActorsSeparateClips</code>, <code>ActiveActorOnly</code>, or <code>CustomSelection</code>.</li>
+                                <li><strong>Filename Suffix Style</strong>: <code>ActorDisplayName</code> (e.g. <code>Walk_Hero.anim</code>) or <code>ActorId</code> (e.g. <code>Walk_actor_0.anim</code>).</li>
+                                <li><strong>Auto-Generate Interaction Config</strong>: Automatically generates and links an <code>MSMotionInteractionConfig</code> asset binding all participant tracks, relative offsets, and alignment data.</li>
+                                <li><strong>Isolate FX Manifest Per Actor</strong>: Filters companion FX manifest events so each participant actor's manifest only contains FX nodes assigned to that character.</li>
+                                <li><strong>Reset Actors To Origin On Export</strong>: Restores participant preview actors to canonical origins before and after each bake pass to prevent coordinate drift.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Humanoid Root Motion Defaults Panel</strong>: Sets default bake flags for humanoid clips (Loop Time, Loop Pose, Cycle Offset, Root Transform Rotation, Root Transform Position Y, Root Transform Position XZ, and Mirror).</li>
                     </ul>
                 </section>
 
@@ -2476,11 +2518,63 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                 <section id="ce-fx-overview" class="docs-section" data-tab="composition-editor">
                     <h2>FX Nodes Overview</h2>
                     <p><strong>FX Nodes</strong> are timeline blocks dedicated to triggering runtime events (such as
-                        playing sound effects, spawning particles, instantiating prefabs, animating attachments, or
+                        playing sound effects, spawning particles, projecting surface decals, instantiating prefabs, animating attachments, or
                         firing custom scripts) rather than animating skeletal bones.</p>
                     <p>Unlike motion nodes, FX nodes do not bake curve data into the exported Animation Clip. Instead,
                         they are compiled into a companion <strong>FX Manifest</strong> asset which is read by runtime
                         playback components.</p>
+
+                    <h3>The 8 FX Node Types</h3>
+                    <div class="row g-3 my-3">
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-audio-fx-node" class="text-decoration-none">🔊 Audio FX</a></h6>
+                                <p class="small text-muted mb-0">Frame-accurate sound playback with pitch variance, 3D spatialization, and pooling.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-camera-shake-node" class="text-decoration-none">📷 Camera Shake FX</a></h6>
+                                <p class="small text-muted mb-0">Cinemachine impulse triggers, procedural noise profiles, and directional trauma shakes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-particle-fx-node" class="text-decoration-none">✨ Particle FX</a></h6>
+                                <p class="small text-muted mb-0">Pooled Shuriken particle systems with bone sockets, spline flight, and emission bursts.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-vfx-graph-node" class="text-decoration-none">⚡ VFX Graph FX</a></h6>
+                                <p class="small text-muted mb-0">Unity Visual Effect Graph instances with dynamic property drives and GPU particle simulation.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-decal-fx-node" class="text-decoration-none">🎯 Decal FX</a></h6>
+                                <p class="small text-muted mb-0">Directional raycast surface decals (blood, dirt, runes, skid marks) with slope angle culling.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-spawn-fx-node" class="text-decoration-none">📦 Spawn FX</a></h6>
+                                <p class="small text-muted mb-0">Instantiates custom prefabs at bone sockets with zero runtime GC spikes and handover support.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-script-event-node" class="text-decoration-none">⚙️ Script Event FX</a></h6>
+                                <p class="small text-muted mb-0">Dispatches typed C# callbacks via <code>MSMotionScriptEventBus</code> (float, int, bool, string, GameObject).</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 rounded-3 border border-secondary bg-dark-subtle">
+                                <h6 class="fw-bold mb-1"><a href="#ce-transform-fx-node" class="text-decoration-none">🦴 Transform FX</a></h6>
+                                <p class="small text-muted mb-0">Dynamic bone/socket offsets with 3D Bezier spline flight paths and easing transitions.</p>
+                            </div>
+                        </div>
+                    </div>
 
                     <h3>Shared Parameter Reference</h3>
                     <p>Every FX Node type inherits a common set of properties for timing, positioning, and socket
@@ -2553,6 +2647,45 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                     </div>
                     <p>To test preview-safe actions, ensure the top toolbar's **Safety Toggle (FX Indicator)** is
                         enabled.</p>
+
+                    <h3>Cross-Actor Handover & Socket Retargeting</h3>
+                    <p>In multi-actor compositions (such as partner dancing, acrobatic duets, martial arts disarms, or weapon exchanges), physical props or visual effects often need to transfer from one participant character to another during the animation. MSMotion provides <strong>Cross-Actor Handover</strong> capabilities across all visual and object-spawning FX nodes (Spawn FX, Particle FX, VFX Graph, and Decal FX).</p>
+
+                    <h4>Parameter Reference</h4>
+                    <p>Enable the <strong>Handover</strong> section in the FX details panel:</p>
+                    <ul>
+                        <li><strong>Handover Enabled</strong>: Activates cross-actor tracking and retargeting for this event slot.</li>
+                        <li><strong>Receiver Actor ID</strong>: The target participant character who receives the object (e.g. <code>partner</code>, <code>victim</code>, <code>actor_1</code>).</li>
+                        <li><strong>Receiver Human Bone</strong>: Standard Humanoid bone on the receiving character to attach to (e.g. <code>RightHand</code>, <code>LeftHand</code>, <code>Spine</code>).</li>
+                        <li><strong>Receiver Bone Path</strong>: Hierarchy path if the receiving character is a Generic rig.</li>
+                        <li><strong>Receiver Local Offset / Euler</strong>: Spatial position and rotation offsets relative to the receiver's socket bone.</li>
+                        <li><strong>Handover Time</strong>: The normalized timestamp (<code>0.0</code> to <code>1.0</code>) along the slot duration at which the handover initiates.</li>
+                        <li><strong>Transition Duration</strong>: Normalized duration over which the object travels from the source socket to the receiver socket.</li>
+                        <li><strong>Transition Mode</strong>:
+                            <ul>
+                                <li><strong>Smooth Interpolation</strong>: Glides smoothly from source bone to receiver bone using Hermite interpolation.</li>
+                                <li><strong>Instant</strong>: Snaps immediately to the receiver socket at the handover timestamp.</li>
+                                <li><strong>Follow Trajectory</strong>: Follows an authored Bezier spline trajectory curve from source to receiver before parenting.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Retain on End</strong>: Keeps the object parented to the receiving character after the composition completes (ideal for weapon disarms or persistent item exchanges).</li>
+                    </ul>
+
+                    <h4>Visual Scene View Gizmos & Catch Alignment</h4>
+                    <p>To ensure physical props, weapons, and spell effects align naturally in the receiving character's hand or socket, MSMotion provides a dedicated <strong>Phase-Aware Scene View Gizmo</strong> and <strong>Auto-Keying</strong> workflow:</p>
+                    <pre><code>[Source Actor Bone] (Cyan 🔘) --------(Transit Arc)--------> [Receiver Catch Bone] (Amber 🎯)</code></pre>
+                    <ul>
+                        <li><strong>1. Phase-Aware Target Switching</strong>: The Scene View gizmo automatically tracks the state of the handover based on your timeline playhead:
+                            <ul>
+                                <li><em>Source Socket Phase (<code>t &lt; HandoverTime</code>)</em>: Gizmo anchors to the source actor's bone socket in <strong>Cyan</strong>. Manipulating handles adjusts <code>Local Position</code> and <code>Local Rotation</code>.</li>
+                                <li><em>Receiver Catch Phase (<code>t &gt;= HandoverTime</code>)</em>: Gizmo transitions to the receiving actor's bone socket in <strong>Warm Amber/Gold</strong>. Manipulating handles interactively adjusts <code>Receiver Local Offset</code> and <code>Receiver Local Rotation Euler</code>.</li>
+                                <li><em>In-Flight Visualizer</em>: An amber dotted line connects source origin to receiver destination socket in the Scene View.</li>
+                            </ul>
+                        </li>
+                        <li><strong>2. Floating Scene View HUD Bar</strong>: When an FX slot with Handover enabled is selected, a pill toolbar floats at the top-center of the Scene View with controls: <code>🔘 Source Socket</code>, <code>🎯 Receiver Catch</code>, <code>Auto</code>, <code>Src</code>, <code>Rec</code>, and <code>⏱️ Catch Frame</code> (jumps timeline to exact catch frame).</li>
+                        <li><strong>3. Real-Time Auto-Keying (🔑)</strong>: With Auto-Key enabled, moving the spawned prop in the Scene View automatically detects source vs receiver phase and records offsets into the corresponding properties with full Undo/Redo.</li>
+                        <li><strong>4. Catch Alignment Inspector Utilities</strong>: Includes <code>[⏱️ Scrub to Catch Frame]</code>, <code>[📋 Copy from Source]</code>, <code>[🔄 Reset Offsets]</code>, and manual Vector3 offset fields with instant Scene View repainting.</li>
+                    </ul>
 
                     <h3>FX Path Tools Scene Panel</h3>
                     <p>When editing a spline trajectory on an FX node, a floating overlay panel titled <strong>FX Path
@@ -2738,6 +2871,81 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                     </ul>
                 </section>
 
+                <!-- Decal FX Node -->
+                <section id="ce-decal-fx-node" class="docs-section" data-tab="composition-editor">
+                    <h2>Decal FX Node</h2>
+                    <p class="lead">The <strong>Decal FX Node</strong> projects visual decals (such as blood splatters, footstep dirt, scorch marks, magic runes, skid marks, or bullet impacts) directly onto scene geometry at a designated timestamp during animation playback.</p>
+                    <p>Decals are projected via directional raycasts originating from a skeletal bone or socket, automatically conforming to terrain, floors, walls, and dynamic scene obstacles.</p>
+
+                    <hr class="my-4">
+
+                    <h3>Inspector Parameter Reference</h3>
+                    <p>Configure decal projection, materials, dimensions, and pooling in the node details panel:</p>
+
+                    <h4>Decal Source</h4>
+                    <p>Select how the decal graphic is defined:</p>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Source Mode</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Prefab</strong></td>
+                                <td>Instantiates a custom GameObject prefab containing a projection component (such as a URP Decal Projector or custom decal mesh). Supports multiple prefabs for randomized picking.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Material</strong></td>
+                                <td>Applies an assigned Material asset directly to an automatically generated projector. Supports a list of materials for randomized visual variation.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul>
+                        <li><strong>Decal Prefab / Prefabs</strong>: Assign one or more prefab assets. When multiple prefabs are provided, the system randomly selects one per trigger.</li>
+                        <li><strong>Decal Material / Materials</strong>: Assign one or more material assets for direct projection.</li>
+                    </ul>
+
+                    <h4>Surface Raycasting</h4>
+                    <p>Controls the raycast query that detects surfaces to receive the decal:</p>
+                    <ul>
+                        <li><strong>Raycast Direction</strong>: The local or world direction along which the surface detection ray is cast (e.g., <code>(0, -1, 0)</code> to project downward onto the floor).</li>
+                        <li><strong>Max Ray Distance</strong>: The maximum search distance (in meters) from the socket origin to look for receiving geometry.</li>
+                        <li><strong>Surface Normal Acceptance Angle</strong>: The maximum allowed slope angle between the ray direction and the hit surface normal (default: <code>75°</code>). Surfaces steeper than this threshold reject the decal, preventing unnatural stretching on vertical cliffs or walls.</li>
+                        <li><strong>Layer Mask</strong>: Specifies which physics layers are eligible to receive projected decals (e.g. <code>Default</code>, <code>Ground</code>, <code>Environment</code>).</li>
+                    </ul>
+
+                    <h4>Size & Dimensions</h4>
+                    <p>Fine-tune the projected decal's scale and footprint:</p>
+                    <ul>
+                        <li><strong>Decal Size (m)</strong>: Base footprint dimension in meters.</li>
+                        <li><strong>Scale Multiplier</strong>: A uniform scale factor applied on top of the base decal size.</li>
+                        <li><strong>Non-Uniform Scale</strong>: Toggle to independently control the width (<strong>X</strong>) and length (<strong>Y</strong>) of the decal on the surface plane. Ideal for directional skid marks, slash stains, angled weapon impacts, and blood drips.</li>
+                    </ul>
+
+                    <h4>Attachment & Lifetime</h4>
+                    <ul>
+                        <li><strong>Attach to Hit Object</strong>: When checked, parents the spawned decal to the hit surface GameObject. This ensures decals stay planted on moving platforms, elevators, or dynamic vehicles.</li>
+                        <li><strong>Fade In</strong>: Smoothly ramps the decal opacity/alpha from 0 to full on spawn.</li>
+                        <li><strong>Fade Out</strong>: Smoothly fades the decal out at the end of its duration before removal.</li>
+                        <li><strong>Max Active Decals</strong>: Sets the maximum number of concurrent decals permitted for this event slot. When the limit is reached, the oldest decal is automatically recycled (0 = unlimited).</li>
+                        <li><strong>Use Pool</strong>: Recycles decal GameObjects using the internal object pool instead of instantiating and destroying them. Always keep this enabled for high-frequency events to maintain zero runtime garbage collection.</li>
+                    </ul>
+
+                    <h4>URP Decal Projector Settings</h4>
+                    <p>When using Universal Render Pipeline (URP) Decal Projector components:</p>
+                    <ul>
+                        <li><strong>Normal Blend</strong>: A slider from <code>0.0</code> (flat decal projection) to <code>1.0</code> (full surface normal interaction), controlling how the decal interacts with underlying surface normal maps and lighting.</li>
+                    </ul>
+
+                    <h4>Scene View Gizmos</h4>
+                    <ul>
+                        <li><strong>Show Decal Gizmos</strong>: Displays an interactive projection cone, surface detection ray, and hit boundary circle in the Scene View for visual alignment.</li>
+                        <li><strong>Gizmo Color / Ray Color / Normal Color</strong>: Customizable viewport colors for the projection bounds, ray path, and surface normal indicator.</li>
+                    </ul>
+                </section>
+
                 <!-- 16. Spawn FX Node -->
                 <section id="ce-spawn-fx-node" class="docs-section" data-tab="composition-editor">
                     <h2>Spawn FX Node</h2>
@@ -2777,6 +2985,16 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                     <ul>
                         <li><strong>Trajectory</strong>: Configure a Bezier spline path to make the spawned object
                             travel along a specified vector path.</li>
+                    </ul>
+
+                    <h4>Cross-Actor Handover & Socket Retargeting</h4>
+                    <p>Spawn FX nodes fully support transferring instantiated props (swords, shields, torches, or shared props) between participants in multi-actor compositions:</p>
+                    <ul>
+                        <li>Enable <strong>Handover</strong> in the details panel.</li>
+                        <li>Assign the <strong>Receiver Actor ID</strong> and <strong>Receiver Human Bone</strong> (or Generic bone path).</li>
+                        <li>Set <strong>Handover Time</strong> and <strong>Transition Duration</strong>.</li>
+                        <li>Select <strong>Transition Mode</strong> (<code>SmoothInterpolation</code>, <code>Instant</code>, or <code>FollowTrajectory</code>).</li>
+                        <li>Check <strong>Retain on End</strong> if the prop should stay attached to the receiver after the sequence completes.</li>
                     </ul>
                 </section>
 
@@ -2862,6 +3080,288 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                         <li><strong>Use Position / Rotation / Scale Transition In / Out</strong>: Enables transition
                             weight curves.</li>
                     </ul>
+
+                    <h3>3D Bezier Spline Flight Trajectories</h3>
+                    <p>Transform FX nodes support authored 3D Bezier spline curves with interactive tangent handles in the Scene View and preset generation via the FX Path Tools HUD.</p>
+                    <div class="alert alert-info border-0 p-3 rounded-3 mt-2 text-white">
+                        <strong>Why Transform FX Does Not Support Handover:</strong> Transform FX operates directly on an actor's own skeletal hierarchy bones (driving local/world coordinates of Spine, Head, Hand, etc.). Reparenting an internal skeletal joint to an external character would break the rig's bone hierarchy. To transfer physical props between characters, use the <strong><a href="#ce-spawn-fx-node" class="text-white text-decoration-underline">Spawn FX Node</a></strong> instead.
+                    </div>
+                </section>
+
+                <!-- Actor Roster & Dynamic Alignment Window -->
+                <section id="ce-actor-roster-window" class="docs-section" data-tab="composition-editor">
+                    <h2>Actor Roster & Dynamic Alignment Window</h2>
+                    <p class="lead">The <strong>Actor Roster & Alignment Window</strong> is the central management hub for multi-character animations, choreography duets, dynamic summons, and procedural motion warping in MSMotion.</p>
+                    <p>Open the window from the <strong>Composition Editor</strong> top toolbar by clicking either:</p>
+                    <ul>
+                        <li><strong>👥 Actors</strong>: Opens the <strong>Character Roster</strong> tab.</li>
+                        <li><strong>⚡ Alignment</strong>: Opens the <strong>Dynamic Alignment</strong> tab.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>Tab 1: Character Roster</h3>
+                    <p>The <strong>Character Roster</strong> tab configures all participants involved in the composition — from primary heroes and dance partners to combat adversaries and temporary summons.</p>
+
+                    <h4>Managing Participant Characters</h4>
+                    <ul>
+                        <li><strong>+ Add Participant Character</strong>: Appends a new character definition to the composition roster.</li>
+                        <li><strong>Search & Filter</strong>: Quickly locate participants by display name, role, or skeletal rig type.</li>
+                        <li><strong>Expand All / Collapse All</strong>: Toggles the display state of all actor cards for convenient inspection.</li>
+                    </ul>
+
+                    <h4>Participant Properties</h4>
+                    <p>Each character card exposes the following settings:</p>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Display Name</strong></td>
+                                <td>The user-friendly name displayed on timeline slots and badges (e.g. <code>Hero</code>, <code>Partner</code>, <code>Boss</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Actor Role</strong></td>
+                                <td>Logical role identifier used by export and runtime systems (e.g. <code>Lead</code>, <code>Follower</code>, <code>Target</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accent Color</strong></td>
+                                <td>Color swatch used to tint this character's timeline clips, slot badges, and scene view gizmos.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rig Type</strong></td>
+                                <td>Choose between <strong>Humanoid</strong> and <strong>Generic</strong>. Generic rigs allow non-humanoid skeletons (creatures, quadrupeds, mechanical robots, animated props) to participate in synchronized sequences.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Preview GameObject</strong></td>
+                                <td>The scene GameObject bound to this actor during edit-mode playback and scrubbing.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Actor Type</strong></td>
+                                <td>Choose between <strong>Scene Character</strong> (persistent character present in the scene) and <strong>Dynamic</strong> (temporary entity spawned during the interaction).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Dynamic / Temporary Actors (Summons & Ephemeral Entities)</h4>
+                    <p>When <strong>Actor Type</strong> is switched to <strong>Dynamic</strong>, the character represents an ephemeral entity — such as a summoned dragon, phantom weapon, spectral beast, or Stand avatar — that spawns, animates, and despawns automatically during the sequence:</p>
+                    <ul>
+                        <li><strong>Dynamic Prefab</strong>: The prefab asset to instantiate for this entity.</li>
+                        <li><strong>Spawn Time</strong>: Choose when the entity appears. Select from quick presets (<code>0.0</code>, <code>0.25</code>, <code>0.5</code>, <code>0.75</code>, <code>1.0</code>) or choose <code>Custom</code>.</li>
+                        <li><strong>Destroy Time</strong>: Choose when the entity despawns and recycles back to the object pool (<code>0.0</code>, <code>0.25</code>, <code>0.5</code>, <code>0.75</code>, <code>1.0</code>, or <code>Custom</code>).</li>
+                        <li><strong>Attachment Mode</strong>:
+                            <ul>
+                                <li><strong>Caster Bone Socket</strong>: Snaps to a designated bone on the primary character (e.g. <code>RightHand</code>, <code>Spine</code>).</li>
+                                <li><strong>Caster Root Relative</strong>: Tracks the caster's root position with an authored spatial offset.</li>
+                                <li><strong>World Sync Offset</strong>: Spawns relative to the global interaction sync anchor.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Custom Timeline Nodes</strong>: When spawn or destroy time is set to <code>Custom</code>, click <strong>+ Add Spawn Node</strong> or <strong>+ Add Destroy Node</strong> to place precise <a href="#ce-actor-lifecycle-nodes">Spawn Actor</a> and <a href="#ce-actor-lifecycle-nodes">Destroy Actor</a> blocks directly on the composition timeline.</li>
+                    </ul>
+
+                    <h4>Timeline Slot Routing & Visual Indicators</h4>
+                    <ol>
+                        <li><strong>Assigning Slots</strong>: Select any timeline block (animation clip, FX node, or procedural solver). In the details panel, select the desired actor from the <strong>Target Character</strong> dropdown, or right-click any block and choose <strong>Assign to Actor &gt; [Character Name]</strong>.</li>
+                        <li><strong>Visual Badges</strong>: Slots assigned to secondary actors display a colored badge pill with the character's role and a matching tinted accent stripe along the top of the block.</li>
+                        <li><strong>Synchronized Scrubbing</strong>: Moving the timeline playhead scrubs all participant characters simultaneously in the Scene View with zero frame drift.</li>
+                    </ol>
+
+                    <hr class="my-4">
+
+                    <h3>Tab 2: Dynamic Alignment (Motion Warping)</h3>
+                    <p>In real gameplay, characters rarely start at the exact relative positions and rotations required for a synchronized sequence. The <strong>Dynamic Alignment</strong> system bridges arbitrary starting distances dynamically: secondary actors travel smoothly to their sync spots, dynamically scaling their locomotion speed to match travel distance, before seamlessly crossfading into the synchronized interaction.</p>
+
+                    <h4>Pre-Interaction Entry Phase</h4>
+                    <p>Dynamic Alignment functions as an <strong>asynchronous Pre-Interaction Entry Phase</strong> rather than eating fixed time on the composition timeline. The composition timeline itself remains strictly focused on the synchronized choreography starting at <code>t = 0</code>.</p>
+
+                    <h4>Configuration Settings</h4>
+                    <ul>
+                        <li><strong>Enable Dynamic Alignment</strong>: Master switch enabling runtime approach warping and scene view visualization.</li>
+                        <li><strong>Approach Locomotion Clip</strong>: The walking, jogging, or running animation played while characters travel toward their authored spots.</li>
+                        <li><strong>Waiting / Idle Clip</strong>: The idle animation played if a character reaches their spot early while waiting for others to arrive.</li>
+                        <li><strong>Primary Actor Waiting Clip</strong>: The idle animation played by the lead character (Actor 0) while waiting for secondary characters to approach.</li>
+                        <li><strong>Min / Max Time (s)</strong>: The minimum and maximum allowable approach duration in seconds (e.g. <code>0.5s</code> to <code>4.0s</code>).</li>
+                        <li><strong>Min / Max Speed Multiplier</strong>: Playback speed bounds (e.g. <code>0.5x</code> to <code>2.0x</code>) preventing unnatural fast-forwarding or foot sliding.</li>
+                        <li><strong>Natural Stride Speed (m/s)</strong>: The character's authentic locomotion speed. Click <strong>Auto Stride</strong> to automatically analyze the locomotion clip's root motion curves and calculate the exact velocity.</li>
+                        <li><strong>Arrival Threshold (m)</strong>: Distance tolerance (e.g. <code>0.1m</code>) within which a character is considered to have arrived at their spot.</li>
+                        <li><strong>Adapt to Terrain</strong>: Enables ground raycasting during the approach path to keep feet planted on slopes, steps, or uneven ground.</li>
+                    </ul>
+
+                    <h4>Scene View Visualizer & Testing Tools</h4>
+                    <p>When Dynamic Alignment is active, the Scene View displays real-time alignment feedback:</p>
+                    <ul>
+                        <li><strong>Sync Spot Discs</strong>: Cyan boundary rings marking each actor's authored arrival point and facing direction.</li>
+                        <li><strong>Lead Anchor</strong>: A gold coordinate pivot highlighting the interaction sync origin.</li>
+                        <li><strong>Trajectory Lines & Readouts</strong>: Dotted lines connecting each character's current position to their target spot, showing live distance, travel time, and calculated playback speed.</li>
+                        <li><strong>Snap to Sync Spots</strong>: A quick-action button in the Scene HUD that snaps all preview characters to their authored interaction origins.</li>
+                        <li><strong>Test Approach Offsets</strong>: Temporarily displaces secondary characters by several meters in the viewport so you can visually test and preview approach speeds without entering Play Mode.</li>
+                    </ul>
+                </section>
+
+                <!-- Dynamic Actor Lifecycle Nodes -->
+                <section id="ce-actor-lifecycle-nodes" class="docs-section" data-tab="composition-editor">
+                    <h2>Dynamic Actor Lifecycle Nodes</h2>
+                    <p class="lead"><strong>Dynamic Actor Lifecycle Nodes</strong> control the precise moment, spatial placement, entry transitions, and pool recycling of temporary or summoned actors (such as weapons, familiars, dragons, or Stand avatars) directly on the composition timeline.</p>
+                    <p>To add lifecycle nodes to the timeline:</p>
+                    <ul>
+                        <li>Right-click on an FX or Actor track and choose <strong>Actor &gt; Add Spawn Actor Node Here</strong> or <strong>Actor &gt; Add Destroy Actor Node Here</strong>.</li>
+                        <li>Or click <strong>+ Add Spawn Node</strong> / <strong>+ Add Destroy Node</strong> inside the <a href="#ce-actor-roster-window">Actor Roster Window</a> when a dynamic actor's timing preset is set to <code>Custom</code>.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>1. Spawn Actor Node</h3>
+                    <p>The <strong>Spawn Actor Node</strong> triggers the instantiation and visual entry of a dynamic actor.</p>
+                    <pre><code>+-------------------------------------------------------+
+|  [Spawn Actor]  Duration: 0.20s                       |
++-------------------------------------------------------+</code></pre>
+
+                    <h4>Parameter Reference</h4>
+                    <ul>
+                        <li><strong>Attachment Mode</strong>:
+                            <ul>
+                                <li><strong>World Sync Offset</strong>: Spawns relative to the shared composition sync anchor.</li>
+                                <li><strong>Caster Root Relative</strong>: Tracks the caster's root position while maintaining an authored offset.</li>
+                                <li><strong>Caster Bone Socket</strong>: Attaches as a child of a specific bone on the caster character (e.g., <code>RightHand</code>, <code>Spine</code>, <code>Head</code>).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Attach Socket Bone</strong>: Name of the target socket bone when using socket attachment mode.</li>
+                        <li><strong>Position Offset</strong>: Local Vector3 spatial offset applied relative to the attachment target.</li>
+                        <li><strong>Rotation Offset Euler</strong>: Local rotation angles applied relative to the attachment target.</li>
+                        <li><strong>Scale Offset</strong>: Initial scale factor applied to the spawned entity (default: <code>1, 1, 1</code>).</li>
+                    </ul>
+
+                    <h4>Entry Transitions & Blending</h4>
+                    <ul>
+                        <li><strong>Use Scale Transition In</strong>: Enables an animated scale curve over the node's duration.</li>
+                        <li><strong>Scale Transition Curve</strong>: Custom animation curve defining scale growth from spawn time (e.g. popping up from 0 to 1, or overshooting for a dynamic impact).</li>
+                        <li><strong>Fade In Duration</strong>: Time (in seconds) over which material alpha or visual intensity ramps up smoothly.</li>
+                        <li><strong>Show Gizmo</strong>: Displays an interactive position/rotation handle in the Scene View to visually position the spawn location.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>2. Destroy Actor Node</h3>
+                    <p>The <strong>Destroy Actor Node</strong> handles the graceful despawn, fade-out, and pool recycling of a dynamic actor when its action completes.</p>
+                    <pre><code>+-------------------------------------------------------+
+|  [Destroy Actor]  Duration: 0.25s                     |
++-------------------------------------------------------+</code></pre>
+
+                    <h4>Parameter Reference</h4>
+                    <ul>
+                        <li><strong>Fade Out Duration</strong>: Time (in seconds) over which the entity fades out or dissolves before removal.</li>
+                        <li><strong>Use Scale Transition Out</strong>: Enables an animated exit scale curve.</li>
+                        <li><strong>Scale Transition Curve</strong>: Custom animation curve controlling how the entity shrinks or collapses before recycling.</li>
+                        <li><strong>Return to Pool</strong>: When enabled, recycles the actor's GameObject back to the internal object pool rather than destroying it. Always keep this checked for smooth gameplay performance and zero runtime heap allocations.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>Workflow: Authoring a Familiar or Weapon Summon</h3>
+                    <ol>
+                        <li>Open the <a href="#ce-actor-roster-window">Actor Roster Window</a> (<strong>👥 Actors</strong> on the top toolbar).</li>
+                        <li>Click <strong>+ Add Participant Character</strong> and set its <strong>Actor Type</strong> to <strong>Dynamic</strong>.</li>
+                        <li>Assign the entity's prefab and set its spawn and destroy timing to <strong>Custom</strong>.</li>
+                        <li>In the timeline, move the playhead to where the character begins summoning and add a <strong>Spawn Actor Node</strong>.</li>
+                        <li>Position the spawn handle in the Scene View (or choose a socket bone like <code>RightHand</code>).</li>
+                        <li>Add animation clip blocks on the dynamic actor's track to drive its motion during the sequence.</li>
+                        <li>Move the playhead to the end of the action and place a <strong>Destroy Actor Node</strong> with a <code>0.2s</code> fade-out and <strong>Return to Pool</strong> checked.</li>
+                        <li>Scrub the timeline to preview the summon appearing, animating, and despawning smoothly!</li>
+                    </ol>
+                </section>
+
+                <!-- Interaction Overrides Preset Inspector -->
+                <section id="ce-interaction-overrides-inspector" class="docs-section" data-tab="composition-editor">
+                    <h2>Interaction Overrides Preset Inspector</h2>
+                    <p class="lead">The <strong>Interaction Overrides Preset Inspector</strong> is a dedicated editor workspace for configuring post-export customization presets (<code>MSMotionInteractionOverrides</code> assets). It allows animators and designers to tailor multi-character choreographies for diverse gameplay situations—such as adapting body spacing for differing creature sizes, swapping character reaction clips, fine-tuning approach locomotion and pathfinding bounds, and redirecting prop handovers—<strong>without altering baked interaction configs or writing code</strong>.</p>
+
+                    <hr class="my-4">
+
+                    <h3>Accessing & Creating Overrides Presets</h3>
+                    <ol>
+                        <li>In the Unity Project window, right-click and choose <strong>Create &gt; Maharaja Studio &gt; MsMotion &gt; Interaction Overrides</strong>.</li>
+                        <li>Select the created asset to inspect it in the Inspector window.</li>
+                        <li>In the <strong>Target Interaction Config</strong> field, assign the baked choreography config asset (e.g. <code>Takedown_Config</code> or <code>SalsaDuet_Config</code>).</li>
+                    </ol>
+
+                    <h3>Interface Layout & Sections</h3>
+                    <pre><code>+-----------------------------------------------------------------------------------+
+| MSMotion Interaction Overrides (Banner)                                           |
+| Target Interaction Config: [ S_Duet_Exported_Config                     (⊙) ]     |
++-----------------------------------------------------------------------------------+
+| Detected Roles in Config                                                          |
+| Participants: 2 | Dynamic Entities: 1 | Handovers: 2 | Duration: 4.37s | Loop: False |
+| [ [Participant] partner (Actor_1) ▼ ]  [ Add Override ]                           |
+| [               Populate All               ]  [             Sync from Config             ] |
++-----------------------------------------------------------------------------------+
+| ▼ Interaction FX Registry (Global)                                                |
+|   [✓] Global FX Registry Override: [ FXRegistry_DarkFlame                 (⊙) ]   |
++-----------------------------------------------------------------------------------+
+| ▼ Participant Role Overrides (2)                                                  |
+|   ...                                                                             |
+| ▼ Dynamic Actor Overrides (1)                                                     |
+|   ...                                                                             |
+| ▼ Terrain Raycast Ground LayerMask                                                |
+|   ...                                                                             |
+| ▼ Live Runtime PlayMode Tools                                                     |
+|   ...                                                                             |
++-----------------------------------------------------------------------------------+</code></pre>
+
+                    <h4>1. Detected Roles in Config (Toolbar)</h4>
+                    <ul>
+                        <li><strong>Summary Readout</strong>: Displays total counts of detected participant roles, dynamic summons, cross-actor handovers, sequence duration, and looping state.</li>
+                        <li><strong>Role Dropdown</strong>: Lists all detected participant and dynamic roles.</li>
+                        <li><strong>Add Override</strong>: Adds a custom override card for the selected role.</li>
+                        <li><strong>Populate All</strong>: Auto-generates override cards for every participant character and dynamic summon.</li>
+                        <li><strong>Sync from Config</strong>: Refreshes all existing override cards with authored baseline values without resetting your active checkboxes.</li>
+                    </ul>
+
+                    <h4>2. Interaction FX Registry (Global)</h4>
+                    <ul>
+                        <li><strong>Global FX Registry Override</strong>: Checkbox + object picker (<code>MSMotionFXRegistry</code>). Swaps audio, particles, decals, and transforms across all participating characters without creating duplicate animation configs.</li>
+                    </ul>
+
+                    <h4>3. Participant Role Overrides</h4>
+                    <p>Each participant role card provides granular control over that specific character's animation, spacing, and approach locomotion:</p>
+                    <ul>
+                        <li><strong>Animation Config / Animation Clip</strong>: Swaps out the character's entire playback package or individual core performance clip.</li>
+                        <li><strong>FX Registry (Direct Role Override)</strong>: Direct role-level FX registry override, taking precedence over the global interaction FX registry.</li>
+                        <li><strong>Spatial Spacing (Offset)</strong>: Position and rotation fields with override toggles. Offsets the character relative to the sync point at frame 0. Features dedicated <code>[Copy]</code> and <code>[Paste]</code> buttons.
+                            <div class="alert alert-info border-0 p-3 rounded-3 mt-2 text-white">
+                                <strong>Monster & Scale Compensation:</strong> When executing a human grapple on a large Orc or Troll, enable <strong>Spatial Spacing</strong> and adjust the Z-offset to separate the characters and eliminate body mesh clipping.
+                            </div>
+                        </li>
+                        <li><strong>Speed Multiplier</strong>: Slider (<code>0.0 - 5.0x</code>) to scale playback speed independently (ideal for hit-stop pauses or heavy monster reaction delays).</li>
+                    </ul>
+
+                    <h4>4. The 4 Dynamic Alignment Approach Foldouts</h4>
+                    <p>Collapsible foldout sections with individual field toggles and active counter badges:</p>
+                    <ul>
+                        <li><strong>🎬 Locomotion & Gaits</strong>: Gait Mode (<code>AutomaticWalkRun</code>, <code>WalkOnly</code>, <code>RunOnly</code>, <code>TeleportSnap</code>), walk/run clips, threshold velocity/distance, crossfade durations, arrival downshifting, and waiting idle clip.</li>
+                        <li><strong>🧭 Pathfinding & Navigation</strong>: Navigation Mode (<code>NoneLinear</code>, <code>SimpleObstacleAvoidance</code>, <code>NavMeshAgent</code>, <code>NavMeshPathfinding</code>), capsule clearance radius, obstacle layer mask, corner smoothing radius, moving target tracking, and terrain raycasting.</li>
+                        <li><strong>🔄 Steering & Arrival Rotation</strong>: Angular turning speed (°/s), arrival alignment radius, orientation matching, and pivot-in-place thresholds.</li>
+                        <li><strong>⏱ Timing, Stride & Speed Bounds</strong>: Natural stride speed (with <strong>⚡ Auto Stride</strong> root-motion extraction button), arrival stop distance, min/max duration clamps, min/max playback speed multipliers, acceleration rates, and custom velocity curves.</li>
+                    </ul>
+                    <p><em>Productivity features: Right-click category headers to <strong>Enable All</strong> / <strong>Disable All</strong>, and use dedicated <strong>[Copy]</strong> / <strong>[Paste]</strong> buttons.</em></p>
+
+                    <h4>5. Dynamic Actor Overrides (Summons & Props)</h4>
+                    <ul>
+                        <li><strong>Prefab Override</strong>: Swaps the summoned object's prefab (e.g. skin variants or elemental weapons).</li>
+                        <li><strong>Socket Override</strong>: Retargets the attachment bone on the caster character (e.g. <code>RightHand</code>, <code>Spine2</code>).</li>
+                        <li><strong>Local Offset & Scale</strong>: Spatial adjustments and scale multipliers.</li>
+                        <li><strong>Spawn & Destroy Timing</strong>: Overrides normalized timeline moments (<code>0.0 - 1.0</code>).</li>
+                    </ul>
+
+                    <h4>6. Live Runtime PlayMode Tools</h4>
+                    <p>When entering Unity Play Mode with an interaction running:</p>
+                    <ul>
+                        <li>Displays active session status and elapsed duration.</li>
+                        <li><strong>Apply Overrides to Active Session</strong> button hot-reloads inspector changes directly into the running scene session without restarting playback!</li>
+                    </ul>
                 </section>
 
                 <!-- 19. Export Options -->
@@ -2908,7 +3408,23 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                             highlighted blue segment on the visual bar indicates the cropped sub-range.</li>
                     </ul>
 
-                    <h3>3. Root Motion Tab</h3>
+                    <h3>3. Actors Tab (Multi-Actor System)</h3>
+                    <p>Controls which participant characters are baked and how individual actor animation files and companion interaction configs are generated:</p>
+                    <ul>
+                        <li><strong>Export Scope</strong>:
+                            <ul>
+                                <li><strong>All Actors as Separate Clips</strong>: Bakes every actor present in the composition into an individual animation clip (e.g. <code>Attack_Hero.anim</code>, <code>Attack_Boss.anim</code>).</li>
+                                <li><strong>Active Actor Only</strong>: Bakes only one chosen participant actor into a single animation clip.</li>
+                                <li><strong>Custom Selection</strong>: Displays an interactive checklist allowing you to pick an arbitrary subset of actors to bake.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Target Actor</strong>: When Scope is set to Active Actor Only, selects the specific character from the composition to bake.</li>
+                        <li><strong>Filename Suffix Style</strong>: <code>ActorDisplayName</code> (e.g. <code>_Hero</code>, <code>_Partner</code>) or <code>ActorId</code> (e.g. <code>_actor_0</code>, <code>_actor_1</code>).</li>
+                        <li><strong>Isolate FX Per Actor</strong>: Filters companion FX manifest events so each actor's companion manifest only contains FX nodes assigned to that specific character.</li>
+                        <li><strong>Reset Origin On Export</strong>: Restores participant preview instances to their canonical origins before and after each bake pass to prevent spatial coordinate drift.</li>
+                    </ul>
+
+                    <h3>4. Root Motion Tab</h3>
                     <p>Configures how the character's overall movement and root coordinates are processed and baked:</p>
                     <ul>
                         <li><strong>Export Mode (Base Mode)</strong>:
@@ -2927,7 +3443,7 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                             toggles world-space coordinates.</li>
                     </ul>
 
-                    <h3>4. Filtering Tab</h3>
+                    <h3>5. Filtering Tab</h3>
                     <p>Filters which bones and properties are written to the final output file to minimize file size:
                     </p>
                     <ul>
@@ -2937,7 +3453,7 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                             (ROT), and Scale (SCL) curves.</li>
                     </ul>
 
-                    <h3>5. Output Tab</h3>
+                    <h3>6. Output Tab</h3>
                     <p>Controls quality compression, event integration, and runtime manifest generation:</p>
                     <ul>
                         <li><strong>Bake Events / Baking Mode</strong>: Embeds custom animation events.</li>
@@ -2948,6 +3464,7 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
                             noise.</li>
                         <li><strong>Keyframe Optimization</strong>: Removes redundant keyframes within tolerance limits
                             (Position, Rotation, and Scale Error).</li>
+                        <li><strong>Create Animation Config & Master Interaction Config</strong>: Automatically generates an <code>MSMotionAnimationConfig</code> asset linking the clip, metadata, and FX manifest. In multi-actor exports, this also generates the master <code>MSMotionInteractionConfig</code> asset binding all participant tracks, initial relative offsets, and dynamic alignment data.</li>
                         <li><strong>Runtime FX (MSMotion FX Layer)</strong>:
                             <ul>
                                 <li><strong>Generate FX Manifest</strong>: Exports a custom FX manifest asset alongside
@@ -3109,33 +3626,35 @@ Bridged:     [--- Pose A ---] \____ Transition Blend (Bridge) _/ [--- Pose B ---
 
                     <h2>System Architecture</h2>
                     <p>The runtime framework is divided into dedicated managers that run alongside the standard Unity
-                        <code>Animator</code>. When multiple components are present on the same GameObject, they
+                        <code>Animator</code>. When multiple components are present on the same GameObject or across multiple characters, they
                         coordinate automatically.</p>
-                    <pre><code>+-------------------------------------------------------------+
-|                        Gameplay Code                        |
-|             (Triggers Play, CrossFade, and Stops)           |
-+-------------------------------------------------------------+
-                               |
-                               v
-+-------------------------------------------------------------+
-|                      MSMotionAnimator                       |
-|           (Drives PlayableGraph & Blends Layers)            |
-+-------------------------------------------------------------+
-          /                    |                    \
-         v                     v                     v
-+-----------------+   +-----------------+   +-----------------+
-| MSMotionFXPlayer|   |  Stretch Applicator |   |  Rig Controller |
-| (Audio, VFX,    |   | (Bone Scales &   |   | (Rigging & IK   |
-|  Events Pool)   |   |  LOD Culling)   |   |  Constraints)   |
-+-----------------+   +-----------------+   +-----------------+</code></pre>
+                    <pre><code>+-----------------------------------------------------------------------------------+
+|                                  Gameplay Code                                    |
+|     (Triggers Play, CrossFade, Stops, or MSMotionInteraction Choreography)        |
++-----------------------------------------------------------------------------------+
+             |                                                  |
+             v                                                  v
++------------------------------------+         +------------------------------------+
+|         MSMotionAnimator           |         |       MSMotionInteraction          |
+| (Drives PlayableGraph & Mixers)    |         | (Multi-Actor Orchestration Engine) |
++------------------------------------+         +------------------------------------+
+       /          |          \                          |                    \
+      v           v           v                         v                     v
++------------+ +------------+ +------------+   +-------------------+  +-------------------+
+|  FXPlayer  | |  Stretch   | |    Rig     |   | Dynamic Summons & |  |    Interaction    |
+| (Audio/VFX | | Applicator | | Controller |   | Actor Object Pool |  | Overrides Presets |
+|   Pool)    | | (Scaling)  | |   (IK)     |   | (MSMotionActorPool)| | (Body Spacing/Gait)|
++------------+ +------------+ +------------+   +-------------------+  +-------------------+</code></pre>
 
                     <h3>Core Components</h3>
                     <ol>
                         <li><strong><a href="#rt-core-animation">MSMotionAnimator</a></strong>: The central driver. It
                             manages the core <code>PlayableGraph</code>, handles blending layers, and triggers fades and
                             crossfades.</li>
+                        <li><strong><a href="#rt-multi-actor-interaction">MSMotionInteraction</a></strong>: Multi-actor interaction and choreography runner. Coordinates synchronized multi-character playback, dynamic departure, and cross-actor partner targeting with 0ms frame drift.</li>
+                        <li><strong><a href="#rt-interaction-overrides">MSMotionInteractionOverrides</a></strong>: Post-export preset system for multi-actor choreography. Manages granular field-level overrides, body spacing compensation, 4-category dynamic alignment foldouts, dynamic summons, and prop handovers.</li>
                         <li><strong><a href="#rt-fx-event">MSMotionFXPlayer</a></strong>: Listens to the timeline
-                            playhead and schedules visual effects, particles, sound, camera shakes, and custom script
+                            playhead and schedules visual effects, particles, surface decals, sound, camera shakes, and custom script
                             callbacks.</li>
                         <li><strong><a href="#rt-rigging-ik">MSMotionRigController</a></strong>: Interfaces with Unity's
                             Animation Rigging constraints, enabling dynamic procedural aiming, foot planting, and bone
@@ -3708,6 +4227,702 @@ public class AdvancedAnimatorController : MonoBehaviour
         Debug.Log("Combat Chain Completed and Returned to Recovery Idle.");
     }
 }</code></pre>
+
+                    <hr class="my-4">
+
+                    <h3>External Graph & Host Mixer Attachment</h3>
+                    <p>For advanced pipelines such as custom locomotion systems, dialogue frameworks, or external playable controllers, <code>MSMotionAnimator</code> can attach its internal layers to a foreign host <code>PlayableGraph</code> without creating a redundant graph instance:</p>
+                    <pre><code class="language-csharp">// Direct host mixer mode: action layers evaluate at config.Layer + layerOffset
+animator.AttachToExternalGraph(externalGraph, hostMixer, layerOffset: 0);
+
+// Sub-mixer mode: creates an internal sub-mixer plugged into targetLayerSlot
+animator.AttachToExternalGraph(externalGraph, hostMixer, targetLayerSlot: 2);
+
+// Clean disconnection:
+animator.DetachFromExternalGraph();</code></pre>
+                    <ul>
+                        <li><code>public bool IsExternalGraph { get; }</code>: Returns true when attached to an external host graph.</li>
+                        <li><code>public PlayableGraph Graph { get; }</code>: Accesses the active <code>PlayableGraph</code>.</li>
+                        <li><code>public AnimationLayerMixerPlayable RootLayerMixer { get; }</code>: Accesses the active layer mixer.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>Dynamic Visual & Avatar Rebinding (Modular Characters / Online Spawning)</h3>
+                    <p>For games with late-instantiated character visuals, skin swapping, or modular armor sets:</p>
+                    <pre><code class="language-csharp">// Master one-liner to swap character visual rig at runtime:
+animator.Rebind(newAnimator, newBoneRoot: null, rebuildGraph: true);</code></pre>
+                    <ul>
+                        <li><code>public void Rebind(Animator newAnimator, Transform newBoneRoot = null, bool? rebuildGraph = null)</code>:
+                            Master one-liner that rebinds <code>MSMotionAnimator</code>, updates or retargets <code>AnimationPlayableOutput</code>, flushes and retargets bone caches in <code>MSMotionFXPlayer</code>, clears bone chains in <code>MSMotionStretchApplicator</code>, and updates <code>MSMotionRigController</code>.</li>
+                        <li><code>public void RebuildGraph()</code>: Destroys and recreates the internal <code>PlayableGraph</code> from scratch. Useful when avatar skeleton structure changes completely.</li>
+                        <li><code>public Animator TargetAnimator { get; set; }</code>: Property to get or assign the active Animator component (setting it automatically invokes <code>Rebind</code>).</li>
+                        <li><code>public bool AutoSearchChildrenForAnimator { get; set; }</code>: When true (default), automatically searches child GameObjects for an <code>Animator</code> if one is not present on the root container GameObject.</li>
+                        <li><code>public event Action&lt;Animator&gt; OnAnimatorRebound</code>: Fires whenever the target Animator is rebound or swapped at runtime.</li>
+                        <li><code>public void EnsureSubsystemReferences()</code>: Auto-discovers or refreshes linked subsystem components (<code>MSMotionFXPlayer</code>, <code>MSMotionStretchApplicator</code>, <code>MSMotionRigController</code>) on the root GameObject or child GameObjects.</li>
+                        <li><code>public MSMotionFXPlayer FXPlayer { get; set; }</code> / <code>StretchApplicator</code> / <code>RigController</code>: Direct properties to get/set linked subsystems.</li>
+                    </ul>
+                </section>
+
+                <!-- Multi-Actor Interaction & Choreography System -->
+                <section id="rt-multi-actor-interaction" class="docs-section" data-tab="runtime-system">
+                    <h2>Multi-Actor Interaction & Choreography System</h2>
+                    <p class="lead"><strong>MSMotion 2.0.0</strong> introduces the <strong>Multi-Actor Interaction & Choreography System</strong>, enabling creators to author and execute complex synchronized multi-character animations — such as dance duets, martial arts grapples/takedowns, shared lifts, co-op puzzle interactions, and 3+ character cinematics — with <strong>one line of code</strong> and full runtime control.</p>
+
+                    <hr class="my-4">
+
+                    <h3>Key Capabilities</h3>
+                    <ul>
+                        <li><strong>Synchronized Multi-Character Choreography</strong>: Coordinate 2, 3, or more characters playing interdependent animations with 0ms frame drift.</li>
+                        <li><strong>Humanoid & Generic (Non-Humanoid) Support</strong>: Seamlessly mix Humanoids with Generic rigs (quadrupeds, monsters, robots, props) in the exact same choreography.</li>
+                        <li><strong>Independent PlayableGraph Isolation</strong>: Every character maintains its own independent <code>MSMotionAnimator</code> and <code>PlayableGraph</code>. The system orchestrates them without graph conflicts, evaluation order glitches, or race conditions.</li>
+                        <li><strong>Dynamic Participant Departure</strong>: Characters can break away or leave early (e.g. taking damage, hit reaction, interrupted) while remaining characters smoothly continue or cancel the choreography.</li>
+                        <li><strong>Cross-Actor Partner Targeting</strong>: Hand/foot IK effectors and head look-at modifiers can directly target bones on partner characters.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>1-Line-of-Code Runtime API</h3>
+                    <p>Playing a synchronized multi-character interaction requires just one line of C#:</p>
+                    <pre><code class="language-csharp">using System.Collections.Generic;
+using MaharajaStudio.MSMotion.Runtime;
+using UnityEngine;
+
+public class InteractionTrigger : MonoBehaviour
+{
+    [SerializeField] private MSMotionInteractionConfig salsaDuetConfig;
+    [SerializeField] private MSMotionInteractionOverrides trollTakedownOverrides;
+    [SerializeField] private MSMotionFXRegistry darkFlameRegistry;
+    [SerializeField] private Transform movingStageAnchor;
+    [SerializeField] private MSMotionAnimator leadDancer;
+    [SerializeField] private MSMotionAnimator partnerDancer;
+
+    public void PlayStandard()
+    {
+        // 1. Plays synchronized at lead character's position
+        MSMotionInteraction.Play(salsaDuetConfig, leadDancer, partnerDancer);
+    }
+
+    public void PlayOnMovingTransform()
+    {
+        // 2. Dynamically anchored to a moving platform, elevator, or vehicle
+        MSMotionInteraction.Play(salsaDuetConfig, movingStageAnchor, leadDancer, partnerDancer);
+    }
+
+    public void PlayWithDirectFXRegistry()
+    {
+        // 3. Direct FX Registry injection (replaces audio/particles without extra animation configs)
+        MSMotionInteraction.Play(salsaDuetConfig, darkFlameRegistry, leadDancer, partnerDancer);
+    }
+
+    public void PlayWithPerRoleFX()
+    {
+        // 4. Per-role FX Registry dictionary (e.g. fire partner vs ice victim)
+        var roleRegistries = new Dictionary&lt;string, MSMotionFXRegistry&gt;
+        {
+            { "lead", fireRegistry },
+            { "partner", iceRegistry }
+        };
+        MSMotionInteraction.Play(salsaDuetConfig, roleRegistries, leadDancer, partnerDancer);
+    }
+
+    public void PlayWithOverrides()
+    {
+        // 5. Designer-authored ScriptableObject overrides preset
+        MSMotionInteraction.Play(salsaDuetConfig, trollTakedownOverrides, leadDancer, partnerDancer);
+    }
+}</code></pre>
+
+                    <hr class="my-4">
+
+                    <h3>Native Unity 6 Async Execution (<code>PlayAsync</code>)</h3>
+                    <p>When sequencing game choreography, cutscenes, combat finishers, or dialogue interactions, you can use Unity 6's native <code>Awaitable</code> to await completion asynchronously:</p>
+                    <pre><code class="language-csharp">public async Awaitable ExecuteCinematicDuet()
+{
+    // Plays and suspends execution until the interaction finishes naturally or is stopped
+    var session = await MSMotionInteraction.PlayAsync(salsaDuetConfig, leadDancer, partnerDancer);
+    
+    Debug.Log($"Interaction {session.Config.name} finished! Continuing cutscene...");
+}
+
+public async Awaitable ExecuteWithCancellation(CancellationToken ct)
+{
+    // Awaits with full cancellation token support (e.g. player skipped cutscene)
+    await MSMotionInteraction.PlayAsync(salsaDuetConfig, movingStageAnchor, ct, leadDancer, partnerDancer);
+}</code></pre>
+
+                    <hr class="my-4">
+
+                    <h3>Query, Introspection & Session Lifecycle</h3>
+                    <pre><code class="language-csharp">// Query status
+bool isBusy = MSMotionInteraction.IsInInteraction(character);
+bool isSequenceRunning = MSMotionInteraction.IsInteractionActive(salsaDuetConfig);
+
+// Introspection
+if (MSMotionInteraction.TryGetSession(character, out var session))
+{
+    Debug.Log($"Playing interaction elapsed: {session.ElapsedTime}s (Progress: {session.NormalizedTime * 100f}%)");
+}
+
+// Global pause / resume
+MSMotionInteraction.PauseAllInteractions();
+MSMotionInteraction.ResumeAllInteractions();
+
+// Stop specific actor with cascade policy
+MSMotionInteraction.StopInteractionFor(character, fadeOutTime: 0.2f, InteractionCascadePolicy.ContinueRemaining);
+
+// Stop all interactions
+MSMotionInteraction.StopAllInteractions(fadeOutTime: 0.25f);</code></pre>
+
+                    <hr class="my-4">
+
+                    <h3>Fluent Builder & Runtime Control</h3>
+                    <p><code>MSMotionInteraction.Play</code> or <code>MSMotionInteraction.Prepare</code> returns an <code>MSMotionInteractionSession</code> instance that exposes fluent chaining controls:</p>
+                    <pre><code class="language-csharp">MSMotionInteraction.Prepare(salsaDuetConfig, leadDancer, partnerDancer)
+    .SetSyncPoint(movingStageAnchor)
+    .OverrideFXRegistry(darkFlameRegistry)
+    .OverrideActorFXRegistry("partner", holyAuraRegistry)
+    .SetFadeIn(0.3f)
+    .SetFadeOut(0.25f)
+    .OnComplete(() =>
+    {
+        Debug.Log("Dance duet completed successfully!");
+    })
+    .OnActorStopped(actor =>
+    {
+        Debug.Log($"{actor.name} left the interaction.");
+    })
+    .Play();</code></pre>
+
+                    <hr class="my-4">
+
+                    <h3>Dynamic Participant Departure (<code>StopActor</code>)</h3>
+                    <p>In games, characters often need to break away early — for example, if Character B takes damage, is interrupted by combat, or triggers a ragdoll:</p>
+                    <pre><code class="language-csharp">// Character B gets hit and must react immediately:
+session.StopActor(characterB, fadeOutTime: 0.15f, InteractionCascadePolicy.ContinueRemaining);</code></pre>
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Policy</th>
+                                <th>Behavior</th>
+                                <th>Typical Use Case</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>ContinueRemaining</code> <em>(Default)</em></td>
+                                <td>The specified actor blends out to idle or hit reaction. Remaining participants continue their choreography uninterrupted.</td>
+                                <td>Group combat finishers, 3+ dancer choreography, co-op interactions where one character breaks off.</td>
+                            </tr>
+                            <tr>
+                                <td><code>StopAll</code></td>
+                                <td>If any critical actor leaves, the entire interaction is terminated smoothly for all participants.</td>
+                                <td>Partner lifts, acrobatic stunts, or intimate dance holds where the absence of one character invalidates the scene.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr class="my-4">
+
+                    <h3>Cross-Actor IK & Look-At Targeting</h3>
+                    <ul>
+                        <li><strong>IK Chain Modifier</strong>: Set <code>PartnerActorId</code> to target a partner character, and specify either <code>PartnerHumanBone</code> (for Humanoids) or <code>PartnerBonePath</code> (for Generic rigs). The effector pins directly to the partner's bone in world space.</li>
+                        <li><strong>Look-At Modifier</strong>: Set <code>PartnerActorId</code> to make a character dynamically turn their head, spine, and eyes toward the partner's head or chest during the sequence.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>Dynamic / Temporary Actors (Summons & Ephemeral Entities)</h3>
+                    <p>MSMotion supports ephemeral entities like summoned dragons, phantom weapons, Stand avatars, spectral beasts, or familiars that:</p>
+                    <ul>
+                        <li>Spawn automatically at a precise moment in the animation.</li>
+                        <li>Attach to the caster's root, a specific bone/socket (e.g. right hand, spine), or the world sync point.</li>
+                        <li>Play their companion animation in full synchronization.</li>
+                        <li>Automatically despawn, dissolve/fade out, and recycle back to the zero-allocation <code>MSMotionActorPool</code>.</li>
+                        <li><strong>Zero Gameplay Code Required</strong>: The gameplay programmer merely calls <code>animator.Play(attackConfig)</code>. The companion interaction engine manages the dynamic actor's lifecycle under the hood.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>Motion Warping & Dynamic Alignment System</h3>
+                    <p>In gameplay scenarios, characters rarely stand at the exact millimetric coordinate authored for a synchronized duet or grapple. The <strong>Dynamic Alignment System</strong> bridges arbitrary starting distances dynamically:</p>
+                    <ul>
+                        <li>Secondary actors travel smoothly toward their authored sync spots using their designated locomotion clip (e.g. walk, run).</li>
+                        <li>Animation playback speed dynamically scales to match travel distance and duration without foot sliding.</li>
+                        <li>Characters arriving early enter a <strong>Waiting / Idle</strong> state until all participants reach their spots.</li>
+                        <li>Once all participants arrive, all actors seamlessly crossfade into the main synchronized choreography together.</li>
+                    </ul>
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Description</th>
+                                <th>Default</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Approach Locomotion Clip</strong></td>
+                                <td>Walk, jog, or run animation played while traveling to the sync point.</td>
+                                <td><em>(AnimationClip)</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Waiting / Idle Clip</strong></td>
+                                <td>Animation played when this character arrives early or is waiting for others.</td>
+                                <td><em>(AnimationClip)</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Primary Actor Waiting Clip</strong></td>
+                                <td>Animation played by Actor 0 while waiting stationary at the sync origin.</td>
+                                <td><em>(AnimationClip)</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Min / Max Time</strong></td>
+                                <td>Allowed approach duration window in seconds.</td>
+                                <td><code>0.5s - 4.0s</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Min / Max Speed</strong></td>
+                                <td>Playback speed multiplier bounds preventing unrealistic fast-forwarding or foot sliding.</td>
+                                <td><code>0.5x - 2.0x</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Natural Stride Speed</strong></td>
+                                <td>Locomotion speed in m/s. Click <strong>Auto Stride</strong> to derive directly from clip root motion curves.</td>
+                                <td><code>1.4 m/s</code> (or Auto)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Arrival Threshold</strong></td>
+                                <td>Distance in meters considered "arrived" at the sync spot.</td>
+                                <td><code>0.1 m</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adapt to Terrain</strong></td>
+                                <td>Raycasts terrain downward during approach to keep feet planted on stairs or slopes.</td>
+                                <td><code>true</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr class="my-4">
+
+                    <h3>Cross-Actor FX & Prop Handover</h3>
+                    <p>Cross-Actor Handover is supported across all visual, audio, and physical effect nodes:</p>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>FX Handler</th>
+                                <th>Handover Capabilities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Spawn FX</strong> (<code>SpawnFXHandler</code>)</td>
+                                <td>Instantiated weapon/prop prefabs transfer sockets between participants seamlessly.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Particle FX</strong> (<code>ParticleFXHandler</code>)</td>
+                                <td>Particle systems (auras, torches, trail emitters) re-anchor and transition to partner bones.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>VFX Graph FX</strong> (<code>VFXGraphFXHandler</code>)</td>
+                                <td>Visual Effect Graph instances glide or snap to partner attachment sockets.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Decal FX</strong> (<code>DecalFXHandler</code>)</td>
+                                <td>Projected surface decals or decal projector objects re-parent across participants.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Audio FX</strong> (<code>AudioFXHandler</code>)</td>
+                                <td>3D spatialized audio emitters travel between characters (e.g. humming magical artifacts).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Camera Shake FX</strong> (<code>CameraShakeFXHandler</code>)</td>
+                                <td>Dedicated Cinemachine impulse origins travel between actors during physical interactions.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert alert-success border-0 p-3 rounded-3 mt-3 text-white">
+                        <strong>Backward Compatibility Guarantee:</strong> All existing single-character compositions and animations automatically map to <strong>Actor 0 (Default)</strong> with zero migration steps required. Existing single-character runtime methods (<code>animator.Play(config)</code>) remain 100% compatible.
+                    </div>
+                </section>
+
+                <!-- Interaction Overrides System -->
+                <section id="rt-interaction-overrides" class="docs-section" data-tab="runtime-system">
+                    <h2>Interaction Overrides System (<code>MSMotionInteractionOverrides</code>)</h2>
+                    <p class="lead">The <strong>MSMotion Interaction Overrides System</strong> provides a non-destructive, designer-friendly preset workflow for multi-actor choreographies. It allows technical animators, game designers, and programmers to adapt baked interaction sequences post-export—compensating for character body dimensions, swapping reaction clips, retargeting weapon variants, fine-tuning pre-interaction locomotion &amp; motion warping, and redirecting prop handovers—<strong>with zero re-exporting and zero code modifications</strong>.</p>
+
+                    <hr class="my-4">
+
+                    <h3>Key Capabilities & Highlights</h3>
+                    <ul>
+                        <li><strong>Non-Destructive Post-Export Customization</strong>: Modify character spacing, playback speed, locomotion clips, and summons without touching the authored <code>MSMotionInteractionConfig</code> asset.</li>
+                        <li><strong>Granular Field-Level Toggles</strong>: Every individual property features an independent toggle checkbox. Only explicitly enabled properties override the baseline; unselected properties automatically inherit authored settings from the interaction track.</li>
+                        <li><strong>Full Baseline Pre-Filling</strong>: All fields are pre-populated with baseline authored values from the target interaction config, letting designers see existing defaults before tweaking.</li>
+                        <li><strong>4-Category Dynamic Alignment Foldouts</strong>: Locomotion & Gaits, Pathfinding & Navigation, Steering & Arrival Rotation, and Timing, Stride & Speed Bounds.</li>
+                        <li><strong>⚡ Auto Stride Derivation</strong>: Automatically analyzes walk animation root-motion curves and extracts the exact linear velocity in one click.</li>
+                        <li><strong>Dynamic Summoned Actor & Prop Overrides</strong>: Swap summoned weapon prefabs, bone attachment sockets, local offsets, 3D scale multipliers, and spawn/despawn timestamps.</li>
+                        <li><strong>Direct FX Registry Overrides</strong>: Override sound, particle, decal, and transform themes globally or per-role without creating duplicate animation configs.</li>
+                        <li><strong>Live Runtime PlayMode Tools</strong>: Detects active scene sessions with a 1-click <strong>Apply Overrides to Active Session</strong> button.</li>
+                        <li><strong>1-Line C# Execution</strong>: Play directly via <code>MSMotionInteraction.Play(config, overrides, actors...)</code>.</li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <h3>Architecture & Evaluation Hierarchy</h3>
+                    <p>When an interaction executes, values resolve in strict order of precedence:</p>
+                    <ol>
+                        <li><strong>Runtime Fluent Overrides</strong>: Programmatic session calls made before playback (e.g. <code>session.OverrideActorClip(...)</code>).</li>
+                        <li><strong>Interaction Overrides Preset (<code>MSMotionInteractionOverrides</code>)</strong>:
+                            <ul>
+                                <li><em>Role-Specific Overrides</em>: Explicitly enabled clip, config, offset, speed, and FX registry overrides take highest priority within the preset.</li>
+                                <li><em>Interaction-Wide Overrides</em>: Global settings such as interaction-wide FX Registry and ground LayerMask apply to all roles not individually overridden.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Authored Baseline Configuration (<code>MSMotionInteractionConfig</code>)</strong>: Default values authored in the Composition Editor timeline and Actor Roster window.</li>
+                    </ol>
+
+                    <hr class="my-4">
+
+                    <h3>Participant Role Overrides Reference</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Role Identifier</strong></td>
+                                <td><code>string</code></td>
+                                <td>The authored role identifier in the interaction track (e.g. <code>'partner'</code>). Includes inline Copy/Paste buttons.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Animation Config</strong></td>
+                                <td><code>MSMotionAnimationConfig</code></td>
+                                <td>Full configuration asset override. Replaces the role's entire playback stack, including blend curves and FX events.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Animation Clip</strong></td>
+                                <td><code>AnimationClip</code></td>
+                                <td>Direct clip swap. MSMotion automatically generates an allocation-free transient config inheriting the track's authored layer rules.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FX Registry</strong></td>
+                                <td><code>MSMotionFXRegistry</code></td>
+                                <td>Direct role-level FX Registry override. Swaps audio, particles, decals, and transforms specifically for this character.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Spatial Spacing (Offset)</strong></td>
+                                <td><code>Vector3</code> (Pos) + <code>Vector3</code> (Rot)</td>
+                                <td>World-offset relative to the interaction sync point at frame 0. Compensates for differing character scales, giant monsters, or wide armors to prevent mesh clipping.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Speed Multiplier</strong></td>
+                                <td><code>float</code> (0 - 5×)</td>
+                                <td>Independent playback speed multiplier for this specific character (e.g. hit-stop, stagger delay, or slow-motion reaction).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr class="my-4">
+
+                    <h3>The 4 Dynamic Alignment Foldout Categories</h3>
+
+                    <h4>1. 🎬 Locomotion & Gaits</h4>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Gait Mode</strong></td>
+                                <td><code>ApproachLocomotionGait</code></td>
+                                <td><code>AutomaticWalkRun</code></td>
+                                <td><code>AutomaticWalkRun</code>, <code>WalkOnly</code>, <code>RunOnly</code>, or <code>TeleportSnap</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Walk Locomotion Clip</strong></td>
+                                <td><code>AnimationClip</code></td>
+                                <td>Authored</td>
+                                <td>Walk animation played while approaching sync spot.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Run / Sprint Clip</strong></td>
+                                <td><code>AnimationClip</code></td>
+                                <td>Authored</td>
+                                <td>Run/sprint animation used for greater distances.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Run Spd Min (m/s)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>2.0</code></td>
+                                <td>Minimum movement velocity required to trigger run gait.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Run Dist Min (m)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>3.0</code></td>
+                                <td>Minimum starting distance required to trigger running.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Crossfade (s)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>0.2</code></td>
+                                <td>Duration of crossfade transition between walk and run gaits.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Downshift on Arrival</strong></td>
+                                <td><code>bool</code></td>
+                                <td><code>false</code></td>
+                                <td>Running characters transition back down to a walk when nearing arrival.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Waiting / Idle Clip</strong></td>
+                                <td><code>AnimationClip</code></td>
+                                <td>Authored</td>
+                                <td>Loop played when this actor arrives early and waits for others.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>2. 🧭 Pathfinding & Navigation</h4>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Navigation Mode</strong></td>
+                                <td><code>ApproachPathMode</code></td>
+                                <td><code>SimpleObstacleAvoidance</code></td>
+                                <td><code>NoneLinear</code>, <code>SimpleObstacleAvoidance</code>, <code>NavMeshAgent</code>, or <code>NavMeshPathfinding</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clearance (m)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>0.45</code></td>
+                                <td>Lateral obstacle avoidance clearance radius around capsule.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Obstacle Mask</strong></td>
+                                <td><code>LayerMask</code></td>
+                                <td><code>Everything</code></td>
+                                <td>Physics layers evaluated by obstacle avoidance raycasts.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Corner Smoothing (m)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>0.5</code></td>
+                                <td>Radius for Bezier fillet curve smoothing along waypoint corners.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Track Moving Target</strong></td>
+                                <td><code>bool</code></td>
+                                <td><code>false</code></td>
+                                <td>Continuously updates destination sync spot if partner is moving.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adapt to Terrain</strong></td>
+                                <td><code>bool</code></td>
+                                <td><code>true</code></td>
+                                <td>Downward raycasts snap foot placement to uneven terrain, ramps, and stairs.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>3. 🔄 Steering & Arrival Rotation</h4>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Turn Speed (°/s)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>540</code></td>
+                                <td>Maximum angular rotation speed when facing approach trajectory.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Align Radius (m)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>0.8</code></td>
+                                <td>Distance from sync spot where character begins blending toward arrival rotation.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Align Arrival Rotation</strong></td>
+                                <td><code>bool</code></td>
+                                <td><code>true</code></td>
+                                <td>Matches authored target facing angle upon reaching sync spot.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pivot In Place First</strong></td>
+                                <td><code>bool</code></td>
+                                <td><code>true</code></td>
+                                <td>Rotates on spot before moving forward if initial angle exceeds threshold.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pivot Angle Threshold (°)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>90</code></td>
+                                <td>Angular deviation required to trigger an in-place pivot.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>4. ⏱ Timing, Stride & Speed Bounds</h4>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Stride Speed (m/s)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>1.4</code></td>
+                                <td>Natural stride speed. Click <strong>⚡ Auto Stride</strong> to extract directly from walk clip root-motion curves!</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stop Dist (m)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>0.1</code></td>
+                                <td>Arrival tolerance distance considered "at the sync spot".</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Min / Max Duration (s)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>0.5 / 2.0</code></td>
+                                <td>Hard clamps on total allowed approach duration.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Min / Max Playback (x)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>1.0 / 2.0</code></td>
+                                <td>Playback speed bounds preventing sliding or unnatural fast-forwarding.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accel / Decel (m/s²)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>8.0 / 10.0</code></td>
+                                <td>Physical acceleration and braking rates.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Transition Override (s)</strong></td>
+                                <td><code>float</code></td>
+                                <td><code>-1.0</code></td>
+                                <td>Crossfade duration from arrival into main choreography (<code>-1</code> uses global duration).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr class="my-4">
+
+                    <h3>Dynamic Actor Overrides Reference</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Role Identifier</strong></td>
+                                <td><code>string</code></td>
+                                <td>The role ID of the dynamic entity (e.g. <code>'sword_summon'</code>, <code>'phantom_dragon'</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prefab Override</strong></td>
+                                <td><code>GameObject</code></td>
+                                <td>Alternative prefab asset to instantiate (e.g. flaming sword skin instead of default iron blade).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Socket Override</strong></td>
+                                <td><code>string</code></td>
+                                <td>Caster bone name or socket to attach to (e.g. <code>'RightHand'</code>, <code>'Spine2'</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Local Offset</strong></td>
+                                <td><code>Vector3</code> (Pos) + <code>Vector3</code> (Rot)</td>
+                                <td>Spatial adjustment relative to the attachment socket.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scale Override</strong></td>
+                                <td><code>Vector3</code></td>
+                                <td>Local 3D scale multiplier (e.g. <code>(1.5, 1.5, 1.5)</code> for giant summons).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Timing Override</strong></td>
+                                <td><code>float</code> (Spawn) + <code>float</code> (Destroy)</td>
+                                <td>Normalized timeline timestamps (<code>0.0 - 1.0</code>) overriding spawn and despawn moments.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <hr class="my-4">
+
+                    <h3>C# Runtime API Reference</h3>
+                    <pre><code class="language-csharp">using MaharajaStudio.MSMotion.Runtime;
+using UnityEngine;
+
+public class InteractionTrigger : MonoBehaviour
+{
+    [SerializeField] private MSMotionInteractionConfig salsaDuetConfig;
+    [SerializeField] private MSMotionInteractionOverrides trollPartnerOverrides;
+    [SerializeField] private MSMotionAnimator leadDancer;
+    [SerializeField] private MSMotionAnimator partnerDancer;
+
+    public void ExecuteChoreography()
+    {
+        // 1-line execution applying all designer-authored overrides:
+        MSMotionInteraction.Play(salsaDuetConfig, trollPartnerOverrides, leadDancer, partnerDancer);
+    }
+}</code></pre>
+
+                    <h4>Pre-Flight Preparation & Session Augmentation</h4>
+                    <pre><code class="language-csharp">// 1. Prepare session with base config and designer overrides
+var session = MSMotionInteraction.Prepare(grappleConfig, heavyOverrides, attackerAnim, victimAnim);
+
+// 2. Programmatically augment specific parameters at runtime
+session.SetActorSpeedMultiplier("victim", 0.75f);
+
+// 3. Initiate synchronized playback
+session.Play();</code></pre>
+
+                    <hr class="my-4">
+
+                    <h3>Practical Recipes</h3>
+                    <ul>
+                        <li><strong>Recipe 1: Giant Monster Grapple (Spatial Body Compensation)</strong>: Create an Interaction Overrides asset, add role <code>'victim'</code>, enable <strong>Spatial Spacing (Offset)</strong> with <code>Position Offset Z = +0.45m</code> to push the monster back and prevent body mesh clipping, and set <strong>Speed Multiplier</strong> to <code>0.85x</code> for a heavy, weightier reaction.</li>
+                        <li><strong>Recipe 2: Injured Participant Approach</strong>: In the role override for Character B, unfold <strong>Locomotion & Gaits</strong>, set <strong>Gait Mode</strong> to <code>WalkOnly</code>, assign <code>Humanoid_Limping_Walk</code>, click <strong>⚡ Auto Stride</strong> in Section 4 to extract the limping speed, and clamp <strong>Max Playback Speed</strong> to <code>1.0x</code>.</li>
+                        <li><strong>Recipe 3: Weapon Disarm & Handover to Teammate</strong>: In the <strong>Handover Overrides</strong> list, add an entry, set <code>EventIdOrRoleId</code> to <code>'disarm_sword'</code>, <code>ReceiverActorId</code> to <code>'teammate'</code>, and <code>ReceiverBone</code> to <code>'RightHand'</code>.</li>
+                    </ul>
                 </section>
 
                 <!-- 4. Rigging & IK System -->
@@ -3843,7 +5058,10 @@ public class CharacterAimer : MonoBehaviour
         }
     }
 }</code></pre>
-                    <section id="rt-stretch-scale" class="docs-section" data-tab="runtime-system">
+                </section>
+
+                <!-- 5. Stretch & Scale System -->
+                <section id="rt-stretch-scale" class="docs-section" data-tab="runtime-system">
                         <h2>Stretch & Scale System</h2>
                         <p>MSMotion includes a high-performance procedural scaling solver managed by the
                             <code>MSMotionStretchApplicator</code> component. It applies Squash & Stretch scale

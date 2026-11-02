@@ -32,3 +32,14 @@ You can fade the spawned GameObject's scale in and out dynamically over the bloc
 * **Trajectory**: Expand this foldout to configure a Bezier spline path. You can define control points to make the spawned object travel along a specified vector path relative to the character (e.g. throwing a weapon prop that flies forward along a curved Bezier arc).
 * For details on how to generate, edit, and manipulate these spline paths, see the [FX Path Tools Scene Panel](fx-nodes-overview.md#fx-path-tools-scene-panel) section of the FX Nodes Overview.
 
+---
+
+## Cross-Actor Prop Handover & Catch Alignment
+
+When passing weapons, shields, torches, or items between characters in a multi-actor composition:
+* Enable **Cross-Actor Handover** in the slot details panel to transfer ownership from the source participant to a partner actor.
+* Use the **Phase-Aware Scene View Gizmo** (Cyan for release socket, Amber for catch socket) or the timeline's **`🔑` (Auto-Key)** mode to visually manipulate and align the prop directly in the receiving actor's hand.
+* Use the floating Scene View HUD toolbar or the inspector **`[⏱️ Scrub to Catch Frame]`** button to jump directly to the catch moment.
+* For full details on the dual-socket gizmo system, floating HUD toolbar, and catch alignment workflow, see [Cross-Actor FX & Prop Handover](fx-nodes-overview.md#cross-actor-fx--prop-handover).
+
+

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate Animated Attributes - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn active"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">Animated Attrs</h3>
+                    <span class="badge bg-primary">$29.99 • 87 Attrs</span>
+                </div>
+                <p class="text-muted small mb-3">Micro-Interactions & Sensory Feedback</p>
+
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Combat & HUD</li>
+                    <li><a href="#attr-boss-health-bar" class="docs-nav-link active"><i class="fas fa-heart-pulse text-danger me-2"></i>[BossHealthBar] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[CombatComboCounter] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ManaShieldBubble] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[RpgRarityGlow] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Audio & Haptics</li>
+                    <li><a href="#attr-editor-sound-effect" class="docs-nav-link"><i class="fas fa-volume-high text-info me-2"></i>[EditorSoundEffect] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[AudioReactivePulse] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[LiveOscilloscopeWave] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Sci-Fi & FX</li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[CyberpunkMatrixRain] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[HologramProjectorBeam] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-animated" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[GlitchTextMatrix] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="docs-content">
+
+                <!-- 1. [BossHealthBar] -->
+                <section id="attr-boss-health-bar" class="docs-section active">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[BossHealthBar]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Field | Property</span>
+                            <span class="badge bg-warning text-dark">Addon: Animated Attributes</span>
+                            <span class="badge bg-info text-dark">Zero GC</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Renders an authentic arcade boss health bar with a lingering damage ghost bar, multi-phase threshold dividers, and interactive click-drag scrubbing.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • BossEncounter.cs
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center small fw-bold text-warning mb-1">
+                            <span>IGNIS, LORD OF CINDERS</span>
+                            <span>3,500 / 5,000 HP (70%)</span>
+                        </div>
+                        <div class="boss-health-mock">
+                            <div class="boss-health-ghost"></div>
+                            <div class="boss-health-fill"></div>
+                            <!-- Phase divider notches at 75%, 50%, 25% -->
+                            <div class="boss-health-notch" style="left: 75%;"></div>
+                            <div class="boss-health-notch" style="left: 50%;"></div>
+                            <div class="boss-health-notch" style="left: 25%;"></div>
+                        </div>
+                        <div class="small text-muted mt-2 d-flex justify-content-between">
+                            <span>Phase 1 (Notch 75%)</span>
+                            <span>Phase 2 (Notch 50%)</span>
+                            <span>Enrage (Notch 25%)</span>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Renders a souls-like boss health bar directly inside your inspector. When health decreases, an amber ghost bar lingers at the prior health mark and slowly decays, providing visceral visual feedback when balancing encounters.</p>
+                    <p><strong>The Problem:</strong> Balancing multi-phase bosses requires continuously modifying raw float numbers, giving zero sense of phase pacing or visual thresholds.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Decaying Ghost Trail:</strong> Visually displays recent damage increments.</li>
+                        <li><strong>Phase Notches:</strong> Renders vertical tick markers corresponding to boss phase changes (e.g. <code>PhaseThresholds = new[] { 0.75f, 0.5f, 0.25f }</code>).</li>
+                        <li><strong>Interactive Scrubbing:</strong> Click and drag anywhere along the bar to test phase transitions in real time.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.AnimatedAttributes;
+
+public class BossEncounter : MonoBehaviour
+{
+    [BossHealthBar(maxHealth: 5000f, barHeight: 26f, BossName = "Ignis, Lord of Cinders")]
+    public float currentHealth = 3500f;
+}</code></pre>
+
+                    <h2>3. Customization Options & Properties</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>BossName</code></td>
+                                    <td><code>string</code></td>
+                                    <td><code>null</code></td>
+                                    <td>Optional boss title displayed above the health bar.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>BarHeight</code></td>
+                                    <td><code>float</code></td>
+                                    <td><code>22f</code></td>
+                                    <td>Pixel height of the health bar container.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>GhostDecaySpeed</code></td>
+                                    <td><code>float</code></td>
+                                    <td><code>1.5f</code></td>
+                                    <td>Decay speed factor for the amber ghost damage bar.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>PhaseThresholds</code></td>
+                                    <td><code>float[]</code></td>
+                                    <td><code>null</code></td>
+                                    <td>Array of normalized phase thresholds (0.0 to 1.0) for vertical notch dividers.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 2. [EditorSoundEffect] -->
+                <section id="attr-editor-sound-effect" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[EditorSoundEffect]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Method | Field | Property</span>
+                            <span class="badge bg-warning text-dark">Addon: Animated Attributes</span>
+                            <span class="badge bg-info text-dark">Tactile Audio</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Plays synthesized auditory cues directly in the Unity Editor when interacting with buttons, toggles, or serializable fields.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • BuildUtility.cs
+                        </div>
+                        <div class="p-2 border rounded text-center">
+                            <button class="unity-btn-mock" style="background: #3b82f6; height: 34px;">
+                                <i class="fas fa-music me-2"></i> Bake Lighting & NavMesh <span class="badge bg-light text-dark ms-2">Plays: SuccessChime</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Adds tactile auditory confirmation into the Unity Editor. Clicking buttons or modifying critical properties plays subtle audio synthesizers or chime presets.</p>
+                    <p><strong>The Problem:</strong> Editor tooling is silent. Triggering a critical build, baking navmeshes, or resetting game states gives no immediate feedback if an action executed.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>5 Presets:</strong> <code>Click</code>, <code>Tick</code>, <code>SciFiBlip</code>, <code>SuccessChime</code>, and <code>WarningBeep</code>.</li>
+                        <li><strong>Pitch Modulation:</strong> Customize playback pitch to differentiate actions across a single panel.</li>
+                        <li><strong>Zero Runtime Footprint:</strong> Plays using native editor audio synthesizers, 100% stripped from player builds.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.AnimatedAttributes;
+
+public class BuildUtility : MonoBehaviour
+{
+    [EditorSoundEffect(EditorSoundPreset.SuccessChime, Pitch = 1.1f)]
+    public void BakeLightingAndNavMesh()
+    {
+        Debug.Log("Baking completed successfully!");
+    }
+}</code></pre>
+                </section>
+
+                <!-- Staged Section -->
+                <section id="staged-animated" class="docs-section">
+                    <h1>Animated Attributes Catalog (87 Total)</h1>
+                    <div class="alert alert-info alert-custom">
+                        <h5 class="fw-bold"><i class="fas fa-film me-2"></i>87 Motion Attributes Staged in Workspace</h5>
+                        <p class="mb-0">All 87 motion attributes across 13 specialized motion categories are staged inside <code>assets/Documentations/MSUltimate/Addons/AnimatedAttributes/Documentation/attributes/</code>.</p>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const link = li.querySelector('a');
+                        if (!link) return;
+                        const linkText = link.textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
+</body>
+
+</html>

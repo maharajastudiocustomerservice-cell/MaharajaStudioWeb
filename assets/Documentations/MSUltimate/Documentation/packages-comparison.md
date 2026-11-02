@@ -25,15 +25,15 @@ The table below provides a comprehensive feature and licensing breakdown across 
 
 | Package Name | Price (USD) | Primary Domain | Attributes | Source Code | Tests Included | Included Addons | Licensing Tier |
 | :--- | :---: | :--- | :---: | :---: | :---: | :---: | :--- |
-| **MSUltimate Core (Community)** | **FREE** | Core Inspector & Serializers | 156+ | Obfuscated DLL | — | — | Free Community (<$200K Rev) |
-| **MSUltimate Core (Pro)** | **$149.99** | Unrestricted Core Engine | 156+ | Full C# Source | — | — | Commercial Pro (Uncapped) |
-| **MSUltimate - Animated Attributes** | **$29.99** | Micro-Interactions & VFX | 87 | Full C# Source | — | Standalone | Commercial Addon |
-| **MSUltimate - Component Designer** | **$29.99** | Branded Inspector Cards | 75 | Full C# Source | — | Standalone | Commercial Addon |
-| **MSUltimate - Hierarchy Designer** | **$29.99** | Scene Hierarchy Window | 83 | Full C# Source | — | Standalone | Commercial Addon |
-| **MSUltimate - Validation Module** | **$29.99** | Project Scanning & Fixes | 39 | Full C# Source | — | Standalone | Commercial Addon |
-| **MSUltimate - Inspector Customizer** | **$39.99** | Visual Theming Engine | Templates | Full C# Source | — | Standalone | Commercial Addon |
-| **MSUltimate - ToolBox Vol. 1** | **$44.99** | 4 Developer Power Tools | 4 + Tools | Full C# Source | — | Standalone | Commercial Addon |
-| **MSUltimate Pro (Full Collection)** | **$299.99** | Complete Master Ecosystem | **444+** | **Full C# Source** | **5,500+ Tests** | **ALL 6 Addons** | **Commercial Pro (Uncapped)** |
+| **MSUltimate Core (Community)** | **FREE** | Core Inspector & Serializers | 156+ | Obfuscated DLL | — | — | Custom Free EULA (<$200K Rev) |
+| **MSUltimate Core (Pro)** | **$149.99** | Unrestricted Core Engine | 156+ | Full C# Source | — | — | Standard Unity EULA (Per-Seat) |
+| **MSUltimate - Animated Attributes** | **$29.99** | Micro-Interactions & VFX | 87 | Full C# Source | — | Standalone | Standard Unity EULA (Per-Seat) |
+| **MSUltimate - Component Designer** | **$29.99** | Branded Inspector Cards | 75 | Full C# Source | — | Standalone | Standard Unity EULA (Per-Seat) |
+| **MSUltimate - Hierarchy Designer** | **$29.99** | Scene Hierarchy Window | 83 | Full C# Source | — | Standalone | Standard Unity EULA (Per-Seat) |
+| **MSUltimate - Validation Module** | **$29.99** | Project Scanning & Fixes | 39 | Full C# Source | — | Standalone | Standard Unity EULA (Per-Seat) |
+| **MSUltimate - Inspector Customizer** | **$39.99** | Visual Theming Engine | Templates | Full C# Source | — | Standalone | Standard Unity EULA (Per-Seat) |
+| **MSUltimate - ToolBox Vol. 1** | **$44.99** | 4 Developer Power Tools | 4 + Tools | Full C# Source | — | Standalone | Standard Unity EULA (Per-Seat) |
+| **MSUltimate Pro (Full Collection)** | **$299.99** | Complete Master Ecosystem | **444+** | **Full C# Source** | **5,500+ Tests** | **ALL 6 Addons** | **Standard Unity EULA (Per-Seat)** |
 
 ---
 
@@ -189,9 +189,9 @@ Gross revenue under $200K?         Need full source code or all tools?
 
 ## 7. Licensing & Fair Use Summary
 
-- **Community Edition:** Free to use for commercial and non-commercial games by creators and studios with annual gross revenues and funding below $200,000 USD. If your revenue exceeds this threshold, upgrading to a Pro license is required.
-- **Pro Editions & Addons:** Perpetual, royalty-free commercial licenses with no revenue caps.
-- **Redistribution Policy:** Redistribution, sublicensing, decompilation, or hosting on public repositories is strictly prohibited across all editions.
+- **Community Edition:** Free to use for commercial and non-commercial games by creators and studios with annual gross revenues and funding below $200,000 USD under our dedicated Custom License. If your revenue or capital funding exceeds this threshold, upgrading to a Pro license is required.
+- **Pro Editions & Addons:** Governed by the **standard Unity Asset Store End User License Agreement (EULA) on a per-seat basis** (one license required per developer seat utilizing the software in your studio), with no gross revenue ceilings or royalty obligations.
+- **Redistribution Policy:** Redistribution, sublicensing, decompilation, reverse engineering, or hosting on public repositories is strictly prohibited across all editions.
 
 ---
 

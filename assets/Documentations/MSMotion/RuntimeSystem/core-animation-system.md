@@ -147,6 +147,41 @@ Instantly halts playback across all layers, returning all layers to idle or bind
 *   `public UnityEngine.Animations.AnimationClipPlayable GetActiveAnimationClipPlayable(int layer)`: Returns the underlying `AnimationClipPlayable` if present.
 *   `public UnityEngine.Animations.AnimatorControllerPlayable GetAnimatorControllerPlayable()`: Returns the legacy controller playable running on Layer 0, if assigned.
 
+#### External PlayableGraph Integration (Coexistence Mode)
+
+For projects with custom `PlayableGraph` architectures (such as custom gameplay animators or third-party controllers):
+*   `public void AttachToExternalGraph(PlayableGraph externalGraph, AnimationLayerMixerPlayable hostMixer, int layerOffset = 0, int targetLayerSlot = -1)`:
+    Attaches `MSMotionAnimator` to an existing `PlayableGraph`, bypassing internal `AnimationPlayableOutput` creation and blending directly into `hostMixer`.
+    *   `layerOffset`: Direct host mixer mode. Action layers evaluate at `config.Layer + layerOffset` on `hostMixer`.
+    *   `targetLayerSlot`: Sub-mixer mode. If `>= 0`, creates an internal sub-mixer plugged into `targetLayerSlot` of `hostMixer`.
+*   `public void DetachFromExternalGraph()`:
+    Disconnects layers cleanly from the external graph without destroying the host graph.
+*   `public bool IsExternalGraph`: Returns true when attached to an external graph.
+*   `public PlayableGraph Graph`: Accesses the active `PlayableGraph`.
+*   `public AnimationLayerMixerPlayable RootLayerMixer`: Accesses the active layer mixer.
+
+#### Dynamic Visual & Avatar Rebinding (Modular Characters / Online Spawning)
+
+For games with late-instantiated character visuals, skin swapping, or character customization:
+*   `public void Rebind(Animator newAnimator, Transform newBoneRoot = null, bool? rebuildGraph = null)`:
+    Master one-liner that rebinds `MSMotionAnimator`, updates or retargets `AnimationPlayableOutput`, flushes and retargets bone caches in `MSMotionFXPlayer`, clears bone chains in `MSMotionStretchApplicator`, and updates `MSMotionRigController`.
+*   `public void RebuildGraph()`:
+    Destroys and recreates the internal `PlayableGraph` from scratch. Useful when avatar skeleton structure changes completely.
+*   `public Animator TargetAnimator { get; set; }`:
+    Property to get or assign the active Animator component (setting it automatically invokes `Rebind`).
+*   `public bool AutoSearchChildrenForAnimator { get; set; }`:
+    When true (default), automatically searches child GameObjects for an `Animator` if one is not present on the root container GameObject.
+*   `public event Action<Animator> OnAnimatorRebound`:
+    Fires whenever the target Animator is rebound or swapped at runtime.
+*   `public void EnsureSubsystemReferences()`:
+    Auto-discovers or refreshes linked subsystem components (`MSMotionFXPlayer`, `MSMotionStretchApplicator`, `MSMotionRigController`) on the root GameObject or any child GameObjects.
+*   `public MSMotionFXPlayer FXPlayer { get; set; }`:
+    Power user property allowing direct get/set access to the linked FX player.
+*   `public MSMotionStretchApplicator StretchApplicator { get; set; }`:
+    Power user property allowing direct get/set access to the linked stretch applicator.
+*   `public MSMotionRigController RigController { get; set; }`:
+    Power user property allowing direct get/set access to the linked IK rig controller.
+
 ---
 
 ## MSMotionAnimationConfig Reference

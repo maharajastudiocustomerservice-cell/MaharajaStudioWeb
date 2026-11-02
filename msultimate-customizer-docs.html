@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate Inspector Customizer - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn active"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">Inspector Customizer</h3>
+                    <span class="badge bg-primary">$39.99</span>
+                </div>
+                <p class="text-muted small mb-3">Visual Theming & Template Engine</p>
+
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Makeover & Templates</li>
+                    <li><a href="#feat-makeover-engine" class="docs-nav-link active"><i class="fas fa-wand-magic-sparkles text-primary me-2"></i>1-Click Makeover Engine <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#feat-uxml-theme-injector" class="docs-nav-link"><i class="fas fa-code text-info me-2"></i>UXML & USS Theme Tokens <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-customizer" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>Virtual Inspector Profiles <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-customizer" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>Declarative Rule Engine <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Curated Presets Catalog</li>
+                    <li><a href="#staged-customizer" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>RPG Character & Combat <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-customizer" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>Sci-Fi Weapon Suite <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-customizer" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>Vehicle Physics Rig <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="docs-content">
+
+                <!-- 1. 1-Click Makeover Engine -->
+                <section id="feat-makeover-engine" class="docs-section active">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">1-Click Inspector Makeover Engine</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Workflow: Visual Workbench</span>
+                            <span class="badge bg-success">Non-Destructive</span>
+                            <span class="badge bg-info text-dark">UI Toolkit</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Provides instant, 1-click declarative visual transformations for any Unity component, MonoBehaviour, or ScriptableObject without altering underlying C# source code.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Makeover Comparison • BossHero.cs
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <div class="p-2 border rounded" style="background: #222;">
+                                    <span class="badge bg-secondary mb-2">BEFORE (Default Unity)</span>
+                                    <div class="small text-muted mb-1">Health: 100</div>
+                                    <div class="small text-muted mb-1">Mana: 50</div>
+                                    <div class="small text-muted">AttackSpeed: 1.2</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-2 border rounded" style="background: #1a2332; border-color: #00aaff !important;">
+                                    <span class="badge bg-primary mb-2">AFTER (1-Click RPG Preset)</span>
+                                    <div class="small fw-bold text-success mb-1">💚 Health Gauge [100 / 100]</div>
+                                    <div class="small fw-bold text-info mb-1">💙 Mana Gauge [50 / 50]</div>
+                                    <button class="unity-btn-mock mt-1" style="height: 24px; font-size: 0.72rem; background: #dc2626;">⚔️ Attack Test</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Rather than manually writing dozens of C# attributes by hand across thousands of lines of code, the Template Engine scans class fields and methods, evaluates customizable rules, and applies rich layouts, progress bars, group boxes, foldouts, sliders, and interactive action buttons non-destructively.</p>
+                    <p><strong>Key Advantages:</strong></p>
+                    <ul>
+                        <li><strong>Zero Source Code Pollution:</strong> Prototype layouts and theme groups without dirtying git working trees.</li>
+                        <li><strong>1-Click Presets:</strong> Pre-packaged with 8 tailored game domain presets (RPG, Sci-Fi Shooter, Vehicles, WorldGen, Audio, AI, UI).</li>
+                        <li><strong>Undo/Redo Integrated:</strong> Fully registered in Unity's native Undo stack.</li>
+                        <li><strong>Optional C# Code Baker:</strong> When satisfied, bake virtual layout rules directly into permanent C# attributes.</li>
+                    </ul>
+                </section>
+
+                <!-- 2. UXML & USS Theme Tokens Injector -->
+                <section id="feat-uxml-theme-injector" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">UXML & USS Theme Tokens Injector</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Architecture: UI Toolkit</span>
+                            <span class="badge bg-warning text-dark">Theme Tokens</span>
+                            <span class="badge bg-info text-dark">USS Injection</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Inject custom UI Toolkit stylesheets (USS) and structured templates (UXML) into any component inspector, enabling custom branding, dark/light/cyberpunk tokens, and studio themes.
+                    </p>
+
+                    <h2>1. Core Concepts</h2>
+                    <p>The Theme Token system maps custom color tokens and typography variables directly into Unity UI Toolkit's VisualElement root. You can switch between built-in dark, light, obsidian, and cyberpunk themes globally or per-component.</p>
+                </section>
+
+                <!-- Staged Section -->
+                <section id="staged-customizer" class="docs-section">
+                    <h1>Inspector Customizer Architecture & Catalog</h1>
+                    <div class="alert alert-info alert-custom">
+                        <h5 class="fw-bold"><i class="fas fa-brush me-2"></i>Customizer Documentation Staged in Workspace</h5>
+                        <p class="mb-0">All templating manuals, theme token references, and windowing documentation are staged inside <code>assets/Documentations/MSUltimate/Addons/InspectorCustomizer/Documentation/</code>.</p>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const link = li.querySelector('a');
+                        if (!link) return;
+                        const linkText = link.textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
+</body>
+
+</html>

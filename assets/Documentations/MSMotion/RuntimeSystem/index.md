@@ -40,6 +40,8 @@ graph TD
 2.  **[MSMotionFXPlayer](fx-event-system.md)**: Listens to the timeline playhead and schedules visual effects, particles, sound, camera shakes, and custom script callbacks.
 3.  **[MSMotionRigController](rigging-and-ik-system.md)**: Interfaces with Unity's Animation Rigging constraints, enabling dynamic procedural aiming, foot planting, and bone offsets.
 4.  **[MSMotionStretchApplicator](stretch-and-scale-system.md)**: Applies procedural Squash & Stretch overrides directly to bones using baked keyframe curves.
+5.  **[MSMotionInteraction](multi-actor-interaction.md)**: Multi-actor interaction and choreography runner. Coordinates synchronized multi-character playback, dynamic departure, and cross-actor IK targeting.
+6.  **[MSMotionInteractionOverrides](interaction-overrides.md)**: Post-export preset system for multi-actor choreography. Manages granular field-level overrides, body spacing compensation, 4-category dynamic alignment foldouts, dynamic summons, and prop handovers.
 
 ---
 
@@ -85,4 +87,6 @@ Navigate the runtime architecture and API reference using the following chapters
 *   **[FX & Event System](fx-event-system.md)**: Harness character effects, trajectories, global registries, and script event buses.
 *   **[Rigging & IK System](rigging-and-ik-system.md)**: Integrate character IK constraints, set targets at runtime, and manage cross-layer suppression.
 *   **[Stretch & Scale System](stretch-and-scale-system.md)**: Enable squash-and-stretch capabilities, and configure Level-of-Detail (LOD) distance culling.
+*   **[Multi-Actor Interaction](multi-actor-interaction.md)**: Synchronized choreography, dynamic departure, partner targeting, dynamic actor pooling, and dynamic motion alignment.
+*   **[Interaction Overrides System](interaction-overrides.md)**: Post-export preset authoring, granular field toggles, 4-category dynamic alignment foldouts, auto stride derivation, and C# runtime API.
 *   **[Optimization & Best Practices](optimization-and-best-practices.md)**: Guidelines for allocation-free systems, multi-threaded considerations, and performance-tuning.

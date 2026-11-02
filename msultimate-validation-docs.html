@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate Validation Module - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn active"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">Validation Module</h3>
+                    <span class="badge bg-primary">$29.99 • 39 Attrs</span>
+                </div>
+                <p class="text-muted small mb-3">Real-Time Data Integrity & Diagnostics</p>
+
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Null & Asset Safety</li>
+                    <li><a href="#attr-validate-not-null" class="docs-nav-link active"><i class="fas fa-shield-halved text-danger me-2"></i>[ValidateNotNull] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#attr-validate-range" class="docs-nav-link"><i class="fas fa-arrows-left-right text-warning me-2"></i>[ValidateRange] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-validation" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ValidateComponent] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-validation" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ValidateAssetExtension] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Hierarchy & Structure</li>
+                    <li><a href="#staged-validation" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ValidateChildCount] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-validation" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ValidateHierarchyDepth] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-validation" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[ValidateUniqueInHierarchy] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">1-Click Auto-Repair Window</li>
+                    <li><a href="#staged-validation" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>Project Scanner Engine <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="docs-content">
+
+                <!-- 1. [ValidateNotNull] -->
+                <section id="attr-validate-not-null" class="docs-section active">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[ValidateNotNull]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Field</span>
+                            <span class="badge bg-danger">Severity: Error</span>
+                            <span class="badge bg-info text-dark">Engine Scanned</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Validates that an object reference, string, or collection is not null or empty, displaying high-contrast alert banners directly in the Inspector and surfacing warnings in the Project Scanner.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • PlayerInventory.cs
+                        </div>
+                        <div class="unity-inspector-row">
+                            <span class="unity-inspector-label">Item Database</span>
+                            <input type="text" class="unity-inspector-input" value="None (ScriptableObject)" style="border-color: #ef4444; color: #ef4444;">
+                        </div>
+                        <div class="alert alert-danger py-1 px-2 my-1 small d-flex align-items-center gap-2" style="background: rgba(220, 53, 69, 0.2); border: 1px solid #dc3545; color: #f87171;">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <span>Item database asset must be assigned. Cannot proceed without item definitions.</span>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Eliminates null reference exceptions by asserting that field references are never left unassigned. It detects missing assets, empty strings, and zero-length arrays before you hit Play.</p>
+                    <p><strong>The Problem:</strong> Null references account for over 70% of runtime bugs in Unity projects. Standard Unity performs zero checks on unassigned fields in the inspector.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Deep Null & Empty Detection:</strong> Setting <code>FailOnEmpty = true</code> additionally catches empty string IDs and zero-element collections.</li>
+                        <li><strong>Direct Inspector Alerts:</strong> Renders high-contrast inline error cards.</li>
+                        <li><strong>1-Click Project-Wide Scan:</strong> The Validation Module window discovers all unassigned fields across the entire project in 1 click.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.ValidationModule;
+
+public class PlayerInventory : MonoBehaviour
+{
+    [ValidateNotNull("Item database asset must be assigned.")]
+    public ScriptableObject itemDatabase;
+
+    [ValidateNotNull("Character display name cannot be null or empty.", FailOnEmpty = true)]
+    public string characterName = "Hero";
+}</code></pre>
+                </section>
+
+                <!-- 2. [ValidateRange] -->
+                <section id="attr-validate-range" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[ValidateRange]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Field</span>
+                            <span class="badge bg-warning text-dark">Severity: Warning</span>
+                            <span class="badge bg-info text-dark">Numeric Guard</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Enforces minimum and maximum numeric boundaries on serialized fields, warning when values exceed safe design ranges and preventing out-of-bounds calculations.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Inspector Simulated Preview • WeaponController.cs
+                        </div>
+                        <div class="unity-inspector-row">
+                            <span class="unity-inspector-label">Fire Rate (Rounds/Sec)</span>
+                            <input type="text" class="unity-inspector-input" value="120.0" style="border-color: #f59e0b; color: #f59e0b;">
+                        </div>
+                        <div class="alert alert-warning py-1 px-2 my-1 small d-flex align-items-center gap-2" style="background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; color: #fbbf24;">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <span>Fire rate exceeds maximum safe simulation rate (Max: 60.0 rps).</span>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Guards numeric floats and integers against unrealistic or game-breaking values. Unlike basic Unity sliders which only cap UI dragging, <code>[ValidateRange]</code> also catches programmatic mutations, copy-pastes, and ScriptableObject overrides.</p>
+                </section>
+
+                <!-- Staged Section -->
+                <section id="staged-validation" class="docs-section">
+                    <h1>Validation Module Catalog (39 Total)</h1>
+                    <div class="alert alert-info alert-custom">
+                        <h5 class="fw-bold"><i class="fas fa-shield-check me-2"></i>39 Validation Attributes & Scanner Staged</h5>
+                        <p class="mb-0">All 39 validation attributes and the project diagnostic window engine are staged inside <code>assets/Documentations/MSUltimate/Addons/ValidationModule/Documentation/</code>.</p>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const link = li.querySelector('a');
+                        if (!link) return;
+                        const linkText = link.textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSUltimate Hierarchy Designer - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
+        style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <div class="theme-switcher ms-3 d-flex align-items-center">
+                        <i class="fas fa-sun me-2"></i>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                        </div>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Global Ecosystem Navigation Switcher -->
+    <div class="ecosystem-nav-bar">
+        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
+            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
+            <span class="eco-nav-divider"></span>
+            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
+            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
+            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn active"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
+            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
+            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="docs-container">
+            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
+                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
+                <i class="fas fa-list"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h3 class="mb-0">Hierarchy Designer</h3>
+                    <span class="badge bg-primary">$29.99 • 83 Attrs</span>
+                </div>
+                <p class="text-muted small mb-3">Scene Hierarchy Window Overhaul</p>
+
+                <div class="mb-3">
+                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
+                </div>
+
+                <ul class="docs-nav-menu">
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Badges & Telemetry</li>
+                    <li><a href="#attr-hierarchy-badge" class="docs-nav-link active"><i class="fas fa-tag text-info me-2"></i>[HierarchyBadge] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-hierarchy" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[HierarchyStatusDot] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-hierarchy" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[HierarchyActiveButton] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Tree & Structure</li>
+                    <li><a href="#attr-hierarchy-folder" class="docs-nav-link"><i class="fas fa-folder text-success me-2"></i>[HierarchyFolder] <span class="badge bg-primary ms-auto">Live</span></a></li>
+                    <li><a href="#staged-hierarchy" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[HierarchyTreeBranch] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-hierarchy" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[HierarchyChildCounter] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+
+                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Diagnostics & Validation</li>
+                    <li><a href="#staged-hierarchy" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[HierarchyAudioMonitor] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                    <li><a href="#staged-hierarchy" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>[HierarchyMissingScriptDetector] <span class="badge bg-secondary ms-auto">Staged</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="docs-content">
+
+                <!-- 1. [HierarchyBadge] -->
+                <section id="attr-hierarchy-badge" class="docs-section active">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[HierarchyBadge]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Class | Field</span>
+                            <span class="badge bg-warning text-dark">Window: Hierarchy</span>
+                            <span class="badge bg-info text-dark">Zero GC</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Draws a sleek colored pill badge on the Unity Hierarchy row for static entity categorization or dynamic conditional state display.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Hierarchy Window Simulated Preview
+                        </div>
+                        <div class="unity-hierarchy-row mb-1">
+                            <i class="fas fa-cube me-2 text-primary"></i>
+                            <span>PlayerCharacterEntity</span>
+                            <span class="unity-hierarchy-badge" style="background: #0284c7;">PLAYER</span>
+                            <span class="unity-hierarchy-badge ms-1" style="background: #16a34a;">ALIVE</span>
+                        </div>
+                        <div class="unity-hierarchy-row">
+                            <i class="fas fa-cube me-2 text-danger"></i>
+                            <span>Ignis_LordOfCinders</span>
+                            <span class="unity-hierarchy-badge" style="background: #dc2626;">BOSS</span>
+                            <span class="unity-hierarchy-badge ms-1" style="background: #f59e0b;">PHASE 2</span>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Renders sharp metadata badges alongside GameObject names in the Hierarchy window. It supports static categorization (e.g. <code>"PLAYER"</code>, <code>"BOSS"</code>, <code>"AUDIO"</code>) or dynamic boolean field monitoring (flips between <code>"ALIVE"</code> and <code>"DEAD"</code> in real time).</p>
+                    <p><strong>The Problem:</strong> Default Unity hierarchy rows only display plain text GameObject names. Finding specific entity types in scenes with 5,000+ objects requires reading naming conventions or opening component lists.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Instant Telemetry:</strong> Observe game entity states at a glance without selecting them.</li>
+                        <li><strong>Dual-State Flips:</strong> Binds to boolean variables to swap text and colors dynamically.</li>
+                        <li><strong>Zero Runtime Allocations:</strong> Evaluates with cached strings and zero GC per repaint.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.HierarchyDesigner;
+
+[HierarchyBadge(Text = "PLAYER", BadgeColor = "#0284C7", TextColor = "#FFFFFF", Bold = true)]
+public class PlayerCharacterEntity : MonoBehaviour
+{
+    [HierarchyBadge(Text = "ALIVE", AlternateText = "DEAD", BadgeColor = "#16A34A", AlternateBadgeColor = "#991B1B", ShowCondition = HierarchyBadgeCondition.WhenTrue)]
+    public bool isAlive = true;
+
+    public float currentHealth = 100f;
+}</code></pre>
+                </section>
+
+                <!-- 2. [HierarchyFolder] -->
+                <section id="attr-hierarchy-folder" class="docs-section">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <h1 class="mb-0">[HierarchyFolder]</h1>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">Target: Class</span>
+                            <span class="badge bg-success">Flatten On Build: Yes</span>
+                            <span class="badge bg-warning text-dark">Window: Hierarchy</span>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Transforms an empty GameObject into an organizational folder header with colored chapter bars, folder iconography, and optional build-time flattening.
+                    </p>
+
+                    <!-- Simulated Visual Preview -->
+                    <div class="unity-preview-card">
+                        <div class="preview-header">
+                            <i class="fab fa-unity"></i> Unity Hierarchy Window Simulated Preview
+                        </div>
+                        <div class="unity-hierarchy-row folder-row mb-1">
+                            <span>📁 STATIC ENVIRONMENT</span>
+                            <span class="small text-muted ms-auto">[Folder Header]</span>
+                        </div>
+                        <div class="unity-hierarchy-row ps-4 mb-1">
+                            <i class="fas fa-tree me-2 text-success"></i> <span>Terrain_Forest_01</span>
+                        </div>
+                        <div class="unity-hierarchy-row ps-4">
+                            <i class="fas fa-mountain me-2 text-secondary"></i> <span>Rock_Formation_B</span>
+                        </div>
+                    </div>
+
+                    <h2>1. Overview & Value Proposition</h2>
+                    <p><strong>What it does:</strong> Converts dummy organizational GameObjects into clean, stylized virtual folders in the Hierarchy window. It provides visual chapters and includes an optional <code>FlattenOnBuild = true</code> feature that unparents child entities during standalone game builds to eliminate transform hierarchy depth overhead.</p>
+                    <p><strong>The Problem:</strong> Unity has no native scene folders. Developers create dummy GameObjects like <code>--- LIGHTING ---</code> which clutter transform structures and degrade runtime performance if left nested.</p>
+                    <p><strong>The Solution:</strong></p>
+                    <ul>
+                        <li><strong>Folder Iconography:</strong> Clean full-width colored header rows with folder icons (<code>📁</code>).</li>
+                        <li><strong>Optional Build Optimization:</strong> Unparents children automatically when compiling game builds.</li>
+                        <li><strong>Custom Folder Themes:</strong> Assign distinct theme colors to different sub-systems.</li>
+                    </ul>
+
+                    <h2>2. Quick Start Example</h2>
+                    <pre><code class="language-csharp">using UnityEngine;
+using MaharajaStudio.MSUltimate.HierarchyDesigner;
+
+[HierarchyFolder(FolderName = "STATIC ENVIRONMENT", FolderColor = "#10B981", FlattenOnBuild = true)]
+public class EnvironmentFolder : MonoBehaviour
+{
+}</code></pre>
+                </section>
+
+                <!-- Staged Section -->
+                <section id="staged-hierarchy" class="docs-section">
+                    <h1>Hierarchy Designer Catalog (83 Total)</h1>
+                    <div class="alert alert-info alert-custom">
+                        <h5 class="fw-bold"><i class="fas fa-sitemap me-2"></i>83 Hierarchy Attributes Staged in Workspace</h5>
+                        <p class="mb-0">All 83 hierarchy attributes across 8 categories are staged inside <code>assets/Documentations/MSUltimate/Addons/HierarchyDesigner/Documentation/attributes/</code>.</p>
+                    </div>
+                </section>
+
+                <!-- Pagination -->
+                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
+                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
+                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.docs-nav-link');
+            const sections = document.querySelectorAll('.docs-section');
+            const prevButton = document.getElementById('prev-doc');
+            const nextButton = document.getElementById('next-doc');
+            const searchInput = document.getElementById('doc-search');
+            const navItems = document.querySelectorAll('.docs-nav-menu li');
+
+            let currentIndex = 0;
+
+            function updateUI() {
+                const currentHash = window.location.hash || `#${sections[0].id}`;
+                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+                if (foundIndex === -1) foundIndex = 0;
+                currentIndex = foundIndex;
+
+                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newHash = link.getAttribute('href');
+                    if (window.location.hash !== newHash) {
+                        window.location.hash = newHash;
+                    }
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    navItems.forEach(li => {
+                        const link = li.querySelector('a');
+                        if (!link) return;
+                        const linkText = link.textContent.toLowerCase();
+                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
+                    });
+                });
+            }
+
+            window.addEventListener('hashchange', updateUI);
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
+                });
+            }
+
+            updateUI();
+        });
+    </script>
+    <script src="js/msultimate-search-index.js"></script>
+    <script src="js/msultimate-omnisearch.js"></script>
+</body>
+
+</html>
