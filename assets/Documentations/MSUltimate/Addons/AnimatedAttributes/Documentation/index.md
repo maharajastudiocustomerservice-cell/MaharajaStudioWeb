@@ -8,10 +8,12 @@
 ## Overview
 MSUltimate Animated Attributes brings dynamic motion, visual alerts, animated transitions, HUD indicators, and micro-interactions into the Unity Inspector. All animations are hardware-accelerated, zero-allocation on repaint, and stripped completely in player runtime builds.
 
-## Feature Categories (87 Attributes)
-| Category | Attribute Count | Index Link |
+## Feature Categories (99 Concrete Attributes / 101 Classes)
+> Note: The 99 concrete attributes (plus 2 abstract base contracts: `[Animated]` and `[AnimatedDrawer]`) span 12 runtime categories (`AudioAndHaptics`, `CombatAndHUD`, `DataVisualizers`, `FeedbackAndAlerts`, `Gamification`, `ParticleSimulations`, `PhysicsAndInteractions`, `Productivity`, `SciFiAndFX`, `SpatialControls`, `Transitions`, and `Typography`). In this documentation tree, 21 core primitives plus the 2 abstract contracts are grouped under `core-animated/`, bringing the 13 doc folders to 101 attribute pages total.
+
+| Category | Doc Count | Index Link |
 | :--- | :---: | :--- |
-| **Core Animated** | 23 | [Browse Core Animated Attributes](attributes/core-animated/index.md) |
+| **Core Animated** *(2 base + 21 primitives)* | 23 | [Browse Core Animated Attributes](attributes/core-animated/index.md) |
 | **Audio & Haptics** | 3 | [Browse Audio & Haptics](attributes/audio-and-haptics/index.md) |
 | **Combat & HUD** | 4 | [Browse Combat & HUD](attributes/combat-and-hud/index.md) |
 | **Data Visualizers** | 6 | [Browse Data Visualizers](attributes/data-visualizers/index.md) |
@@ -23,4 +25,4 @@ MSUltimate Animated Attributes brings dynamic motion, visual alerts, animated tr
 | **Sci-Fi & FX** | 10 | [Browse Sci-Fi & FX](attributes/scifi-and-fx/index.md) |
 | **Spatial Controls** | 4 | [Browse Spatial Controls](attributes/spatial-controls/index.md) |
 | **Transitions** | 4 | [Browse Transitions](attributes/transitions/index.md) |
-| **Typography** | 9 | [Browse Typography](attributes/typography/index.md) |
+| **Typography** | 23 *(+4 in Core Animated)* | [Browse Typography](attributes/typography/index.md) |

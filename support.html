@@ -1,164 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Center - Maharaja Studio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Support Center — Maharaja Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="documentation.html"><i
-                                class="fas fa-book me-1"></i>Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="support.html"><i
-                                class="fas fa-life-ring me-1"></i>Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html"><i
-                                class="fas fa-envelope me-1"></i>Contact</a></li>
-                    <div class="theme-switcher ms-3 d-flex align-items-center">
-                        <i class="fas fa-sun me-2"></i>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="theme-switcher">
-                        </div>
-                        <i class="fas fa-moon"></i>
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">MSUltimate Ecosystem</span><span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">MSMotion v2.0</span><span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span><span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span><span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Object Finder Pro</span><span class="nav-dropdown-meta">Async query &amp; reference search</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Ultimate Quick Inspector</span><span class="nav-dropdown-meta">Multi-page GUID pin drawer</span></span>
+                        </a>
                     </div>
-                </ul>
+                </li>
+                <li><a class="nav-link" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link active" aria-current="page" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="msultimate.html">Explore Assets</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="page-header text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Support Center</h1>
-            <p class="lead">Your questions, answered. Find the help you need to get the most out of our assets.</p>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="support.html" class="active">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Unity Assets</span>
+            <a href="msultimate.html">MSUltimate Ecosystem</a>
+            <a href="ms-motion.html">MSMotion v2.0</a>
+            <a href="scriptable-studio-pro.html">Scriptable Studio Pro v4.5</a>
+            <a href="tactical-cover-retreat-ai-system.html">Tactical Cover &amp; Retreat AI</a>
+            <a href="object-finder-pro.html">Object Finder Pro</a>
+            <a href="ultimate-quick-inspector.html">Ultimate Quick Inspector</a>
+        </div>
+    </div>
+
+    <header class="hero" style="padding: var(--space-10) 0;">
+        <canvas class="hero-canvas" data-glyph-mode="search" aria-hidden="true"></canvas>
+        <div class="container" style="max-width: 860px; text-align: center;">
+            <div class="hero-breadcrumb" style="justify-content: center;">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="mono" style="color: var(--accent-text);">Support</span>
+            </div>
+            <h1>Support Center</h1>
+            <p class="hero-sub" style="margin: 0 auto; max-width: 34rem;">
+                Find quick answers to common installation, compatibility, and troubleshooting questions, or contact our engineering team directly.
+            </p>
         </div>
     </header>
 
-    <main class="container my-5">
-        <section id="faq" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-5">Frequently Asked Questions</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="accordion" id="faqAccordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                        <strong>How do I import an asset into my Unity project?</strong>
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                    data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        After purchasing from the Unity Asset Store, open your project in Unity. Go to
-                                        <strong>Window > Package Manager</strong>, select the "My Assets" tab, find the
-                                        asset, and click the "Import" button. For detailed steps, please refer to the
-                                        official Unity documentation on asset packages.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <strong>Are your assets compatible with the latest Unity LTS version?</strong>
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                    data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        Yes, we are committed to ensuring all our assets are compatible with the latest
-                                        Long-Term Support (LTS) version of Unity. We perform regular updates and
-                                        testing. Please check the asset's page on the Unity Store for specific version
-                                        compatibility.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        <strong>I found a bug. What should I do?</strong>
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        We apologize for any inconvenience. Please contact us directly through our <a
-                                            href="contact.html">contact page</a> or email us at <a
-                                            href="mailto:maharajastudiocustomerservice@gmail.com">maharajastudiocustomerservice@gmail.com</a>
-                                        with detailed information about the bug, including steps to reproduce it, your
-                                        Unity version, and the asset version. We prioritize bug fixes and will address
-                                        the issue as soon as possible.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">
-                                        <strong>Do you offer refunds?</strong>
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                    data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        Refunds are handled by the Unity Asset Store and are subject to their official
-                                        refund policy. However, we encourage you to contact us first if you are
-                                        experiencing any issues. We are dedicated to ensuring our customers are
-                                        satisfied and will do our best to resolve any problems you encounter.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <main class="section" style="padding-top: var(--space-4);">
+        <div class="container" style="max-width: 860px;">
+            <div class="section-head" style="text-align: center; margin-bottom: var(--space-6);">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-sub">Common solutions for Unity developers using Maharaja Studio assets</p>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary class="faq-question">How do I import an asset into my Unity project?</summary>
+                    <div class="faq-answer">
+                        <p>After acquiring an asset on the Unity Asset Store, open your project in the Unity Editor. Open <code>Window &gt; Package Manager</code>, select <strong>"Packages: My Assets"</strong> from the top dropdown, locate your asset, click <strong>Download</strong>, and then click <strong>Import</strong>.</p>
+                        <p>All dependencies and samples (if included) will be safely placed in your project's Asset folder without modifying your project settings.</p>
                     </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Are your assets compatible with the latest Unity LTS &amp; Unity 6?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. All Maharaja Studio packages are built and continuously tested against Unity 2021.3 LTS, 2022.3 LTS, and Unity 6 (6000.x)+ across both UI Toolkit and IMGUI architectures.</p>
+                        <p>We actively monitor Unity beta releases to ensure zero deprecation warnings on upcoming engine revisions.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">I found a bug or unexpected behavior. What should I do?</summary>
+                    <div class="faq-answer">
+                        <p>We prioritize all verified bugs. Please submit a report through our <a href="contact.html" style="color: var(--accent-text); text-decoration: underline;">Contact Form</a> or reach out on our <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener" style="color: var(--accent-text); text-decoration: underline;">Discord Community</a> with:</p>
+                        <ul>
+                            <li>Your Unity version (e.g. 2022.3.20f1, Unity 6000.0.2f1)</li>
+                            <li>Asset name and version</li>
+                            <li>Console stack trace and minimal steps to reproduce</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Do you offer refunds?</summary>
+                    <div class="faq-answer">
+                        <p>Purchases and licensing transactions are handled directly through the Unity Asset Store under Unity's official Asset Store Terms of Service and refund guidelines.</p>
+                        <p>However, if you encounter any technical issues or need help adapting a package for your project requirements, our team is committed to assisting you until it works seamlessly.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Still need help CTA -->
+            <div class="form-card" style="margin-top: var(--space-10); text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 600; margin: 0 0 var(--space-2); color: var(--text-primary);">Still Need Assistance?</h3>
+                <p style="color: var(--text-secondary); max-width: 28rem; margin: 0 auto var(--space-6); font-size: 14.5px;">
+                    Our team is available on Discord and email to answer technical questions, review bug reports, and assist with custom integrations.
+                </p>
+                <div class="hero-actions" style="justify-content: center;">
+                    <a href="contact.html" class="btn btn-primary">Contact Support</a>
+                    <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener" class="btn btn-secondary">Join Discord Server</a>
                 </div>
             </div>
-        </section>
-
-        <section id="still-need-help" class="py-5">
-            <div class="container text-center">
-                <h2 class="mb-3">Still Need Help?</h2>
-                <p class="lead mb-4">If you can't find the answer you're looking for, please don't hesitate to reach
-                    out.</p>
-                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-envelope me-2"></i>Contact
-                    Support</a>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 Maharaja Studio. All Rights Reserved. | <a href="legal.html"
-                    class="text-decoration-none">Legal Notice</a></p>
-            <div class="social-icons mt-3">
-                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="me-3"><i
-                        class="fab fa-youtube fa-lg"></i></a>
-                <a href="https://discord.gg/GamF5bez3h" class="me-3"><i class="fab fa-discord fa-lg"></i></a>
-                <a href="mailto:maharajastudiocustomerservice@gmail.com"><i
-                        class="fas fa-envelope fa-lg"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="legal.html" style="color: var(--text-secondary);">Legal Notice</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/studio.js"></script>
 </body>
 
 </html>

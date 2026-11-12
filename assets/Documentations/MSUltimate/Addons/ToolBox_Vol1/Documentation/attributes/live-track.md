@@ -81,6 +81,7 @@ public LiveTrackAttribute()
 | `CorrelationGroup` | `string` | `""` | Identifier string for correlating and comparing multiple tracked fields together. |
 | `DashboardGroup` | `string` | `""` | Grouping name used in the multi-object LiveTrack Dashboard window. |
 | `EnableSnapshots` | `bool` | `false` | Enables one-click baseline snapshot capture buttons in the Inspector. |
+| `ShowInSceneView` | `bool` | `false` | Displays a floating in-scene telemetry HUD card above the GameObject in the SceneView. |
 | `RecordSession` | `bool` | `false` | Enables full session recording and playback capabilities. |
 | `SessionName` | `string` | `""` | Named label assigned to recorded telemetry sessions. |
 | `Collapsed` | `bool` | `true` | Whether the telemetry graph panel begins collapsed in the Inspector. |

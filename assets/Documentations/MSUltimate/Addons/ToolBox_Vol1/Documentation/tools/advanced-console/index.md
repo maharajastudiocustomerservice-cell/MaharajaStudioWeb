@@ -3,7 +3,7 @@
 > High-throughput log manager featuring regex search, memory tag filters, one-click stack trace navigation, and zero-allocation log streaming.
 
 ## Access & Launch
-- **Menu Path:** `Tools > Maharaja Studio > MSUltimate > Windows > Advanced Console`
+- **Menu Path:** `Tools > Maharaja Studio > MSUltimate > ToolBox Vol 1 > Advanced Console`
 
 ---
 

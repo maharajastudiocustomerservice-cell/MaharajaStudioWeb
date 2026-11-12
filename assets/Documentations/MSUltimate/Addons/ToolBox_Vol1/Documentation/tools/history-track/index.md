@@ -3,7 +3,7 @@
 > Timeline-based inspection of Undo/Redo operations, variable changes, and serialization diffs.
 
 ## Access & Launch
-- **Menu Path:** `Tools > Maharaja Studio > MSUltimate > Windows > HistoryTrack Window`
+- **Menu Path:** `Tools > Maharaja Studio > MSUltimate > ToolBox Vol 1 > HistoryTrack Window` *(plus `Tools > Maharaja Studio > MSUltimate > ToolBox Vol 1 > Play Mode Tweaks`)*
 
 ---
 

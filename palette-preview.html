@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="graphite-amber" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharaja Studio — Palette & Type Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           Palette Tokens (4px grid, single neutral ramp, 3 text roles, 1 accent)
+           ========================================================================== */
+        :root {
+            --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+        }
+
+        /* 1. Unity Graphite + Amber */
+        [data-palette="graphite-amber"][data-theme="dark"] {
+            --bg-deep: #0e0e10;
+            --bg-page: #141415;
+            --bg-card: #19191b;
+            --bg-raised: #232326;
+            --hairline: rgba(237, 237, 237, 0.08);
+            --hairline-strong: rgba(237, 237, 237, 0.16);
+            --text-primary: #ededed;
+            --text-secondary: #a1a1a6;
+            --text-muted: #85858b;
+            --accent: #f59e0b;
+            --accent-ink: #141415;
+            --accent-text: #f59e0b;
+            --accent-soft: rgba(245, 158, 11, 0.12);
+            --btn-primary-bg: #ededed;
+            --btn-primary-fg: #141415;
+            --btn-primary-hover: #ffffff;
+            --positive: #4cc38a;
+            --card-shadow: none;
+            --top-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        [data-palette="graphite-amber"][data-theme="light"] {
+            --bg-deep: #ece7dd;
+            --bg-page: #f7f4ee;
+            --bg-card: #fdfbf7;
+            --bg-raised: #efe9df;
+            --hairline: rgba(31, 27, 22, 0.09);
+            --hairline-strong: rgba(31, 27, 22, 0.18);
+            --text-primary: #1f1b16;
+            --text-secondary: #574e43;
+            --text-muted: #6e6458;
+            --accent: #c2410c;
+            --accent-ink: #ffffff;
+            --accent-text: #b43c0b;
+            --accent-soft: rgba(194, 65, 12, 0.09);
+            --btn-primary-bg: #1f1b16;
+            --btn-primary-fg: #fdfbf7;
+            --btn-primary-hover: #332c24;
+            --positive: #15803d;
+            --card-shadow: 0 1px 2px rgba(31, 27, 22, 0.05);
+            --top-highlight: none;
+        }
+
+        /* 2. Technical Ink + Cobalt */
+        [data-palette="ink-cobalt"][data-theme="dark"] {
+            --bg-deep: #07080d;
+            --bg-page: #0b0d14;
+            --bg-card: #11141c;
+            --bg-raised: #1a1e28;
+            --hairline: rgba(238, 240, 245, 0.08);
+            --hairline-strong: rgba(238, 240, 245, 0.16);
+            --text-primary: #eef0f5;
+            --text-secondary: #a3a9b8;
+            --text-muted: #828aa0;
+            --accent: #38bdf8;
+            --accent-ink: #07080d;
+            --accent-text: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.12);
+            --btn-primary-bg: #eef0f5;
+            --btn-primary-fg: #0b0d14;
+            --btn-primary-hover: #ffffff;
+            --positive: #4cc38a;
+            --card-shadow: none;
+            --top-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        [data-palette="ink-cobalt"][data-theme="light"] {
+            --bg-deep: #e8ecf2;
+            --bg-page: #f5f7fa;
+            --bg-card: #ffffff;
+            --bg-raised: #eceff4;
+            --hairline: rgba(17, 24, 39, 0.08);
+            --hairline-strong: rgba(17, 24, 39, 0.16);
+            --text-primary: #111827;
+            --text-secondary: #4b5565;
+            --text-muted: #646e82;
+            --accent: #2563eb;
+            --accent-ink: #ffffff;
+            --accent-text: #1d4ed8;
+            --accent-soft: rgba(37, 99, 235, 0.09);
+            --btn-primary-bg: #111827;
+            --btn-primary-fg: #ffffff;
+            --btn-primary-hover: #1f2937;
+            --positive: #15803d;
+            --card-shadow: 0 1px 2px rgba(17, 24, 39, 0.05);
+            --top-highlight: none;
+        }
+
+        /* 3. Warm Graphite + Signal Emerald */
+        [data-palette="graphite-emerald"] {
+            --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+        }
+
+        [data-palette="graphite-emerald"][data-theme="dark"] {
+            --bg-deep: #0f0f10;
+            --bg-page: #141415;
+            --bg-card: #19191b;
+            --bg-raised: #232325;
+            --hairline: rgba(237, 237, 237, 0.08);
+            --hairline-strong: rgba(237, 237, 237, 0.16);
+            --text-primary: #ededed;
+            --text-secondary: #a1a1a6;
+            --text-muted: #85858b;
+            --accent: #34d399;
+            --accent-ink: #091510;
+            --accent-text: #34d399;
+            --accent-soft: rgba(52, 211, 153, 0.12);
+            --btn-primary-bg: #ededed;
+            --btn-primary-fg: #141415;
+            --btn-primary-hover: #ffffff;
+            --positive: #34d399;
+            --card-shadow: none;
+            --top-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        [data-palette="graphite-emerald"][data-theme="light"] {
+            --bg-deep: #ece7dd;
+            --bg-page: #f7f4ee;
+            --bg-card: #fdfbf7;
+            --bg-raised: #efe9df;
+            --hairline: rgba(31, 27, 22, 0.09);
+            --hairline-strong: rgba(31, 27, 22, 0.18);
+            --text-primary: #1f1b16;
+            --text-secondary: #574e43;
+            --text-muted: #6e6458;
+            --accent: #047857;
+            --accent-ink: #ffffff;
+            --accent-text: #047857;
+            --accent-soft: rgba(4, 120, 87, 0.09);
+            --btn-primary-bg: #1f1b16;
+            --btn-primary-fg: #fdfbf7;
+            --btn-primary-hover: #332c24;
+            --positive: #047857;
+            --card-shadow: 0 1px 2px rgba(31, 27, 22, 0.05);
+            --top-highlight: none;
+        }
+
+        /* ==========================================================================
+           Base Reset & Typography
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-sans);
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            line-height: 1.55;
+            transition: background-color 180ms var(--ease-out), color 180ms var(--ease-out);
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+            font-variant-numeric: tabular-nums;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           Tester Control Bar (Pinned at top so you can switch live)
+           ========================================================================== */
+        .tester-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--bg-deep);
+            border-bottom: 1px solid var(--hairline-strong);
+            padding: 12px 24px;
+        }
+
+        .tester-bar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .tester-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .tester-title strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .tester-controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .seg-group {
+            display: inline-flex;
+            padding: 3px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-md);
+            gap: 2px;
+        }
+
+        .seg-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            height: 30px;
+            padding: 0 12px;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+        }
+
+        .seg-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .seg-btn.active {
+            background-color: var(--bg-raised);
+            color: var(--text-primary);
+            box-shadow: var(--top-highlight);
+        }
+
+        .swatch-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================================
+           Simulated Site Chrome (Navbar)
+           ========================================================================== */
+        .site-nav {
+            border-bottom: 1px solid var(--hairline);
+            background-color: var(--bg-page);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .nav-inner {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .brand-mark {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 1px solid var(--hairline-strong);
+            background-color: var(--bg-raised);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-text);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ==========================================================================
+           Buttons (44px hero, 36px compact, 8px radius, zero glow)
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 44px;
+            padding: 0 18px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), transform 120ms var(--ease-out);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-sm {
+            height: 34px;
+            padding: 0 14px;
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            background-color: var(--btn-primary-bg);
+            color: var(--btn-primary-fg);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--btn-primary-hover);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--accent-ink);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-raised);
+            border-color: var(--hairline-strong);
+            color: var(--text-primary);
+            box-shadow: var(--top-highlight);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           Hero Preview (Asymmetric Split, Quiet Chrome, Clean Framed Graphic)
+           ========================================================================== */
+        .hero {
+            padding: 72px 0 64px;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+
+        .hero h1 {
+            margin: 0 0 16px;
+            font-size: clamp(36px, 4.4vw, 56px);
+            line-height: 1.04;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+
+        .hero-sub {
+            margin: 0 0 28px;
+            font-size: 18px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            max-width: 34rem;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-frame {
+            background-color: var(--bg-card);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-xl);
+            padding: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .hero-frame-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 8px 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-frame-img {
+            width: 100%;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--hairline);
+            display: block;
+            background-color: var(--bg-deep);
+        }
+
+        /* ==========================================================================
+           Sections: Asset Cards (No crop on square logos!) + Inspector Sample
+           ========================================================================== */
+        .section {
+            padding: 64px 0;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .section-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: 28px;
+            line-height: 1.15;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .section-head p {
+            margin: 8px 0 0;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .preview-two-col {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        /* Clean Asset Card with properly framed square logo */
+        .asset-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: var(--card-shadow);
+            transition: border-color 150ms var(--ease-out);
+        }
+
+        .asset-card:hover {
+            border-color: var(--hairline-strong);
+        }
+
+        .asset-card-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .asset-logo-well {
+            width: 72px;
+            height: 72px;
+            border-radius: 10px;
+            background-color: var(--bg-deep);
+            border: 1px solid var(--hairline);
+            padding: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .asset-logo-well img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .asset-meta-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .asset-tag {
+            color: var(--accent-text);
+            background-color: var(--accent-soft);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .asset-card h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .asset-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .asset-card-foot {
+            padding-top: 14px;
+            border-top: 1px solid var(--hairline);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .link-quiet {
+            color: var(--accent-text);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Signature Inspector Spec Strip + Stats */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            background-color: var(--bg-card);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-top: 24px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .stat-cell {
+            padding: 20px 24px;
+            border-right: 1px solid var(--hairline);
+        }
+
+        .stat-cell:last-child {
+            border-right: none;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            line-height: 1.1;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .stat-note {
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .stat-note.accent {
+            color: var(--accent-text);
+        }
+
+        /* ==========================================================================
+           Side-by-Side Matrix (All 3 Palettes in Dark + Light simultaneously)
+           ========================================================================== */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .palette-column {
+            background-color: var(--bg-card);
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .palette-column.is-selected {
+            border-color: var(--accent);
+        }
+
+        .palette-col-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .palette-col-head h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .palette-col-head p {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .mini-preview-stack {
+            display: grid;
+            gap: 12px;
+        }
+
+        .mini-card {
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid;
+        }
+
+        .mini-card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .mini-card-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 6px;
+        }
+
+        .mini-card-body {
+            font-size: 13px;
+            margin: 0 0 12px;
+            line-height: 1.45;
+        }
+
+        .mini-btn-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mini-btn {
+            height: 30px;
+            padding: 0 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid transparent;
+        }
+
+        .token-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-top: 8px;
+        }
+
+        .token-chip {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            border: 1px solid rgba(128, 128, 128, 0.25);
+        }
+
+        @media (max-width: 980px) {
+            .hero-grid,
+            .preview-two-col,
+            .compare-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Switcher -->
+    <div class="tester-bar">
+        <div class="tester-bar-inner">
+            <div class="tester-title">
+                <strong>Palette &amp; Type Tester</strong>
+                <span>Switch any option below to inspect it live across dark and light modes</span>
+            </div>
+            <div class="tester-controls">
+                <div class="seg-group" role="group" aria-label="Color Palette">
+                    <button class="seg-btn active" data-set-palette="graphite-amber">
+                        <span class="swatch-dot" style="background: #f59e0b;"></span>
+                        1. Graphite + Amber
+                    </button>
+                    <button class="seg-btn" data-set-palette="ink-cobalt">
+                        <span class="swatch-dot" style="background: #38bdf8;"></span>
+                        2. Ink + Cobalt
+                    </button>
+                    <button class="seg-btn" data-set-palette="graphite-emerald">
+                        <span class="swatch-dot" style="background: #34d399;"></span>
+                        3. Graphite + Emerald
+                    </button>
+                </div>
+
+                <div class="seg-group" role="group" aria-label="Theme Mode">
+                    <button class="seg-btn active" data-set-theme="dark">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                        Dark
+                    </button>
+                    <button class="seg-btn" data-set-theme="light">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        Light
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulated Maharaja Studio Top Bar -->
+    <nav class="site-nav">
+        <div class="container nav-inner">
+            <a class="brand" href="#">
+                <span class="brand-mark">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+            <div class="nav-links">
+                <a href="#" class="active">Assets</a>
+                <a href="#">Documentation</a>
+                <a href="#">Support</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <span class="mono" style="font-size: 12px; color: var(--text-muted);" id="active-spec-readout">Geist · JetBrains Mono</span>
+                <a href="#compare-all" class="btn btn-secondary btn-sm">Compare All 3</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Live Interactive Preview of Main Page Hero -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-meta">
+                    <span class="status-dot"></span>
+                    <span class="mono">Unity 6 (6000.x)+ · UI Toolkit &amp; PlayableGraph</span>
+                </div>
+                <h1>Editor and runtime tools built for Unity teams</h1>
+                <p class="hero-sub">
+                    Inspector suites, multi-actor animation timelines, tactical cover AI, and project-wide search utilities engineered with clean C# source and zero runtime bloat.
+                </p>
+                <div class="hero-cta-row">
+                    <a href="#preview-cards" class="btn btn-primary">Explore 6 Assets</a>
+                    <a href="#compare-all" class="btn btn-accent">Primary Accent CTA</a>
+                    <a href="#compare-all" class="btn btn-secondary">Read Documentation</a>
+                </div>
+            </div>
+
+            <div class="hero-frame">
+                <div class="hero-frame-bar">
+                    <span class="mono">MSUltimate Ecosystem — Inspector &amp; Hierarchy</span>
+                    <span class="mono" style="color: var(--accent-text);">Unity 6 Native</span>
+                </div>
+                <img src="assets/Images/MSUltimate_Banner_Main_Website.png" alt="MSUltimate Inspector preview" class="hero-frame-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Preview of Cleanly Framed Asset Cards & Spec Bar -->
+    <section class="section" id="preview-cards">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <h2>Cleanly framed asset cards &amp; telemetry</h2>
+                    <p>Square logos stay intact with zero cropping; clean editor screenshots replace blurred backgrounds.</p>
+                </div>
+                <span class="mono" style="font-size: 12px; color: var(--text-muted);">4px grid · 1px hairlines · 1 accent</span>
+            </div>
+
+            <div class="preview-two-col">
+                <article class="asset-card">
+                    <div class="asset-card-top">
+                        <div class="asset-logo-well">
+                            <img src="assets/Images/MSUltimate_Logo.png" alt="MSUltimate Logo">
+                        </div>
+                        <div>
+                            <div class="asset-meta-line">
+                                <span class="asset-tag mono">Ecosystem</span>
+                                <span class="mono">444+ attributes</span>
+                            </div>
+                            <h3>MSUltimate Ecosystem</h3>
+                        </div>
+                    </div>
+                    <p>
+                        Modular Unity Editor suite built on UI Toolkit with a free Community Core, 6 standalone addons, custom serializers, and 5,500+ unit tests.
+                    </p>
+                    <div class="asset-card-foot">
+                        <span class="mono">Free Core · Pro $149.99–$299.99</span>
+                        <a href="#" class="link-quiet">Explore Ecosystem →</a>
+                    </div>
+                </article>
+
+                <article class="asset-card">
+                    <div class="asset-card-top">
+                        <div class="asset-logo-well">
+                            <img src="assets/Images/MSMotion_Logo.png" alt="MSMotion Logo">
+                        </div>
+                        <div>
+                            <div class="asset-meta-line">
+                                <span class="asset-tag mono">v2.0</span>
+                                <span class="mono">PlayableGraph · Multi-Actor Timeline</span>
+                            </div>
+                            <h3>MSMotion</h3>
+                        </div>
+                    </div>
+                    <p>
+                        Shared timeline for multi-actor choreography, dynamic summons, motion warping, and 8 frame-accurate FX channels with surface decals.
+                    </p>
+                    <div class="asset-card-foot">
+                        <span class="mono">Full C# Source · Windows Demo</span>
+                        <a href="#" class="link-quiet">Open MSMotion →</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="stats-strip">
+                <div class="stat-cell">
+                    <div class="stat-label">Total attributes</div>
+                    <div class="stat-value mono">444+</div>
+                    <div class="stat-note accent">47 categories</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-label">Standalone addons</div>
+                    <div class="stat-value mono">6</div>
+                    <div class="stat-note">100% decoupled</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-label">Automated tests</div>
+                    <div class="stat-value mono">5,500+</div>
+                    <div class="stat-note">520+ test files</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-label">Validation rules</div>
+                    <div class="stat-value mono">39 Rules</div>
+                    <div class="stat-note" style="color: var(--positive);">Automated scene integrity &amp; CLI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Side-by-Side Comparison of All 3 Palettes (Both Dark & Light) -->
+    <section class="section" id="compare-all" style="border-bottom: none;">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <h2>All 3 palettes side by side (Dark + Light)</h2>
+                    <p>Click any column to apply that palette to the full page preview above.</p>
+                </div>
+            </div>
+
+            <div class="compare-grid">
+                <!-- Column 1: Graphite + Amber -->
+                <div class="palette-column is-selected" data-pick-palette="graphite-amber">
+                    <div class="palette-col-head">
+                        <div>
+                            <h3>1. Unity Graphite + Amber</h3>
+                            <p>Geist + JetBrains Mono · MSUltimate amber</p>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" data-set-palette="graphite-amber">Apply</button>
+                    </div>
+                    <div class="mini-preview-stack">
+                        <!-- Dark Mini -->
+                        <div class="mini-card" style="background: #141415; border-color: rgba(237,237,237,0.1); color: #ededed; font-family: 'Geist', sans-serif;">
+                            <div class="mini-card-head">
+                                <span style="font-family: 'JetBrains Mono', monospace; color: #f59e0b;">Dark · #141415</span>
+                                <span style="color: #85858b; font-family: 'JetBrains Mono', monospace;">v2.0</span>
+                            </div>
+                            <h4 class="mini-card-title">MSMotion Timeline</h4>
+                            <p class="mini-card-body" style="color: #a1a1a6;">Zero-drift multi-actor choreography and PlayableGraph blending.</p>
+                            <div class="mini-btn-row">
+                                <span class="mini-btn" style="background: #ededed; color: #141415;">Primary</span>
+                                <span class="mini-btn" style="background: #f59e0b; color: #141415;">Accent CTA</span>
+                                <span class="mini-btn" style="background: #232326; border-color: rgba(237,237,237,0.14); color: #ededed;">Docs</span>
+                            </div>
+                        </div>
+                        <!-- Light Mini -->
+                        <div class="mini-card" style="background: #f7f4ee; border-color: rgba(31,27,22,0.12); color: #1f1b16; font-family: 'Geist', sans-serif;">
+                            <div class="mini-card-head">
+                                <span style="font-family: 'JetBrains Mono', monospace; color: #b43c0b;">Light · #f7f4ee</span>
+                                <span style="color: #6e6458; font-family: 'JetBrains Mono', monospace;">v2.0</span>
+                            </div>
+                            <h4 class="mini-card-title">MSMotion Timeline</h4>
+                            <p class="mini-card-body" style="color: #574e43;">Zero-drift multi-actor choreography and PlayableGraph blending.</p>
+                            <div class="mini-btn-row">
+                                <span class="mini-btn" style="background: #1f1b16; color: #fdfbf7;">Primary</span>
+                                <span class="mini-btn" style="background: #c2410c; color: #ffffff;">Accent CTA</span>
+                                <span class="mini-btn" style="background: #efe9df; border-color: rgba(31,27,22,0.14); color: #1f1b16;">Docs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-row">
+                        <span class="token-chip" style="background: #141415;" title="#141415"></span>
+                        <span class="token-chip" style="background: #19191b;" title="#19191b"></span>
+                        <span class="token-chip" style="background: #f59e0b;" title="#f59e0b"></span>
+                        <span class="token-chip" style="background: #c2410c;" title="#c2410c"></span>
+                        <span class="token-chip" style="background: #f7f4ee;" title="#f7f4ee"></span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Technical Ink + Cobalt -->
+                <div class="palette-column" data-pick-palette="ink-cobalt">
+                    <div class="palette-col-head">
+                        <div>
+                            <h3>2. Technical Ink + Cobalt</h3>
+                            <p>Geist + JetBrains Mono · Blueprint blue</p>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" data-set-palette="ink-cobalt">Apply</button>
+                    </div>
+                    <div class="mini-preview-stack">
+                        <!-- Dark Mini -->
+                        <div class="mini-card" style="background: #0b0d14; border-color: rgba(238,240,245,0.1); color: #eef0f5; font-family: 'Geist', sans-serif;">
+                            <div class="mini-card-head">
+                                <span style="font-family: 'JetBrains Mono', monospace; color: #38bdf8;">Dark · #0b0d14</span>
+                                <span style="color: #828aa0; font-family: 'JetBrains Mono', monospace;">v2.0</span>
+                            </div>
+                            <h4 class="mini-card-title">MSMotion Timeline</h4>
+                            <p class="mini-card-body" style="color: #a3a9b8;">Zero-drift multi-actor choreography and PlayableGraph blending.</p>
+                            <div class="mini-btn-row">
+                                <span class="mini-btn" style="background: #eef0f5; color: #0b0d14;">Primary</span>
+                                <span class="mini-btn" style="background: #38bdf8; color: #07080d;">Accent CTA</span>
+                                <span class="mini-btn" style="background: #1a1e28; border-color: rgba(238,240,245,0.14); color: #eef0f5;">Docs</span>
+                            </div>
+                        </div>
+                        <!-- Light Mini -->
+                        <div class="mini-card" style="background: #f5f7fa; border-color: rgba(17,24,39,0.1); color: #111827; font-family: 'Geist', sans-serif;">
+                            <div class="mini-card-head">
+                                <span style="font-family: 'JetBrains Mono', monospace; color: #1d4ed8;">Light · #f5f7fa</span>
+                                <span style="color: #646e82; font-family: 'JetBrains Mono', monospace;">v2.0</span>
+                            </div>
+                            <h4 class="mini-card-title">MSMotion Timeline</h4>
+                            <p class="mini-card-body" style="color: #4b5565;">Zero-drift multi-actor choreography and PlayableGraph blending.</p>
+                            <div class="mini-btn-row">
+                                <span class="mini-btn" style="background: #111827; color: #ffffff;">Primary</span>
+                                <span class="mini-btn" style="background: #2563eb; color: #ffffff;">Accent CTA</span>
+                                <span class="mini-btn" style="background: #eceff4; border-color: rgba(17,24,39,0.14); color: #111827;">Docs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-row">
+                        <span class="token-chip" style="background: #0b0d14;" title="#0b0d14"></span>
+                        <span class="token-chip" style="background: #11141c;" title="#11141c"></span>
+                        <span class="token-chip" style="background: #38bdf8;" title="#38bdf8"></span>
+                        <span class="token-chip" style="background: #2563eb;" title="#2563eb"></span>
+                        <span class="token-chip" style="background: #f5f7fa;" title="#f5f7fa"></span>
+                    </div>
+                </div>
+
+                <!-- Column 3: Warm Graphite + Emerald -->
+                <div class="palette-column" data-pick-palette="graphite-emerald">
+                    <div class="palette-col-head">
+                        <div>
+                            <h3>3. Warm Graphite + Emerald</h3>
+                            <p>IBM Plex Sans + Mono · Signal green</p>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" data-set-palette="graphite-emerald">Apply</button>
+                    </div>
+                    <div class="mini-preview-stack">
+                        <!-- Dark Mini -->
+                        <div class="mini-card" style="background: #141415; border-color: rgba(237,237,237,0.1); color: #ededed; font-family: 'IBM Plex Sans', sans-serif;">
+                            <div class="mini-card-head">
+                                <span style="font-family: 'IBM Plex Mono', monospace; color: #34d399;">Dark · #141415</span>
+                                <span style="color: #85858b; font-family: 'IBM Plex Mono', monospace;">v2.0</span>
+                            </div>
+                            <h4 class="mini-card-title">MSMotion Timeline</h4>
+                            <p class="mini-card-body" style="color: #a1a1a6;">Zero-drift multi-actor choreography and PlayableGraph blending.</p>
+                            <div class="mini-btn-row">
+                                <span class="mini-btn" style="background: #ededed; color: #141415;">Primary</span>
+                                <span class="mini-btn" style="background: #34d399; color: #091510;">Accent CTA</span>
+                                <span class="mini-btn" style="background: #232325; border-color: rgba(237,237,237,0.14); color: #ededed;">Docs</span>
+                            </div>
+                        </div>
+                        <!-- Light Mini -->
+                        <div class="mini-card" style="background: #f7f4ee; border-color: rgba(31,27,22,0.12); color: #1f1b16; font-family: 'IBM Plex Sans', sans-serif;">
+                            <div class="mini-card-head">
+                                <span style="font-family: 'IBM Plex Mono', monospace; color: #047857;">Light · #f7f4ee</span>
+                                <span style="color: #6e6458; font-family: 'IBM Plex Mono', monospace;">v2.0</span>
+                            </div>
+                            <h4 class="mini-card-title">MSMotion Timeline</h4>
+                            <p class="mini-card-body" style="color: #574e43;">Zero-drift multi-actor choreography and PlayableGraph blending.</p>
+                            <div class="mini-btn-row">
+                                <span class="mini-btn" style="background: #1f1b16; color: #fdfbf7;">Primary</span>
+                                <span class="mini-btn" style="background: #047857; color: #ffffff;">Accent CTA</span>
+                                <span class="mini-btn" style="background: #efe9df; border-color: rgba(31,27,22,0.14); color: #1f1b16;">Docs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token-row">
+                        <span class="token-chip" style="background: #141415;" title="#141415"></span>
+                        <span class="token-chip" style="background: #19191b;" title="#19191b"></span>
+                        <span class="token-chip" style="background: #34d399;" title="#34d399"></span>
+                        <span class="token-chip" style="background: #047857;" title="#047857"></span>
+                        <span class="token-chip" style="background: #f7f4ee;" title="#f7f4ee"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const root = document.documentElement;
+        const readout = document.getElementById('active-spec-readout');
+        const fontLabels = {
+            'graphite-amber': 'Geist · JetBrains Mono',
+            'ink-cobalt': 'Geist · JetBrains Mono',
+            'graphite-emerald': 'IBM Plex Sans · IBM Plex Mono'
+        };
+
+        const setPalette = (palette) => {
+            root.setAttribute('data-palette', palette);
+            document.querySelectorAll('[data-set-palette]').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.setPalette === palette);
+            });
+            document.querySelectorAll('.palette-column').forEach(col => {
+                col.classList.toggle('is-selected', col.dataset.pickPalette === palette);
+            });
+            readout.textContent = fontLabels[palette];
+        };
+
+        const setTheme = (theme) => {
+            root.setAttribute('data-theme', theme);
+            document.querySelectorAll('[data-set-theme]').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.setTheme === theme);
+            });
+        };
+
+        document.querySelectorAll('[data-set-palette]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                setPalette(btn.dataset.setPalette);
+            });
+        });
+
+        document.querySelectorAll('.palette-column').forEach(col => {
+            col.addEventListener('click', () => setPalette(col.dataset.pickPalette));
+        });
+
+        document.querySelectorAll('[data-set-theme]').forEach(btn => {
+            btn.addEventListener('click', () => setTheme(btn.dataset.setTheme));
+        });
+    </script>
+</body>
+</html>
+

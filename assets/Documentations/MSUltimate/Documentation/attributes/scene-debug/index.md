@@ -4,17 +4,12 @@
 
 ---
 
-## Attribute Directory (17 Attributes)
+## Attribute Directory (12 Attributes)
 | Attribute | Target | Description | Status |
 | :--- | :--- | :--- | :---: |
-| `[InteractiveSceneDebug]` | `Class, Field` | Master controller enabling interactive SceneView debugging overlay. | ⏳ Planned |
 | [**`[SceneArrow]`**](scene-arrow.md) | `Field \| Property` | Directional 3D arrow gizmo with interactive tip dragging. | ✅ Complete |
 | [**`[SceneBounds]`**](scene-bounds.md) | `Field \| Property` | Visual wireframe/solid bounding box gizmo for bounds and colliders. | ✅ Complete |
-| `[SceneBoxHandle]` | `Field` | Interactive 6-handle box scale tool in SceneView. | ⏳ Planned |
 | [**`[SceneButton]`**](scene-button.md) | `Method \| Field \| Property` | In-Scene 3D clickable button triggering target method or reset. | ✅ Complete |
-| `[SceneDebug]` | `Field` | Overlays live floating label and gizmo marker in SceneView. | ⏳ Planned |
-| `[SceneDebugMesh]` | `Field` | Visualizes mesh topology and normals directly in scene. | ⏳ Planned |
-| `[SceneDiscHandle]` | `Field` | Interactive angular rotation disc in SceneView. | ⏳ Planned |
 | [**`[SceneGrid]`**](scene-grid.md) | `Field \| Property` | Reference coordinate grid on XZ, XY, or YZ planes. | ✅ Complete |
 | [**`[SceneLabel]`**](scene-label.md) | `Field \| Property` | World-space floating text label and telemetry readout. | ✅ Complete |
 | [**`[SceneLine]`**](scene-line.md) | `Field \| Property` | Connected line segments and interactive waypoint path handles. | ✅ Complete |

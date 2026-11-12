@@ -4,127 +4,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSUltimate Ecosystem - Maharaja Studio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>MSUltimate Ecosystem — Maharaja Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="documentation.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
-                    <li class="nav-item ms-3">
-                        <div class="theme-switcher">
-                            <i class="fas fa-sun"></i>
-                            <div class="form-check form-switch mx-2">
-                                <input class="form-check-input" type="checkbox" id="theme-switcher" checked>
-                            </div>
-                            <i class="fas fa-moon"></i>
-                        </div>
-                    </li>
-                </ul>
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link active" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item is-current" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSUltimate Ecosystem</span>
+                                <span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSMotion v2.0</span>
+                                <span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span>
+                                <span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span>
+                                <span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Object Finder Pro</span>
+                                <span class="nav-dropdown-meta">Async query &amp; reference search</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Ultimate Quick Inspector</span>
+                                <span class="nav-dropdown-meta">Multi-page GUID pin drawer</span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li><a class="nav-link" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="#editions">Explore editions</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Asset Hero Header -->
-    <header class="asset-header text-center">
-        <div class="asset-header-background" style="background-image: url('assets/Images/MSUltimate_Banner_Main_Website.png');"></div>
-        <div class="container position-relative">
-            <div class="d-flex flex-wrap gap-2 justify-content-center mb-3">
-                <span class="ecosystem-badge"><i class="fas fa-cubes me-1"></i> Modular Ecosystem</span>
-                <span class="badge bg-primary px-3 py-2 fs-6 rounded-pill"><i class="fab fa-unity me-1"></i> Built Natively for Unity 6 (6000.x)+</span>
-                <span class="badge bg-info px-3 py-2 fs-6 rounded-pill text-dark"><i class="fas fa-gauge-high me-1"></i> UI Toolkit 120 FPS+</span>
-                <span class="badge bg-success px-3 py-2 fs-6 rounded-pill"><i class="fas fa-gift me-1"></i> 100% Free Community Edition</span>
-            </div>
-            <h1 class="display-2 fw-bold text-white mb-3">MSUltimate Ecosystem</h1>
-            <p class="lead my-4 col-md-9 mx-auto text-light">
-                <strong>Not just one asset.</strong> MSUltimate is an enterprise-grade, modular Unity Editor enhancement suite designed to transform your Inspector, Scene Hierarchy, and development toolchain into a fast, beautiful, and deeply structured production environment.
-            </p>
-            <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-                <a href="#editions" class="btn btn-primary btn-lg shadow"><i class="fas fa-layer-group me-2"></i>Explore Editions</a>
-                <a href="#addons" class="btn btn-outline-light btn-lg"><i class="fas fa-puzzle-piece me-2"></i>6 Standalone Addons</a>
-                <a href="msultimate-docs.html" class="btn btn-outline-info btn-lg"><i class="fas fa-book me-2"></i>Read Ecosystem Docs</a>
-                <a href="msultimate-license.html#community-eula" class="btn btn-outline-warning btn-lg"><i class="fas fa-scale-balanced me-2"></i>Community EULA</a>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Unity Assets</span>
+            <a href="msultimate.html" class="active">MSUltimate Ecosystem</a>
+            <a href="ms-motion.html">MSMotion v2.0</a>
+            <a href="scriptable-studio-pro.html">Scriptable Studio Pro v4.5</a>
+            <a href="tactical-cover-retreat-ai-system.html">Tactical Cover &amp; Retreat AI</a>
+            <a href="object-finder-pro.html">Object Finder Pro</a>
+            <a href="ultimate-quick-inspector.html">Ultimate Quick Inspector</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+        <canvas class="hero-canvas" data-glyph-mode="ecosystem" aria-hidden="true"></canvas>
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-breadcrumb hero-enter" style="--stagger: 0;">
+                        <a href="index.html">Assets</a>
+                        <span>/</span>
+                        <span class="mono" style="color: var(--accent-text);">MSUltimate Ecosystem</span>
+                    </div>
+                    <h1 class="hero-enter" style="--stagger: 1;">MSUltimate Ecosystem</h1>
+                    <p class="hero-sub hero-enter" style="--stagger: 2;">
+                        A modular Unity 6 editor enhancement suite built natively on UI Toolkit for fast inspectors, structured hierarchies, custom serializers, and automated project validation
+                    </p>
+                    <div class="hero-actions hero-enter" style="--stagger: 3;">
+                        <a href="#editions" class="btn btn-primary">Explore editions</a>
+                        <a href="msultimate-docs.html" class="btn btn-secondary">Read ecosystem docs</a>
+                    </div>
+                    <div class="hero-meta-note hero-enter" style="--stagger: 4;">
+                        <a href="msultimate-license.html#community-eula" class="link-arrow">Community EULA (Free &lt;$200K)</a>
+                        <span class="mono">Unity 6 (6000.x)+</span>
+                        <span class="mono">UI Toolkit 120 FPS+</span>
+                    </div>
+                </div>
+
+                <!-- Workbench Visual Frame -->
+                <div class="workbench-frame hero-enter" style="--stagger: 2;" data-tab-group>
+                    <div class="workbench-header">
+                        <div class="workbench-header-left">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            <span class="mono workbench-header-title">MSUltimate · UI Toolkit Workbench</span>
+                        </div>
+                        <span class="mono">Core + 6 Addons</span>
+                    </div>
+
+                    <div class="workbench-surface">
+                        <div class="workbench-tabs" role="tablist" aria-label="MSUltimate previews">
+                            <button type="button" class="workbench-tab active" role="tab" aria-selected="true" data-tab-target="banner">
+                                <span class="workbench-tab-dot"></span>Overview Banner
+                            </button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="inspector">
+                                <span class="workbench-tab-dot"></span>Live Attribute Preview
+                            </button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="mark">
+                                <span class="workbench-tab-dot"></span>Logo &amp; Tiers
+                            </button>
+                        </div>
+
+                        <div data-tab-pane="banner">
+                            <img src="assets/Images/MSUltimate_Banner_Main_Website.png" alt="MSUltimate Ecosystem Inspector and Hierarchy windows" class="workbench-img">
+                        </div>
+
+                        <div data-tab-pane="inspector" hidden>
+                            <div class="inspector-pane">
+                                <div class="inspector-row is-active" style="margin-bottom: 8px;">
+                                    <span class="mono" style="color: var(--accent-text);">[BoxGroup("Combat")] · Documented Attributes</span>
+                                    <span class="tag mono">UI Toolkit + IMGUI</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key"><code>[MinMaxSlider(0, 100)]</code></span>
+                                    <span class="inspector-val">Core · Range picker</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key"><code>[ShowIf("useCover")]</code></span>
+                                    <span class="inspector-val">Core · Conditional</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key"><code>SerializableDictionary&lt;TKey, TValue&gt;</code></span>
+                                    <span class="inspector-val">Core · Serializer</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key"><code>[ValidateComponent(typeof(Collider))]</code></span>
+                                    <span class="inspector-val">Validation · Component rule</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key"><code>[BossHealthBar]</code></span>
+                                    <span class="inspector-val">Animated · Combat HUD</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div data-tab-pane="mark" hidden>
+                            <div style="padding: 28px; display: flex; align-items: center; gap: 24px; background-color: var(--bg-deep);">
+                                <div class="asset-logo-well" style="width: 96px; height: 96px; padding: 12px;">
+                                    <img src="assets/Images/MSUltimate_Logo.png" alt="MSUltimate official mark">
+                                </div>
+                                <div>
+                                    <div class="mono" style="font-size: 12px; color: var(--accent-text); margin-bottom: 6px;">Modular Architecture</div>
+                                    <h3 class="card-title" style="margin-bottom: 8px;">Core + 6 Decoupled Addons</h3>
+                                    <p style="margin: 0; font-size: 13px; color: var(--text-secondary);">Start with 156+ attributes free in Community Core, add individual standalone modules, or unlock all 454+ concrete attributes (463 classes) and 6,115 test cases in Pro Full Collection.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="workbench-footer">
+                            <span class="mono" style="color: var(--text-secondary);">Stripped automatically from player builds</span>
+                            <a href="#addons" class="link-arrow">See 6 standalone addons <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="container my-5">
-
-        <!-- Ecosystem Highlights Bar -->
-        <section class="mb-5 py-4 px-3 rounded glass-box text-center">
-            <div class="row g-4">
-                <div class="col-6 col-md-2">
-                    <h2 class="fw-bold text-primary mb-1">444+</h2>
-                    <p class="text-muted mb-0 small text-uppercase fw-semibold">Attributes Total</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <h2 class="fw-bold text-success mb-1">FREE</h2>
-                    <p class="text-muted mb-0 small text-uppercase fw-semibold">Community Tier</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <h2 class="fw-bold text-info mb-1">6</h2>
-                    <p class="text-muted mb-0 small text-uppercase fw-semibold">Standalone Addons</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <h2 class="fw-bold text-warning mb-1">4</h2>
-                    <p class="text-muted mb-0 small text-uppercase fw-semibold">Power Tools</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <h2 class="fw-bold text-primary mb-1">5,500+</h2>
-                    <p class="text-muted mb-0 small text-uppercase fw-semibold">Automated Tests</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <h2 class="fw-bold text-success mb-1">0 GC</h2>
-                    <p class="text-muted mb-0 small text-uppercase fw-semibold">Runtime Allocations</p>
+    <main>
+        <!-- Highlights Strip -->
+        <section class="section-compact">
+            <div class="container">
+                <div class="stats-strip stats-strip-6">
+                    <div class="stat-cell">
+                        <div class="stat-label">Attributes total</div>
+                        <div class="stat-value mono" data-count-to="454" data-count-suffix="+">454+</div>
+                        <div class="stat-note">463 attribute classes</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Community tier</div>
+                        <div class="stat-value mono" style="color: var(--positive);">Free</div>
+                        <div class="stat-note">Under $200K revenue</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Standalone addons</div>
+                        <div class="stat-value mono" data-count-to="6">6</div>
+                        <div class="stat-note">100% decoupled</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Power tools</div>
+                        <div class="stat-value mono" data-count-to="4">4</div>
+                        <div class="stat-note">Console, History, Lifetime, Live</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Test cases</div>
+                        <div class="stat-value mono" data-count-to="6115">6,115</div>
+                        <div class="stat-note">573 files · 3,275 methods</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Validation rules</div>
+                        <div class="stat-value mono" data-count-to="39" data-count-suffix=" Rules">39 Rules</div>
+                        <div class="stat-note positive">Automated scene integrity &amp; CLI</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 1: Overview & Ecosystem Vision -->
-        <section id="asset-intro" class="mb-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <span class="text-primary fw-bold text-uppercase small letter-spacing">Architectural Vision</span>
-                    <h2 class="section-title mb-3">Modular by Design. Zero Runtime Overhead.</h2>
-                    <p class="lead">Built from the ground up on Unity's modern <strong>UI Toolkit</strong> (with seamless IMGUI fallback), MSUltimate eliminates per-frame layout recalculations, delivers buttery-smooth 120 FPS+ inspector scrolling, and introduces <strong>zero garbage collection (GC) or build bloat</strong> to your standalone game builds.</p>
-                    <p class="text-muted">Whether you are a solo indie developer building your first title, a specialized team upgrading hierarchy workflows, or a commercial AAA studio needing uncompiled source code across hundreds of seats—MSUltimate is engineered with three clear paths to fit your production model perfectly.</p>
-                    <div class="diagram-box mt-4 p-3">
-MSUltimate Ecosystem Architecture
- ├── Core Framework (Free Community or Pro Source)
- │    │
- │    ├── [Visuals]      ───► MSUltimate - Component Designer
- │    ├── [Motion]       ───► MSUltimate - Animated Attributes
- │    ├── [Structure]    ───► MSUltimate - Hierarchy Designer
- │    ├── [Integrity]    ───► MSUltimate - Validation Module
- │    ├── [Styling]      ───► MSUltimate - Inspector Customizer
- │    └── [Productivity] ───► MSUltimate - ToolBox Vol. 1
- └── Pro Master Bundle   ───► Core + ALL 6 Addons + 4 Tools + 5,500+ Tests
+        <!-- Section 1: Architectural Vision + Interactive Module Explorer -->
+        <section id="asset-intro" class="section">
+            <div class="container">
+                <div class="hero-grid" style="align-items: start;">
+                    <div>
+                        <div class="eyebrow">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            <span>Architectural vision</span>
+                        </div>
+                        <h2 class="section-title" style="margin-bottom: 16px;">Modular by design with zero runtime overhead</h2>
+                        <p class="section-sub" style="margin-bottom: 16px;">
+                            Built from the ground up on Unity's UI Toolkit (with IMGUI fallback), MSUltimate eliminates per-frame layout recalculations, keeps inspector scrolling responsive at 120 FPS+, and introduces zero garbage collection or build bloat to standalone player builds.
+                        </p>
+                        <p style="color: var(--text-secondary); margin: 0 0 24px;">
+                            Whether you are an indie developer shipping your first title, a specialist fixing hierarchy workflows, or a commercial team requiring full uncompiled C# source code, the suite scales cleanly across three licensing paths.
+                        </p>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-box" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+                            </div>
+                            <div>
+                                <h3>Unity 6 native &amp; pipeline agnostic</h3>
+                                <p>Compatible with URP, HDRP, and Built-in Render Pipelines. All editor tooling is isolated from player builds automatically.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="position-relative">
-                        <img src="assets/Images/MSUltimate_Banner_Main_Website.png" class="img-fluid rounded shadow-lg border" alt="MSUltimate Ecosystem Overview">
-                        <div class="glass-box p-3 mt-3">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="fas fa-shield-halved text-primary fs-3"></i>
-                                <div>
-                                    <h6 class="mb-1 fw-bold">Unity 6 Native & Pipeline Agnostic</h6>
-                                    <p class="text-muted small mb-0">100% compatible with Universal (URP), High Definition (HDRP), and Built-in (BiRP) Render Pipelines. All tooling code is strictly editor-only and automatically stripped from runtime builds.</p>
+
+                    <!-- Interactive Architecture Explorer (Replaces static ASCII diagram) -->
+                    <div class="workbench-frame" data-tab-group>
+                        <div class="workbench-header">
+                            <div class="workbench-header-left">
+                                <span class="mono" style="color: var(--accent-text);">Ecosystem Dependency Graph</span>
+                            </div>
+                            <span class="mono">Click a layer to inspect</span>
+                        </div>
+                        <div class="workbench-surface">
+                            <div class="workbench-tabs" role="tablist" aria-label="MSUltimate modules">
+                                <button type="button" class="workbench-tab active" role="tab" aria-selected="true" data-tab-target="mod-core">Core</button>
+                                <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="mod-comp">Component</button>
+                                <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="mod-anim">Animated</button>
+                                <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="mod-hier">Hierarchy</button>
+                                <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="mod-val">Validation</button>
+                                <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="mod-cust">Customizer</button>
+                                <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="mod-tool">ToolBox</button>
+                            </div>
+
+                            <div class="inspector-pane" data-tab-pane="mod-core">
+                                <div class="inspector-row is-active" style="margin-bottom: 10px;">
+                                    <span class="mono" style="color: var(--text-primary);">MSUltimate Core Framework</span>
+                                    <span class="tag tag-positive">Free Community / $149.99 Pro</span>
                                 </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key">Layout &amp; Conditionals</span>
+                                    <span class="inspector-val">156+ concrete (161 classes) · 14 folders</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key">Serializers</span>
+                                    <span class="inspector-val">Dictionary, HashSet, Matrix2D/3D, Queue, Stack</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key">Extended Types</span>
+                                    <span class="inspector-val">Nullable, DateTime, Range, Tuple, SerializableType</span>
+                                </div>
+                                <div class="inspector-row">
+                                    <span class="inspector-key">Windowing</span>
+                                    <span class="inspector-val">Dockable ModularMenuEditorWindow</span>
+                                </div>
+                            </div>
+
+                            <div class="inspector-pane" data-tab-pane="mod-comp" hidden>
+                                <div class="inspector-row is-active" style="margin-bottom: 10px;">
+                                    <span class="mono" style="color: var(--text-primary);">[Visuals] Component Designer</span>
+                                    <span class="tag tag-accent">$29.99 · Full C# Source</span>
+                                </div>
+                                <div class="inspector-row"><span class="inspector-key">Coverage</span><span class="inspector-val">74 concrete (75 classes) · 7 categories</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Key Attributes</span><span class="inspector-val">[ComponentBorder], [ComponentSciFiHUD], [ComponentAuroraEffect]</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Docs</span><span class="inspector-val"><a href="msultimate-component-docs.html" class="link-arrow">msultimate-component-docs.html</a></span></div>
+                            </div>
+
+                            <div class="inspector-pane" data-tab-pane="mod-anim" hidden>
+                                <div class="inspector-row is-active" style="margin-bottom: 10px;">
+                                    <span class="mono" style="color: var(--text-primary);">[Motion] Animated Attributes</span>
+                                    <span class="tag tag-accent">$29.99 · Full C# Source</span>
+                                </div>
+                                <div class="inspector-row"><span class="inspector-key">Coverage</span><span class="inspector-val">99 concrete (101 classes) · 12 categories</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Key Attributes</span><span class="inspector-val">[BossHealthBar], [ManaShieldBubble], [HexGridMatrix]</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Docs</span><span class="inspector-val"><a href="msultimate-animated-docs.html" class="link-arrow">msultimate-animated-docs.html</a></span></div>
+                            </div>
+
+                            <div class="inspector-pane" data-tab-pane="mod-hier" hidden>
+                                <div class="inspector-row is-active" style="margin-bottom: 10px;">
+                                    <span class="mono" style="color: var(--text-primary);">[Structure] Hierarchy Designer</span>
+                                    <span class="tag tag-accent">$29.99 · Full C# Source</span>
+                                </div>
+                                <div class="inspector-row"><span class="inspector-key">Coverage</span><span class="inspector-val">82 concrete (83 classes) · 8 categories</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Key Attributes</span><span class="inspector-val">[HierarchyFolder], [HierarchyTreeBranch], [HierarchyDrawCallTracker]</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Docs</span><span class="inspector-val"><a href="msultimate-hierarchy-docs.html" class="link-arrow">msultimate-hierarchy-docs.html</a></span></div>
+                            </div>
+
+                            <div class="inspector-pane" data-tab-pane="mod-val" hidden>
+                                <div class="inspector-row is-active" style="margin-bottom: 10px;">
+                                    <span class="mono" style="color: var(--text-primary);">[Integrity] Validation Module</span>
+                                    <span class="tag tag-accent">$29.99 · Full C# Source</span>
+                                </div>
+                                <div class="inspector-row"><span class="inspector-key">Coverage</span><span class="inspector-val">39 attributes + ValidationWindow &amp; ValidationCLI</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Key Features</span><span class="inspector-val">[ValidateComponent], [ValidateAssetPath], 1-click deep auto-fix</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Docs</span><span class="inspector-val"><a href="msultimate-validation-docs.html" class="link-arrow">msultimate-validation-docs.html</a></span></div>
+                            </div>
+
+                            <div class="inspector-pane" data-tab-pane="mod-cust" hidden>
+                                <div class="inspector-row is-active" style="margin-bottom: 10px;">
+                                    <span class="mono" style="color: var(--text-primary);">[Customizing] Inspector Customizer</span>
+                                    <span class="tag tag-accent">$39.99 · Full C# Source</span>
+                                </div>
+                                <div class="inspector-row"><span class="inspector-key">Workflow</span><span class="inspector-val">30-node Makeover Graph, Multi-LLM AI Decorator &amp; Privacy Shield</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Baking</span><span class="inspector-val">InspectorProfile hydration &amp; AttributeCodeBaker AST export</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Docs</span><span class="inspector-val"><a href="msultimate-customizer-docs.html" class="link-arrow">msultimate-customizer-docs.html</a></span></div>
+                            </div>
+
+                            <div class="inspector-pane" data-tab-pane="mod-tool" hidden>
+                                <div class="inspector-row is-active" style="margin-bottom: 10px;">
+                                    <span class="mono" style="color: var(--text-primary);">[Diagnostics] ToolBox Vol. 1</span>
+                                    <span class="tag tag-accent">$44.99 · Full C# Source</span>
+                                </div>
+                                <div class="inspector-row"><span class="inspector-key">4 Tools</span><span class="inspector-val">Advanced Console, History Track, Object Lifetime Tracker, Live Track</span></div>
+                                <div class="inspector-row"><span class="inspector-key">4 Attributes</span><span class="inspector-val">[ConsoleCommand], [HistoryTrack], [TrackLifetime], [LiveTrack]</span></div>
+                                <div class="inspector-row"><span class="inspector-key">Docs</span><span class="inspector-val"><a href="msultimate-toolbox-docs.html" class="link-arrow">msultimate-toolbox-docs.html</a></span></div>
+                            </div>
+
+                            <div class="workbench-footer">
+                                <span class="mono" style="color: var(--text-secondary);">Pro Collection includes Core + all 6 addons + 6,115 test cases</span>
+                                <a href="#editions" class="link-arrow">Compare pricing</a>
                             </div>
                         </div>
                     </div>
@@ -132,508 +392,535 @@ MSUltimate Ecosystem Architecture
             </div>
         </section>
 
-        <!-- Section 2: The Three Primary Paths / Editions -->
-        <section id="editions" class="py-5">
-            <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase small letter-spacing">Flexible Packaging</span>
-                <h2 class="display-5 fw-bold">Choose Your Edition</h2>
-                <p class="lead text-muted col-md-8 mx-auto">From a generous 100% free foundational community edition to specialized standalone addons and the complete Pro master collection.</p>
-            </div>
-
-            <div class="row g-4 align-items-stretch">
-                <!-- Community Edition -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="edition-card">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-success px-3 py-1 fs-6">Community</span>
-                            <span class="text-muted small"><i class="fas fa-microchip me-1"></i>DLL Format</span>
-                        </div>
-                        <h3 class="fw-bold mb-1">MSUltimate Core</h3>
-                        <p class="text-muted small">The modern inspector standard for every indie developer.</p>
-                        <div class="edition-price">
-                            FREE
-                            <small class="d-block">&lt;$200K Annual Revenue</small>
-                        </div>
-                        <ul class="feature-check-list">
-                            <li><i class="fas fa-check"></i> <strong>156+ Core Attributes:</strong> BoxGroup, TabGroup, SplitPane, ShowIf, EnableIf, MinMaxSlider</li>
-                            <li><i class="fas fa-check"></i> <strong>Custom Serializers:</strong> SerializableDictionary, HashSet, Matrix2D/3D, Queue, Stack</li>
-                            <li><i class="fas fa-check"></i> <strong>Extended Types:</strong> Nullable, DateTime, Range, Tuple, SerializableType</li>
-                            <li><i class="fas fa-check"></i> <strong>Modular Window System:</strong> Dockable menus, tree navigation, modal dialogs</li>
-                            <li><i class="fas fa-check"></i> <strong>Collection Cascading:</strong> List&lt;T&gt;, arrays, dictionaries</li>
-                            <li class="disabled"><i class="fas fa-times"></i> Full C# Source Code (Obfuscated DLL)</li>
-                            <li class="disabled"><i class="fas fa-times"></i> 6 Standalone Addons</li>
-                            <li class="disabled"><i class="fas fa-times"></i> 5,500+ Automated Unit Tests</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <a href="msultimate-license.html#community-eula" class="btn btn-outline-success w-100 mb-2"><i class="fas fa-download me-2"></i>Free Community Download</a>
-                            <a href="msultimate-license.html#community-eula" class="btn btn-link btn-sm text-center w-100 text-decoration-none text-muted">View Community EULA Terms</a>
-                        </div>
+        <!-- Section 2: Editions -->
+        <section id="editions" class="section section-surface">
+            <div class="container">
+                <div class="section-head-centered">
+                    <div class="eyebrow" style="justify-content: center;">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span>Flexible packaging</span>
                     </div>
+                    <h2 class="section-title">Choose your edition</h2>
+                    <p class="section-sub">Start free with the Community Edition or equip commercial studios with full C# source code and the complete test suite</p>
                 </div>
 
-                <!-- Core Pro Edition -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="edition-card">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-info px-3 py-1 fs-6 text-dark">Studio Pro</span>
-                            <span class="text-muted small"><i class="fas fa-code me-1"></i>Full C# Source</span>
+                <div class="grid-3">
+                    <!-- Community -->
+                    <article class="edition-card">
+                        <div class="asset-meta-row" style="justify-content: space-between; width: 100%;">
+                            <span class="tag tag-positive">Community</span>
+                            <span class="mono">DLL Format</span>
                         </div>
-                        <h3 class="fw-bold mb-1">MSUltimate Core</h3>
-                        <p class="text-muted small">Unrestricted core power for commercial game studios.</p>
-                        <div class="edition-price">
+                        <h3 class="card-title" style="margin-top: 8px;">MSUltimate Core</h3>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 0;">Foundational inspector suite for indie developers</p>
+                        <div class="edition-price mono">
+                            Free
+                            <span class="edition-price-note">&lt;$200K annual revenue</span>
+                        </div>
+                        <ul class="check-list">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>156+ Core Attributes:</strong> BoxGroup, BeginTabGroup, BeginSplitPane, ShowIf, ValueDropdown, MinMaxSlider</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Custom Serializers:</strong> SerializableDictionary, HashSet, Matrix2D/3D, Queue, Stack</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Extended Types:</strong> Nullable, DateTime, Range, Tuple, SerializableType</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Modular Window System:</strong> Dockable menus, tree navigation, modal dialogs</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Collection Cascading:</strong> List&lt;T&gt;, arrays, dictionaries</span>
+                            </li>
+                            <li class="is-muted">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                <span>Full C# Source Code (Obfuscated DLL)</span>
+                            </li>
+                            <li class="is-muted">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                <span>6 Standalone Addons &amp; 6,115 Test Cases</span>
+                            </li>
+                        </ul>
+                        <a href="msultimate-license.html#community-eula" class="btn btn-secondary" style="width: 100%; margin-bottom: 8px;">Free Community download</a>
+                        <a href="msultimate-license.html#community-eula" class="btn-quiet" style="text-align: center; justify-content: center;">View Community EULA terms</a>
+                    </article>
+
+                    <!-- Studio Pro Core -->
+                    <article class="edition-card">
+                        <div class="asset-meta-row" style="justify-content: space-between; width: 100%;">
+                            <span class="tag">Studio Pro</span>
+                            <span class="mono">Full C# Source</span>
+                        </div>
+                        <h3 class="card-title" style="margin-top: 8px;">MSUltimate Core</h3>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 0;">Uncompiled core source for commercial teams</p>
+                        <div class="edition-price mono">
                             $149.99
-                            <small class="d-block">Per-Seat Commercial EULA</small>
+                            <span class="edition-price-note">Per-seat commercial EULA</span>
                         </div>
-                        <ul class="feature-check-list">
-                            <li><i class="fas fa-check"></i> <strong>Everything in Community Edition</strong></li>
-                            <li><i class="fas fa-check"></i> <strong>100% Full C# Source Code:</strong> Uncompiled, clean, modular code</li>
-                            <li><i class="fas fa-check"></i> <strong>Standard Unity Asset Store EULA:</strong> Per-seat licensing</li>
-                            <li><i class="fas fa-check"></i> <strong>Zero Revenue Ceiling:</strong> Unlimited studio revenue & funding</li>
-                            <li><i class="fas fa-check"></i> <strong>Pipeline Integration:</strong> Audit, customize drawers, internal hooks</li>
-                            <li><i class="fas fa-check"></i> <strong>Direct Engineering Support:</strong> Contact core architects</li>
-                            <li class="disabled"><i class="fas fa-times"></i> The 6 Standalone Addons</li>
-                            <li class="disabled"><i class="fas fa-times"></i> 5,500+ Automated Unit Tests</li>
+                        <ul class="check-list">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Everything in Community Edition</strong></span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>100% Full C# Source Code:</strong> Clean, modular, uncompiled files</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Standard Unity Asset Store EULA:</strong> Per-seat licensing</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Zero Revenue Ceiling:</strong> No annual revenue or funding cap</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Pipeline Integration:</strong> Customize drawers and internal hooks</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Direct Engineering Support</strong></span>
+                            </li>
+                            <li class="is-muted">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                <span>6 Standalone Addons &amp; 6,115 Test Cases</span>
+                            </li>
                         </ul>
-                        <div class="mt-auto">
-                            <a href="https://assetstore.unity.com/publishers/120284" target="_blank" class="btn btn-outline-primary w-100 mb-2"><i class="fas fa-shopping-cart me-2"></i>Buy Core Pro</a>
-                            <a href="msultimate-license.html#commercial-licensing" class="btn btn-link btn-sm text-center w-100 text-decoration-none text-muted">View Commercial License</a>
-                        </div>
-                    </div>
-                </div>
+                        <a href="https://assetstore.unity.com/publishers/120284" target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%; margin-bottom: 8px;">Buy Core Pro</a>
+                        <a href="msultimate-license.html#commercial-licensing" class="btn-quiet" style="text-align: center; justify-content: center;">View commercial license</a>
+                    </article>
 
-                <!-- Pro Full Collection (Master Bundle) -->
-                <div class="col-lg-4 col-md-12">
-                    <div class="edition-card featured-edition">
-                        <div class="edition-ribbon">BEST VALUE</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge bg-warning text-dark px-3 py-1 fs-6 fw-bold">Master Collection</span>
-                            <span class="text-muted small"><i class="fas fa-crown me-1"></i>All-In-One</span>
+                    <!-- Master Collection -->
+                    <article class="edition-card is-featured spotlight-card">
+                        <div class="asset-meta-row" style="justify-content: space-between; width: 100%;">
+                            <span class="tag tag-accent">Master Collection</span>
+                            <span class="mono" style="color: var(--accent-text);">Best value</span>
                         </div>
-                        <h3 class="fw-bold mb-1">MSUltimate Pro</h3>
-                        <p class="text-muted small">The definitive AAA development suite at maximum bundle savings.</p>
-                        <div class="edition-price text-warning">
+                        <h3 class="card-title" style="margin-top: 8px;">MSUltimate Pro</h3>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 0;">Complete suite with all addons, tools, and unit tests</p>
+                        <div class="edition-price mono" style="color: var(--accent-text);">
                             $299.99
-                            <small class="d-block text-muted">Over $350 in combined standalone value</small>
+                            <span class="edition-price-note">Over $350 in combined standalone value</span>
                         </div>
-                        <ul class="feature-check-list">
-                            <li><i class="fas fa-check text-warning"></i> <strong>MSUltimate Core (Pro):</strong> Complete source for all 156+ attributes</li>
-                            <li><i class="fas fa-check text-warning"></i> <strong>ALL 6 Official Addons:</strong> Animated, Component, Hierarchy, Validation, Customizer, ToolBox</li>
-                            <li><i class="fas fa-check text-warning"></i> <strong>444+ Total Attributes:</strong> 47 functional categories</li>
-                            <li><i class="fas fa-check text-warning"></i> <strong>4 Developer Power Tools:</strong> Console Pro, History, Lifetime, Live Track</li>
-                            <li><i class="fas fa-check text-warning"></i> <strong>Exclusive 5,500+ Automated Test Suite:</strong> 520+ atomic test files</li>
-                            <li><i class="fas fa-check text-warning"></i> <strong>100% Full C# Source Code</strong> across every module</li>
-                            <li><i class="fas fa-check text-warning"></i> <strong>VIP Priority Support Channel</strong></li>
-                            <li><i class="fas fa-check text-warning"></i> <strong>Standard Unity EULA (Per-Seat)</strong> — No revenue limits</li>
+                        <ul class="check-list">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>MSUltimate Core (Pro):</strong> Full source for all 156+ attributes</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>All 6 Official Addons:</strong> Animated, Component, Hierarchy, Validation, Customizer, ToolBox</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>454+ Concrete Attributes</strong> (463 total attribute classes)</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>4 Developer Power Tools:</strong> Advanced Console, History Track, Object Lifetime Tracker, Live Track</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>6,115 Automated Test Cases</strong> across 573 test files &amp; 3,275 methods</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>100% Full C# Source Code</strong> &amp; VIP priority support</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                <span><strong>Standard Unity EULA (Per-Seat)</strong> — No revenue limits</span>
+                            </li>
                         </ul>
-                        <div class="mt-auto">
-                            <a href="https://assetstore.unity.com/publishers/120284" target="_blank" class="btn btn-primary w-100 mb-2 shadow"><i class="fas fa-crown me-2"></i>Get Pro Full Collection</a>
-                            <a href="msultimate-docs.html" class="btn btn-link btn-sm text-center w-100 text-decoration-none text-muted">View Ecosystem Documentation</a>
-                        </div>
-                    </div>
+                        <a href="https://assetstore.unity.com/publishers/120284" target="_blank" rel="noopener" class="btn btn-accent" style="width: 100%; margin-bottom: 8px;">Get Pro Full Collection</a>
+                        <a href="msultimate-docs.html" class="btn-quiet" style="text-align: center; justify-content: center;">View ecosystem documentation</a>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: The 6 Standalone Addons -->
-        <section id="addons" class="py-5">
-            <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase small letter-spacing">Modular A La Carte Modules</span>
-                <h2 class="display-5 fw-bold">The 6 Standalone Addons</h2>
-                <p class="lead text-muted col-md-8 mx-auto">Each addon is 100% decoupled and can be purchased individually to solve specific production bottlenecks without requiring the full suite.</p>
-            </div>
-
-            <div class="row g-4">
-                <!-- Addon 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="addon-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="addon-icon"><i class="fas fa-bolt"></i></div>
-                            <span class="badge bg-primary fs-6">$29.99</span>
-                        </div>
-                        <h4 class="fw-bold mb-1">MSUltimate - Animated Attributes</h4>
-                        <span class="badge bg-secondary w-auto align-self-start mb-3">87 Attributes • 13 Categories</span>
-                        <p class="text-muted small flex-grow-1">Micro-interactions, animated telemetry, dynamic combat HUD meters (<code>[RageMeterFill]</code>, <code>[CombatShieldRecharge]</code>), cyberpunk matrix rain, particle simulations, and kinetic typography.</p>
-                        <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">Full C# Source</span>
-                            <a href="msultimate-animated-docs.html" class="btn btn-sm btn-outline-primary">View Docs</a>
-                        </div>
+        <!-- Section 3: 6 Standalone Addons -->
+        <section id="addons" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">The 6 standalone addons</h2>
+                        <p class="section-sub">Each module is 100% decoupled and can be added individually without requiring the full suite</p>
                     </div>
                 </div>
 
-                <!-- Addon 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="addon-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="addon-icon"><i class="fas fa-palette"></i></div>
-                            <span class="badge bg-primary fs-6">$29.99</span>
+                <div class="grid-3">
+                    <article class="card spotlight-card">
+                        <div class="asset-meta-row" style="justify-content: space-between;">
+                            <div class="feature-icon-box" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <span class="mono" style="font-size: 16px; font-weight: 500; color: var(--text-primary);">$29.99</span>
                         </div>
-                        <h4 class="fw-bold mb-1">MSUltimate - Component Designer</h4>
-                        <span class="badge bg-secondary w-auto align-self-start mb-3">75 Attributes • 7 Categories</span>
-                        <p class="text-muted small flex-grow-1">AAA MonoBehaviour card presentation. Modern glassmorphism card frames, glowing animated borders, atmospheric particle backgrounds (drifting fog, embers, aurora), breadcrumb headers, and branded sub-system layouts.</p>
-                        <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">Full C# Source</span>
-                            <a href="msultimate-component-docs.html" class="btn btn-sm btn-outline-primary">View Docs</a>
+                        <h3 class="card-title">MSUltimate - Animated Attributes</h3>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">99 concrete (101 classes) · 12 categories</span>
+                        <p class="card-desc">Micro-interactions, animated telemetry, combat HUD meters (<code class="inline-code">[BossHealthBar]</code>, <code class="inline-code">[ManaShieldBubble]</code>), sci-fi visualizers (<code class="inline-code">[HexGridMatrix]</code>, <code class="inline-code">[SonarPingWave]</code>), particle FX, and kinetic typography.</p>
+                        <div class="card-footer">
+                            <span class="mono">Full C# source</span>
+                            <a href="msultimate-animated-docs.html" class="link-arrow">View docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Addon 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="addon-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="addon-icon"><i class="fas fa-sitemap"></i></div>
-                            <span class="badge bg-primary fs-6">$29.99</span>
+                    <article class="card spotlight-card">
+                        <div class="asset-meta-row" style="justify-content: space-between;">
+                            <div class="feature-icon-box" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                            </div>
+                            <span class="mono" style="font-size: 16px; font-weight: 500; color: var(--text-primary);">$29.99</span>
                         </div>
-                        <h4 class="fw-bold mb-1">MSUltimate - Hierarchy Designer</h4>
-                        <span class="badge bg-secondary w-auto align-self-start mb-3">83 Attributes • 8 Categories</span>
-                        <p class="text-muted small flex-grow-1">Complete organizational overhaul of the Unity Scene Hierarchy window. Virtual colored folders, branching tree connector lines, live telemetry markers (Audio, LOD, NavMesh), and real-time performance badges (DrawCalls, Verts).</p>
-                        <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">Full C# Source</span>
-                            <a href="msultimate-hierarchy-docs.html" class="btn btn-sm btn-outline-primary">View Docs</a>
+                        <h3 class="card-title">MSUltimate - Component Designer</h3>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">74 concrete (75 classes) · 7 categories</span>
+                        <p class="card-desc">MonoBehaviour inspector cards with styled borders (<code class="inline-code">[ComponentBorder]</code>), atmospheric effects (<code class="inline-code">[ComponentAuroraEffect]</code>), header controls, and genre themes (<code class="inline-code">[ComponentSciFiHUD]</code>, <code class="inline-code">[ComponentRPGStatCard]</code>).</p>
+                        <div class="card-footer">
+                            <span class="mono">Full C# source</span>
+                            <a href="msultimate-component-docs.html" class="link-arrow">View docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Addon 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="addon-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="addon-icon"><i class="fas fa-shield-check"></i></div>
-                            <span class="badge bg-primary fs-6">$29.99</span>
+                    <article class="card spotlight-card">
+                        <div class="asset-meta-row" style="justify-content: space-between;">
+                            <div class="feature-icon-box" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="9" width="6" height="6" rx="1"/><rect x="15" y="17" width="6" height="4" rx="1"/><path d="M6 9v10h9"/><path d="M6 12h9"/></svg>
+                            </div>
+                            <span class="mono" style="font-size: 16px; font-weight: 500; color: var(--text-primary);">$29.99</span>
                         </div>
-                        <h4 class="fw-bold mb-1">MSUltimate - Validation Module</h4>
-                        <span class="badge bg-secondary w-auto align-self-start mb-3">39 Attributes + Diagnostic Window</span>
-                        <p class="text-muted small flex-grow-1">Real-time data integrity and project-wide asset scanning. Field assertions (<code>[ValidateRequiresCollider]</code>, <code>[ValidateAssetGuidExists]</code>) coupled with an automated project scanner offering 1-click batch auto-repair for broken GUIDs.</p>
-                        <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">Full C# Source</span>
-                            <a href="msultimate-validation-docs.html" class="btn btn-sm btn-outline-primary">View Docs</a>
+                        <h3 class="card-title">MSUltimate - Hierarchy Designer</h3>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">82 concrete (83 classes) · 8 categories</span>
+                        <p class="card-desc">Scene Hierarchy organization with virtual colored folders (<code class="inline-code">[HierarchyFolder]</code>), tree lines (<code class="inline-code">[HierarchyTreeBranch]</code>), live monitors (<code class="inline-code">[HierarchyAudioMonitor]</code>), and performance badges (<code class="inline-code">[HierarchyDrawCallTracker]</code>, <code class="inline-code">[HierarchyPolyCount]</code>).</p>
+                        <div class="card-footer">
+                            <span class="mono">Full C# source</span>
+                            <a href="msultimate-hierarchy-docs.html" class="link-arrow">View docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Addon 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="addon-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="addon-icon"><i class="fas fa-brush"></i></div>
-                            <span class="badge bg-primary fs-6">$39.99</span>
+                    <article class="card spotlight-card">
+                        <div class="asset-meta-row" style="justify-content: space-between;">
+                            <div class="feature-icon-box" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+                            </div>
+                            <span class="mono" style="font-size: 16px; font-weight: 500; color: var(--text-primary);">$29.99</span>
                         </div>
-                        <h4 class="fw-bold mb-1">MSUltimate - Inspector Customizer</h4>
-                        <span class="badge bg-secondary w-auto align-self-start mb-3">Visual Theming Workbench</span>
-                        <p class="text-muted small flex-grow-1">Create custom UI Toolkit inspector templates visually, switch between dark/light/cyberpunk theme tokens, and apply full-component makeovers with a USS/UXML skin injector without writing procedural code.</p>
-                        <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">Full C# Source</span>
-                            <a href="msultimate-customizer-docs.html" class="btn btn-sm btn-outline-primary">View Docs</a>
+                        <h3 class="card-title">MSUltimate - Validation Module</h3>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">39 attributes + ValidationWindow &amp; CLI</span>
+                        <p class="card-desc">Real-time field assertions (<code class="inline-code">[ValidateComponent]</code>, <code class="inline-code">[ValidateAssetPath]</code>, <code class="inline-code">[ValidateTextureSize]</code>) paired with project-wide scanning (<code class="inline-code">ValidationWindow</code>) and 1-click auto-fix for supported deep rules.</p>
+                        <div class="card-footer">
+                            <span class="mono">Full C# source</span>
+                            <a href="msultimate-validation-docs.html" class="link-arrow">View docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Addon 6 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="addon-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="addon-icon"><i class="fas fa-toolbox"></i></div>
-                            <span class="badge bg-primary fs-6">$44.99</span>
+                    <article class="card spotlight-card">
+                        <div class="asset-meta-row" style="justify-content: space-between;">
+                            <div class="feature-icon-box" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m14.622 17.897-10.68-2.913"/><path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/><path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/></svg>
+                            </div>
+                            <span class="mono" style="font-size: 16px; font-weight: 500; color: var(--text-primary);">$39.99</span>
                         </div>
-                        <h4 class="fw-bold mb-1">MSUltimate - ToolBox Vol. 1</h4>
-                        <span class="badge bg-secondary w-auto align-self-start mb-3">4 Standalone Developer Tools</span>
-                        <p class="text-muted small flex-grow-1">High-throughput developer diagnostics: <strong>Advanced Console Pro</strong> (speed log filtering), <strong>History Track</strong> (Undo/Redo serialization diffing), <strong>Lifetime Tracker</strong> (memory leak detection), and <strong>Live Track</strong> (in-scene HUD telemetry).</p>
-                        <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">Full C# Source</span>
-                            <a href="msultimate-toolbox-docs.html" class="btn btn-sm btn-outline-primary">View Docs</a>
+                        <h3 class="card-title">MSUltimate - Inspector Customizer</h3>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">Non-destructive styler &amp; code baker</span>
+                        <p class="card-desc">Apply and reorder attributes via <code class="inline-code">InspectorProfile</code>, author rules in the 30-node <code class="inline-code">MakeoverGraphWindow</code> or Multi-LLM AI Decorator, preview before/after diffs, and bake into C# with <code class="inline-code">AttributeCodeBaker</code>.</p>
+                        <div class="card-footer">
+                            <span class="mono">Full C# source</span>
+                            <a href="msultimate-customizer-docs.html" class="link-arrow">View docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="card spotlight-card">
+                        <div class="asset-meta-row" style="justify-content: space-between;">
+                            <div class="feature-icon-box" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                            </div>
+                            <span class="mono" style="font-size: 16px; font-weight: 500; color: var(--text-primary);">$44.99</span>
+                        </div>
+                        <h3 class="card-title">MSUltimate - ToolBox Vol. 1</h3>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">4 tools + 4 tracking attributes</span>
+                        <p class="card-desc">Includes <strong>Advanced Console</strong>, <strong>History Track</strong> (Undo/Redo diffs &amp; Play Mode commit), <strong>Object Lifetime Tracker</strong> (leak detection), and <strong>Live Track</strong> (SceneView HUD &amp; graphs).</p>
+                        <div class="card-footer">
+                            <span class="mono">Full C# source</span>
+                            <a href="msultimate-toolbox-docs.html" class="link-arrow">View docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- Section 4: 4 Developer Power Tools -->
-        <section id="developer-tools" class="py-5">
-            <div class="glass-box p-4 p-lg-5">
-                <div class="text-center mb-5">
-                    <span class="text-primary fw-bold text-uppercase small letter-spacing">Integrated Engineering Power</span>
-                    <h2 class="display-6 fw-bold">4 Developer Power Tools</h2>
-                    <p class="lead text-muted col-md-8 mx-auto">Available in ToolBox Vol. 1 and bundled with the MSUltimate Pro Full Collection.</p>
+        <section id="developer-tools" class="section section-surface">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">4 developer power tools</h2>
+                        <p class="section-sub">Included in ToolBox Vol. 1 and bundled with MSUltimate Pro Full Collection</p>
+                    </div>
                 </div>
 
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="p-3 border rounded h-100 bg-surface">
-                            <h5 class="fw-bold text-primary mb-2"><i class="fas fa-terminal me-2"></i>Advanced Console Pro</h5>
-                            <p class="small text-muted mb-0">High-speed log filtering, regex pattern matching, structured callstack analysis, memory allocation tags, and exportable diagnostics reports.</p>
+                <div class="grid-4">
+                    <div class="card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
                         </div>
+                        <h3 class="card-title" style="font-size: 16px;">Advanced Console</h3>
+                        <p class="card-desc" style="font-size: 13px;">High-speed log filtering, rule alerts, callstack analysis, runtime UI Toolkit overlay, and <code class="inline-code">[ConsoleCommand]</code> commands.</p>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="p-3 border rounded h-100 bg-surface">
-                            <h5 class="fw-bold text-primary mb-2"><i class="fas fa-clock-rotate-left me-2"></i>History Track</h5>
-                            <p class="small text-muted mb-0">Timeline-based Undo/Redo state inspection, real-time serialization diffing between steps, and field mutation auditing across game sessions.</p>
+
+                    <div class="card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
                         </div>
+                        <h3 class="card-title" style="font-size: 16px;">History Track</h3>
+                        <p class="card-desc" style="font-size: 13px;">Timeline Undo/Redo state inspection, variable change diffs via <code class="inline-code">[HistoryTrack]</code>, and Play Mode tweak committing.</p>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="p-3 border rounded h-100 bg-surface">
-                            <h5 class="fw-bold text-primary mb-2"><i class="fas fa-heart-pulse me-2"></i>Lifetime Tracker</h5>
-                            <p class="small text-muted mb-0">Allocation tracking, memory leak detection, GameObject lifecycle auditing, and orphan component warnings before you ship.</p>
+
+                    <div class="card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
                         </div>
+                        <h3 class="card-title" style="font-size: 16px;">Object Lifetime Tracker</h3>
+                        <p class="card-desc" style="font-size: 13px;">Allocation tracking, dangling C# reference hunting, scene teardown leak detection, and <code class="inline-code">[TrackLifetime]</code> auditing.</p>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="p-3 border rounded h-100 bg-surface">
-                            <h5 class="fw-bold text-primary mb-2"><i class="fas fa-chart-line me-2"></i>Live Track</h5>
-                            <p class="small text-muted mb-0">In-scene floating telemetry HUD and real-time oscillating variable graphs for physics, AI states, speeds, and combat vectors.</p>
+
+                    <div class="card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                         </div>
+                        <h3 class="card-title" style="font-size: 16px;">Live Track</h3>
+                        <p class="card-desc" style="font-size: 13px;">In-SceneView floating telemetry HUD and multi-scale oscilloscope variable graphs via <code class="inline-code">[LiveTrack]</code>.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 5: Master Package Comparison Matrix -->
-        <section id="comparison" class="py-5">
-            <div class="text-center mb-4">
-                <span class="text-primary fw-bold text-uppercase small letter-spacing">Transparent Specifications</span>
-                <h2 class="display-5 fw-bold">Master Package Comparison Matrix</h2>
-                <p class="lead text-muted col-md-8 mx-auto">Compare features, pricing, attributes count, and licensing across the entire MSUltimate universe.</p>
-            </div>
+        <!-- Section 5: Master Comparison Matrix -->
+        <section id="comparison" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">Package comparison matrix</h2>
+                        <p class="section-sub">Features, pricing, attribute counts, and licensing across the MSUltimate suite</p>
+                    </div>
+                </div>
 
-            <div class="table-responsive">
-                <table class="matrix-table table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Package Name</th>
-                            <th>Price (USD)</th>
-                            <th>Primary Domain</th>
-                            <th>Attributes</th>
-                            <th>Source Code</th>
-                            <th>Tests Included</th>
-                            <th>Included Addons</th>
-                            <th>Licensing Tier</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>MSUltimate Core (Community)</strong></td>
-                            <td><span class="badge bg-success fs-6">FREE</span></td>
-                            <td>Core Inspector & Serializers</td>
-                            <td>156+</td>
-                            <td>Obfuscated DLL</td>
-                            <td>—</td>
-                            <td>—</td>
-                            <td><a href="msultimate-license.html#community-eula" class="text-decoration-none">Custom Free EULA (&lt;$200K Rev)</a></td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td><strong>MSUltimate Core (Pro)</strong></td>
-                            <td>$149.99</td>
-                            <td>Unrestricted Core Engine</td>
-                            <td>156+</td>
-                            <td>Full C# Source</td>
-                            <td>—</td>
-                            <td>—</td>
-                            <td>Standard Unity EULA (Per-Seat)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MSUltimate - Animated Attributes</strong></td>
-                            <td>$29.99</td>
-                            <td>Micro-Interactions & VFX</td>
-                            <td>87</td>
-                            <td>Full C# Source</td>
-                            <td>—</td>
-                            <td>Standalone</td>
-                            <td>Standard Unity EULA (Per-Seat)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MSUltimate - Component Designer</strong></td>
-                            <td>$29.99</td>
-                            <td>Branded Inspector Cards</td>
-                            <td>75</td>
-                            <td>Full C# Source</td>
-                            <td>—</td>
-                            <td>Standalone</td>
-                            <td>Standard Unity EULA (Per-Seat)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MSUltimate - Hierarchy Designer</strong></td>
-                            <td>$29.99</td>
-                            <td>Scene Hierarchy Window</td>
-                            <td>83</td>
-                            <td>Full C# Source</td>
-                            <td>—</td>
-                            <td>Standalone</td>
-                            <td>Standard Unity EULA (Per-Seat)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MSUltimate - Validation Module</strong></td>
-                            <td>$29.99</td>
-                            <td>Project Scanning & Fixes</td>
-                            <td>39</td>
-                            <td>Full C# Source</td>
-                            <td>—</td>
-                            <td>Standalone</td>
-                            <td>Standard Unity EULA (Per-Seat)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MSUltimate - Inspector Customizer</strong></td>
-                            <td>$39.99</td>
-                            <td>Visual Theming Engine</td>
-                            <td>Templates</td>
-                            <td>Full C# Source</td>
-                            <td>—</td>
-                            <td>Standalone</td>
-                            <td>Standard Unity EULA (Per-Seat)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MSUltimate - ToolBox Vol. 1</strong></td>
-                            <td>$44.99</td>
-                            <td>4 Developer Power Tools</td>
-                            <td>4 + Tools</td>
-                            <td>Full C# Source</td>
-                            <td>—</td>
-                            <td>Standalone</td>
-                            <td>Standard Unity EULA (Per-Seat)</td>
-                        </tr>
-                        <tr class="bundle-highlight-row">
-                            <td><strong>MSUltimate Pro (Full Collection)</strong></td>
-                            <td><strong>$299.99</strong></td>
-                            <td>Complete Master Ecosystem</td>
-                            <td><strong>444+</strong></td>
-                            <td><strong>Full C# Source</strong></td>
-                            <td><strong>5,500+ Tests</strong></td>
-                            <td><strong>ALL 6 Addons</strong></td>
-                            <td><strong>Standard Unity EULA (Per-Seat)</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-wrap">
+                    <table class="studio-table">
+                        <thead>
+                            <tr>
+                                <th>Package name</th>
+                                <th>Price (USD)</th>
+                                <th>Primary domain</th>
+                                <th>Attributes</th>
+                                <th>Source code</th>
+                                <th>Tests</th>
+                                <th>Scope</th>
+                                <th>Licensing tier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MSUltimate Core (Community)</strong></td>
+                                <td class="mono" style="color: var(--positive);">Free</td>
+                                <td>Core Inspector &amp; Serializers</td>
+                                <td class="mono">156+</td>
+                                <td>Obfuscated DLL</td>
+                                <td class="mono">—</td>
+                                <td>Core</td>
+                                <td><a href="msultimate-license.html#community-eula" class="link-arrow">Free EULA (&lt;$200K rev)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>MSUltimate Core (Pro)</strong></td>
+                                <td class="mono">$149.99</td>
+                                <td>Unrestricted Core Engine</td>
+                                <td class="mono">156+</td>
+                                <td>Full C# Source</td>
+                                <td class="mono">—</td>
+                                <td>Core</td>
+                                <td>Standard Unity EULA (Per-seat)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Animated Attributes</strong></td>
+                                <td class="mono">$29.99</td>
+                                <td>Micro-Interactions &amp; VFX</td>
+                                <td class="mono">99 (101 classes)</td>
+                                <td>Full C# Source</td>
+                                <td class="mono">—</td>
+                                <td>Standalone</td>
+                                <td>Standard Unity EULA (Per-seat)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Component Designer</strong></td>
+                                <td class="mono">$29.99</td>
+                                <td>Branded Inspector Cards</td>
+                                <td class="mono">74 (75 classes)</td>
+                                <td>Full C# Source</td>
+                                <td class="mono">—</td>
+                                <td>Standalone</td>
+                                <td>Standard Unity EULA (Per-seat)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hierarchy Designer</strong></td>
+                                <td class="mono">$29.99</td>
+                                <td>Scene Hierarchy Window</td>
+                                <td class="mono">82 (83 classes)</td>
+                                <td>Full C# Source</td>
+                                <td class="mono">—</td>
+                                <td>Standalone</td>
+                                <td>Standard Unity EULA (Per-seat)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Validation Module</strong></td>
+                                <td class="mono">$29.99</td>
+                                <td>Project Scanning &amp; Fixes</td>
+                                <td class="mono">39</td>
+                                <td>Full C# Source</td>
+                                <td class="mono">—</td>
+                                <td>Standalone</td>
+                                <td>Standard Unity EULA (Per-seat)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inspector Customizer</strong></td>
+                                <td class="mono">$39.99</td>
+                                <td>Non-Destructive Styler &amp; Baker</td>
+                                <td class="mono">Templates &amp; Graph</td>
+                                <td>Full C# Source</td>
+                                <td class="mono">—</td>
+                                <td>Standalone</td>
+                                <td>Standard Unity EULA (Per-seat)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ToolBox Vol. 1</strong></td>
+                                <td class="mono">$44.99</td>
+                                <td>4 Developer Power Tools</td>
+                                <td class="mono">4 + Tools</td>
+                                <td>Full C# Source</td>
+                                <td class="mono">—</td>
+                                <td>Standalone</td>
+                                <td>Standard Unity EULA (Per-seat)</td>
+                            </tr>
+                            <tr class="row-highlight">
+                                <td><strong>MSUltimate Pro (Full Collection)</strong></td>
+                                <td class="mono"><strong>$299.99</strong></td>
+                                <td>Complete Master Ecosystem</td>
+                                <td class="mono"><strong>454+ (463 classes)</strong></td>
+                                <td><strong>Full C# Source</strong></td>
+                                <td class="mono"><strong>6,115 Cases</strong></td>
+                                <td><strong>All 6 Addons</strong></td>
+                                <td><strong>Standard Unity EULA (Per-seat)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
-        <!-- Section 6: Decision Guide ("Which Edition Should You Choose?") -->
-        <section id="decision-guide" class="py-5">
-            <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase small letter-spacing">Buyer's Roadmap</span>
-                <h2 class="display-5 fw-bold">Which Edition Should You Choose?</h2>
-                <p class="lead text-muted col-md-8 mx-auto">Follow this simple guide to find the perfect fit for your studio size and project requirements.</p>
-            </div>
+        <!-- Section 6: Decision Guide -->
+        <section id="decision-guide" class="section section-surface">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">Which edition fits your team</h2>
+                        <p class="section-sub">Match your studio size, source requirements, and pipeline targets</p>
+                    </div>
+                </div>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="glass-box p-4 h-100 border-start border-success border-4">
-                        <h5 class="fw-bold text-success mb-2"><i class="fas fa-graduation-cap me-2"></i>Indies & Students</h5>
-                        <p class="text-muted small mb-3">Gross revenue under $200,000 USD?</p>
-                        <h6 class="fw-bold text-primary mb-2">👉 MSUltimate Core (Community)</h6>
-                        <p class="small text-muted mb-0">100% Free. Get 156+ battle-tested attributes, serializers, and windowing tools with zero financial investment.</p>
+                <div class="grid-4">
+                    <div class="card">
+                        <span class="tag tag-positive" style="align-self: flex-start;">Indies &amp; students</span>
+                        <h3 class="card-title">MSUltimate Core (Community)</h3>
+                        <p class="card-desc">Annual gross revenue under $200,000 USD. Get 156+ battle-tested attributes, serializers, and windowing tools at zero cost.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="glass-box p-4 h-100 border-start border-info border-4">
-                        <h5 class="fw-bold text-info mb-2"><i class="fas fa-briefcase me-2"></i>Commercial Studios</h5>
-                        <p class="text-muted small mb-3">Revenue &gt;$200K or need source code?</p>
-                        <h6 class="fw-bold text-primary mb-2">👉 MSUltimate Core (Pro)</h6>
-                        <p class="small text-muted mb-0">Full C# source code access for internal pipeline customization, audit compliance, and standard per-seat licensing.</p>
+
+                    <div class="card">
+                        <span class="tag" style="align-self: flex-start;">Commercial studios</span>
+                        <h3 class="card-title">MSUltimate Core (Pro)</h3>
+                        <p class="card-desc">Revenue above $200K or teams needing uncompiled C# source access for custom drawers, internal hooks, and source auditing.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="glass-box p-4 h-100 border-start border-warning border-4">
-                        <h5 class="fw-bold text-warning mb-2"><i class="fas fa-crown me-2"></i>Power Developers</h5>
-                        <p class="text-muted small mb-3">Want the definitive AAA master suite?</p>
-                        <h6 class="fw-bold text-primary mb-2">👉 MSUltimate Pro (Full Collection)</h6>
-                        <p class="small text-muted mb-0">All 444+ attributes, all 6 addons, 4 power tools, and 5,500+ unit tests at over $100 bundle savings.</p>
+
+                    <div class="card">
+                        <span class="tag tag-accent" style="align-self: flex-start;">Full pipeline</span>
+                        <h3 class="card-title">MSUltimate Pro (Full Collection)</h3>
+                        <p class="card-desc">All 454+ concrete attributes (463 classes), all 6 standalone addons, 4 developer tools, and 6,115 test cases across 573 test files.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="glass-box p-4 h-100 border-start border-primary border-4">
-                        <h5 class="fw-bold text-primary mb-2"><i class="fas fa-puzzle-piece me-2"></i>Targeted Needs</h5>
-                        <p class="text-muted small mb-3">Only need specific features?</p>
-                        <h6 class="fw-bold text-primary mb-2">👉 Individual Standalone Addons</h6>
-                        <p class="small text-muted mb-0">Buy Hierarchy Designer, Validation Module, or ToolBox individually without buying the full suite.</p>
+
+                    <div class="card">
+                        <span class="tag" style="align-self: flex-start;">Targeted fixes</span>
+                        <h3 class="card-title">Individual Addons</h3>
+                        <p class="card-desc">Pick Hierarchy Designer, Validation Module, or ToolBox Vol. 1 individually without changing your existing inspector workflow.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 7: Technical Specifications -->
-        <section id="technical-specs" class="py-5">
-            <div class="glass-box p-4 p-lg-5">
-                <h3 class="fw-bold mb-4 text-center"><i class="fas fa-gears text-primary me-2"></i>Technical Specifications</h3>
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-3 d-flex align-items-start gap-2">
-                                <i class="fas fa-check-circle text-success mt-1"></i>
-                                <div>
-                                    <strong>Unity Editor Version:</strong> Unity 6 (6000.x) and newer.
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex align-items-start gap-2">
-                                <i class="fas fa-check-circle text-success mt-1"></i>
-                                <div>
-                                    <strong>Render Pipeline Compatibility:</strong> 100% compatible with Universal (URP), High Definition (HDRP), and Built-in (BiRP).
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex align-items-start gap-2">
-                                <i class="fas fa-check-circle text-success mt-1"></i>
-                                <div>
-                                    <strong>Architecture:</strong> Modern UI Toolkit native with IMGUI compatibility layer. Zero runtime GC allocations.
-                                </div>
-                            </li>
-                        </ul>
+        <!-- Section 7: Technical Specs -->
+        <section id="technical-specs" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">Technical specifications</h2>
+                        <p class="section-sub">Engine compatibility, architecture, and verification targets</p>
                     </div>
-                    <div class="col-md-6">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-3 d-flex align-items-start gap-2">
-                                <i class="fas fa-check-circle text-success mt-1"></i>
-                                <div>
-                                    <strong>Runtime Platforms:</strong> Windows, macOS, Linux, iOS, Android, WebGL, Xbox, PlayStation, Nintendo Switch.
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex align-items-start gap-2">
-                                <i class="fas fa-check-circle text-success mt-1"></i>
-                                <div>
-                                    <strong>Build Footprint:</strong> Zero runtime build bloat. All editor tooling code is stripped automatically from player builds.
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex align-items-start gap-2">
-                                <i class="fas fa-check-circle text-success mt-1"></i>
-                                <div>
-                                    <strong>Comprehensive Testing:</strong> Verified with over 5,500+ unit and integration tests across visual trees and serializers.
-                                </div>
-                            </li>
-                        </ul>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="inspector-row"><span class="inspector-key">Unity Editor Version</span><span class="inspector-val">Unity 6 (6000.x)+</span></div>
+                        <div class="inspector-row"><span class="inspector-key">Render Pipelines</span><span class="inspector-val">URP, HDRP, Built-in (BiRP)</span></div>
+                        <div class="inspector-row"><span class="inspector-key">UI Architecture</span><span class="inspector-val">UI Toolkit native + IMGUI fallback</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="inspector-row"><span class="inspector-key">Runtime Platforms</span><span class="inspector-val">Win, macOS, Linux, Mobile, WebGL, Console</span></div>
+                        <div class="inspector-row"><span class="inspector-key">Build Footprint</span><span class="inspector-val">0 B (stripped from player builds)</span></div>
+                        <div class="inspector-row"><span class="inspector-key">Automated Verification</span><span class="inspector-val">6,115 test cases (573 files / 3,275 methods)</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 8: Licensing Summary & CTA -->
-        <section id="licensing-cta" class="py-5 text-center">
-            <div class="glass-box p-5">
-                <span class="ecosystem-badge mb-3"><i class="fas fa-balance-scale me-1"></i> Licensing & Fair Use</span>
-                <h2 class="display-6 fw-bold mb-3">Clear, Transparent Licensing for Every Developer</h2>
-                <p class="lead text-muted col-md-8 mx-auto mb-4">
-                    The Community Edition is 100% free under our dedicated Custom License for creators earning under $200,000 USD/yr. Pro Editions and Standalone Addons are governed by the standard Unity Asset Store per-seat EULA with zero revenue limits.
-                </p>
-                <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="msultimate-license.html#community-eula" class="btn btn-primary btn-lg"><i class="fas fa-file-contract me-2"></i>Read Full Community EULA</a>
-                    <a href="msultimate-docs.html" class="btn btn-outline-primary btn-lg"><i class="fas fa-book-open me-2"></i>Explore Documentation</a>
-                    <a href="https://discord.gg/GamF5bez3h" target="_blank" class="btn btn-outline-secondary btn-lg"><i class="fab fa-discord me-2"></i>Join Discord Community</a>
+        <!-- Section 8: Licensing CTA -->
+        <section id="licensing-cta" class="section section-surface">
+            <div class="container">
+                <div class="cta-panel">
+                    <div class="eyebrow" style="justify-content: center;">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span>Clear licensing for every team</span>
+                    </div>
+                    <h2>Start free or license full C# source</h2>
+                    <p>Community Edition is free for creators earning under $200,000 USD per year under our custom EULA. Pro editions and standalone addons use the standard Unity Asset Store per-seat EULA.</p>
+                    <div class="hero-actions" style="justify-content: center;">
+                        <a href="msultimate-license.html#community-eula" class="btn btn-primary">Read Community EULA</a>
+                        <a href="msultimate-docs.html" class="btn btn-secondary">Explore documentation</a>
+                    </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html"
-                    class="text-decoration-none">MSUltimate License (EULA)</a></p>
-            <div class="social-icons mt-3">
-                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="me-3"><i
-                        class="fab fa-youtube fa-lg"></i></a>
-                <a href="https://discord.gg/GamF5bez3h" class="me-3"><i class="fab fa-discord fa-lg"></i></a>
-                <a href="mailto:maharajastudiocustomerservice@gmail.com"><i class="fas fa-envelope fa-lg"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="msultimate-license.html" style="color: var(--text-secondary);">MSUltimate License (EULA)</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/studio.js"></script>
 </body>
 
 </html>

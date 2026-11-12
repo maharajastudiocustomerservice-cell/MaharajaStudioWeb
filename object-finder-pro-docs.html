@@ -1,745 +1,446 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object Finder Pro - Documentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>Object Finder Pro v2.0 — Documentation · Maharaja Studio</title>
+    <meta name="description" content="Complete guide to Object Finder Pro v2.0: Smart Search query syntax, Fuzzy & Exact modes, 5 search scopes, Multi-Component & Signature filters, Find All References, CustomFilterBase API, and Settings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
-        style="position: sticky; top: 0; z-index: 1000;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="documentation.html">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <div class="theme-switcher ms-3 d-flex align-items-center">
-                        <i class="fas fa-sun me-2"></i>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="theme-switcher">
-                        </div>
-                        <i class="fas fa-moon"></i>
+<body class="docs-workspace docs-no-subnav">
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSUltimate Ecosystem</span>
+                                <span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSMotion v2.0</span>
+                                <span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span>
+                                <span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span>
+                                <span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item is-current" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Object Finder Pro</span>
+                                <span class="nav-dropdown-meta">Async query &amp; reference search</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Ultimate Quick Inspector</span>
+                                <span class="nav-dropdown-meta">Multi-page GUID pin drawer</span>
+                            </span>
+                        </a>
                     </div>
-                </ul>
+                </li>
+                <li><a class="nav-link active" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="object-finder-pro.html">Asset overview</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html" class="active">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Object Finder Pro</span>
+            <a href="object-finder-pro.html">Object Finder Pro Overview</a>
+            <a href="#overview">Docs Hub &amp; Query Sheet</a>
+            <a href="#main-window">Main Window &amp; Modes</a>
+            <a href="#smart-search">Smart Search Syntax</a>
+            <a href="#core-filters">Core Filters &amp; Scopes</a>
+            <a href="#advanced-filters">Signature &amp; References</a>
+            <a href="#custom-filters">Custom Filter API</a>
+            <a href="#settings-window">Settings Window</a>
+        </div>
+    </div>
 
     <main>
-        <div class="docs-container">
-            <aside class="docs-sidebar">
-                <h3>Object Finder Pro</h3>
-                <div class="mb-3">
-                    <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
-                </div>
-                <ul class="docs-nav-menu">
-                    <li><a href="#main-window" class="docs-nav-link">Main Window</a></li>
-                    <li><a href="#smart-search" class="docs-nav-link">Smart Search</a></li>
-                    <li><a href="#core-filters" class="docs-nav-link">Core Filters</a></li>
-                    <li><a href="#search-behavior" class="docs-nav-link">Search Behavior</a></li>
-                    <li><a href="#results-area" class="docs-nav-link">Results Area</a></li>
-                    <li><a href="#other-controls" class="docs-nav-link">Other Controls</a></li>
-                    <li><a href="#multi-component-filter" class="docs-nav-link">Multi-Component Filter</a></li>
-                    <li><a href="#folder-selection" class="docs-nav-link">Folder Selection</a></li>
-                    <li><a href="#advanced-filters" class="docs-nav-link">Advanced Filters</a></li>
-                    <li><a href="#settings-window" class="docs-nav-link">Settings Window</a></li>
-                </ul>
-            </aside>
+        <div class="container">
+            <div class="docs-shell">
+                <aside class="docs-sidebar" aria-label="Object Finder Pro documentation navigation">
+                    <div class="docs-sidebar-head">
+                        <div class="docs-sidebar-title-row">
+                            <span class="docs-sidebar-title">Object Finder Pro</span>
+                            <span style="display:inline-flex;align-items:center;gap:8px;">
+                                <span class="mono" style="font-size: 11px; color: var(--text-muted);">12 guides</span>
+                                <button type="button" class="docs-sidebar-close" data-doc-sidebar-close aria-label="Close sections drawer">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="docs-search-wrap">
+                            <svg class="docs-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            <input type="search" id="doc-search" class="docs-search-input" style="padding-right:12px;" placeholder="Filter sections..." aria-label="Filter Object Finder Pro documentation" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="docs-sidebar-body">
+                        <div class="docs-pinned-group">
+                            <div class="docs-pinned-label">Start Here</div>
+                            <a href="#overview" class="docs-nav-link"><span>Overview &amp; Query Sheet</span><span class="eco-pill-count">v2.0</span></a>
+                        </div>
+<div class="docs-cat-group"><button type="button" class="docs-cat-btn" aria-expanded="true"><span>Search &amp; Filtering</span><span style="display:inline-flex;align-items:center;gap:6px;"><span class="docs-cat-count">5</span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><ul class="docs-nav-menu"><li><a href="#main-window" class="docs-nav-link">Main Window &amp; Modes</a></li><li><a href="#smart-search" class="docs-nav-link">Smart Search Syntax</a></li><li><a href="#core-filters" class="docs-nav-link">Core Filter Options</a></li><li><a href="#search-behavior" class="docs-nav-link">Behavior &amp; Performance</a></li><li><a href="#results-area" class="docs-nav-link">Results &amp; Filter Bar</a></li></ul></div>
+<div class="docs-cat-group"><button type="button" class="docs-cat-btn" aria-expanded="true"><span>Workflows &amp; Scopes</span><span style="display:inline-flex;align-items:center;gap:6px;"><span class="docs-cat-count">4</span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><ul class="docs-nav-menu"><li><a href="#other-controls" class="docs-nav-link">Sorting, Stats &amp; Presets</a></li><li><a href="#multi-component-filter" class="docs-nav-link">Multi-Component Filter</a></li><li><a href="#folder-selection" class="docs-nav-link">Folder Selection Window</a></li><li><a href="#advanced-filters" class="docs-nav-link">Signature &amp; References</a></li></ul></div>
+<div class="docs-cat-group"><button type="button" class="docs-cat-btn" aria-expanded="true"><span>Extensibility &amp; Settings</span><span style="display:inline-flex;align-items:center;gap:6px;"><span class="docs-cat-count">2</span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><ul class="docs-nav-menu"><li><a href="#custom-filters" class="docs-nav-link">Custom Filter API</a></li><li><a href="#settings-window" class="docs-nav-link">Settings Window</a></li></ul></div>
+                    </div>
+                </aside>
 
-            <article class="docs-content">
-                <section id="main-window" class="docs-section">
-                    <h1>Object Finder Tool</h1>
-                    <p>The Object Finder tool helps you locate GameObjects and Assets within your Unity project. It
-                        provides various filtering options, asynchronous searching to prevent editor freezes, and the
-                        ability to scope searches to specific folders.</p>
-                    <h2>Main Window: Object Finder Pro</h2>
-                    <p>To open the tool, go to <strong>Tools > Maharaja Studio > Object Finder Pro</strong> in the Unity
-                        menu.</p>
-                    <h3>1. Search Bar & Execution</h3>
-                    <ul>
-                        <li><strong>Search Field (Top):</strong> This is the primary input for your search queries. The
-                            behavior of this field changes based on the selected search mode below.</li>
-                        <li><strong>Search / Cancel Button:</strong> Manually starts or cancels the current search
-                            operation.</li>
-                        <li><strong>Auto Search (Toggle):</strong> When enabled, a search is automatically performed a
-                            moment after you stop typing in the search field, providing a more interactive experience.
-                        </li>
-                        <li><strong>Fuzzy Search (Toggle):</strong> Enables a powerful, typo-tolerant search. For
-                            example, a search for "plyr" can find "Player". Results are sorted by relevance. This is
-                            mutually exclusive with Smart Search and Exact Match.</li>
-                        <li><strong>Exact Match (Toggle):</strong> When enabled, the search will only return items whose
-                            names are an exact, case-insensitive match to the search query. This is mutually exclusive
-                            with Fuzzy and Smart Search.</li>
-                    </ul>
-                </section>
-                <section id="smart-search" class="docs-section">
-                    <h2>Smart Search</h2>
-                    <p>When the <code>Use Smart Search</code> toggle is enabled, the main search bar becomes a powerful,
-                        multi-faceted query field, allowing for more precise and complex searches using special keywords
-                        and intelligent name matching.</p>
-                    <ul>
-                        <li><strong>How it Works:</strong> When enabled, the tool parses your query for special
-                            keywords. Active filters are displayed as "pills" below the search bar, which can be clicked
-                            to remove them. This mode overrides the individual filter fields (Type, Tag, Layer, etc.) if
-                            the corresponding keyword is used.</li>
-                        <li><strong>Autocomplete:</strong> The search field provides autocomplete suggestions for
-                            keywords, component names (comp(Light)), and even public properties
-                            (comp(Light).intensity:), speeding up complex queries.</li>
-                    </ul>
-                    <h3>Keyword Filtering</h3>
-                    <p>Use the following keywords followed by a colon (<code>:</code>) to apply specific filters
-                        directly from the search bar:</p>
-                    <ul>
-                        <li><code>type:</code> - Filters by asset type. Example: <code>t:Material</code></li>
-                        <li><code>tag:</code> - Filters by GameObject tag. Supports comma-separated values for OR logic
-                            <code>(e.g., tag:Player,Enemy)</code>. For tags with spaces, use quotes:
-                            <code>tag:"UI Element"</code>.</li>
-                        <li><code>layer:</code> - Filters by GameObject layer. Also supports comma-separated values.
-                            Example: <code>layer:UI</code></li>
-                        <li><code>script:</code> - Filters by attached script name. Example:
-                            <code>script:PlayerController</code></li>
-                        <li><code>active:</code> - Filters by active state. Example: <code>active:true</code></li>
-                        <li><code>comp(ComponentName).propertyName:value</code> - Filters GameObjects by the value of a
-                            public component property. Supports operators <code>>, <, >=, <=</code>. Example:
-                            <code>comp(Light).intensity:>5</code></li>
-                    </ul>
-                    <h3>Numeric Filtering</h3>
-                    <p><code>polycount:</code>, <code>memsize:</code>, <code>texwidth:</code>, <code>childcount:</code>
-                        - Use with operators <code>(>, <, =, etc.)</code> to filter by metrics. Units like
-                        <code>kb</code> and <code>mb</code> are supported for <code>memsize.</code> Example:
-                        <code>memsize:>=5mb</code></p>
-                    <h3>Acronym Matching</h3>
-                    <p>The name search is "smart" and can match acronyms from PascalCase or camelCase names.</p>
-                    <ul>
-                        <li>Example: A search for <code>pc</code> or <code>pcon</code> can match a script named
-                            <code>PlayerController</code>.</li>
-                        <li>Example: <code>uts</code> can match <code>UltimateTestingScript</code>.</li>
-                    </ul>
-                    <h3>Undo/Redo</h3>
-                    <p>The search field supports Undo (Ctrl/Cmd+Z) and Redo (Ctrl/Cmd+Y).</p>
-                </section>
-                <section id="core-filters" class="docs-section">
-                    <h2>2. Core Filter Options</h2>
-                    <p>These options help you narrow down your search results:</p>
-                    <ul>
-                        <li><strong>Search In:</strong> Determines where the tool looks for objects.
-                            <ul>
-                                <li><strong>Both:</strong> Searches both the current open Scene(s) and the Project
-                                    assets.</li>
-                                <li><strong>Scene:</strong> Searches only in the currently open and loaded Scene(s).
-                                </li>
-                                <li><strong>Project:</strong> Searches only within the project's asset folders (respects
-                                    folder selections if defined via the 'Select Search Folders...' button; otherwise,
-                                    searches all project assets).</li>
-                                <li><strong>Unloaded Scene:</strong> Allows you to search within a specific scene file
-                                    that is not currently loaded. You'll need to assign a SceneAsset to the
-                                    <code>Project Scene to Search</code> field that appears when this option is
-                                    selected.</li>
-                                <li><strong>In Root GameObject:</strong> Confines the search to a specific GameObject
-                                    and its children. An object field will appear to assign the root object.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Use Smart Search (Toggle):</strong> When enabled, the main search bar becomes a
-                            powerful, multi-faceted query field. See the "Smart Search" section above for details.</li>
-                        <li><strong>Filter Only Active GO (Toggle):</strong> (Applies to GameObjects) When checked,
-                            results will only include GameObjects that are active in the hierarchy
-                            (<code>activeInHierarchy == true</code>).</li>
-                        <li><strong>Asset Type:</strong> Filters results by a specific type.
-                            <ul>
-                                <li><strong>Any:</strong> Searches for all types.</li>
-                                <li>Specific types include: <code>GameObject</code>, <code>Prefab</code>,
-                                    <code>Material</code>, <code>Texture</code>, <code>Script</code>,
-                                    <code>SceneAsset</code>, <code>ScriptableObject</code>, <code>AudioClip</code>,
-                                    <code>AnimationClip</code>, <code>Font</code>, <code>Shader</code>.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Tag Filter:</strong> (Applies to GameObjects) Enter a Unity Tag to find GameObjects
-                            with that specific tag. Leave empty for no tag filtering.</li>
-                        <li><strong>Layer Filter:</strong> (Applies to GameObjects) Select a Unity Layer to find
-                            GameObjects on that specific layer. Defaults to "Everything".</li>
-                        <li><strong>Script Filter:</strong>
-                            <ul>
-                                <li>For GameObjects (in Scene or Prefabs): Enter the name of a script (e.g.,
-                                    <code>MyPlayerController</code>) to find GameObjects that have this script attached
-                                    as a component.</li>
-                                <li>For Project Assets: If searching for <code>Script</code> asset types, this filters
-                                    by script name. For <code>ScriptableObject</code> assets, this filters by the
-                                    ScriptableObject's class name.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-                <section id="search-behavior" class="docs-section">
-                    <h2>3. Search Behavior & Performance</h2>
-                    <ul>
-                        <li><strong>Search Asynchronously (Toggle):</strong> When checked (default), searches run in the
-                            background to prevent the Unity editor from freezing. A progress bar will be displayed for
-                            long operations.</li>
-                        <li><strong>Instant Results:</strong> Search results now appear in the list in real-time as they
-                            are found, rather than waiting for the entire search to complete.</li>
-                        <li><strong>Select Search Folders... (Button):</strong>
-                            <ul>
-                                <li><strong>Purpose:</strong> Opens the <strong>Folder Selection Window</strong> (see
-                                    section below).</li>
-                                <li><strong>Functionality:</strong> Allows you to define a specific set of project
-                                    folders to search within when the "Search In" option is set to "Project". This
-                                    significantly speeds up project searches if you know where your target assets are
-                                    located.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Per-Project Settings:</strong>
-                            <ul>
-                                <li><strong>Note:</strong> Your search history, favorites, and selected folder settings
-                                    are saved on a per-project basis. This means you can have different saved settings
-                                    for each of your Unity projects.</li>
-                            </ul>
-                        </li>
-                        <li><strong>First-Time Caching:</strong> The very first time you search for a component in a
-                            project, the tool may take a moment to cache all available component types. Subsequent
-                            searches will be significantly faster.</li>
-                    </ul>
-                </section>
-                <section id="results-area" class="docs-section">
-                    <h2>4. Results Area</h2>
-                    <ul>
-                        <li><strong>High-Performance List:</strong> Found items are displayed in a virtualized list,
-                            ensuring smooth performance even with thousands of results.</li>
-                        <li><strong>Selection:</strong>
-                            <ul>
-                                <li>Click an item to select it. This will also attempt to ping it in the Project window
-                                    or Hierarchy.</li>
-                                <li>The selected item's details and a preview (if available) will appear in the
-                                    right-hand panel.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Select All (Button):</strong> Selects all items currently visible in the results
-                            list in the Unity editor's selection.</li>
-                    </ul>
-                    <h3>Results Filter Bar</h3>
-                    <ul>
-                        <li><strong>Purpose:</strong> After a search completes, a new filter bar appears above the
-                            results. This allows you to dynamically filter the <em>currently displayed results</em>
-                            without performing a new search.</li>
-                        <li><strong>Usage:</strong> Simply type in the text field to instantly hide any results that do
-                            not contain your filter text. This is useful for quickly narrowing down a large set of
-                            results.</li>
-                        <li><strong>Clear Button:</strong> The 'X' button on the right of the filter bar will clear the
-                            filter text, showing all the original search results again.</li>
-                    </ul>
-                </section>
-                <section id="other-controls" class="docs-section">
-                    <h2>5. Other Controls & Features</h2>
-                    <ul>
-                        <li><strong>Frame in Scene View (Toggle):</strong> If a GameObject from a scene is selected in
-                            the results, and this toggle is active, the Scene View will attempt to frame that
-                            GameObject.</li>
-                        <li><strong>Sort By (Dropdown):</strong> Allows sorting of results by various criteria:
-                            <ul>
-                                <li><code>Relevance</code>: The default sort order.</li>
-                                <li><code>Name</code>: Sorts alphabetically by name.</li>
-                                <li><code>Memory Size</code>: Sorts by estimated memory usage (largest first).</li>
-                                <li><code>Complexity</code>: Sorts by complexity (e.g., vertex count for meshes, largest
-                                    first).</li>
-                                <li><code>Scene First</code>: Groups all scene objects before project assets.</li>
-                                <li><code>Project First</code>: Groups all project assets before scene objects.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Performance Filters (Toggles):</strong>
-                            <ul>
-                                <li><code>Filter Large Textures</code>: Filters for textures considered large by area or
-                                    memory.</li>
-                                <li><code>Filter High Poly Meshes</code>: Filters for meshes with a high polygon count.
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong>History & Favorites (Buttons):</strong>
-                            <ul>
-                                <li><code>History</code>: Shows a list of recent searches. Clicking an item re-applies
-                                    that search.</li>
-                                <li><code>Favorites</code>: Shows a list of saved favorite searches.</li>
-                                <li><code>Save Favorite</code>: Saves the current search configuration (query, filters,
-                                    options) as a favorite.</li>
-                                <li><code>Settings (Gear Icon):</code> Opens the new Settings Window.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Preview and Stats Panel (Right Side):</strong> Displays a preview (for textures,
-                            materials, etc.) and detailed statistics for the selected result item.</li>
-                        <li><strong>Frame in Scene View (Toggle):</strong> If active, selecting a GameObject from the
-                            results will frame it in the Scene View, accurately encompassing the object and all its
-                            children.</li>
-                    </ul>
-                </section>
-                <section id="multi-component-filter" class="docs-section">
-                    <h2>6. Multi-Component Filter</h2>
-                    <p>This powerful feature allows you to find GameObjects that have a specific set of components
-                        attached.</p>
-                    <ul>
-                        <li><strong>Enable Filter (Toggle):</strong>
-                            <ul>
-                                <li>Located at the top of this section, labeled "Filter by All Components Below:".</li>
-                                <li>Check this box to activate the multi-component filter. When active, only GameObjects
-                                    that possess <em>all</em> components added to the list below will appear in search
-                                    results (in addition to other active filters like name, tag, layer, etc.). Enabling
-                                    this filter will disable the 'Advanced: Filter by Component Signature' (both "Exact
-                                    Match" and "Find References to Instance" modes).</li>
-                                <li>This toggle will automatically uncheck itself if the list of components to filter by
-                                    becomes empty.</li>
-                                <li>If this filter is active, it takes precedence over the single "Script Filter" field
-                                    for filtering GameObjects by components. The single "Script Filter" will still apply
-                                    to finding script assets themselves in the project.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Components List Area:</strong>
-                            <ul>
-                                <li>Displays the components currently added to the filter.</li>
-                                <li>Each component is shown as a label with its name.</li>
-                                <li><strong>Removing a Component:</strong> Each listed component has a small
-                                    <strong>'X'</strong> button to its right. Click this 'X' to remove the component
-                                    from the filter list. The search results will update automatically.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Add Component Filter (Button):</strong>
-                            <ul>
-                                <li>Clicking this button opens the <strong>Component Selector Window</strong>.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Drag and Drop Scripts:</strong>
-                            <ul>
-                                <li>You can drag <code>MonoScript</code> files (i.e., your C# script assets) directly
-                                    from Unity's Project window onto the "Components:" list area in the Object Finder.
-                                </li>
-                                <li>If the script represents a valid <code>UnityEngine.Component</code>, it will be
-                                    added to the component filter list.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <h4>Component Selector Window</h4>
-                    <p>This window helps you find and select components to add to the filter.</p>
-                    <ul>
-                        <li><strong>Opening:</strong> Opened via the "Add Component Filter" button in the Object Finder.
-                        </li>
-                        <li><strong>Search Components (Text Field):</strong> Type here to filter the list of available
-                            components by name or namespace.</li>
-                        <li><strong>Component List:</strong> Displays all available components in your project, grouped
-                            by namespace or category (e.g., "Mesh", "Physics", "UI", or custom script namespaces).
-                            <ul>
-                                <li>Click on a component name in this list to select it.</li>
-                                <li>Upon selection, the Component Selector Window will close, and the chosen component
-                                    will be added to the filter list in the main Object Finder window.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Close Button:</strong> Closes the Component Selector Window without selecting a
-                            component.</li>
-                    </ul>
-                    <h4>How it Affects Search:</h4>
-                    <p>When the "Filter by All Components Below:" toggle is checked and one or more components are in
-                        the list:</p>
-                    <ul>
-                        <li>For <strong>Scene</strong> searches: Only GameObjects that have <em>every single
-                                component</em> from your list will be shown.</li>
-                        <li>For <strong>Project</strong> searches (when Asset Type is <code>GameObject</code> or
-                            <code>Prefab</code>): Only Prefabs that have <em>every single component</em> from their root
-                            GameObject will be shown.</li>
-                        <li>This filter works in conjunction with all other active filters (name, type, tag, layer,
-                            folder scope).</li>
-                    </ul>
-                </section>
-                <section id="folder-selection" class="docs-section">
-                    <h2>Folder Selection Window</h2>
-                    <p>This window allows you to specify which project folders the Object Finder should include when
-                        performing searches with the "Project" scope. This can significantly speed up searches and help
-                        you target specific areas of your project.</p>
-                    <ul>
-                        <li><strong>Folder Tree View:</strong> Displays a hierarchical view of your project's Assets and
-                            Packages folders. Use checkboxes to select which folders to include in searches.</li>
-                        <li><strong>Search Top-Level Folders Only (Toggle):</strong> When checked, the search will only
-                            include assets directly inside the selected folders, ignoring sub-folders.</li>
-                        <li><strong>Quick Actions:</strong> Use the Select Visible and Deselect Visible buttons to act
-                            on the currently filtered list of folders.</li>
-                        <li><strong>Undo/Redo:</strong> Undo and redo changes to your folder selections.</li>
-                        <li><strong>Keyboard Navigation:</strong> The folder tree and buttons are navigable via the
-                            keyboard. Enter = Select/Deselect folders, UpArrow/DownArror = Move selection, Left Arrow =
-                            Expand Folder, Right Arrow = Collaps folder</li>
-                    </ul>
-                    <h3>Opening the Window</h3>
-                    <p>Click the <strong>"Select Search Folders..."</strong> button in the main Object Finder window to
-                        open the Folder Selection Window.</p>
-                    <h3>Purpose</h3>
-                    <p>By default, a "Project" scope search in the Object Finder looks through all folders in your
-                        "Assets" directory and relevant "Packages". The Folder Selection Window lets you narrow this
-                        down. If you select specific folders, only those folders (and their subfolders, by default) will
-                        be searched when the "Project" scope is active.</p>
-                    <p>If no folders are explicitly selected in this window (meaning the list is empty after applying),
-                        or if you select only the root "Assets" folder, the Object Finder will search the entire
-                        "Assets" directory and relevant standard package locations by default when the 'Project' scope
-                        is active.</p>
-                    <h3>UI Elements and Usage</h3>
-                    <ul>
-                        <li><strong>Search Folders (Text Field):</strong>
-                            <ul>
-                                <li>Type here to filter the list of folders displayed in the tree view below. This helps
-                                    you quickly find a specific folder in large projects.</li>
-                                <li>The filter is case-insensitive and matches against folder names.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Search Top-Level Folders Only (Toggle):</strong>
-                            <ul>
-                                <li>When this is checked, the search will only include assets directly inside the
-                                    selected folders, ignoring any sub-folders.</li>
-                                <li>When unchecked (default), the search is recursive and will include assets in all
-                                    sub-folders of the selected folders. and also the parent folder of the selected
-                                    folder.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Folder Tree View:</strong>
-                            <ul>
-                                <li><strong>Structure:</strong> Displays a hierarchical view of your project's
-                                    <code>Assets</code> folder. It also lists folders from other project packages (e.g.,
-                                    those installed via the Package Manager from registries, git URLs, or local/embedded
-                                    packages). The tool attempts to discover these packages and their browsable
-                                    subfolders. If a package does not appear as expected, ensure it's correctly
-                                    installed and recognized by Unity's Package Manager.</li>
-                                <li><strong>Checkboxes:</strong> Each folder in the tree has a checkbox.
-                                    <ul>
-                                        <li><strong>Select/Deselect:</strong> Check a box to include that folder in the
-                                            search scope. Uncheck it to exclude.</li>
-                                        <li><strong>Parent/Child Behavior:</strong>
-                                            <ul>
-                                                <li>Checking a parent folder's box will automatically check all its
-                                                    child folders.</li>
-                                                <li>Unchecking a parent folder's box will automatically uncheck all its
-                                                    child folders.</li>
-                                                <li>Checking a child folder's box will ensure all its parent folders up
-                                                    to the root are also checked.</li>
-                                                <li>Unchecking a child folder will cause its parent to become unchecked
-                                                    <em>only if all other direct children of that parent are also
-                                                        unchecked</em>. (Note: Unchecking a child folder makes its
-                                                    direct parent eligible to be unchecked if all of that parent's other
-                                                    children are also unchecked. It doesn't automatically uncheck the
-                                                    parent unless this condition is met.)</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><strong>Folder Icons:</strong> Standard Unity folder icons are displayed for easier
-                                    visual identification.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Refresh Button:</strong>
-                            <ul>
-                                <li><strong>Purpose:</strong> Rescans your project directory structure.</li>
-                                <li><strong>Usage:</strong> Click this if you have recently added, removed, or renamed
-                                    folders in your project outside of this tool, and you want the tree view to reflect
-                                    these changes. Your current selections are attempted to be preserved on the
-                                    rescanned folder structure.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Select Visible / Deselect Visible Buttons:</strong>
-                            <ul>
-                                <li><strong>Purpose:</strong> These buttons allow you to quickly select or deselect all
-                                    folder checkboxes that are currently visible in the folder tree view.</li>
-                                <li><strong>Usage:</strong>
-                                    <ul>
-                                        <li><code>Select Visible</code>: Checks all visible folder checkboxes. If a
-                                            folder search filter is active, this applies only to the folders that match
-                                            the filter and are currently displayed.</li>
-                                        <li><code>Deselect Visible</code>: Unchecks all visible folder checkboxes,
-                                            subject to the same filtering considerations.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Behavior:</strong> These actions respect the parent/child propagation rules
-                                    (e.g., selecting a visible parent will also select its children, even if some
-                                    children were filtered out of view). These bulk actions are registered as single
-                                    steps in the Undo/Redo history.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Undo / Redo Buttons:</strong>
-                            <ul>
-                                <li><strong>Purpose:</strong> Allow you to undo or redo changes made to folder
-                                    selections <em>during the current session in this window</em>.</li>
-                                <li><strong>Usage:</strong> If you accidentally check or uncheck a folder, use "Undo" to
-                                    revert. "Redo" will reapply an undone action.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Apply Button:</strong>
-                            <ul>
-                                <li><strong>Purpose:</strong> Confirms your current folder selections and applies them
-                                    to the Object Finder tool.</li>
-                                <li><strong>Usage:</strong> After making your desired selections, click "Apply". The
-                                    Folder Selection Window will close, and the Object Finder will now use these
-                                    selected folders for any subsequent "Project" scope searches. These selections are
-                                    also persisted across Unity editor sessions.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Cancel Button:</strong>
-                            <ul>
-                                <li><strong>Purpose:</strong> Closes the Folder Selection Window without applying any
-                                    changes made to the folder selections during the current session.</li>
-                                <li><strong>Usage:</strong> If you opened the window but decide not to change the
-                                    current folder scope, click "Cancel".</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-                <section id="advanced-filters" class="docs-section">
-                    <h2>7. Advanced: Filter by Component Signature</h2>
-                    <p>This advanced filter allows you to find GameObjects that precisely match the component
-                        "signature" (the exact set and number of components) of a template GameObject, or to find all
-                        references to a specific component instance.</p>
-                    <ul>
-                        <li><strong>Purpose:</strong>
-                            <ul>
-                                <li><strong>Signature Match:</strong> Useful for finding GameObjects that are configured
-                                    with an identical set of components as a reference object, ignoring other
-                                    differences like component values or hierarchy position.</li>
-                                <li><strong>Find References:</strong> A powerful tool for locating all GameObjects,
-                                    Prefabs, and ScriptableObjects that have a direct reference to a specific component
-                                    instance or even the template GameObject asset itself.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Template GameObject (ObjectField):</strong>
-                            <ul>
-                                <li>Drag a GameObject from your scene or a Prefab asset from the Project window into
-                                    this field.</li>
-                                <li>Once a GameObject is assigned, its components will be listed below in the "Template
-                                    Components" area.</li>
-                                <li>Assigning a new GameObject will replace the current template and update the
-                                    component list.</li>
-                                <li>Clearing this field (setting it to None) will clear the component list and disable
-                                    this filter.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Enable Signature Filter (Exact Match) (Toggle):</strong>
-                            <ul>
-                                <li>Check this box to activate the signature filter.</li>
-                                <li>When active, search results will only include GameObjects that have the exact same
-                                    types and number of components as currently listed in the "Template Components"
-                                    area.</li>
-                                <li>This filter, when enabled, takes precedence over the general "Multi-Component
-                                    Filter" and the single "Script Filter" for component-based matching of
-                                    GameObjects/Prefabs. It is also mutually exclusive with the "Find References" mode.
-                                </li>
-                                <li>The toggle will automatically disable if no template GameObject is assigned or if
-                                    the list of signature components becomes empty (e.g., by removing all components).
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong>Find References to Selected Component Instance (Toggle):</strong>
-                            <ul>
-                                <li><strong>Purpose:</strong> When checked, this mode allows you to select a specific
-                                    component instance from the "Template Components" list below and search for all
-                                    other GameObjects, Prefabs, and ScriptableObjects in your project/scene that hold a
-                                    direct reference to that exact instance.</li>
-                                <li><strong>Activation:</strong> To use this mode, first drag a GameObject to the
-                                    "Template GameObject" field. Then, select one of its components from the "Template
-                                    Components" list that appears (or the "GameObject" entry itself). Finally, check
-                                    this toggle and perform a search.</li>
-                                <li><strong>Mutual Exclusivity:</strong> Enabling this mode will automatically disable
-                                    the "Enable Signature Filter (Exact Match)" mode, and vice-versa. You can use one or
-                                    the other, but not both simultaneously.</li>
-                                <li>If no template GameObject is assigned, this toggle cannot be effectively enabled.
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong>Template Components (Scrollable List):</strong>
-                            <ul>
-                                <li>Displays components derived from the "Template GameObject". Its behavior depends on
-                                    the active advanced filter mode:
-                                    <ul>
-                                        <li><strong>When "Enable Signature Filter (Exact Match)" is active:</strong>
-                                            Lists component <em>types</em>. You can remove types from this list using
-                                            the 'X' button to refine the signature to match. Re-dragging the template
-                                            GameObject resets this list to its original state.</li>
-                                        <li><strong>When "Find References to Selected Component Instance" is
-                                                active:</strong> Lists the template <code>GameObject</code> itself,
-                                            followed by all of its actual component <em>instances</em> (e.g.,
-                                            "BoxCollider (ID: 12345)"). Click on an instance in this list to select it
-                                            as the target for the reference search. Only one instance can be the target
-                                            at a time. The selected component instance will be visually highlighted in
-                                            the list. The 'X' buttons are not active in this mode for this list.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong>How it Affects Search:</strong>
-                            <ul>
-                                <li><strong>When "Enable Signature Filter (Exact Match)" is active</strong> and there's
-                                    a valid list of signature components:
-                                    <ul>
-                                        <li>The tool searches for GameObjects (in scenes or as Prefabs in the project)
-                                            that have <em>exactly</em> the same set of component types as listed, and
-                                            the <em>same number</em> of components. The order of components on the
-                                            target GameObject does not matter.</li>
-                                        <li>For example, if your signature list is
-                                            <code>[Transform, BoxCollider, Rigidbody]</code>, a GameObject with only
-                                            <code>[Transform, BoxCollider]</code> will NOT match. A GameObject with
-                                            <code>[Transform, BoxCollider, Rigidbody, AudioSource]</code> will also NOT
-                                            match.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>When "Find References to Selected Component Instance" is active:</strong>
-                                    <ul>
-                                        <li>The tool searches all applicable GameObjects (in scenes or prefabs) and
-                                            <strong>ScriptableObjects</strong>.</li>
-                                        <li>It looks for any serialized field or property that directly references the
-                                            <em>exact <code>GameObject</code> or component instance</em> you selected
-                                            from the template.</li>
-                                        <li><strong>Results Display:</strong> Results are shown in the format:
-                                            <code>Found In Asset/Object > Referencing Component/Script > Field Name</code>.
-                                        </li>
-                                        <li>Clicking a result will ping the GameObject or Asset that <em>contains</em>
-                                            the reference.</li>
-                                        <li>The main search text field will filter these reference path results. The
-                                            tool is also robust in handling stale references (e.g., if a scene is
-                                            unloaded), and will prompt you to reload the scene if necessary.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong>Saving and Loading (History/Favorites):</strong>
-                            <ul>
-                                <li>The list of component type names for the signature filter, the name of the template
-                                    GameObject (if assigned), and its asset path (if it was a prefab) are saved with
-                                    search presets.</li>
-                                <li>The state of the "Find References to Selected Component Instance" toggle is also
-                                    saved with presets.</li>
-                                <li>When loading a preset:
-                                    <ul>
-                                        <li>The component types for the signature are restored.</li>
-                                        <li>The "Find References..." toggle state is restored.</li>
-                                        <li>If the template GameObject was an asset and can still be found at its saved
-                                            path, it will be re-linked in the <code>ObjectField</code>. Otherwise, the
-                                            filter will still work based on the saved component types (for signature
-                                            match mode), but the <code>ObjectField</code> might be empty.</li>
-                                        <li>For "Find References" mode, the <em>specific component instance</em> you
-                                            selected as the target is <strong>not</strong> saved directly (due to the
-                                            volatility of instance IDs). You will need to <strong>re-select the specific
-                                                component instance</strong> from the "Template Components" list before
-                                            performing the reference search again. A message might appear in the results
-                                            area prompting you to select a component instance if the mode is active but
-                                            no target is chosen.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-                <section id="settings-window" class="docs-section">
-                    <h2>Settings Window</h2>
-                    <p>Accessible via the gear icon in the main window, the Settings Window allows for deep
-                        customization.</p>
-                    <h3>General Tab</h3>
-                    <ul>
-                        <li><strong>Default Preset:</strong> Set the current search configuration as the default preset
-                            that loads when the Object Finder window is first opened.</li>
-                        <li><strong>Load Last Preset on Startup:</strong> If enabled, the tool will automatically load
-                            the last search you performed when it starts up, overriding the default preset.</li>
-                        <li><strong>Max History Items:</strong> Control how many recent searches are saved in the
-                            history.</li>
-                        <li><strong>Highlight Color:</strong> Customize the highlight color used for keyboard navigation
-                            in the results list.</li>
-                    </ul>
-                    <h3>Features Tab</h3>
-                    <p>Enable or disable entire feature sections (Multi-Component Filter, Advanced Filters, Custom
-                        Filters) from the main window's UI. This is useful for simplifying the interface if you don't
-                        use certain advanced features.</p>
-                    <h3>Manage Presets Tab</h3>
-                    <p>View your lists of Favorites and History.</p>
-                    <ul>
-                        <li><strong>Rename Presets:</strong> Click on any favorite preset's name to rename it directly
-                            within the settings window.</li>
-                        <li><strong>Clear History:</strong> A button to clear all saved search history items.</li>
-                    </ul>
-                    <h3>Help Tab</h3>
-                    <p>Provides quick reference guides and information about the tool's features.</p>
-                </section>
+                <div class="docs-main">
+                    <div class="docs-mobile-toolbar">
+                        <button type="button" id="doc-sidebar-toggle" class="btn btn-secondary btn-sm" aria-expanded="false">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                            Sections (12)
+                        </button>
+                        <a class="btn btn-secondary btn-sm" href="object-finder-pro.html">Asset Overview</a>
+                    </div>
 
-                <div class="docs-pagination">
-                    <button id="prev-doc" class="btn btn-secondary">Previous</button>
-                    <button id="next-doc" class="btn btn-primary">Next</button>
-                </div>
-            </article>
+<section id="overview" class="docs-section" data-doc-title="Object Finder Pro v2.0 Overview">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <span class="mono" style="color:var(--accent-text);">Object Finder Pro v2.0</span>
+                <span>/</span>
+                <span>Tools &gt; Maharaja Studio &gt; Object Finder Pro</span>
+                <span class="tag" style="margin-left:auto;">12 sections</span>
+            </div>
+            <h1>Object Finder Pro Documentation</h1>
         </div>
-        <button id="doc-sidebar-toggle" class="btn btn-primary d-lg-none" 
-            style="position: fixed; bottom: 20px; right: 20px; z-index: 1100; border-radius: 50%; width: 50px; height: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            <i class="fas fa-list"></i>
-        </button>
+        <p class="doc-lead">Object Finder Pro turns your Unity project into an asynchronous, non-blocking searchable database for Scene GameObjects, Prefabs, ScriptableObjects, unloaded scenes, and assets—complete with real-time streaming results and extensible ScriptableObject filters.</p>
+        <h2>What's New in Version 2.0</h2>
+        <ul>
+            <li><strong>Fuzzy Search &amp; Exact Match Modes:</strong> Typo-tolerant, relevance-sorted lookups (e.g. <code>plyr</code> matches <code>Player</code>) alongside strict case-insensitive exact matching.</li>
+            <li><strong>In Root GameObject Scope:</strong> Confine searches inside a specific GameObject hierarchy—ideal for locating skeleton bones or nested prefab parts.</li>
+            <li><strong>Dedicated Settings Window:</strong> Configure default startup presets, load-last-preset behavior, history cap, highlight colors, feature visibility, and renameable favorites.</li>
+            <li><strong>Real-Time Streaming &amp; Keyboard Navigation:</strong> Results stream in live as they are discovered, with keyboard navigation across Folder Selector, Component Selector, and Filter windows.</li>
+        </ul>
+        <h2>Smart Search Query Cheat Sheet</h2>
+        <p>Verified Smart Search queries supported when <strong>Use Smart Search</strong> is enabled:</p>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>QUERY</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>comp(BoxCollider).isTrigger:true
+comp(Light).intensity:&gt;5
+comp(Rigidbody).mass:&gt;=10
+memsize:&gt;=5mb
+tag:Player,Enemy
+tag:"UI Element"
+tag:Enemy -layer:Water
+vehicle -car
+t:Material
+script:PlayerController active:true</code></pre></div>
+        <h2>Documentation Map</h2>
+        <div class="doc-index-grid"><div class="doc-index-card"><div class="doc-index-card-head"><a href="#main-window" class="doc-index-card-title">Main Window &amp; Search Modes</a><span class="eco-pill-count">Core UI</span></div><p class="doc-index-card-desc">Auto Search, Fuzzy Search (typo-tolerant &amp; relevance sorted), Exact Match, and Smart Search modes.</p><div class="doc-index-chips"><a href="#main-window" class="doc-index-chip">Open section</a></div></div>
+<div class="doc-index-card"><div class="doc-index-card-head"><a href="#smart-search" class="doc-index-card-title">Smart Search Query Language</a><span class="eco-pill-count">Syntax</span></div><p class="doc-index-card-desc">Filter by component properties (comp(...).prop:value), numeric metrics (polycount, memsize, texwidth, childcount), tags, layers, hyphens, and acronyms.</p><div class="doc-index-chips"><a href="#smart-search" class="doc-index-chip">Open section</a></div></div>
+<div class="doc-index-card"><div class="doc-index-card-head"><a href="#core-filters" class="doc-index-card-title">5 Search Scopes &amp; Core Filters</a><span class="eco-pill-count">Filters</span></div><p class="doc-index-card-desc">Scope searches across Both, Scene, Project, Unloaded Scene, or In Root GameObject with type, active state, tag, layer, and script filters.</p><div class="doc-index-chips"><a href="#core-filters" class="doc-index-chip">Open section</a></div></div>
+<div class="doc-index-card"><div class="doc-index-card-head"><a href="#advanced-filters" class="doc-index-card-title">Component Signature &amp; Find References</a><span class="eco-pill-count">Advanced</span></div><p class="doc-index-card-desc">Match exact component signatures on templates or trace every direct reference across Scenes, Prefabs, and ScriptableObjects.</p><div class="doc-index-chips"><a href="#advanced-filters" class="doc-index-chip">Open section</a></div></div>
+<div class="doc-index-card"><div class="doc-index-card-head"><a href="#custom-filters" class="doc-index-card-title">Custom Filter API (CustomFilterBase)</a><span class="eco-pill-count">Extensible</span></div><p class="doc-index-card-desc">Inherit ScriptableObject base class CustomFilterBase to write custom rules alongside 35+ included ready-to-use filters with source code.</p><div class="doc-index-chips"><a href="#custom-filters" class="doc-index-chip">Open section</a></div></div>
+<div class="doc-index-card"><div class="doc-index-card-head"><a href="#settings-window" class="doc-index-card-title">Settings, Presets &amp; Folder Scope</a><span class="eco-pill-count">Config</span></div><p class="doc-index-card-desc">Configure default presets, favorite renaming, feature visibility toggles, folder scoping, and full keyboard navigation.</p><div class="doc-index-chips"><a href="#settings-window" class="doc-index-chip">Open section</a></div></div></div>
+    </article>
+</section>
+
+<section id="main-window" class="docs-section" data-doc-title="Main Window: Object Finder Pro">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Search &amp; Filtering</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Main Window: Object Finder Pro</h1>
+        </div>
+<p>The Object Finder tool helps you locate GameObjects and Assets within your Unity project. It provides various filtering options, asynchronous searching to prevent editor freezes, and the ability to scope searches to specific folders.</p>
+<h2 id="main-window__main-window-object-finder-pro">Main Window: Object Finder Pro</h2>
+<p>To open the tool, go to <strong>Tools &gt; Maharaja Studio &gt; Object Finder Pro</strong> in the Unity menu.</p>
+<h3 id="main-window__1-search-bar-execution">1. Search Bar &amp; Execution</h3>
+<ul><li><strong>Search Field (Top):</strong> This is the primary input for your search queries. The behavior of this field changes based on the selected search mode below.</li><li><strong>Search / Cancel Button:</strong> Manually starts or cancels the current search operation.</li><li><strong>Auto Search (Toggle):</strong> When enabled, a search is automatically performed a moment after you stop typing in the search field, providing a more interactive experience.</li><li><strong>Fuzzy Search (Toggle):</strong> Enables a powerful, typo-tolerant search. For example, a search for "plyr" can find "Player". Results are sorted by relevance. This is mutually exclusive with Smart Search and Exact Match.</li><li><strong>Exact Match (Toggle):</strong> When enabled, the search will only return items whose names are an exact, case-insensitive match to the search query. This is mutually exclusive with Fuzzy and Smart Search.</li></ul>
+    </article>
+</section>
+
+<section id="smart-search" class="docs-section" data-doc-title="Smart Search Query Language">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Search &amp; Filtering</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Smart Search Query Language</h1>
+        </div>
+<div class="doc-callout is-info"><div class="doc-callout-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span>Query Logic Extensions</span></div><p>Smart Search also supports hyphen (<code>-</code>) negative exclusion on terms or keywords (for example, <code>tag:Enemy -layer:Water</code> or <code>vehicle -car</code>) alongside comma-separated <code>OR</code> lists such as <code>tag:Player,Enemy</code>.</p></div>
+<p>When the <code>Use Smart Search</code> toggle is enabled, the main search bar becomes a powerful, multi-faceted query field, allowing for more precise and complex searches using special keywords and intelligent name matching.</p>
+<ul><li><strong>How it Works:</strong> When enabled, the tool parses your query for special keywords. Active filters are displayed as "pills" below the search bar, which can be clicked to remove them. This mode overrides the individual filter fields (Type, Tag, Layer, etc.) if the corresponding keyword is used.</li><li><strong>Autocomplete:</strong> The search field provides autocomplete suggestions for keywords, component names (comp(Light)), and even public properties (comp(Light).intensity:), speeding up complex queries.</li><li><strong>Keyword Filtering:</strong> Use the following keywords followed by a colon (<code>:</code>) to apply specific filters directly from the search bar:<ul><li><code>type:</code> - Filters by asset type. Example: <code>t:Material</code></li><li><code>tag:</code> - Filters by GameObject tag. Supports comma-separated values for OR logic <code>(e.g., tag:Player,Enemy)</code>. For tags with spaces, use quotes: <code>tag:"UI Element"</code>.</li><li><code>layer:</code> - Filters by GameObject layer. Also supports comma-separated values. Example: <code>layer:UI</code></li><li><code>script:</code> - Filters by attached script name. Example: <code>script:PlayerController</code></li><li><code>active:</code> - Filters by active state. Example: <code>active:true</code></li><li><code>comp(ComponentName).propertyName:value</code> - Filters GameObjects by the value of a public component property. Supports operators <code>&gt;, &lt;, &gt;=, &lt;=</code>. Example: <code>comp(Light).intensity:&gt;5</code></li></ul></li><li><strong>Numeric Filtering:</strong></li></ul>
+<p><code>polycount:</code>, <code>memsize:</code>, <code>texwidth:</code>, <code>childcount:</code> - Use with operators <code>(&gt;, &lt;, =, etc.)</code> to filter by metrics. Units like <code>kb</code> and <code>mb</code> are supported for <code>memsize.</code> Example: <code>memsize:&gt;=5mb</code></p>
+<ul><li><strong>Acronym Matching:</strong> The name search is "smart" and can match acronyms from PascalCase or camelCase names.<ul><li>Example: A search for <code>pc</code> or <code>pcon</code> can match a script named <code>PlayerController</code>.</li><li>Example: <code>uts</code> can match <code>UltimateTestingScript</code>.</li></ul></li><li><strong>Undo/Redo:</strong> The search field supports Undo (Ctrl/Cmd+Z) and Redo (Ctrl/Cmd+Y).</li></ul>
+    </article>
+</section>
+
+<section id="core-filters" class="docs-section" data-doc-title="Core Filter Options &amp; Scopes">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Search &amp; Filtering</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Core Filter Options &amp; Scopes</h1>
+        </div>
+<p>These options help you narrow down your search results:</p>
+<ul><li><strong>Search In:</strong> Determines where the tool looks for objects.<ul><li><strong>Both:</strong> Searches both the current open Scene(s) and the Project assets.</li><li><strong>Scene:</strong> Searches only in the currently open and loaded Scene(s).</li><li><strong>Project:</strong> Searches only within the project's asset folders (respects folder selections if defined via the 'Select Search Folders...' button; otherwise, searches all project assets).</li><li><strong>Unloaded Scene:</strong> Allows you to search within a specific scene file that is not currently loaded. You'll need to assign a SceneAsset to the <code>Project Scene to Search</code> field that appears when this option is selected.</li><li><strong>In Root GameObject:</strong> Confines the search to a specific GameObject and its children. An object field will appear to assign the root object.</li></ul></li><li><strong>Use Smart Search (Toggle):</strong> When enabled, the main search bar becomes a powerful, multi-faceted query field. See the "Smart Search" section above for details.</li><li><strong>Filter Only Active GO (Toggle):</strong> (Applies to GameObjects) When checked, results will only include GameObjects that are active in the hierarchy (<code>activeInHierarchy == true</code>).</li><li><strong>Asset Type:</strong> Filters results by a specific type.<ul><li><strong>Any:</strong> Searches for all types.</li><li>Specific types include: <code>GameObject</code>, <code>Prefab</code>, <code>Material</code>, <code>Texture</code>, <code>Script</code>, <code>SceneAsset</code>, <code>ScriptableObject</code>, <code>AudioClip</code>, <code>AnimationClip</code>, <code>Font</code>, <code>Shader</code>.</li></ul></li><li><strong>Tag Filter:</strong> (Applies to GameObjects) Enter a Unity Tag to find GameObjects with that specific tag. Leave empty for no tag filtering.</li><li><strong>Layer Filter:</strong> (Applies to GameObjects) Select a Unity Layer to find GameObjects on that specific layer. Defaults to "Everything".</li><li><strong>Script Filter:</strong><ul><li>For GameObjects (in Scene or Prefabs): Enter the name of a script (e.g., <code>MyPlayerController</code>) to find GameObjects that have this script attached as a component.</li><li>For Project Assets: If searching for <code>Script</code> asset types, this filters by script name. For <code>ScriptableObject</code> assets, this filters by the ScriptableObject's class name.</li></ul></li></ul>
+    </article>
+</section>
+
+<section id="search-behavior" class="docs-section" data-doc-title="Search Behavior &amp; Performance">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Search &amp; Filtering</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Search Behavior &amp; Performance</h1>
+        </div>
+<ul><li><strong>Search Asynchronously (Toggle):</strong></li></ul>
+<p>When checked (default), searches run in the background to prevent the Unity editor from freezing. A progress bar will be displayed for long operations.</p>
+<ul><li><strong>Instant Results:</strong></li></ul>
+<p>Search results now appear in the list in real-time as they are found, rather than waiting for the entire search to complete.</p>
+<ul><li><strong>Select Search Folders... (Button):</strong><ul><li><strong>Purpose:</strong> Opens the <strong>Folder Selection Window</strong> (see section below).</li><li><strong>Functionality:</strong> Allows you to define a specific set of project folders to search within when the "Search In" option is set to "Project". This significantly speeds up project searches if you know where your target assets are located.</li></ul></li><li><strong>Per-Project Settings:</strong><ul><li><strong>Note:</strong> Your search history, favorites, and selected folder settings are saved on a per-project basis. This means you can have different saved settings for each of your Unity projects.</li></ul></li><li><strong>First-Time Caching:</strong></li></ul>
+<p>The very first time you search for a component in a project, the tool may take a moment to cache all available component types. Subsequent searches will be significantly faster.</p>
+    </article>
+</section>
+
+<section id="results-area" class="docs-section" data-doc-title="Results Area &amp; Live Filter Bar">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Search &amp; Filtering</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Results Area &amp; Live Filter Bar</h1>
+        </div>
+<ul><li><strong>High-Performance List:</strong></li></ul>
+<p>Found items are displayed in a virtualized list, ensuring smooth performance even with thousands of results.</p>
+<ul><li><strong>Selection:</strong><ul><li>Click an item to select it. This will also attempt to ping it in the Project window or Hierarchy.</li><li>The selected item's details and a preview (if available) will appear in the right-hand panel.</li></ul></li><li><strong>Select All (Button):</strong> Selects all items currently visible in the results list in the Unity editor's selection.</li></ul>
+<h3 id="results-area__results-filter-bar">Results Filter Bar</h3>
+<ul><li><strong>Purpose:</strong> After a search completes, a new filter bar appears above the results. This allows you to dynamically filter the <em>currently displayed results</em> without performing a new search.</li><li><strong>Usage:</strong> Simply type in the text field to instantly hide any results that do not contain your filter text. This is useful for quickly narrowing down a large set of results.</li><li><strong>Clear Button:</strong> The 'X' button on the right of the filter bar will clear the filter text, showing all the original search results again.</li></ul>
+    </article>
+</section>
+
+<section id="other-controls" class="docs-section" data-doc-title="Sorting, Performance &amp; Presets">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Workflows &amp; Scopes</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Sorting, Performance &amp; Presets</h1>
+        </div>
+<ul><li><strong>Frame in Scene View (Toggle):</strong> If a GameObject from a scene is selected in the results, and this toggle is active, the Scene View will attempt to frame that GameObject.</li><li><strong>Sort By (Dropdown):</strong> Allows sorting of results by various criteria:<ul><li><code>Relevance</code>: The default sort order.</li><li><code>Name</code>: Sorts alphabetically by name.</li><li><code>Memory Size</code>: Sorts by estimated memory usage (largest first).</li><li><code>Complexity</code>: Sorts by complexity (e.g., vertex count for meshes, largest first).</li><li><code>Scene First</code>: Groups all scene objects before project assets.</li><li><code>Project First</code>: Groups all project assets before scene objects.</li></ul></li><li><strong>Performance Filters (Toggles):</strong><ul><li><code>Filter Large Textures</code>: Filters for textures considered large by area or memory.</li><li><code>Filter High Poly Meshes</code>: Filters for meshes with a high polygon count.</li></ul></li><li><strong>History &amp; Favorites (Buttons):</strong><ul><li><code>History</code>: Shows a list of recent searches. Clicking an item re-applies that search.</li><li><code>Favorites</code>: Shows a list of saved favorite searches.</li><li><code>Save Favorite</code>: Saves the current search configuration (query, filters, options) as a favorite.</li><li><code>Settings (Gear Icon):</code> Opens the new Settings Window.</li></ul></li><li><strong>Preview and Stats Panel (Right Side):</strong> Displays a preview (for textures, materials, etc.) and detailed statistics for the selected result item.</li><li><strong>Frame in Scene View (Toggle):</strong></li></ul>
+<p>If active, selecting a GameObject from the results will frame it in the Scene View, accurately encompassing the object and all its children.</p>
+    </article>
+</section>
+
+<section id="multi-component-filter" class="docs-section" data-doc-title="Multi-Component Filter &amp; Selector">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Workflows &amp; Scopes</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Multi-Component Filter &amp; Selector</h1>
+        </div>
+<p>This powerful feature allows you to find GameObjects that have a specific set of components attached.</p>
+<ul><li><strong>Enable Filter (Toggle):</strong><ul><li>Located at the top of this section, labeled "Filter by All Components Below:".</li><li>Check this box to activate the multi-component filter. When active, only GameObjects that possess <em>all</em> components added to the list below will appear in search results (in addition to other active filters like name, tag, layer, etc.). Enabling this filter will disable the 'Advanced: Filter by Component Signature' (both "Exact Match" and "Find References to Instance" modes).</li><li>This toggle will automatically uncheck itself if the list of components to filter by becomes empty.</li><li>If this filter is active, it takes precedence over the single "Script Filter" field for filtering GameObjects by components. The single "Script Filter" will still apply to finding script assets themselves in the project.</li></ul></li><li><strong>Components List Area:</strong><ul><li>Displays the components currently added to the filter.</li><li>Each component is shown as a label with its name.</li><li><strong>Removing a Component:</strong> Each listed component has a small <strong>'X'</strong> button to its right. Click this 'X' to remove the component from the filter list. The search results will update automatically.</li></ul></li><li><strong>Add Component Filter (Button):</strong><ul><li>Clicking this button opens the <strong>Component Selector Window</strong>.</li></ul></li><li><strong>Drag and Drop Scripts:</strong><ul><li>You can drag <code>MonoScript</code> files (i.e., your C# script assets) directly from Unity's Project window onto the "Components:" list area in the Object Finder.</li><li>If the script represents a valid <code>UnityEngine.Component</code>, it will be added to the component filter list.</li></ul></li></ul>
+<h4 id="multi-component-filter__component-selector-window">Component Selector Window</h4>
+<p>This window helps you find and select components to add to the filter.</p>
+<ul><li><strong>Opening:</strong> Opened via the "Add Component Filter" button in the Object Finder.</li><li><strong>Search Components (Text Field):</strong> Type here to filter the list of available components by name or namespace.</li><li><strong>Component List:</strong> Displays all available components in your project, grouped by namespace or category (e.g., "Mesh", "Physics", "UI", or custom script namespaces).<ul><li>Click on a component name in this list to select it.</li><li>Upon selection, the Component Selector Window will close, and the chosen component will be added to the filter list in the main Object Finder window.</li></ul></li><li><strong>Close Button:</strong> Closes the Component Selector Window without selecting a component.</li></ul>
+<p><strong>How it Affects Search:</strong></p>
+<p>When the "Filter by All Components Below:" toggle is checked and one or more components are in the list:</p>
+<ul><li>For <strong>Scene</strong> searches: Only GameObjects that have <em>every single component</em> from your list will be shown.</li><li>For <strong>Project</strong> searches (when Asset Type is <code>GameObject</code> or <code>Prefab</code>): Only Prefabs that have <em>every single component</em> from their root GameObject will be shown.</li><li>This filter works in conjunction with all other active filters (name, type, tag, layer, folder scope).</li></ul>
+<hr>
+    </article>
+</section>
+
+<section id="folder-selection" class="docs-section" data-doc-title="Folder Selection Window">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Workflows &amp; Scopes</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Folder Selection Window</h1>
+        </div>
+<p>This window allows you to specify which project folders the Object Finder should include when performing searches with the "Project" scope. This can significantly speed up searches and help you target specific areas of your project.</p>
+<ul><li><strong>Folder Tree View:</strong> Displays a hierarchical view of your project's Assets and Packages folders. Use checkboxes to select which folders to include in searches.</li><li><strong>Search Top-Level Folders Only (Toggle):</strong> When checked, the search will only include assets directly inside the selected folders, ignoring sub-folders.</li><li><strong>Quick Actions:</strong> Use the Select Visible and Deselect Visible buttons to act on the currently filtered list of folders.</li><li><strong>Undo/Redo:</strong> Undo and redo changes to your folder selections.</li><li><strong>Keyboard Navigation:</strong> The folder tree and buttons are navigable via the keyboard. </li></ul>
+<p>Enter = Select/Deselect folders, UpArrow / DownArrow = Move selection, Left Arrow = Expand Folder, Right Arrow = Collapse folder</p>
+<h3 id="folder-selection__opening-the-window">Opening the Window</h3>
+<p>Click the <strong>"Select Search Folders..."</strong> button in the main Object Finder window to open the Folder Selection Window.</p>
+<h3 id="folder-selection__purpose">Purpose</h3>
+<p>By default, a "Project" scope search in the Object Finder looks through all folders in your "Assets" directory and relevant "Packages". The Folder Selection Window lets you narrow this down. If you select specific folders, only those folders (and their subfolders, by default) will be searched when the "Project" scope is active.</p>
+<p>If no folders are explicitly selected in this window (meaning the list is empty after applying), or if you select only the root "Assets" folder, the Object Finder will search the entire "Assets" directory and relevant standard package locations by default when the 'Project' scope is active.</p>
+<h3 id="folder-selection__ui-elements-and-usage">UI Elements and Usage</h3>
+<ul><li><strong>Search Folders (Text Field):</strong><ul><li>Type here to filter the list of folders displayed in the tree view below. This helps you quickly find a specific folder in large projects.</li><li>The filter is case-insensitive and matches against folder names.</li></ul></li></ul>
+<ul><li><strong>Search Top-Level Folders Only (Toggle):</strong><ul><li>When this is checked, the search will only include assets directly inside the selected folders, ignoring any sub-folders.</li><li>When unchecked (default), the search is recursive and will include assets in all sub-folders of the selected folders. and also the parent folder of the selected folder.</li></ul></li><li><strong>Folder Tree View:</strong><ul><li><strong>Structure:</strong> Displays a hierarchical view of your project's <code>Assets</code> folder. It also lists folders from other project packages (e.g., those installed via the Package Manager from registries, git URLs, or local/embedded packages). The tool attempts to discover these packages and their browsable subfolders. If a package does not appear as expected, ensure it's correctly installed and recognized by Unity's Package Manager.</li><li><strong>Checkboxes:</strong> Each folder in the tree has a checkbox.<ul><li><strong>Select/Deselect:</strong> Check a box to include that folder in the search scope. Uncheck it to exclude.</li><li><strong>Parent/Child Behavior:</strong><ul><li>Checking a parent folder's box will automatically check all its child folders.</li><li>Unchecking a parent folder's box will automatically uncheck all its child folders.</li><li>Checking a child folder's box will ensure all its parent folders up to the root are also checked.</li><li>Unchecking a child folder will cause its parent to become unchecked <em>only if all other direct children of that parent are also unchecked</em>. (Note: Unchecking a child folder makes its direct parent eligible to be unchecked if all of that parent's other children are also unchecked. It doesn't automatically uncheck the parent unless this condition is met.)</li></ul></li></ul></li><li><strong>Folder Icons:</strong> Standard Unity folder icons are displayed for easier visual identification.</li></ul></li><li><strong>Refresh Button:</strong><ul><li><strong>Purpose:</strong> Rescans your project directory structure.</li><li><strong>Usage:</strong> Click this if you have recently added, removed, or renamed folders in your project outside of this tool, and you want the tree view to reflect these changes. Your current selections are attempted to be preserved on the rescanned folder structure.</li></ul></li><li><strong>Select Visible / Deselect Visible Buttons:</strong><ul><li><strong>Purpose:</strong> These buttons allow you to quickly select or deselect all folder checkboxes that are currently visible in the folder tree view.</li><li><strong>Usage:</strong><ul><li><code>Select Visible</code>: Checks all visible folder checkboxes. If a folder search filter is active, this applies only to the folders that match the filter and are currently displayed.</li><li><code>Deselect Visible</code>: Unchecks all visible folder checkboxes, subject to the same filtering considerations.</li></ul></li><li><strong>Behavior:</strong> These actions respect the parent/child propagation rules (e.g., selecting a visible parent will also select its children, even if some children were filtered out of view). These bulk actions are registered as single steps in the Undo/Redo history.</li></ul></li><li><strong>Undo / Redo Buttons:</strong><ul><li><strong>Purpose:</strong> Allow you to undo or redo changes made to folder selections <em>during the current session in this window</em>.</li><li><strong>Usage:</strong> If you accidentally check or uncheck a folder, use "Undo" to revert. "Redo" will reapply an undone action.</li></ul></li><li><strong>Apply Button:</strong><ul><li><strong>Purpose:</strong> Confirms your current folder selections and applies them to the Object Finder tool.</li><li><strong>Usage:</strong> After making your desired selections, click "Apply". The Folder Selection Window will close, and the Object Finder will now use these selected folders for any subsequent "Project" scope searches. These selections are also persisted across Unity editor sessions.</li></ul></li><li><strong>Cancel Button:</strong><ul><li><strong>Purpose:</strong> Closes the Folder Selection Window without applying any changes made to the folder selections during the current session.</li><li><strong>Usage:</strong> If you opened the window but decide not to change the current folder scope, click "Cancel".</li></ul></li></ul>
+    </article>
+</section>
+
+<section id="advanced-filters" class="docs-section" data-doc-title="Component Signature &amp; Find References">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Workflows &amp; Scopes</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Component Signature &amp; Find References</h1>
+        </div>
+<p>This advanced filter allows you to find GameObjects that precisely match the component "signature" (the exact set and number of components) of a template GameObject, or to find all references to a specific component instance.</p>
+<ul><li><strong>Purpose:</strong><ul><li><strong>Signature Match:</strong> Useful for finding GameObjects that are configured with an identical set of components as a reference object, ignoring other differences like component values or hierarchy position.</li><li><strong>Find References:</strong> A powerful tool for locating all GameObjects, Prefabs, and ScriptableObjects that have a direct reference to a specific component instance or even the template GameObject asset itself.</li></ul></li><li><strong>Template GameObject (ObjectField):</strong><ul><li>Drag a GameObject from your scene or a Prefab asset from the Project window into this field.</li><li>Once a GameObject is assigned, its components will be listed below in the "Template Components" area.</li><li>Assigning a new GameObject will replace the current template and update the component list.</li><li>Clearing this field (setting it to None) will clear the component list and disable this filter.</li></ul></li><li><strong>Enable Signature Filter (Exact Match) (Toggle):</strong><ul><li>Check this box to activate the signature filter.</li><li>When active, search results will only include GameObjects that have the exact same types and number of components as currently listed in the "Template Components" area.</li><li>This filter, when enabled, takes precedence over the general "Multi-Component Filter" and the single "Script Filter" for component-based matching of GameObjects/Prefabs. It is also mutually exclusive with the "Find References" mode.</li><li>The toggle will automatically disable if no template GameObject is assigned or if the list of signature components becomes empty (e.g., by removing all components).</li></ul></li><li><strong>Find References to Selected Component Instance (Toggle):</strong><ul><li><strong>Purpose:</strong> When checked, this mode allows you to select a specific component instance from the "Template Components" list below and search for all other GameObjects, Prefabs, and ScriptableObjects in your project/scene that hold a direct reference to that exact instance.</li><li><strong>Activation:</strong> To use this mode, first drag a GameObject to the "Template GameObject" field. Then, select one of its components from the "Template Components" list that appears (or the "GameObject" entry itself). Finally, check this toggle and perform a search.</li><li><strong>Mutual Exclusivity:</strong> Enabling this mode will automatically disable the "Enable Signature Filter (Exact Match)" mode, and vice-versa. You can use one or the other, but not both simultaneously.</li><li>If no template GameObject is assigned, this toggle cannot be effectively enabled.</li></ul></li><li><strong>Template Components (Scrollable List):</strong><ul><li>Displays components derived from the "Template GameObject". Its behavior depends on the active advanced filter mode:<ul><li><strong>When "Enable Signature Filter (Exact Match)" is active:</strong> Lists component <em>types</em>. You can remove types from this list using the 'X' button to refine the signature to match. Re-dragging the template GameObject resets this list to its original state.</li><li><strong>When "Find References to Selected Component Instance" is active:</strong> Lists the template <code>GameObject</code> itself, followed by all of its actual component <em>instances</em> (e.g., "BoxCollider (ID: 12345)"). Click on an instance in this list to select it as the target for the reference search. Only one instance can be the target at a time. The selected component instance will be visually highlighted in the list. The 'X' buttons are not active in this mode for this list.</li></ul></li></ul></li><li><strong>How it Affects Search:</strong><ul><li><strong>When "Enable Signature Filter (Exact Match)" is active</strong> and there's a valid list of signature components:<ul><li>The tool searches for GameObjects (in scenes or as Prefabs in the project) that have <em>exactly</em> the same set of component types as listed, and the <em>same number</em> of components. The order of components on the target GameObject does not matter.</li><li>For example, if your signature list is <code>[Transform, BoxCollider, Rigidbody]</code>, a GameObject with only <code>[Transform, BoxCollider]</code> will NOT match. A GameObject with <code>[Transform, BoxCollider, Rigidbody, AudioSource]</code> will also NOT match.</li></ul></li><li><strong>When "Find References to Selected Component Instance" is active:</strong><ul><li>The tool searches all applicable GameObjects (in scenes or prefabs) and <strong>ScriptableObjects</strong>.</li><li>It looks for any serialized field or property that directly references the <em>exact <code>GameObject</code> or component instance</em> you selected from the template.</li><li><strong>Results Display:</strong> Results are shown in the format: <code>Found In Asset/Object &gt; Referencing Component/Script &gt; Field Name</code>.</li><li>Clicking a result will ping the GameObject or Asset that <em>contains</em> the reference.</li><li>The main search text field will filter these reference path results. The tool is also robust in handling stale references (e.g., if a scene is unloaded), and will prompt you to reload the scene if necessary.</li></ul></li></ul></li><li><strong>Saving and Loading (History/Favorites):</strong><ul><li>The list of component type names for the signature filter, the name of the template GameObject (if assigned), and its asset path (if it was a prefab) are saved with search presets.</li><li>The state of the "Find References to Selected Component Instance" toggle is also saved with presets.</li><li>When loading a preset:<ul><li>The component types for the signature are restored.</li><li>The "Find References..." toggle state is restored.</li><li>If the template GameObject was an asset and can still be found at its saved path, it will be re-linked in the <code>ObjectField</code>. Otherwise, the filter will still work based on the saved component types (for signature match mode), but the <code>ObjectField</code> might be empty.</li><li>For "Find References" mode, the <em>specific component instance</em> you selected as the target is <strong>not</strong> saved directly (due to the volatility of instance IDs). You will need to <strong>re-select the specific component instance</strong> from the "Template Components" list before performing the reference search again. A message might appear in the results area prompting you to select a component instance if the mode is active but no target is chosen.</li></ul></li></ul></li></ul>
+    </article>
+</section>
+
+<section id="custom-filters" class="docs-section" data-doc-title="Custom Filter API (CustomFilterBase)">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <span class="mono" style="color:var(--accent-text);">Extensibility</span>
+                <span>/</span>
+                <span>ObjectFinderPro_Description</span>
+            </div>
+            <h1>Custom Filter API &amp; Pre-Built Filters</h1>
+        </div>
+        <p class="doc-lead">Beyond the built-in query parser, Multi-Component Filter, and Signature Filter, Object Finder Pro provides an extensible ScriptableObject filter API designed for studio pipeline rules and project validation.</p>
+        <h2>ScriptableObject Filter Architecture</h2>
+        <ul>
+            <li><strong>Write Custom Filter Logic:</strong> Create a new C# script inheriting from the <code>CustomFilterBase</code> class to implement custom validation or scene inspection queries.</li>
+            <li><strong>Reusable Filter Assets:</strong> Because each custom filter is a <code>ScriptableObject</code>, teams can create, configure, and save multiple filter asset instances for recurring checks.</li>
+            <li><strong>35+ Pre-Built Filters Included:</strong> Ships with over 35 ready-to-use filters with full C# source code serving as practical examples and turnkey diagnostics (such as locating animators without controllers or static GameObjects with rigidbodies).</li>
+            <li><strong>Toggle Section Visibility:</strong> Show or hide the Custom Filters section inside the main window at any time via <strong>Settings Window &gt; Features Tab</strong>.</li>
+        </ul>
+    </article>
+</section>
+
+<section id="settings-window" class="docs-section" data-doc-title="Settings Window">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Object Finder Pro</a>
+                <span>/</span>
+                <span>Extensibility &amp; Settings</span>
+                <span class="mono" style="margin-left:auto;">README.md</span>
+            </div>
+            <h1>Settings Window</h1>
+        </div>
+<p>Accessible via the gear icon in the main window, the Settings Window allows for deep customization.</p>
+<h3 id="settings-window__general-tab">General Tab</h3>
+<ul><li><strong>Default Preset:</strong> Set the current search configuration as the default preset that loads when the Object Finder window is first opened.</li><li><strong>Load Last Preset on Startup:</strong> If enabled, the tool will automatically load the last search you performed when it starts up, overriding the default preset.</li><li><strong>Max History Items:</strong> Control how many recent searches are saved in the history.</li><li><strong>Highlight Color:</strong> Customize the highlight color used for keyboard navigation in the results list.</li></ul>
+<h3 id="settings-window__features-tab">Features Tab</h3>
+<p>Enable or disable entire feature sections (Multi-Component Filter, Advanced Filters, Custom Filters) from the main window's UI. This is useful for simplifying the interface if you don't use certain advanced features.</p>
+<h3 id="settings-window__manage-presets-tab">Manage Presets Tab</h3>
+<p>View your lists of Favorites and History.</p>
+<ul><li><strong>Rename Presets:</strong> Click on any favorite preset's name to rename it directly within the settings window.</li><li><strong>Clear History:</strong> A button to clear all saved search history items.</li></ul>
+<h3 id="settings-window__help-tab">Help Tab</h3>
+<p>Provides quick reference guides and information about the tool's features.</p>
+    </article>
+</section>
+                    <nav class="docs-pager" aria-label="Page pagination">
+                        <button type="button" id="prev-doc" class="docs-pager-btn">
+                            <span class="docs-pager-dir">Previous</span>
+                            <span class="docs-pager-title">Start of guide</span>
+                        </button>
+                        <button type="button" id="next-doc" class="docs-pager-btn is-next">
+                            <span class="docs-pager-dir">Next</span>
+                            <span class="docs-pager-title">Next guide</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.docs-nav-link');
-            const sections = document.querySelectorAll('.docs-section');
-            const prevButton = document.getElementById('prev-doc');
-            const nextButton = document.getElementById('next-doc');
-            const searchInput = document.getElementById('doc-search');
-            const navItems = document.querySelectorAll('.docs-nav-menu li');
-
-            let currentIndex = 0;
-
-            function updateUI() {
-                const currentHash = window.location.hash || `#${sections[0].id}`;
-                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
-                if (foundIndex === -1) foundIndex = 0;
-                currentIndex = foundIndex;
-
-                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
-                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
-
-                prevButton.disabled = currentIndex === 0;
-                nextButton.disabled = currentIndex >= sections.length - 1;
-            }
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const newHash = link.getAttribute('href');
-                    if (window.location.hash !== newHash) {
-                        window.location.hash = newHash;
-                    }
-                });
-            });
-
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                navItems.forEach(li => {
-                    const linkText = li.querySelector('a').textContent.toLowerCase();
-                    li.style.display = linkText.includes(searchTerm) ? '' : 'none';
-                });
-            });
-
-            window.addEventListener('hashchange', updateUI);
-
-            prevButton.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    window.location.hash = `#${sections[currentIndex - 1].id}`;
-                }
-            });
-
-            nextButton.addEventListener('click', () => {
-                if (currentIndex < sections.length - 1) {
-                    window.location.hash = `#${sections[currentIndex + 1].id}`;
-                }
-            });
-
-            updateUI();
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="object-finder-pro.html" style="color: var(--text-secondary);">Object Finder Pro v2.0</a>
+                <span style="margin: 0 8px;">·</span>
+                <a href="documentation.html" style="color: var(--text-secondary);">All Docs</a>
+                <span style="margin: 0 8px;">·</span>
+                <a href="legal.html" style="color: var(--text-secondary);">Legal Notice</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/studio.js"></script>
 </body>
 
 </html>

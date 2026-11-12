@@ -1,137 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSUltimate ToolBox Vol. 1 - Documentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>ToolBox Vol. 1 Documentation — MSUltimate Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
-        style="position: sticky; top: 0; z-index: 1000;">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="msultimate.html"><i class="fas fa-cubes me-1"></i>MSUltimate</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="msultimate-docs.html"><i class="fas fa-book me-1"></i>Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="msultimate-license.html"><i class="fas fa-scale-balanced me-1"></i>License</a></li>
-                    <li class="nav-item"><a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
-                    <div class="theme-switcher ms-3 d-flex align-items-center">
-                        <i class="fas fa-sun me-2"></i>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="theme-switcher">
-                        </div>
-                        <i class="fas fa-moon"></i>
+<body class="docs-workspace">
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item is-current" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSUltimate Ecosystem</span>
+                                <span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSMotion v2.0</span>
+                                <span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span>
+                                <span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span>
+                                <span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Object Finder Pro</span>
+                                <span class="nav-dropdown-meta">Async query &amp; reference search</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Ultimate Quick Inspector</span>
+                                <span class="nav-dropdown-meta">Multi-page GUID pin drawer</span>
+                            </span>
+                        </a>
                     </div>
-                </ul>
+                </li>
+                <li><a class="nav-link active" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="msultimate.html#editions">Editions</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Global Ecosystem Navigation Switcher -->
-    <div class="ecosystem-nav-bar">
-        <div class="container-fluid d-flex align-items-center gap-2 overflow-x-auto py-2">
-            <a href="msultimate-docs.html" class="eco-nav-btn"><i class="fas fa-compass me-1"></i> Ecosystem Hub</a>
-            <span class="eco-nav-divider"></span>
-            <a href="msultimate-core-docs.html" class="eco-nav-btn"><i class="fas fa-cubes me-1"></i> Core Framework (156+)</a>
-            <a href="msultimate-animated-docs.html" class="eco-nav-btn"><i class="fas fa-bolt me-1"></i> Animated (87)</a>
-            <a href="msultimate-component-docs.html" class="eco-nav-btn"><i class="fas fa-palette me-1"></i> Component Designer (75)</a>
-            <a href="msultimate-hierarchy-docs.html" class="eco-nav-btn"><i class="fas fa-sitemap me-1"></i> Hierarchy Designer (83)</a>
-            <a href="msultimate-validation-docs.html" class="eco-nav-btn"><i class="fas fa-shield-check me-1"></i> Validation Module (39)</a>
-            <a href="msultimate-customizer-docs.html" class="eco-nav-btn"><i class="fas fa-brush me-1"></i> Inspector Customizer</a>
-            <a href="msultimate-toolbox-docs.html" class="eco-nav-btn active"><i class="fas fa-toolbox me-1"></i> ToolBox Vol. 1 (4)</a>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html" class="active">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">MSUltimate Docs</span>
+            <a href="msultimate.html">MSUltimate Overview</a>
+            <a href="msultimate-docs.html">Ecosystem Docs Hub</a>
+            <a href="msultimate-core-docs.html">Core Framework (156+)</a>
+            <a href="msultimate-animated-docs.html">Animated Attributes (99)</a>
+            <a href="msultimate-component-docs.html">Component Designer (74)</a>
+            <a href="msultimate-hierarchy-docs.html">Hierarchy Designer (82)</a>
+            <a href="msultimate-validation-docs.html">Validation Module (39)</a>
+            <a href="msultimate-customizer-docs.html">Inspector Customizer (30 Guides)</a>
+            <a href="msultimate-toolbox-docs.html">ToolBox Vol. 1 (4 Tools + 4)</a>
+            <a href="msultimate-license.html">License &amp; Community EULA</a>
+        </div>
+    </div>
+    <div class="eco-subnav" aria-label="MSUltimate documentation packages">
+        <div class="container">
+            <div class="eco-subnav-inner"><a href="msultimate-docs.html" class="eco-pill"><span>Hub</span><span class="eco-pill-count">454+</span></a><a href="msultimate-core-docs.html" class="eco-pill"><span>Core</span><span class="eco-pill-count">156+</span></a><a href="msultimate-animated-docs.html" class="eco-pill"><span>Animated</span><span class="eco-pill-count">99</span></a><a href="msultimate-component-docs.html" class="eco-pill"><span>Component</span><span class="eco-pill-count">74</span></a><a href="msultimate-hierarchy-docs.html" class="eco-pill"><span>Hierarchy</span><span class="eco-pill-count">82</span></a><a href="msultimate-validation-docs.html" class="eco-pill"><span>Validation</span><span class="eco-pill-count">39</span></a><a href="msultimate-customizer-docs.html" class="eco-pill"><span>Customizer</span><span class="eco-pill-count">30 guides</span></a><a href="msultimate-toolbox-docs.html" class="eco-pill is-active"><span>ToolBox Vol. 1</span><span class="eco-pill-count">4 tools</span></a><a href="msultimate-license.html" class="eco-pill"><span>License</span><span class="eco-pill-count">EULA</span></a></div>
         </div>
     </div>
 
-    <!-- Main Workspace -->
     <main>
-        <div class="docs-container">
-            <button class="btn btn-primary d-lg-none shadow" id="doc-sidebar-toggle"
-                style="position: fixed; bottom: 20px; right: 20px; z-index: 1050; border-radius: 50%; width: 60px; height: 60px;">
-                <i class="fas fa-list"></i>
-            </button>
-
-            <!-- Sidebar -->
-            <aside class="docs-sidebar">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <h3 class="mb-0">ToolBox Vol. 1</h3>
-                    <span class="badge bg-primary">$44.99 • 4 Tools</span>
-                </div>
-                <p class="text-muted small mb-3">Developer Diagnostics & Telemetry</p>
-
-                <div class="mb-3">
-                    <input type="text" id="doc-search" class="form-control" placeholder="Search 450+ attributes (all addons)..." autocomplete="off">
-                </div>
-
-                <ul class="docs-nav-menu">
-                    <li class="menu-header fw-bold text-uppercase small text-muted px-2 mt-3 mb-1">Developer Power Tools</li>
-                    <li><a href="#tool-console-command" class="docs-nav-link active"><i class="fas fa-terminal text-primary me-2"></i>[ConsoleCommand] & Console <span class="badge bg-primary ms-auto">Live</span></a></li>
-                    <li><a href="#tool-live-track" class="docs-nav-link"><i class="fas fa-chart-line text-info me-2"></i>[LiveTrack] Telemetry HUD <span class="badge bg-primary ms-auto">Live</span></a></li>
-                    <li><a href="#staged-toolbox" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>History Track (Undo/Redo Diff) <span class="badge bg-secondary ms-auto">Staged</span></a></li>
-                    <li><a href="#staged-toolbox" class="docs-nav-link text-muted"><i class="fas fa-ellipsis me-2"></i>Lifetime Tracker (Leaks Audit) <span class="badge bg-secondary ms-auto">Staged</span></a></li>
-                </ul>
-            </aside>
-
-            <!-- Main Content Area -->
-            <article class="docs-content">
-
-                <!-- 1. [ConsoleCommand] & Advanced Console Pro -->
-                <section id="tool-console-command" class="docs-section active">
-                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-                        <h1 class="mb-0">[ConsoleCommand] & Advanced Console Pro</h1>
-                        <div class="d-flex gap-2">
-                            <span class="badge bg-primary">Target: Method (static)</span>
-                            <span class="badge bg-warning text-dark">Tool: Advanced Console</span>
-                            <span class="badge bg-info text-dark">Reflection Auto-Bind</span>
+        <div class="container">
+            <div class="docs-shell">
+                <aside class="docs-sidebar" aria-label="Documentation navigation">
+                    <div class="docs-sidebar-head">
+                        <div class="docs-sidebar-title-row">
+                            <span class="docs-sidebar-title">ToolBox Vol. 1</span>
+                            <span class="mono" style="font-size: 11px; color: var(--text-muted);">14 pages</span>
+                        </div>
+                        <div class="docs-search-wrap">
+                            <svg class="docs-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            <input type="search" id="doc-search" class="docs-search-input" placeholder="Search ecosystem (454+)" aria-label="Search MSUltimate documentation" autocomplete="off">
+                            <span class="docs-search-kbd">Ctrl+K</span>
                         </div>
                     </div>
+                    <div class="docs-sidebar-body">
+                        <div class="docs-pinned-group"><div class="docs-pinned-label">Overview &amp; Guides</div><a href="#overview" class="docs-nav-link"><span>Package Overview</span><span class="eco-pill-count">Start</span></a></div><div class="docs-cat-group"><button type="button" class="docs-cat-btn" aria-expanded="true"><span>4 Standalone Tools <span class="docs-cat-count">(4)</span></span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="docs-nav-menu"><li><a href="#advanced-console" class="docs-nav-link">Advanced Console System Manual</a></li><li><a href="#history-track-tool" class="docs-nav-link">History Track Manual</a></li><li><a href="#lifetime-track" class="docs-nav-link">Lifetime Track Manual</a></li><li><a href="#live-track-tool" class="docs-nav-link">Live Track Manual</a></li></ul></div><div class="docs-cat-group is-collapsed"><button type="button" class="docs-cat-btn" aria-expanded="false"><span>Advanced Console Guides <span class="docs-cat-count">(4)</span></span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="docs-nav-menu"><li><a href="#console-introduction" class="docs-nav-link">Console Guide · Introduction to Advanced Console System</a></li><li><a href="#console-getting-started" class="docs-nav-link">Console Guide · Getting Started with Advanced Console</a></li><li><a href="#console-core-concepts" class="docs-nav-link">Console Guide · Core Concepts</a></li><li><a href="#console-how-to-guide" class="docs-nav-link">Console Guide · How-To Guide</a></li></ul></div><div class="docs-cat-group is-collapsed"><div class="docs-cat-head"><a href="#attributes-index" class="docs-cat-link docs-nav-link"><span>Integration Attributes</span><span class="docs-cat-count">4</span></a><button type="button" class="docs-cat-toggle" aria-expanded="false" aria-label="Toggle Integration Attributes"><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div><ul class="docs-nav-menu"><li><a href="#console-command" class="docs-nav-link">[ConsoleCommand]</a></li><li><a href="#history-track" class="docs-nav-link">[HistoryTrack]</a></li><li><a href="#live-track" class="docs-nav-link">[LiveTrack]</a></li><li><a href="#track-lifetime" class="docs-nav-link">[TrackLifetime]</a></li></ul></div>
+                    </div>
+                </aside>
 
-                    <p class="lead">
-                        Registers static C# methods as invokable developer console commands within the Advanced Runtime Console overlay, supporting argument deserialization, categories, and fuzzy autocomplete.
-                    </p>
-
-                    <!-- Simulated Visual Preview -->
-                    <div class="unity-preview-card" style="background: #181818; border-color: #00aaff;">
-                        <div class="preview-header text-info">
-                            <i class="fas fa-terminal"></i> In-Game Runtime Console Overlay • [F1 Toggle]
-                        </div>
-                        <div class="font-monospace small mb-2 text-success">
-                            &gt; spawn_item sword_legendary 1<br>
-                            <span class="text-light">[14:32:05] [Combat] Spawned item 'sword_legendary' x1 at player position.</span><br>
-                            &gt; god_mode true<br>
-                            <span class="text-light">[14:32:11] [Cheats] Invulnerability enabled for local player.</span>
-                        </div>
-                        <div class="d-flex gap-2 align-items-center border-top border-secondary pt-2">
-                            <span class="text-info fw-bold">&gt;</span>
-                            <input type="text" class="unity-inspector-input w-100 font-monospace" value="heal_player 100" readonly>
-                            <span class="badge bg-primary">Tab to Complete</span>
-                        </div>
+                <div class="docs-main">
+                    <div class="docs-mobile-toolbar">
+                        <button type="button" id="doc-sidebar-toggle" class="btn btn-secondary btn-sm" aria-expanded="false">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                            Browse ToolBox Vol. 1 (14)
+                        </button>
+                        <a href="msultimate-docs.html" class="link-arrow">All packages</a>
                     </div>
 
-                    <h2>1. Overview & Value Proposition</h2>
-                    <p><strong>What it does:</strong> Turns static C# methods into executable console commands with zero manual registry setup. Typing into the in-game developer console provides fuzzy search, command syntax help, and auto-conversion of string arguments into C# types.</p>
-                    <p><strong>The Problem:</strong> Building custom in-game consoles requires writing manual argument dispatchers, maintaining fragile string dictionaries, and constantly updating autocomplete registries.</p>
-                    <p><strong>The Solution:</strong></p>
-                    <ul>
-                        <li><strong>Zero-Boilerplate Reflection:</strong> Automatically discovers decorated static methods at runtime startup.</li>
-                        <li><strong>Automatic Argument Conversion:</strong> Parses integers, floats, booleans, strings, and <code>Vector3</code> coordinates automatically.</li>
-                        <li><strong>Categorized Autocomplete:</strong> Groups commands into clean tabs (e.g. <code>Combat</code>, <code>Network</code>, <code>Cheats</code>).</li>
-                    </ul>
+                    <section class="docs-section" id="overview" data-doc-title="MSUltimate - ToolBox Vol. 1 Documentation">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><span class="tag tag-accent">ToolBox Vol. 1</span><span>/</span><span>Overview</span></div>
+            <h1>MSUltimate - ToolBox Vol. 1 Documentation</h1>
+        </div>
+        <blockquote><p><strong>Essential Production Power Tools: Advanced Console, History Tracker, Lifetime Inspector, and Live Telemetry.</strong><br>Standalone Addon for Unity 6 (6000.x)+.</p></blockquote>
+<h2>Overview</h2>
+<p>MSUltimate ToolBox Vol. 1 is an enterprise utility suite addressing the most common developer bottlenecks in large-scale Unity projects: logging noise, undo/redo state tracking, GameObject memory leaks, and real-time field telemetry.</p>
+<h2>Included Systems</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Tool / System</th><th>Type</th><th>Description</th><th>Index Link</th></tr></thead><tbody><tr><td><strong>Advanced Console</strong></td><td>Editor Window</td><td>High-speed log analysis, multi-tag filtering, memory profiler tags, and clean stacktraces.</td><td><a href="#advanced-console">Open Manual</a></td></tr><tr><td><strong>History Track</strong></td><td>Editor Window</td><td>Timeline inspection of Undo/Redo state changes, variable diffs, and serialization history.</td><td><a href="#history-track-tool">Open Manual</a></td></tr><tr><td><strong>Lifetime Track</strong></td><td>Editor Window</td><td>Lifecycle profiler tracking allocations, active instances, and memory leaks.</td><td><a href="#lifetime-track">Open Manual</a></td></tr><tr><td><strong>Live Track</strong></td><td>Editor Window</td><td>Real-time in-Scene telemetry HUD and field graphs.</td><td><a href="#live-track-tool">Open Manual</a></td></tr><tr><td><strong>ToolBox Attributes</strong></td><td>C# Attributes</td><td>Dedicated attributes (<code>[ConsoleCommand]</code>, <code>[HistoryTrack]</code>, <code>[TrackLifetime]</code>, <code>[LiveTrack]</code>) binding methods, fields, and classes to tools.</td><td><a href="#attributes-index">Browse Attributes</a></td></tr></tbody></table></div>
+<h2>Browse by Category</h2>
+<div class="doc-index-grid"><div class="doc-index-card"><div class="doc-index-card-head"><a href="#advanced-console" class="doc-index-card-title">4 Standalone Tools</a><span class="tag tag-accent mono">4</span></div><p class="doc-index-card-desc">Browse all 4 entries in 4 Standalone Tools.</p><div class="doc-index-chips"><a href="#advanced-console" class="doc-index-chip">Advanced Console System Manual</a><a href="#history-track-tool" class="doc-index-chip">History Track Manual</a><a href="#lifetime-track" class="doc-index-chip">Lifetime Track Manual</a><a href="#live-track-tool" class="doc-index-chip">Live Track Manual</a></div></div><div class="doc-index-card"><div class="doc-index-card-head"><a href="#console-introduction" class="doc-index-card-title">Advanced Console Guides</a><span class="tag tag-accent mono">4</span></div><p class="doc-index-card-desc">Browse all 4 entries in Advanced Console Guides.</p><div class="doc-index-chips"><a href="#console-introduction" class="doc-index-chip">Console Guide · Introduction to Advanced Console System</a><a href="#console-getting-started" class="doc-index-chip">Console Guide · Getting Started with Advanced Console</a><a href="#console-core-concepts" class="doc-index-chip">Console Guide · Core Concepts</a><a href="#console-how-to-guide" class="doc-index-chip">Console Guide · How-To Guide</a></div></div><div class="doc-index-card"><div class="doc-index-card-head"><a href="#attributes-index" class="doc-index-card-title">Integration Attributes</a><span class="tag tag-accent mono">4</span></div><p class="doc-index-card-desc">Integration attributes binding code fields, methods, and classes directly to the ToolBox window profilers, runtime console, and tracking systems.</p><div class="doc-index-chips"><a href="#console-command" class="doc-index-chip">[ConsoleCommand]</a><a href="#history-track" class="doc-index-chip">[HistoryTrack]</a><a href="#live-track" class="doc-index-chip">[LiveTrack]</a><a href="#track-lifetime" class="doc-index-chip">[TrackLifetime]</a></div></div></div>
+    </article>
+</section><section class="docs-section" id="advanced-console" data-doc-title="Advanced Console System Manual">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Standalone Tools</span><span>/</span><span>Advanced Console System Manual</span></div>
+            <h1>Advanced Console System Manual</h1>
+        </div>
+        <blockquote><p>High-throughput log manager featuring regex search, memory tag filters, one-click stack trace navigation, and zero-allocation log streaming.</p></blockquote>
+<h2>Access &amp; Launch</h2>
+<ul><li><strong>Menu Path:</strong> <code>Tools &gt; Maharaja Studio &gt; MSUltimate &gt; ToolBox Vol 1 &gt; Advanced Console</code></li></ul>
+<hr>
+<h2>Capabilities &amp; Workflows</h2>
+<ul><li><strong>Multi-Category Tagging:</strong> Filter logs by subsystem (e.g. <code>[Audio]</code>, <code>[Net]</code>, <code>[AI]</code>).</li><li><strong>Clean Stacktraces:</strong> De-clutters internal Unity engine stack frames.</li><li><strong>Log Export &amp; Sharing:</strong> 1-click export to Markdown or JSON for bug reports.</li></ul>
+    </article>
+</section><section class="docs-section" id="history-track-tool" data-doc-title="History Track Manual">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Standalone Tools</span><span>/</span><span>History Track Manual</span></div>
+            <h1>History Track Manual</h1>
+        </div>
+        <blockquote><p>Timeline-based inspection of Undo/Redo operations, variable changes, and serialization diffs.</p></blockquote>
+<h2>Access &amp; Launch</h2>
+<ul><li><strong>Menu Path:</strong> <code>Tools &gt; Maharaja Studio &gt; MSUltimate &gt; ToolBox Vol 1 &gt; HistoryTrack Window</code> <em>(plus <code>Tools &gt; Maharaja Studio &gt; MSUltimate &gt; ToolBox Vol 1 &gt; Play Mode Tweaks</code>)</em></li></ul>
+<hr>
+<h2>Capabilities &amp; Workflows</h2>
+<ul><li><strong>Visual Diff Timeline:</strong> Shows who changed what and when in the current editor session.</li><li><strong>Rollback to Snapshot:</strong> Restore prior object states without losing unrelated scene edits.</li><li><strong>Serialization Integrity Check:</strong> Verifies dirty flags and disk persistence.</li></ul>
+    </article>
+</section><section class="docs-section" id="lifetime-track" data-doc-title="Lifetime Track Manual">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Standalone Tools</span><span>/</span><span>Lifetime Track Manual</span></div>
+            <h1>Lifetime Track Manual</h1>
+        </div>
+        <blockquote><p>GameObject and asset lifecycle tracker identifying persistent memory leaks, post-mortem dangling C# references, scene teardown leaks, and unreleased pooling allocations.</p></blockquote>
+<h2>Access &amp; Launch</h2>
+<ul><li><strong>Menu Path:</strong> <code>Tools &gt; Maharaja Studio &gt; MSUltimate &gt; ToolBox Vol 1 &gt; Object Lifetime Tracker</code></li><li><strong>In-Game Runtime HUD Overlay:</strong> Hotkey <code>F8</code> or 3-finger mobile touch gesture (Console: <code>lifetime.hud</code>).</li></ul>
+<hr>
+<h2>Capabilities &amp; Workflows</h2>
+<h3>1. Post-Mortem Dangling Reference Hunter</h3>
+<ul><li><strong>The Problem:</strong> Calling <code>Destroy(gameObject)</code> destroys the native C++ engine object (<code>m_CachedPtr == 0</code>), but static events (<code>GameEvents.OnScoreChanged += HandleScore</code>), singletons, or living managers retaining a C# reference keep the entire managed wrapper, its fields, arrays, and textures alive in the Mono/IL2CPP heap forever.</li><li><strong>The Solution:</strong> <ul><li>Retains a <code>WeakReference&lt;object&gt;</code> on <code>OnDestroy()</code>.</li><li>Audits surviving references where <code>target != null &amp;&amp; (UnityEngine.Object)target == null</code>.</li><li>Flags dead instances with <code>⚠ DANGLING</code> alerts in the inspector and tables.</li><li>One-click <strong>"Inspect Retainers"</strong> button scans static event delegates, collections, and living scene <code>MonoBehaviour</code> fields to pinpoint the exact leak source holding the dead object.</li></ul></li></ul>
+<h3>2. Scene Teardown &amp; Transition Audit</h3>
+<ul><li><strong>The Problem:</strong> GameObjects and pooled instances often fail to clean up during scene changes, leaking past scene unloads or PlayMode transitions.</li><li><strong>The Solution:</strong><ul><li>Automated hooks into <code>SceneManager.sceneUnloaded</code> and <code>EditorApplication.playModeStateChanged (ExitingPlayMode)</code>.</li><li>Any instance belonging to the unloaded scene that is still marked alive is automatically flagged as a teardown leak (<code>🚨 LEAKED</code>).</li><li>Generates formatted audit reports to console and UI:</li></ul></li></ul>
+<blockquote><p><em>"3 instances leaked past Scene 'Level_01' unload! (2x EnemyBullet, 1x FloatingDamagePopup). Alive duration: 240s."</em></p></blockquote>
+<h3>3. Differential Snapshot Engine (Baseline Diffing A vs B)</h3>
+<ul><li><strong>The Problem:</strong> Cumulative session counters make it difficult to isolate leaks caused by a specific gameplay action (e.g., Opening Inventory, Completing Wave 3, or Replaying a Match).</li><li><strong>The Solution:</strong><ul><li><strong>Set Baseline (Snapshot A):</strong> Freezes all current type and global active counts as the reference state.</li><li><strong>Live Delta Tracking:</strong> Real-time columns for ΔActive, ΔSpawn, ΔKill, Net Leak, and ΔRAM.</li><li>Types with positive active deltas or unreleased net counts upon returning to an idle state are highlighted in bright red as verified leaks.</li></ul></li></ul>
+<h3>4. Interactive Timeline &amp; Range Slicing</h3>
+<ul><li>Real-time rolling/sliding window painter (Last 10s, 30s, 60s, 2m, 5m, Full Session).</li><li>Zoom with mouse wheel, pan with Middle/Right/Alt drag, and click-and-drag to slice time windows for targeted anomaly inspection.</li></ul>
+<hr>
+<h2>Quick-Action Console Commands</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Command</th><th>Category</th><th>Description</th></tr></thead><tbody><tr><td><code>lifetime.hud</code></td><td>Lifetime</td><td>Toggles the in-game runtime HUD overlay.</td></tr><tr><td><code>lifetime.stats</code></td><td>Lifetime</td><td>Prints active, spawned, destroyed, peak, and dangling reference telemetry.</td></tr><tr><td><code>lifetime.audit</code></td><td>Lifetime</td><td>Triggers full GC and audits all destroyed objects for post-mortem dangling references.</td></tr><tr><td><code>lifetime.baseline</code></td><td>Lifetime</td><td>Establishes a baseline snapshot (<code>lifetime.baseline clear</code> to reset).</td></tr><tr><td><code>lifetime.clear</code></td><td>Lifetime</td><td>Clears the current lifetime tracking session and resets event buffers.</td></tr></tbody></table></div>
+    </article>
+</section><section class="docs-section" id="live-track-tool" data-doc-title="Live Track Manual">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Standalone Tools</span><span>/</span><span>Live Track Manual</span></div>
+            <h1>Live Track Manual</h1>
+        </div>
+        <blockquote><p>Autonomous real-time variable telemetry, multi-scale oscilloscopes, and in-SceneView floating HUDs for Unity runtime diagnostics.</p></blockquote>
+<h2>Access &amp; Launch</h2>
+<ul><li><strong>Menu Path:</strong> <code>Tools &gt; Maharaja Studio &gt; MSUltimate &gt; ToolBox Vol 1 &gt; LiveTrack Dashboard</code></li></ul>
+<hr>
+<h2>Capabilities &amp; Workflows</h2>
+<h3>1. Autonomous Background Sampling Engine</h3>
+<ul><li><strong>Decoupled from Inspector:</strong> Telemetry sampling runs continuously in the background across all active scene objects via <code>LiveTrackRegistry</code>. Objects continue streaming data even when unselected or when the Inspector is viewing another GameObject.</li><li><strong>Scene-Wide Auto-Discovery:</strong> Discovers all MonoBehaviours decorated with <code>[LiveTrack]</code> automatically upon window focus or scene changes.</li></ul>
+<h3>2. Multi-Scale Y-Axis Display Modes</h3>
+<ul><li><strong>Combined Mode (Absolute):</strong> Global shared scale for comparing metrics with identical units (e.g., Vector3 components or multiple temperature sensors).</li><li><strong>Normalized Mode (0% – 100%):</strong> Per-series dynamic normalization, allowing simultaneous comparison of wildly mismatched orders of magnitude (e.g., Turbine RPM <code>0 - 8000</code>, Throttle <code>0.0 - 1.0</code>, and Heat <code>70 - 110°C</code>) without curve flattening.</li><li><strong>Stacked Lanes Mode (DAW / Profiler Style):</strong> Splits the dashboard into dedicated horizontal oscilloscope lanes, giving each variable its own unoccluded waveform track.</li><li><strong>Interactive Cursor Inspection Card:</strong> Hover over any point on the graph timeline to inspect an instant floating card listing the exact numeric values of all active series at that timestamp.</li></ul>
+<h3>3. Floating In-SceneView Telemetry HUD</h3>
+<ul><li><strong>In-Context Monitoring:</strong> Renders sleek, semi-transparent HUD cards directly above GameObjects in the SceneView via <code>SceneView.duringSceneGui</code>.</li><li><strong>Live Status &amp; Sparklines:</strong> Displays current values, threshold warning badges (pulsing red/orange on alert), and a 10-second compact sparkline waveform.</li><li><strong>Pinning &amp; Selection Modes:</strong> Enable <code>ShowInSceneView = true</code> on any <code>[LiveTrack]</code> attribute to pin HUDs permanently in SceneView, or toggle the toolbar button to display HUDs for selected objects.</li></ul>
+<h3>4. Full C# Property &amp; Method Support</h3>
+<ul><li><strong>Computed Properties:</strong> Place <code>[LiveTrack]</code> directly onto computed C# properties (e.g. <code>public float SpeedKmh =&gt; rb.linearVelocity.magnitude * 3.6f;</code>).</li><li><strong>Seamless Inspector &amp; Dashboard Integration:</strong> Renders sparklines, statistics, and alert thresholds identically for both serialized fields and dynamic properties.</li></ul>
+    </article>
+</section><section class="docs-section" id="console-introduction" data-doc-title="Console Guide · Introduction to Advanced Console System">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Advanced Console Guides</span><span>/</span><span>Console Guide · Introduction to Advanced Console System</span></div>
+            <h1>Console Guide · Introduction to Advanced Console System</h1>
+        </div>
+        <p>The <strong>Advanced Console System</strong> is a professional, high-performance logging and debugging suite included in <strong>MSUltimate ToolBox Vol. 1</strong>. It acts as a centralized hub that aggregates logs, warnings, and errors from various subsystems (like Validation, HistoryTrack, and LiveTrack) as well as your custom user code.</p>
+<h2>Why Advanced Console?</h2>
+<p>Unity's built-in console is great for basic logging but often falls short when dealing with complex projects, requiring advanced filtering, real-time analytics, or proactive alerts. The Advanced Console System bridges this gap by offering:</p>
+<ul><li><strong>Unified Log Registry</strong>: A single source of truth for all system events (<code>RuntimeConsoleLogManager</code> and <code>MSConsole</code>).</li><li><strong>Rich Context</strong>: Every log entry can hold stack traces, context snapshots, tags, and quick-action buttons.</li><li><strong>Visual Analytics</strong>: A timeline heatmap gives you a bird's-eye view of error density and system health over time.</li><li><strong>Proactive Rules</strong>: Configure rules to automatically pause the editor or show popups when specific error thresholds are met.</li><li><strong>Team Collaboration</strong>: Add user notes to log entries, bookmark critical logs, and save/export log sessions to share with your team.</li><li><strong>Runtime Support</strong>: An automatic UI Toolkit in-game runtime console (<code>RuntimeAdvancedConsoleUI</code>) allows you to monitor logs and execute custom commands directly in your built game.</li></ul>
+<h2>Key Features</h2>
+<h3>1. The Advanced Console Window (UI Toolkit)</h3>
+<p>A highly optimized, dark-themed editor window built using UI Toolkit. It features:</p>
+<ul><li><strong>Advanced Filtering</strong>: Filter by severity, source (User, Validation, LiveTrack, etc.), channels, and tags.</li><li><strong>Smart Search</strong>: Supports both standard text matching and Regex.</li><li><strong>Sidebar Navigation</strong>: Quickly toggle channels, sources, and active alert rules.</li><li><strong>Detail Panel</strong>: Inspect selected logs to instantly view full stack traces, variable values at the time of the log (Context Snapshots), and execute Quick Actions (e.g., healing a player).</li></ul>
+<h3>2. Runtime Overlay Console</h3>
+<p>Press the backtick (`<code> </code> `<code>) key during Play Mode or in a built application to bring up the in-game UI Toolkit overlay console (</code>RuntimeAdvancedConsoleUI`).</p>
+<ul><li>Captures Unity's internal <code>Debug.Log</code> messages.</li><li>Offers built-in commands like <code>help</code>, <code>fps</code>, <code>time_scale</code>, and <code>clear</code>.</li><li>Fully supports custom mapped commands using the <code>[ConsoleCommand]</code> attribute.</li></ul>
+<h3>3. Deep Integration</h3>
+<p>The Advanced Console automatically captures events from other MSUltimate systems:</p>
+<ul><li><strong>Validation Engine</strong>: Automatically logs validation errors and warnings.</li><li><strong>HistoryTrack</strong>: Logs field value changes.</li><li><strong>LiveTrack</strong>: Logs upper/lower bound alerts.</li></ul>
+<hr>
+<p><strong>Next Step:</strong> See <a href="#console-getting-started">Getting Started</a> to integrate the console into your workflow.</p>
+    </article>
+</section><section class="docs-section" id="console-getting-started" data-doc-title="Console Guide · Getting Started with Advanced Console">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Advanced Console Guides</span><span>/</span><span>Console Guide · Getting Started with Advanced Console</span></div>
+            <h1>Console Guide · Getting Started with Advanced Console</h1>
+        </div>
+        <p>This guide will help you open, use, and integrate the <strong>Advanced Console System</strong> into your project.</p>
+<h2>1. Opening the Console Window</h2>
+<p>Inside the Unity Editor, open the Advanced Console Window from the top menu: <strong><code>Tools</code></strong> -&gt; <strong><code>Maharaja Studio</code></strong> -&gt; <strong><code>MSUltimate</code></strong> -&gt; <strong><code>ToolBox Vol 1</code></strong> -&gt; <strong><code>Advanced Console</code></strong></p>
+<p><em>Tip: Dock this window alongside your standard Unity Console or Scene view. It serves as a superset of the built-in console for complex debugging.</em></p>
+<h2>2. Your First Log</h2>
+<p>You can log to the Advanced Console from any script using <code>MSConsole</code> (safe in both Editor and player builds with no <code>#if UNITY_EDITOR</code> required) or <code>RuntimeConsoleLogManager</code>:</p>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using MaharajaStudio.MSUltimate.Runtime;
+using UnityEngine;
 
-                    <h2>2. Quick Start Example</h2>
-                    <pre><code class="language-csharp">using UnityEngine;
+public class MyScript : MonoBehaviour 
+{
+    void Start() 
+    {
+        MSConsole.Log("System initialized successfully!", channel: "Core", target: this);
+    }
+}</code></pre></div>
+<h2>3. Enabling the Runtime Overlay</h2>
+<p>During gameplay (in Play Mode or in a build), <code>RuntimeAdvancedConsoleUI</code> loads automatically via <code>RuntimeInitializeOnLoadMethod</code>:</p>
+<ol><li>Press <strong>Play</strong> (or run a build).</li><li>Press the <strong>Backtick key (\`)</strong> (typically under the Escape key) to toggle the UI Toolkit console open and closed.</li></ol>
+<p><em>(Note: The legacy IMGUI <code>RuntimeConsoleOverlay</code> component is deprecated in favor of <code>RuntimeAdvancedConsoleUI</code>.)</em></p>
+<h2>4. Registering a Console Command</h2>
+<p>Console commands allow you to trigger methods from within the in-game runtime console.</p>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using MaharajaStudio.MSUltimate.Runtime;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public static float PlayerHealth = 100f;
+
+    [ConsoleCommand("heal", "Restores the player's health to 100")]
+    public static void HealPlayer()
+    {
+        PlayerHealth = 100f;
+        Debug.Log("Player health restored!");
+    }
+
+    [ConsoleCommand("set_speed", "Sets the player's movement speed")]
+    public static void SetSpeed(float speed)
+    {
+        // Add logic to set speed
+        Debug.Log($"Speed set to {speed}");
+    }
+}</code></pre></div>
+<p>Open the runtime console ( <code> ) and type </code>heal<code> or </code>set_speed 15.5`.</p>
+<hr>
+<p><strong>Next Step:</strong> Dive deeper into the architecture in <a href="#console-core-concepts">Core Concepts</a>.</p>
+    </article>
+</section><section class="docs-section" id="console-core-concepts" data-doc-title="Console Guide · Core Concepts">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Advanced Console Guides</span><span>/</span><span>Console Guide · Core Concepts</span></div>
+            <h1>Console Guide · Core Concepts</h1>
+        </div>
+        <p>Understanding the foundational pieces of the Advanced Console System allows you to leverage its full potential for debugging and analytics.</p>
+<h2>1. ConsoleLogEntry</h2>
+<p>Every event in the console is a <code>ConsoleLogEntry</code>. It holds significantly more data than a standard Unity log:</p>
+<ul><li><strong>Severity</strong>: Trace, Debug, Info, Warning, Error, Critical.</li><li><strong>Source</strong>: User, Validation, HistoryTrack, LiveTrack, System.</li><li><strong>Channel</strong>: A string used to group logs (e.g., "Network", "Physics", "AI").</li><li><strong>Tags</strong>: An array of strings for granular filtering.</li><li><strong>TargetObject</strong>: A reference to the specific Unity Object (GameObject, ScriptableObject) that spawned the log. Clicking "Select Object" in the UI pings this object.</li><li><strong>ContextSnapshot</strong>: A dictionary of string key-value pairs representing variables at the exact moment the log occurred.</li><li><strong>Actions</strong>: A list of clickable buttons (<code>ConsoleAction</code>) embedded in the log detail view.</li></ul>
+<h2>2. <code>RuntimeConsoleLogManager</code> (Registry)</h2>
+<p>The <code>RuntimeConsoleLogManager</code> (in <code>MaharajaStudio.MSUltimate.Runtime.AdvancedConsole</code>) is the static singleton that routes and stores all logs (and backs the <code>MSConsole</code> runtime API).</p>
+<ul><li>It maintains a <strong>circular buffer</strong> capped by <code>MaxEntries</code> (configured via <code>RuntimeConsoleSettings</code>) to prevent memory leaks.</li><li>It handles computing <strong>Collapse Hashes</strong>. If consecutive logs match by message and context, they are collapsed into a single entry with a badge count.</li><li>It provides APIs to run complex queries, filter logs, and manage <strong>Sessions</strong>.</li></ul>
+<h2>3. Log Sessions &amp; Exporting</h2>
+<p>You can take snapshots of the console's current state.</p>
+<ul><li><strong>Start New Session</strong>: Resets the active view into a new logical block (useful when testing a specific feature).</li><li><strong>Save Session</strong>: Stores the current log buffer into memory.</li><li><strong>Compare Sessions</strong>: API available to diff two sessions and find unique or recurring errors.</li><li><strong>Export</strong>: Export the current filtered view to <strong>CSV</strong> or <strong>JSON</strong> for external analysis or to attach to bug reports.</li></ul>
+<h2>4. ConsoleRuleEngine</h2>
+<p>The Rule Engine evaluates every incoming log against a list of <code>ConsoleLogRule</code> definitions. A rule consists of:</p>
+<ul><li><strong>Conditions</strong>: Min severity, specific source, regex pattern match, or occurring <em>X times</em> within <em>Y seconds</em>.</li><li><strong>Actions</strong>: Show an Editor popup, pause the Editor immediately, or escalate the console log.</li></ul>
+<p><em>Example</em>: If 5 <code>Network</code> errors happen in 1 second, the rule can automatically pause the Unity Editor so you can inspect the exact frame it failed.</p>
+<h2>5. Timeline Heatmap</h2>
+<p>Located just under the toolbar, the timeline converts the timestamps and severities of all logs in your current session into a stacked bar chart.</p>
+<ul><li><strong>Green</strong>: Info logs.</li><li><strong>Yellow</strong>: Warning logs.</li><li><strong>Red</strong>: Error/Critical logs.</li></ul>
+<p>If your game suddenly stutters, you can look at the heatmap to see if a red "burst" of errors occurred at that exact moment.</p>
+    </article>
+</section><section class="docs-section" id="console-how-to-guide" data-doc-title="Console Guide · How-To Guide">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span>Advanced Console Guides</span><span>/</span><span>Console Guide · How-To Guide</span></div>
+            <h1>Console Guide · How-To Guide</h1>
+        </div>
+        <p>This guide covers common advanced use cases for the Advanced Console System.</p>
+<h2>How to log Context Snapshots</h2>
+<p>When debugging complex AI or physics, knowing the state of specific variables at the moment of failure is critical.</p>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using System.Collections.Generic;
+using MaharajaStudio.MSUltimate.Runtime.AdvancedConsole;
+
+var context = new Dictionary&lt;string, string&gt;
+{
+    { "Velocity", currentVelocity.ToString() },
+    { "Grounded", isGrounded.ToString() },
+    { "Target", currentTarget ? currentTarget.name : "None" }
+};
+
+RuntimeConsoleLogManager.Log(
+    ConsoleLogSeverity.Warning, 
+    ConsoleLogSource.User,
+    "Player missed jump threshold",
+    channel: "Physics",
+    contextSnapshot: context,
+    target: this.gameObject // Links the log to this GameObject
+);</code></pre></div>
+<p><em>In the Console Window, click the log to see these values neatly formatted in the Detail Panel.</em></p>
+<h2>How to add Quick Actions to logs</h2>
+<p>Quick Actions are buttons embedded in a log's detail view. They are perfect for auto-fixing issues or teleporting to problem areas.</p>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>var actions = new List&lt;ConsoleAction&gt;
+{
+    new ConsoleAction("Auto-Fix Prefab", () =&gt; {
+        // Run code to fix the issue
+        ResetPrefabState();
+    }),
+    new ConsoleAction("Teleport to Error", () =&gt; {
+        SceneView.lastActiveSceneView.pivot = this.transform.position;
+    })
+};
+
+RuntimeConsoleLogManager.Log(
+    ConsoleLogSeverity.Error, 
+    ConsoleLogSource.User,
+    "Navigation Node is corrupted.",
+    actions: actions
+);</code></pre></div>
+<h2>How to search using regular expressions (Regex)</h2>
+<p>If you need to find specific patterns in your logs, use the Regex search.</p>
+<ol><li>In the Advanced Console Window, click the <code>.*</code> (Regex Search) button in the toolbar.</li><li>In the search box, enter your pattern. <ul><li>Example <code>^\[Player\]</code> finds logs that <em>start</em> with <code>[Player]</code>.</li><li>Example <code>Timeout|Disconnect</code> finds logs containing either word.</li></ul></li></ol>
+<h2>How to add custom Runtime Console Commands</h2>
+<p>Ensure your method is <code>public static</code> and add the <code>[ConsoleCommand]</code> attribute.</p>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using MaharajaStudio.MSUltimate.Runtime;
+
+public class CheatManager
+{
+    [ConsoleCommand("give_gold", "Gives the player a specific amount of gold")]
+    public static void GiveGold(int amount)
+    {
+        Player.Inventory.Gold += amount;
+        // The return value (or Debug.Log) will be printed in the overlay console.
+        UnityEngine.Debug.Log($"Granted {amount} gold."); 
+    }
+}</code></pre></div>
+<p><em>To use: open the runtime console ( <code> ) and type </code>give_gold 500`.</em></p>
+<h2>How to Bookmark and Annotate Logs</h2>
+<p>During a playtest, you might notice odd behavior that doesn't trigger an error.</p>
+<ol><li>Find a log representing that moment.</li><li>Click the <strong>Star ()</strong> icon next to the log to <strong>Bookmark</strong> it.</li><li>Select the log and scroll down in the Detail Panel to the <strong>Note:</strong> text box. </li><li>Type your observations (e.g., "Player clipped through floor here").</li><li>Use the Star icon in the main toolbar to filter <em>only</em> your bookmarked logs when you finish testing.</li></ol>
+    </article>
+</section><section class="docs-section" id="attributes-index" data-doc-title="ToolBox Integration Attributes">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><span class="tag tag-accent">Integration Attributes Index</span></div>
+            <h1>ToolBox Integration Attributes</h1>
+        </div>
+        <blockquote><p>Integration attributes binding code fields, methods, and classes directly to the ToolBox window profilers, runtime console, and tracking systems.</p></blockquote>
+<div data-cat-explorer><div class="cat-filter-bar"><input type="search" class="cat-filter-input" placeholder="Filter 4 entries in Integration Attributes..." aria-label="Filter Integration Attributes"><div class="cat-target-pills"><button type="button" class="cat-target-pill is-active" data-target-filter="all">All</button><button type="button" class="cat-target-pill" data-target-filter="field">Field (2)</button><button type="button" class="cat-target-pill" data-target-filter="property">Property (2)</button><button type="button" class="cat-target-pill" data-target-filter="class">Class (1)</button><button type="button" class="cat-target-pill" data-target-filter="method">Method (1)</button></div><span class="cat-filter-count">Showing 4 of 4</span></div><div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Attribute</th><th>Target</th><th>Tool System</th><th>Description</th></tr></thead><tbody><tr data-cat-row data-cat-targets="method" data-cat-search="[consolecommand] method advanced console registers static c# methods as invokable developer commands in the runtime console."><td class="mono"><a href="#console-command"><strong>[ConsoleCommand]</strong></a></td><td><span class="tag">Method</span></td><td class="mono">Advanced Console</td><td>Registers static C# methods as invokable developer commands in the runtime console.</td></tr><tr data-cat-row data-cat-targets="field|property" data-cat-search="[historytrack] field, property history track records discrete field mutations, author usernames, and values into an undo timeline."><td class="mono"><a href="#history-track"><strong>[HistoryTrack]</strong></a></td><td><div class="tag-group"><span class="tag">Field</span><span class="tag">Property</span></div></td><td class="mono">History Track</td><td>Records discrete field mutations, author usernames, and values into an undo timeline.</td></tr><tr data-cat-row data-cat-targets="class" data-cat-search="[tracklifetime] class lifetime track tracks instance lifecycle events, allocations, and object pooling to detect memory leaks."><td class="mono"><a href="#track-lifetime"><strong>[TrackLifetime]</strong></a></td><td><span class="tag">Class</span></td><td class="mono">Lifetime Track</td><td>Tracks instance lifecycle events, allocations, and object pooling to detect memory leaks.</td></tr><tr data-cat-row data-cat-targets="field|property" data-cat-search="[livetrack] field, property live track overlays real-time sparkline telemetry graphs, running statistics, and threshold alarms."><td class="mono"><a href="#live-track"><strong>[LiveTrack]</strong></a></td><td><div class="tag-group"><span class="tag">Field</span><span class="tag">Property</span></div></td><td class="mono">Live Track</td><td>Overlays real-time sparkline telemetry graphs, running statistics, and threshold alarms.</td></tr></tbody></table></div></div>
+    </article>
+</section><section class="docs-section" id="console-command" data-doc-title="[ConsoleCommand]">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><a href="#attributes-index" class="doc-crumb-link">Integration Attributes</a><span>/</span><span>[ConsoleCommand]</span></div>
+            <h1>[ConsoleCommand]</h1>
+        </div>
+        <blockquote><p>Registers static C# methods as invokable developer console commands within the Advanced Runtime Console overlay.</p></blockquote>
+<h2>1. Overview &amp; Value Proposition</h2>
+<p><strong>What it does:</strong> <code>[ConsoleCommand]</code> automatically discovers and registers static C# methods into the runtime Advanced Console system. By decorating any static method with <code>[ConsoleCommand]</code>, developers, QA testers, and designers can invoke gameplay cheats, toggle debug visualization modes, manipulate game speed, or spawn items directly by typing commands into the runtime HUD console.</p>
+<p><strong>The Problem:</strong> Building an in-game developer console usually involves creating complex custom command dictionaries, maintaining fragile string-to-method dispatchers, parsing arguments manually, and hardcoding autocomplete tables. When code is refactored, these bespoke dispatch tables fall out of sync, leading to broken cheats and frustrating debugging sessions during QA passes.</p>
+<p><strong>The Solution:</strong> Decorating static methods with <code>[ConsoleCommand]</code>:</p>
+<ul><li><strong>Zero-Boilerplate Registration:</strong> Automatically indexes methods via reflection without any central registry or manager script setup.</li><li><strong>Categorization &amp; Autocomplete:</strong> Organizes commands into clean categories (<code>Category = "Combat"</code>, <code>Category = "Cheats"</code>) with fuzzy autocomplete in the console GUI.</li><li><strong>Usage Syntax Hints:</strong> Supply clear syntax guides (<code>Usage = "give_gold &lt;amount&gt;"</code>) rendered in the console help menu.</li><li><strong>Automatic Parameter Conversion:</strong> Console parser automatically deserializes string arguments into primitive types (<code>int</code>, <code>float</code>, <code>bool</code>, <code>string</code>, <code>Vector3</code>).</li></ul>
+<hr>
+<h2>2. Quick Start</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
 using MaharajaStudio.MSUltimate.Runtime;
 
 public static class DebugCommands
@@ -141,143 +433,309 @@ public static class DebugCommands
     {
         Debug.Log("Player restored to full health.");
     }
+}</code></pre></div>
+<hr>
+<h2>3. Compatibility &amp; Specification</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Specification</th><th>Value</th></tr></thead><tbody><tr><td><strong>Package</strong></td><td>MSUltimate-ToolBox-Vol1 Addon</td></tr><tr><td><strong>Attribute Target</strong></td><td><code>Method</code> (Must be <code>static</code>)</td></tr><tr><td><strong>Inherited</strong></td><td>No</td></tr><tr><td><strong>Allow Multiple</strong></td><td>No (<code>AllowMultiple = false</code>)</td></tr><tr><td><strong>Window Surface</strong></td><td>Runtime Console Overlay / ToolBox Window</td></tr><tr><td><strong>Command System</strong></td><td><code>AdvancedConsoleManager</code></td></tr></tbody></table></div>
+<hr>
+<h2>4. Constructors &amp; Parameters</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>public ConsoleCommandAttribute(string command, string description = "")</code></pre></div>
+<ul><li><strong><code>command</code></strong> (<code>string</code>): The keyword or command identifier typed by the user in the console (e.g. <code>"noclip"</code>, <code>"spawn_item"</code>).</li><li><strong><code>description</code></strong> (<code>string</code>, optional): Human-readable explanation of what the command does, displayed in the console help list.</li></ul>
+<hr>
+<h2>5. Properties &amp; Customization Options</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>Command</code></td><td><code>string</code></td><td>Assigned in constructor</td><td>Primary keyword used to invoke this command.</td></tr><tr><td><code>Description</code></td><td><code>string</code></td><td><code>""</code></td><td>Descriptive summary displayed when running <code>help</code> or hovering the command.</td></tr><tr><td><code>Usage</code></td><td><code>string</code></td><td><code>""</code></td><td>Syntax signature hint explaining parameter requirements (e.g. <code>"&lt;item_id&gt; [count]"</code>).</td></tr><tr><td><code>Category</code></td><td><code>string</code></td><td><code>"General"</code></td><td>Organizational category used to group related commands in help listings.</td></tr></tbody></table></div>
+<hr>
+<h2>6. Real-World Production Example</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
 
-    [ConsoleCommand("give_gold", "Grants gold currency to player inventory.", Category = "Economy", Usage = "give_gold <amount>")]
-    public static void GiveGold(int amount)
+namespace ProjectZero.DebugTools
+{
+    public static class GameplayConsoleCommands
     {
-        Debug.Log($"Granted {amount} gold to inventory.");
+        [ConsoleCommand("godmode", "Toggles invulnerability for the player character.", Category = "Cheats")]
+        public static void ToggleGodMode()
+        {
+            // Toggle invulnerability flag
+            Debug.Log("[Console] God mode toggled.");
+        }
+
+        [ConsoleCommand("set_timescale", "Changes the global simulation timescale.", 
+            Usage = "set_timescale &lt;scale:float&gt;", Category = "Time")]
+        public static void SetTimeScale(float scale)
+        {
+            Time.timeScale = Mathf.Clamp(scale, 0f, 10f);
+            Debug.Log($"[Console] TimeScale adjusted to: {Time.timeScale}");
+        }
+
+        [ConsoleCommand("give_currency", "Adds credits to the player's wallet.", 
+            Usage = "give_currency &lt;currencyId:string&gt; &lt;amount:int&gt;", Category = "Economy")]
+        public static void GiveCurrency(string currencyId, int amount)
+        {
+            Debug.Log($"[Console] Granted {amount} units of '{currencyId}'.");
+        }
     }
-}</code></pre>
-                </section>
+}</code></pre></div>
+<hr>
+<h2>7. Stacking &amp; Compatibility Matrix</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>System / Addon</th><th>Compatibility</th><th>Notes &amp; Best Practices</th></tr></thead><tbody><tr><td><strong><code>[LiveTrack]</code></strong></td><td>High</td><td>Use console commands to trigger state changes that are visualized live via <code>[LiveTrack]</code> graphs.</td></tr><tr><td><strong><code>[HistoryTrack]</code></strong></td><td>High</td><td>Value modifications executed via console commands are recorded into the <code>[HistoryTrack]</code> timeline.</td></tr><tr><td><strong><code>[TrackLifetime]</code></strong></td><td>High</td><td>Invoke spawn/despawn console commands to stress-test lifecycle tracking buffers.</td></tr><tr><td><strong>Advanced Console UI</strong></td><td>Native</td><td>Commands appear immediately in search, fuzzy autocomplete, and the categorized <code>help</code> list.</td></tr></tbody></table></div>
+    </article>
+</section><section class="docs-section" id="history-track" data-doc-title="[HistoryTrack]">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><a href="#attributes-index" class="doc-crumb-link">Integration Attributes</a><span>/</span><span>[HistoryTrack]</span></div>
+            <h1>[HistoryTrack]</h1>
+        </div>
+        <blockquote><p>Records discrete serialized field mutations over time, persisting values, timestamps, usernames, and call stacks into an undo timeline.</p></blockquote>
+<h2>1. Overview &amp; Value Proposition</h2>
+<p><strong>What it does:</strong> <code>[HistoryTrack]</code> records changes made to a field or property over time, capturing the new value, previous value, timestamp, modifying user, and optional script call stack. Changes are visualized directly below the field via an inline interactive timeline bar (<code>ShowInlineTimeline</code>) or step graph (<code>ShowInlineGraph</code>), and are persisted to disk across recompiles and editor restarts.</p>
+<p><strong>The Problem:</strong> Balancing game economy or tuning complex physics requires constant iterative adjustments. When a weapon balance tweak or level variable is inadvertently broken, developers and designers struggle to answer basic diagnostic questions: <em>"Who changed this value?"</em>, <em>"What was this set to yesterday before the recompile?"</em>, and <em>"Which script modified this at runtime?"</em>. Standard Unity offers only a volatile <code>Undo.RecordObject</code> buffer that disappears upon editor restart or domain reload.</p>
+<p><strong>The Solution:</strong> Decorating fields or properties with <code>[HistoryTrack]</code>:</p>
+<ul><li><strong>Persistent Change Audit Trail:</strong> Persists value deltas, timestamps, and author usernames across editor sessions to disk in JSON format (<code>PersistAcrossSessions = true</code>).</li><li><strong>Inline Timeline &amp; Step Graph:</strong> Renders a scrubbable mini-timeline directly beneath the property in the Inspector (<code>ShowInlineTimeline = true</code>).</li><li><strong>Team Accountability &amp; Collaboration:</strong> Tracks the OS username of modifying developers (<code>TrackUser = true</code>), designates owners (<code>OwnerName</code>), and provides change reason prompts (<code>RequireReason = true</code>).</li><li><strong>Field Locking &amp; Policy Governance:</strong> Lock critical parameters against accidental edits (<code>IsLocked = true</code>, <code>LockedBy = "LeadDesigner"</code>), or restrict editing to specific teammates (<code>AllowedEditors = "Alice, Bob"</code>).</li><li><strong>Regression &amp; Boundary Alerts:</strong> Notifies developers if a value reverts to a previous regression state (<code>AlertOnRevert = true</code>) or breaches threshold limits (<code>ExpectedMin</code>, <code>ExpectedMax</code>).</li></ul>
+<hr>
+<h2>2. Quick Start</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
 
-                <!-- 2. [LiveTrack] Telemetry HUD -->
-                <section id="tool-live-track" class="docs-section">
-                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-                        <h1 class="mb-0">[LiveTrack] In-Scene Telemetry HUD</h1>
-                        <div class="d-flex gap-2">
-                            <span class="badge bg-primary">Target: Field | Property</span>
-                            <span class="badge bg-success">Real-Time Oscillating Graphs</span>
-                            <span class="badge bg-info text-dark">World Space HUD</span>
-                        </div>
-                    </div>
+public class WeaponBalanceData : MonoBehaviour
+{
+    [HistoryTrack(
+        ColorHex = "#e67e22",
+        ShowInlineTimeline = true,
+        OwnerName = "Soutick",
+        MaxEntries = 50)]
+    public float baseDamage = 45f;
+}</code></pre></div>
+<hr>
+<h2>3. Compatibility &amp; Specification</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Specification</th><th>Value</th></tr></thead><tbody><tr><td><strong>Package</strong></td><td>MSUltimate-ToolBox-Vol1 Addon</td></tr><tr><td><strong>Attribute Target</strong></td><td><code>Field</code> \</td></tr><tr><td><strong>Inherited</strong></td><td>Yes</td></tr><tr><td><strong>Allow Multiple</strong></td><td>No (<code>AllowMultiple = false</code>)</td></tr><tr><td><strong>Window Surface</strong></td><td>Unity Inspector &amp; HistoryTrack Window</td></tr><tr><td><strong>Render Engine</strong></td><td>UI Toolkit (<code>HistoryTrackDrawer</code>) &amp; IMGUI Fallback</td></tr></tbody></table></div>
+<hr>
+<h2>4. Constructors &amp; Parameters</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>public HistoryTrackAttribute()</code></pre></div>
+<ul><li>Parameterless constructor defaults to <code>Order = 210</code>, 100 historical entries, and enabled inline timeline rendering.</li></ul>
+<hr>
+<h2>5. Properties &amp; Customization Options</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>MaxEntries</code></td><td><code>int</code></td><td><code>100</code></td><td>Maximum number of change events stored per field before pruning the oldest.</td></tr><tr><td><code>PersistAcrossSessions</code></td><td><code>bool</code></td><td><code>true</code></td><td>Persist history to disk (JSON) across recompiles and editor restarts.</td></tr><tr><td><code>CaptureStackTrace</code></td><td><code>bool</code></td><td><code>false</code></td><td>When true, records the full C# call stack when values are mutated via scripts.</td></tr><tr><td><code>ShowInlineTimeline</code></td><td><code>bool</code></td><td><code>true</code></td><td>Renders a compact mini-timeline scrubber bar directly below the field in the Inspector.</td></tr><tr><td><code>ShowInlineGraph</code></td><td><code>bool</code></td><td><code>false</code></td><td>Renders an expandable step-function history graph below the timeline.</td></tr><tr><td><code>GraphHeight</code></td><td><code>float</code></td><td><code>50f</code></td><td>Height of the inline step graph in pixels.</td></tr><tr><td><code>Collapsed</code></td><td><code>bool</code></td><td><code>true</code></td><td>Whether the history timeline foldout starts in a collapsed state.</td></tr><tr><td><code>AlertOnRevert</code></td><td><code>bool</code></td><td><code>false</code></td><td>Warns if a value reverts back to an earlier historical value (regression detection).</td></tr><tr><td><code>ExpectedMin</code></td><td><code>float</code></td><td><code>float.NaN</code></td><td>Minimum expected value; triggers an alert badge if mutated below this floor.</td></tr><tr><td><code>ExpectedMax</code></td><td><code>float</code></td><td><code>float.NaN</code></td><td>Maximum expected value; triggers an alert badge if mutated above this ceiling.</td></tr><tr><td><code>CorrelationGroup</code></td><td><code>string</code></td><td><code>""</code></td><td>Group ID string for synchronizing timelines across multiple correlated fields.</td></tr><tr><td><code>ColorHex</code></td><td><code>string</code></td><td><code>"#e67e22"</code></td><td>Primary accent hex color for the timeline markers, dots, and graph lines.</td></tr><tr><td><code>TrackUser</code></td><td><code>bool</code></td><td><code>true</code></td><td>Automatically captures the current OS username with every change entry.</td></tr><tr><td><code>RequireReason</code></td><td><code>bool</code></td><td><code>false</code></td><td>Prompts the user to type an explanation before accepting a value change.</td></tr><tr><td><code>IsLocked</code></td><td><code>bool</code></td><td><code>false</code></td><td>Disallows Inspector edits, rendering a lock badge and designated owner notice.</td></tr><tr><td><code>LockedBy</code></td><td><code>string</code></td><td><code>""</code></td><td>Name or role of the team member who locked the field.</td></tr><tr><td><code>AllowedEditors</code></td><td><code>string</code></td><td><code>""</code></td><td>Comma-separated list of usernames permitted to modify this field.</td></tr><tr><td><code>OwnerName</code></td><td><code>string</code></td><td><code>""</code></td><td>Designated maintainer or owner displayed for team accountability.</td></tr><tr><td><code>ChangePolicy</code></td><td><code>string</code></td><td><code>""</code></td><td>Informative policy string displayed in the Inspector (e.g. <code>"Requires Lead approval"</code>).</td></tr><tr><td><code>RequireApproval</code></td><td><code>bool</code></td><td><code>false</code></td><td>Whether changes must be formally approved in the HistoryTrack window.</td></tr></tbody></table></div>
+<hr>
+<h2>6. Real-World Production Example</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
 
-                    <p class="lead">
-                        Draws real-time floating 3D world-space telemetry badges and oscillating variable wave graphs above GameObjects in the Scene view to monitor physics velocities, AI states, and combat values.
-                    </p>
+namespace ProjectZero.Balancing
+{
+    public class EconomyBalanceConfig : ScriptableObject
+    {
+        [Header("Global Currency Multipliers")]
+        [HistoryTrack(
+            ColorHex = "#F39C12",
+            OwnerName = "LeadEconomyDesigner",
+            ChangePolicy = "Modifications directly affect live monetization.",
+            ShowInlineTimeline = true,
+            ShowInlineGraph = true,
+            GraphHeight = 60f,
+            ExpectedMin = 0.5f,
+            ExpectedMax = 3.0f,
+            AlertOnRevert = true,
+            TrackUser = true,
+            RequireReason = true)]
+        public float goldDropMultiplier = 1.0f;
 
-                    <!-- Simulated Visual Preview -->
-                    <div class="unity-preview-card">
-                        <div class="preview-header">
-                            <i class="fab fa-unity"></i> Scene View Floating Telemetry HUD
-                        </div>
-                        <div class="p-3 border rounded" style="background: rgba(0, 0, 0, 0.6);">
-                            <div class="d-flex justify-content-between small text-info fw-bold mb-1">
-                                <span>ActorVelocity (RigidBody)</span>
-                                <span>14.8 m/s [MAX: 22.0]</span>
-                            </div>
-                            <div style="height: 35px; background: #000; border: 1px solid #333; position: relative; overflow: hidden;">
-                                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(180deg, rgba(0, 170, 255, 0.4), rgba(0, 170, 255, 0.05)); border-top: 2px solid #00aaff;"></div>
-                            </div>
-                        </div>
-                    </div>
+        [Header("Gated Tuning Field")]
+        [HistoryTrack(
+            IsLocked = true,
+            LockedBy = "TechDirector",
+            OwnerName = "TechDirector",
+            ChangePolicy = "Locked during milestone RC1 freeze.")]
+        public float serverTickRate = 60.0f;
+    }
+}</code></pre></div>
+<hr>
+<h2>7. Stacking &amp; Compatibility Matrix</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Attribute System</th><th>Compatibility</th><th>Notes &amp; Best Practices</th></tr></thead><tbody><tr><td><strong><code>[LiveTrack]</code></strong></td><td>High</td><td>Pair <code>[HistoryTrack]</code> (discrete change history) with <code>[LiveTrack]</code> (continuous real-time telemetry).</td></tr><tr><td><strong><code>[BoxGroup]</code></strong></td><td>High</td><td>Nests cleanly within layout groups, displaying the mini-timeline inside the group container.</td></tr><tr><td><strong><code>[ShowIf]</code></strong></td><td>High</td><td>Timeline panel respects conditional visibility states dynamically.</td></tr><tr><td><strong><code>[ValidateRange]</code></strong></td><td>High</td><td>Combine validation bounds with historical audit trails for bulletproof tuning fields.</td></tr></tbody></table></div>
+    </article>
+</section><section class="docs-section" id="live-track" data-doc-title="[LiveTrack]">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><a href="#attributes-index" class="doc-crumb-link">Integration Attributes</a><span>/</span><span>[LiveTrack]</span></div>
+            <h1>[LiveTrack]</h1>
+        </div>
+        <blockquote><p>Tracks continuous field values over time and renders an inline real-time sparkline graph, statistical telemetry, and threshold alert badges.</p></blockquote>
+<h2>1. Overview &amp; Value Proposition</h2>
+<p><strong>What it does:</strong> <code>[LiveTrack]</code> instruments numeric fields and properties (<code>float</code>, <code>int</code>, <code>Vector3.magnitude</code>, etc.) to sample values continuously at a configurable frequency (<code>SampleRate</code>). It renders an interactive, real-time animated sparkline graph directly in the Inspector or Scene View, complete with running statistical metrics (<code>ShowStats</code>: Current, Δ, Min, Max, Average, and Rate of change) and visual boundary alert notifications (<code>AlertBelow</code>, <code>AlertAbove</code>).</p>
+<p><strong>The Problem:</strong> Watching numerical behavior in Unity during Play Mode (such as player velocity, AI suspicion levels, health decay, or frame time delta) requires writing throwaway <code>Debug.Log()</code> spam or opening cumbersome external profilers. Log lines scroll away rapidly and provide zero sense of trend, frequency, or wave oscillation, while Unity's native Animation Window requires tedious recording workflows.</p>
+<p><strong>The Solution:</strong> Decorating fields or properties with <code>[LiveTrack]</code>:</p>
+<ul><li><strong>Real-Time Inline Graphing:</strong> Renders a high-frequency sparkline waveform directly below the field in the Inspector (<code>ShowGraph = true</code>, <code>GraphHeight = 60f</code>).</li><li><strong>Live Statistical Dashboard:</strong> Displays key live analytics including Min, Max, Mean Average, and instantaneous delta rate (<code>ShowStats = true</code>).</li><li><strong>Threshold Limit Alarms:</strong> Flashes high-visibility visual alert badges when values drop below minimum safety limits (<code>AlertBelow</code>) or spike beyond ceilings (<code>AlertAbove</code>).</li><li><strong>Flexible Tracking Modes:</strong> Track in <code>EditMode</code>, <code>PlayMode</code>, or <code>Both</code> (<code>TrackingMode = LiveTrackMode.Both</code>).</li><li><strong>Session Recording &amp; Snapshots:</strong> Capture baseline comparison snapshots (<code>EnableSnapshots = true</code>) and record telemetry sessions for later review (<code>RecordSession = true</code>).</li></ul>
+<hr>
+<h2>2. Quick Start</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
 
-                    <h2>1. Overview & Value Proposition</h2>
-                    <p><strong>What it does:</strong> Plots continuous mathematical curves and numerical badges directly above game actors in the Unity Scene view. Inspect changes in velocity, AI threat ratings, or health values while moving through the scene.</p>
-                </section>
+public class VehicleController : MonoBehaviour
+{
+    [LiveTrack(
+        ColorHex = "#2ECC71",
+        TimeWindow = 15f,
+        SampleRate = 0.05f,
+        ShowStats = true)]
+    public float currentSpeed = 0f;
+}</code></pre></div>
+<hr>
+<h2>3. Compatibility &amp; Specification</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Specification</th><th>Value</th></tr></thead><tbody><tr><td><strong>Package</strong></td><td>MSUltimate-ToolBox-Vol1 Addon</td></tr><tr><td><strong>Attribute Target</strong></td><td><code>Field</code> \</td></tr><tr><td><strong>Inherited</strong></td><td>Yes</td></tr><tr><td><strong>Allow Multiple</strong></td><td>No (<code>AllowMultiple = false</code>)</td></tr><tr><td><strong>Window Surface</strong></td><td>Unity Inspector &amp; LiveTrack Dashboard</td></tr><tr><td><strong>Render Engine</strong></td><td>UI Toolkit (<code>LiveTrackDrawer</code>) &amp; IMGUI Fallback</td></tr></tbody></table></div>
+<hr>
+<h2>4. Constructors &amp; Parameters</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>public LiveTrackAttribute()</code></pre></div>
+<ul><li>Parameterless constructor defaults to <code>Order = 200</code>, a 30-second rolling time window, and <code>LiveTrackMode.Both</code>.</li></ul>
+<hr>
+<h2>5. Properties &amp; Customization Options</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>GraphHeight</code></td><td><code>float</code></td><td><code>60f</code></td><td>Height of the inline sparkline graph in pixels.</td></tr><tr><td><code>ColorHex</code></td><td><code>string</code></td><td><code>"#3498db"</code></td><td>Primary hex color code used for the graph waveform and live telemetry dots.</td></tr><tr><td><code>ShowGraph</code></td><td><code>bool</code></td><td><code>true</code></td><td>Whether to render the visual waveform graph.</td></tr><tr><td><code>TimeWindow</code></td><td><code>float</code></td><td><code>30f</code></td><td>Rolling time window in seconds represented across the horizontal graph axis.</td></tr><tr><td><code>SampleRate</code></td><td><code>float</code></td><td><code>0.1f</code></td><td>Sampling interval in seconds (lower values produce smoother curves with slightly higher CPU cost).</td></tr><tr><td><code>BufferSize</code></td><td><code>int</code></td><td><code>300</code></td><td>Maximum number of data points stored in the circular ring buffer.</td></tr><tr><td><code>TrackingMode</code></td><td><code>LiveTrackMode</code></td><td><code>LiveTrackMode.Both</code></td><td>When sampling occurs: <code>EditMode</code>, <code>PlayMode</code>, or <code>Both</code>.</td></tr><tr><td><code>ShowStats</code></td><td><code>bool</code></td><td><code>true</code></td><td>Whether to display the running statistical bar (Current, Δ, Min, Max, Avg, Rate).</td></tr><tr><td><code>AlertBelow</code></td><td><code>float</code></td><td><code>float.NaN</code></td><td>Minimum threshold; flashes an alert badge when value drops below this number.</td></tr><tr><td><code>AlertAbove</code></td><td><code>float</code></td><td><code>float.NaN</code></td><td>Maximum threshold; flashes an alert badge when value exceeds this number.</td></tr><tr><td><code>CorrelationGroup</code></td><td><code>string</code></td><td><code>""</code></td><td>Identifier string for correlating and comparing multiple tracked fields together.</td></tr><tr><td><code>DashboardGroup</code></td><td><code>string</code></td><td><code>""</code></td><td>Grouping name used in the multi-object LiveTrack Dashboard window.</td></tr><tr><td><code>EnableSnapshots</code></td><td><code>bool</code></td><td><code>false</code></td><td>Enables one-click baseline snapshot capture buttons in the Inspector.</td></tr><tr><td><code>ShowInSceneView</code></td><td><code>bool</code></td><td><code>false</code></td><td>Displays a floating in-scene telemetry HUD card above the GameObject in the SceneView.</td></tr><tr><td><code>RecordSession</code></td><td><code>bool</code></td><td><code>false</code></td><td>Enables full session recording and playback capabilities.</td></tr><tr><td><code>SessionName</code></td><td><code>string</code></td><td><code>""</code></td><td>Named label assigned to recorded telemetry sessions.</td></tr><tr><td><code>Collapsed</code></td><td><code>bool</code></td><td><code>true</code></td><td>Whether the telemetry graph panel begins collapsed in the Inspector.</td></tr></tbody></table></div>
+<hr>
+<h2>6. Real-World Production Example</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime;
 
-                <!-- Staged Section -->
-                <section id="staged-toolbox" class="docs-section">
-                    <h1>ToolBox Vol. 1 Architecture & Tools</h1>
-                    <div class="alert alert-info alert-custom">
-                        <h5 class="fw-bold"><i class="fas fa-toolbox me-2"></i>4 Developer Tools Staged in Workspace</h5>
-                        <p class="mb-0">Manuals for Advanced Console Pro, History Track, Lifetime Tracker, and Live Track are staged inside <code>assets/Documentations/MSUltimate/Addons/ToolBox_Vol1/Documentation/</code>.</p>
-                    </div>
-                </section>
+namespace ProjectZero.AI
+{
+    public class StealthEnemyAI : MonoBehaviour
+    {
+        [Header("Telemetry Monitoring")]
+        [LiveTrack(
+            ColorHex = "#E74C3C",
+            TimeWindow = 20f,
+            SampleRate = 0.05f,
+            ShowStats = true,
+            AlertAbove = 95f,      // Alert when enemy reaches near-detection threshold
+            AlertBelow = 5f,
+            DashboardGroup = "EnemyAI_Stealth",
+            EnableSnapshots = true)]
+        public float suspicionLevel = 0f;
 
-                <!-- Pagination -->
-                <div class="docs-pagination d-flex justify-content-between mt-5 pt-3 border-top">
-                    <button id="prev-doc" class="btn btn-outline-primary">Previous</button>
-                    <button id="next-doc" class="btn btn-outline-primary">Next</button>
+        [LiveTrack(
+            ColorHex = "#3498DB",
+            TimeWindow = 20f,
+            SampleRate = 0.1f,
+            ShowStats = false)]
+        public float distanceFromPlayer = 50f;
+
+        private void Update()
+        {
+            // Dynamic gameplay calculations
+        }
+    }
+}</code></pre></div>
+<hr>
+<h2>7. Stacking &amp; Compatibility Matrix</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Attribute System</th><th>Compatibility</th><th>Notes &amp; Best Practices</th></tr></thead><tbody><tr><td><strong><code>[HistoryTrack]</code></strong></td><td>High</td><td>Pair real-time runtime waveforms (<code>[LiveTrack]</code>) with discrete edit session audits (<code>[HistoryTrack]</code>).</td></tr><tr><td><strong><code>[BoxGroup]</code></strong></td><td>High</td><td>Embeds smoothly inside layout groups alongside other inspected properties.</td></tr><tr><td><strong><code>[ShowIf]</code></strong></td><td>High</td><td>Live telemetry display hides and shows based on conditional expression rules.</td></tr><tr><td><strong><code>[ConsoleCommand]</code></strong></td><td>High</td><td>Manipulate live tracked values via developer console commands during profiling sessions.</td></tr></tbody></table></div>
+    </article>
+</section><section class="docs-section" id="track-lifetime" data-doc-title="[TrackLifetime]">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta"><a href="#overview" class="doc-crumb-link">ToolBox Vol. 1</a><span>/</span><a href="#attributes-index" class="doc-crumb-link">Integration Attributes</a><span>/</span><span>[TrackLifetime]</span></div>
+            <h1>[TrackLifetime]</h1>
+        </div>
+        <blockquote><p>Tracks instantiate, destroy, and object pooling lifecycle events for components to identify memory leaks and allocation spikes.</p></blockquote>
+<h2>1. Overview &amp; Value Proposition</h2>
+<p><strong>What it does:</strong> <code>[TrackLifetime]</code> instruments component classes to automatically record lifecycle telemetry: instantiation timestamps, active duration, destruction events, and object pool recycle cycles (<code>OnEnable</code>/<code>OnDisable</code>). All tracked instances are monitored in real-time within the Lifetime Track window, with alerts for leaked long-lived instances (<code>LongLifespanThreshold</code>) and excessive concurrent population spikes (<code>PeakAlertThreshold</code>).</p>
+<p><strong>The Problem:</strong> Object pooling bugs, lingering references, and runaway <code>GameObject.Instantiate()</code> loops are among the most common sources of memory fragmentation and garbage collection stutters in Unity. Standard Unity profilers show generic memory counters without correlating which game subsystem, spawning script, or pooling manager created the unreleased instances.</p>
+<p><strong>The Solution:</strong> Decorating classes with <code>[TrackLifetime]</code>:</p>
+<ul><li><strong>Automated Lifecycle Profiling:</strong> Measures instance lifetimes from birth to death without writing manual profiling hooks.</li><li><strong>Pooling &amp; Recycle Metrics:</strong> Toggle <code>IsPooled = true</code> to measure spawn/recycle frequencies through <code>OnEnable</code> and <code>OnDisable</code> rather than standard garbage creation.</li><li><strong>Spawn Source Stack Tracing:</strong> Captures exact C# call stacks at the moment of creation (<code>TrackSpawnSource = true</code>), pinning down exactly which spawner created each object.</li><li><strong>Peak Population &amp; Leak Guards:</strong> Triggers immediate alerts when concurrent instances exceed limits (<code>PeakAlertThreshold = 100</code>) or linger beyond intended lifespans (<code>LongLifespanThreshold = 30f</code>).</li><li><strong>Visual Grouping &amp; Category Tints:</strong> Organize types into distinct categories (<code>Category = "Enemies"</code>, <code>Category = "Projectiles"</code>) with custom color coding (<code>ColorHex</code>).</li></ul>
+<hr>
+<h2>2. Quick Start</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime.LifetimeTracker;
+
+[TrackLifetime("Projectiles", "#E74C3C")]
+public class PlasmaBolt : MonoBehaviour
+{
+    public float projectileSpeed = 25f;
+}</code></pre></div>
+<hr>
+<h2>3. Compatibility &amp; Specification</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Specification</th><th>Value</th></tr></thead><tbody><tr><td><strong>Package</strong></td><td>MSUltimate-ToolBox-Vol1 Addon</td></tr><tr><td><strong>Attribute Target</strong></td><td><code>Class</code></td></tr><tr><td><strong>Inherited</strong></td><td>Yes</td></tr><tr><td><strong>Allow Multiple</strong></td><td>No (<code>AllowMultiple = false</code>)</td></tr><tr><td><strong>Window Surface</strong></td><td>Lifetime Track Window &amp; Scene Profiler</td></tr><tr><td><strong>Tracking Engine</strong></td><td><code>LifetimeTrackManager</code></td></tr></tbody></table></div>
+<hr>
+<h2>4. Constructors &amp; Parameters</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>public TrackLifetimeAttribute()
+public TrackLifetimeAttribute(string category)
+public TrackLifetimeAttribute(string category, string colorHex)</code></pre></div>
+<ul><li><strong><code>category</code></strong> (<code>string</code>, optional): Display category name used for grouping types inside the Lifetime Track dashboard.</li><li><strong><code>colorHex</code></strong> (<code>string</code>, optional): Hex color code applied to graphs, tables, and telemetry pills representing this type.</li></ul>
+<hr>
+<h2>5. Properties &amp; Customization Options</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>Category</code></td><td><code>string</code></td><td><code>"Uncategorized"</code></td><td>Grouping category displayed in the Lifetime Track window.</td></tr><tr><td><code>ColorHex</code></td><td><code>string</code></td><td><code>"#7B9FD4"</code></td><td>Hex color string used to tint this type in tables, sparklines, and timeline charts.</td></tr><tr><td><code>MaxHistory</code></td><td><code>int</code></td><td><code>2000</code></td><td>Maximum circular buffer size of retained lifecycle events per type.</td></tr><tr><td><code>LogToConsole</code></td><td><code>bool</code></td><td><code>false</code></td><td>When true, forwards lifecycle threshold anomalies directly to the Unity console.</td></tr><tr><td><code>LongLifespanThreshold</code></td><td><code>float</code></td><td><code>0f</code></td><td>Lifespan threshold in seconds; instances surviving longer are flagged as potential leaks (0 disables).</td></tr><tr><td><code>PeakAlertThreshold</code></td><td><code>int</code></td><td><code>0</code></td><td>Peak concurrent instance count threshold; fires an alert if exceeded (0 disables).</td></tr><tr><td><code>TrackSpawnSource</code></td><td><code>bool</code></td><td><code>true</code></td><td>When true, captures C# stack traces at instantiation to identify spawn originators.</td></tr><tr><td><code>IsPooled</code></td><td><code>bool</code></td><td><code>false</code></td><td>When true, tracks lifecycle via <code>OnEnable</code>/<code>OnDisable</code> activation instead of <code>Instantiate</code>/<code>Destroy</code>.</td></tr></tbody></table></div>
+<hr>
+<h2>6. Real-World Production Example</h2>
+<div class="code-block-wrapper"><div class="code-block-bar"><span>csharp</span><button type="button" class="copy-code-btn" aria-label="Copy code"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy</span></button></div><pre><code>using UnityEngine;
+using MaharajaStudio.MSUltimate.Runtime.LifetimeTracker;
+
+namespace ProjectZero.Weapons
+{
+    // High-frequency pooled projectile monitored for pool leaks and allocation surges
+    [TrackLifetime("Projectiles", "#3498DB",
+        IsPooled = true,
+        MaxHistory = 5000,
+        LongLifespanThreshold = 10.0f,    // Flag projectile if it survives &gt; 10 seconds without despawning
+        PeakAlertThreshold = 300,         // Alert if active projectile count breaches 300
+        TrackSpawnSource = true,
+        LogToConsole = true)]
+    public class KineticBullet : MonoBehaviour
+    {
+        public float damage = 15f;
+        public float lifetime = 3.0f;
+
+        private float _aliveTimer;
+
+        private void OnEnable()
+        {
+            _aliveTimer = 0f;
+        }
+
+        private void Update()
+        {
+            _aliveTimer += Time.deltaTime;
+            if (_aliveTimer &gt;= lifetime)
+            {
+                gameObject.SetActive(false); // Return to pool
+            }
+        }
+    }
+}</code></pre></div>
+<hr>
+<h2>7. Stacking &amp; Compatibility Matrix</h2>
+<div class="doc-table-wrap"><table class="studio-table"><thead><tr><th>System / Addon</th><th>Compatibility</th><th>Notes &amp; Best Practices</th></tr></thead><tbody><tr><td><strong><code>[LiveTrack]</code></strong></td><td>High</td><td>Pair class lifecycle tracking with field-level live telemetry graphs on spawners.</td></tr><tr><td><strong><code>[ConsoleCommand]</code></strong></td><td>High</td><td>Use console commands to trigger mass spawning or pool clearance during performance profiling.</td></tr><tr><td><strong>Lifetime Track Window</strong></td><td>Native</td><td>Automatically populates tables, active entity counts, and lifetime distribution histograms.</td></tr><tr><td><strong>Object Pooling Systems</strong></td><td>High</td><td>Compatible with Unity 6 <code>UnityEngine.Pool</code> and custom studio pooling managers via <code>IsPooled = true</code>.</td></tr></tbody></table></div>
+    </article>
+</section>
+
+                    <nav class="docs-pager" aria-label="Page pagination">
+                        <button type="button" id="prev-doc" class="docs-pager-btn">
+                            <span class="docs-pager-dir">Previous</span>
+                            <span class="docs-pager-title">Start of guide</span>
+                        </button>
+                        <button type="button" id="next-doc" class="docs-pager-btn is-next">
+                            <span class="docs-pager-dir">Next</span>
+                            <span class="docs-pager-title">Next guide</span>
+                        </button>
+                    </nav>
                 </div>
-
-            </article>
+            </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2026 Maharaja Studio. All Rights Reserved. | <a href="msultimate-license.html" class="text-decoration-none">MSUltimate License</a></p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="msultimate.html" style="color: var(--text-secondary);">MSUltimate Overview</a>
+                <span style="margin: 0 8px;">·</span>
+                <a href="msultimate-license.html" style="color: var(--text-secondary);">License &amp; EULA</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
+            </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.docs-nav-link');
-            const sections = document.querySelectorAll('.docs-section');
-            const prevButton = document.getElementById('prev-doc');
-            const nextButton = document.getElementById('next-doc');
-            const searchInput = document.getElementById('doc-search');
-            const navItems = document.querySelectorAll('.docs-nav-menu li');
-
-            let currentIndex = 0;
-
-            function updateUI() {
-                const currentHash = window.location.hash || `#${sections[0].id}`;
-                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
-                if (foundIndex === -1) foundIndex = 0;
-                currentIndex = foundIndex;
-
-                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
-                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
-
-                if (prevButton) prevButton.disabled = currentIndex === 0;
-                if (nextButton) nextButton.disabled = currentIndex >= sections.length - 1;
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const newHash = link.getAttribute('href');
-                    if (window.location.hash !== newHash) {
-                        window.location.hash = newHash;
-                    }
-                });
-            });
-
-            if (searchInput) {
-                searchInput.addEventListener('input', () => {
-                    const searchTerm = searchInput.value.toLowerCase().trim();
-                    navItems.forEach(li => {
-                        const link = li.querySelector('a');
-                        if (!link) return;
-                        const linkText = link.textContent.toLowerCase();
-                        li.style.display = linkText.includes(searchTerm) ? '' : 'none';
-                    });
-                });
-            }
-
-            window.addEventListener('hashchange', updateUI);
-
-            if (prevButton) {
-                prevButton.addEventListener('click', () => {
-                    if (currentIndex > 0) window.location.hash = `#${sections[currentIndex - 1].id}`;
-                });
-            }
-
-            if (nextButton) {
-                nextButton.addEventListener('click', () => {
-                    if (currentIndex < sections.length - 1) window.location.hash = `#${sections[currentIndex + 1].id}`;
-                });
-            }
-
-            updateUI();
-        });
-    </script>
+    <script src="js/studio.js"></script>
     <script src="js/msultimate-search-index.js"></script>
     <script src="js/msultimate-omnisearch.js"></script>
 </body>

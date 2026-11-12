@@ -6,6 +6,9 @@ This guide covers common advanced use cases for the Advanced Console System.
 When debugging complex AI or physics, knowing the state of specific variables at the moment of failure is critical.
 
 ```csharp
+using System.Collections.Generic;
+using MaharajaStudio.MSUltimate.Runtime.AdvancedConsole;
+
 var context = new Dictionary<string, string>
 {
     { "Velocity", currentVelocity.ToString() },
@@ -13,7 +16,7 @@ var context = new Dictionary<string, string>
     { "Target", currentTarget ? currentTarget.name : "None" }
 };
 
-ConsoleLogManager.Log(
+RuntimeConsoleLogManager.Log(
     ConsoleLogSeverity.Warning, 
     ConsoleLogSource.User,
     "Player missed jump threshold",
@@ -39,7 +42,7 @@ var actions = new List<ConsoleAction>
     })
 };
 
-ConsoleLogManager.Log(
+RuntimeConsoleLogManager.Log(
     ConsoleLogSeverity.Error, 
     ConsoleLogSource.User,
     "Navigation Node is corrupted.",

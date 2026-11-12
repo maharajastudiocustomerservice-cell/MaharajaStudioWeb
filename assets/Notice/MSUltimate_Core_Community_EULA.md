@@ -131,8 +131,8 @@ If you have questions regarding this License Agreement, need to verify eligibili
 
 - **Licensor:** Maharaja Studio
 - **Support & Licensing Email:** `maharajastudiocustomerservice@gmail.com`
-- **Website:** `[Your Official Website URL Here]`
-- **Discord Community:** `[Discord Community Invite Link Here]`
+- **Studio Portal:** [Maharaja Studio Contact](contact.html)
+- **Discord Community:** [discord.gg/GamF5bez3h](https://discord.gg/GamF5bez3h)
 
 ---
 

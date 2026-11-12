@@ -1,103 +1,256 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Quick Inspector - Maharaja Studio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Ultimate Quick Inspector — Maharaja Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-3">
-                        <div class="theme-switcher">
-                            <i class="fas fa-sun"></i>
-                            <div class="form-check form-switch mx-2">
-                                <input class="form-check-input" type="checkbox" id="theme-switcher" checked>
-                            </div>
-                            <i class="fas fa-moon"></i>
-                        </div>
-                    </li>
-                </ul>
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link active" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">MSUltimate Ecosystem</span><span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">MSMotion v2.0</span><span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span><span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span><span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Object Finder Pro</span><span class="nav-dropdown-meta">Async query &amp; reference search</span></span>
+                        </a>
+                        <a class="nav-dropdown-item is-current" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Ultimate Quick Inspector</span><span class="nav-dropdown-meta">Multi-page GUID pin drawer</span></span>
+                        </a>
+                    </div>
+                </li>
+                <li><a class="nav-link" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="https://assetstore.unity.com/packages/tools/level-design/ultimatequickinspector-327233" target="_blank" rel="noopener">Get on Asset Store</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="asset-header text-center">
-        <div class="asset-header-background" style="background-image: url('assets/Images/UltimateQuickInspector.png');"></div>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Unity Assets</span>
+            <a href="msultimate.html">MSUltimate Ecosystem</a>
+            <a href="ms-motion.html">MSMotion v2.0</a>
+            <a href="scriptable-studio-pro.html">Scriptable Studio Pro v4.5</a>
+            <a href="tactical-cover-retreat-ai-system.html">Tactical Cover &amp; Retreat AI</a>
+            <a href="object-finder-pro.html">Object Finder Pro</a>
+            <a href="ultimate-quick-inspector.html" class="active">Ultimate Quick Inspector</a>
+        </div>
+    </div>
+
+    <header class="hero">
+        <canvas class="hero-canvas" data-glyph-mode="inspector" aria-hidden="true"></canvas>
         <div class="container">
-            <h1 class="display-2 fw-bold">Ultimate Quick Inspector</h1>
-            <p class="lead my-4 col-md-8 mx-auto">Pin, organize, and instantly access your most-used assets and scene objects in Unity.</p>
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-breadcrumb hero-enter" style="--stagger: 0;">
+                        <a href="index.html">Assets</a>
+                        <span>/</span>
+                        <span class="mono" style="color: var(--accent-text);">Ultimate Quick Inspector</span>
+                    </div>
+                    <h1 class="hero-enter" style="--stagger: 1;">Ultimate Quick Inspector</h1>
+                    <p class="hero-sub hero-enter" style="--stagger: 2;">
+                        Pin, organize across custom tabs, and jump straight to your most-used prefabs, materials, scripts, and scene GameObjects inside Unity
+                    </p>
+                    <div class="hero-actions hero-enter" style="--stagger: 3;">
+                        <a href="https://assetstore.unity.com/packages/tools/level-design/ultimatequickinspector-327233" target="_blank" rel="noopener" class="btn btn-primary">Get on Asset Store</a>
+                        <a href="ultimate-quick-inspector-docs.html" class="btn btn-secondary">Read documentation</a>
+                    </div>
+                    <div class="hero-meta-note hero-enter" style="--stagger: 4;">
+                        <span class="mono">Drag-and-drop setup</span>
+                        <span class="mono">GUID scene tracking</span>
+                        <span class="mono">ScriptableObject storage</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Multi-Page Pin Drawer -->
+                <div class="workbench-frame hero-enter" style="--stagger: 2;" data-tab-group>
+                    <div class="workbench-header">
+                        <div class="workbench-header-left">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            <span class="mono workbench-header-title">Quick Inspector · Multi-Page Drawer</span>
+                        </div>
+                        <span class="mono">GuidComponent safe</span>
+                    </div>
+
+                    <div class="workbench-surface">
+                        <div class="workbench-tabs" role="tablist" aria-label="Pinned pages">
+                            <button type="button" class="workbench-tab active" role="tab" aria-selected="true" data-tab-target="uqi-important">Important (6)</button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="uqi-player">GUID Linking</button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="uqi-ui">Storage &amp; Actions</button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="uqi-window">Unity Window</button>
+                        </div>
+
+                        <div class="inspector-pane" data-tab-pane="uqi-important">
+                            <div class="inspector-row is-active"><span class="inspector-key">L_BanditCamp_Day</span><span class="inspector-val">SceneAsset · Screenshot Item</span></div>
+                            <div class="inspector-row"><span class="inspector-key">DemoSceneForObjectFinderPro</span><span class="inspector-val">SceneAsset · Screenshot Item</span></div>
+                            <div class="inspector-row"><span class="inspector-key">NestedParentArmature_Unpack</span><span class="inspector-val">GameObject · GuidComponent</span></div>
+                            <div class="inspector-row"><span class="inspector-key">PS_SmokeParticle</span><span class="inspector-val">GameObject · GuidComponent</span></div>
+                            <div class="inspector-row"><span class="inspector-key">Cylinder · SM_Brazier8</span><span class="inspector-val">GameObjects · GuidComponent</span></div>
+                        </div>
+
+                        <div class="inspector-pane" data-tab-pane="uqi-player" hidden>
+                            <div class="inspector-row is-active"><span class="inspector-key">GuidComponent</span><span class="inspector-val">Auto-attached to Scene GameObjects</span></div>
+                            <div class="inspector-row"><span class="inspector-key">Project Assets Supported</span><span class="inspector-val">Prefabs, Scripts, Folders, Materials, Scenes</span></div>
+                            <div class="inspector-row"><span class="inspector-key">Editor Menu Path</span><span class="inspector-val">Window &gt; Ultimate Quick Inspector</span></div>
+                        </div>
+
+                        <div class="inspector-pane" data-tab-pane="uqi-ui" hidden>
+                            <div class="inspector-row is-active"><span class="inspector-key">QuickInspectorData.asset</span><span class="inspector-val">UltimateQuickInspector/Editor/</span></div>
+                            <div class="inspector-row"><span class="inspector-key">Custom Pages</span><span class="inspector-val">Favourite, Important, Test, Sample_2</span></div>
+                            <div class="inspector-row"><span class="inspector-key">One-Click Actions</span><span class="inspector-val">Inspect, Ping, Rename, Delete, Drag</span></div>
+                        </div>
+
+                        <div data-tab-pane="uqi-window" hidden>
+                            <img src="assets/Images/UltimateQuickInspector.png" alt="Ultimate Quick Inspector window in Unity" class="workbench-img">
+                        </div>
+
+                        <div class="workbench-footer">
+                            <span class="mono" style="color: var(--text-secondary);">Links survive object renames, moves, and disable toggles</span>
+                            <a href="ultimate-quick-inspector-docs.html" class="link-arrow">Setup guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="container my-5">
-        <section id="asset-intro" class="mb-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="section-title mb-3">Supercharge Your Workflow</h2>
-                    <p class="lead">Ultimate Quick Inspector is a powerful yet lightweight editor extension that boosts your productivity by providing one-click access to everything that matters—whether it's scene objects, prefabs, materials, or scripts.</p>
-                    <div class="d-flex gap-2 mt-4">
-                        <a href="https://assetstore.unity.com/packages/tools/level-design/ultimatequickinspector-327233" class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart me-2"></i>Get on Asset Store</a>
-                        <a href="ultimate-quick-inspector-docs.html" class="btn btn-outline-secondary btn-lg"><i class="fas fa-book me-2"></i>Read Docs</a>
+    <main>
+        <!-- Intro -->
+        <section id="asset-intro" class="section">
+            <div class="container">
+                <div class="hero-grid">
+                    <div>
+                        <div class="asset-card-head" style="margin-bottom: 16px;">
+                            <div class="asset-logo-well">
+                                <img src="assets/Images/UltimateQuickInspector_Logo.png" alt="Ultimate Quick Inspector mark">
+                            </div>
+                            <div>
+                                <div class="mono" style="font-size: 12px; color: var(--accent-text);">Editor Bookmark &amp; Workflow Tool</div>
+                                <h2 class="section-title" style="font-size: 28px;">One-click access to everything you iterate on</h2>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); margin: 0 0 16px;">
+                            Ultimate Quick Inspector keeps your frequently edited scene objects, prefabs, materials, and C# scripts pinned inside organized pages so you stop scrolling up and down the Hierarchy and Project folders.
+                        </p>
+                        <p style="color: var(--text-secondary); margin: 0;">
+                            All pages save into a single ScriptableObject asset that plays cleanly with Git and team version control, backed by a lightweight <code class="inline-code">GuidComponent</code> for persistent scene object tracking.
+                        </p>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="assets/Images/UltimateQuickInspector.png" class="img-fluid rounded shadow-lg" alt="Ultimate Quick Inspector in action">
+
+                    <div class="workbench-frame">
+                        <div class="workbench-header">
+                            <span class="mono">Ultimate Quick Inspector · Editor Window</span>
+                            <span class="mono">Persistent across sessions</span>
+                        </div>
+                        <div class="workbench-surface">
+                            <img src="assets/Images/UltimateQuickInspector.png" alt="Ultimate Quick Inspector docked inside Unity" class="workbench-img-contain">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="key-features" class="py-5">
+        <!-- Features -->
+        <section id="key-features" class="section section-surface">
             <div class="container">
-                <h2 class="text-center section-title mb-5">Intuitive & Powerful Features</h2>
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-thumbtack"></i></div>
-                            <div>
-                                <h5>Pin Anything</h5>
-                                <p>Instantly access your favorite prefabs, scripts, materials, or GameObjects without needing to search the Project or Hierarchy windows.</p>
-                            </div>
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">Focused editor productivity</h2>
+                        <p class="section-sub">Lightweight by design for solo developers, level designers, artists, and teams</p>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="feature-card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>
+                        </div>
+                        <div>
+                            <h3>Pin any asset or object</h3>
+                            <p>Keep prefabs, scripts, materials, and scene GameObjects one click away without hunting through Project folders or Hierarchy trees.</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-folder-plus"></i></div>
-                            <div>
-                                <h5>Multi-Page Organization</h5>
-                                <p>Create unlimited custom pages, such as “UI Elements,” “Player Systems,” or “Level Tools,” to stay perfectly organized.</p>
-                            </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M12 10v6"/><path d="M9 13h6"/></svg>
+                        </div>
+                        <div>
+                            <h3>Multi-page organization &amp; search</h3>
+                            <p>Create unlimited custom pages such as "UI Elements", "Player Systems", or "Level Tools" and filter items instantly with the built-in search bar.</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-hand-pointer"></i></div>
-                            <div>
-                                <h5>Drag-and-Drop Simplicity</h5>
-                                <p>Add items with a simple drag-and-drop motion—no setup required. It's the fastest way to build your personal toolbox.</p>
-                            </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                        <div>
+                            <h3>Drag-and-drop simplicity</h3>
+                            <p>Drop items straight from the Project or Hierarchy windows into your active page with zero boilerplate configuration required.</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="feature-list-item glass-box">
-                            <div class="icon"><i class="fas fa-link"></i></div>
-                            <div>
-                                <h5>Robust Scene Object Tracking</h5>
-                                <p>Maintains its connection to GameObjects using a reliable GUID system, even if you rename or disable them.</p>
-                            </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        </div>
+                        <div>
+                            <h3>Robust GUID scene tracking</h3>
+                            <p>Maintains reliable references to scene GameObjects via a lightweight <code class="inline-code">GuidComponent</code> even after renames or disabled states, stored cleanly in one ScriptableObject.</p>
                         </div>
                     </div>
                 </div>
@@ -105,18 +258,22 @@
         </section>
     </main>
 
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 Maharaja Studio. All Rights Reserved.</p>
-            <div class="social-icons mt-3">
-                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="me-3"><i class="fab fa-youtube fa-lg"></i></a>
-                <a href="https://discord.gg/GamF5bez3h" class="me-3"><i class="fab fa-discord fa-lg"></i></a>
-                <a href="mailto:maharajastudiocustomerservice@gmail.com"><i class="fas fa-envelope fa-lg"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="legal.html" style="color: var(--text-secondary);">Legal Notice</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/studio.js"></script>
 </body>
+
 </html>

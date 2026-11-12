@@ -4,296 +4,643 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maharaja Studio - Professional Unity Assets</title>
+    <title>Maharaja Studio — Unity Editor &amp; Runtime Assets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-3">
-                        <div class="theme-switcher">
-                            <i class="fas fa-sun"></i>
-                            <div class="form-check form-switch mx-2">
-                                <input class="form-check-input" type="checkbox" id="theme-switcher" checked>
-                            </div>
-                            <i class="fas fa-moon"></i>
-                        </div>
-                    </li>
-                </ul>
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSUltimate Ecosystem</span>
+                                <span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSMotion v2.0</span>
+                                <span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span>
+                                <span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span>
+                                <span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Object Finder Pro</span>
+                                <span class="nav-dropdown-meta">Async query &amp; reference search</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Ultimate Quick Inspector</span>
+                                <span class="nav-dropdown-meta">Multi-page GUID pin drawer</span>
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li><a class="nav-link" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="#featured-assets">Explore assets</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="hero-section">
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html" class="active">Home</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Unity Assets</span>
+            <a href="msultimate.html">MSUltimate Ecosystem</a>
+            <a href="ms-motion.html">MSMotion v2.0</a>
+            <a href="scriptable-studio-pro.html">Scriptable Studio Pro v4.5</a>
+            <a href="tactical-cover-retreat-ai-system.html">Tactical Cover &amp; Retreat AI</a>
+            <a href="object-finder-pro.html">Object Finder Pro</a>
+            <a href="ultimate-quick-inspector.html">Ultimate Quick Inspector</a>
+        </div>
+    </div>
+
+    <header class="hero">
+        <canvas class="hero-canvas" data-glyph-mode="studio" aria-hidden="true"></canvas>
         <div class="container">
-            <h1 class="display-1 fw-bolder animate-on-scroll fade-in-up">Build Better Games, Faster.</h1>
-            <p class="lead my-4 col-md-8 mx-auto animate-on-scroll fade-in-up">High-performance, editor-integrated, and
-                meticulously documented assets for professional Unity developers.</p>
-            <a href="#featured-assets" class="btn btn-primary btn-lg animate-on-scroll fade-in-up"><i
-                    class="fas fa-bolt me-2"></i>Explore Assets</a>
+            <div class="hero-grid">
+                <div class="hero-copy-container" id="hero-asset-copy">
+                    <div class="eyebrow hero-enter" style="--stagger: 0;">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span class="mono" id="hero-eyebrow-text">MSUltimate Ecosystem · UI Toolkit &amp; IMGUI Suite</span>
+                    </div>
+                    <h1 class="hero-enter" style="--stagger: 1;" id="hero-title">Next-generation inspector styling &amp; editor architecture</h1>
+                    <p class="hero-sub hero-enter" style="--stagger: 2;" id="hero-desc">
+                        Comprehensive UI Toolkit &amp; IMGUI editor suite featuring 454+ concrete attributes across 6 decoupled addons, visual Makeover node graphs, custom collection serializers, and an automated 1-click validation test suite.
+                    </p>
+                    <div class="hero-actions hero-enter" style="--stagger: 3;" id="hero-actions">
+                        <a href="msultimate.html" class="btn btn-primary" id="hero-btn-primary">
+                            <span id="hero-btn-primary-text">Explore MSUltimate</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                        <a href="msultimate-docs.html" class="btn btn-secondary" id="hero-btn-secondary">Read documentation</a>
+                    </div>
+                    <div class="hero-meta-note hero-enter" style="--stagger: 4;" id="hero-meta">
+                        <span class="mono" id="hero-meta-1">454+ Documented Attributes</span>
+                        <span class="mono" id="hero-meta-2">156+ Free in Community Core</span>
+                        <span class="mono" id="hero-meta-3">6,115 Automated Tests</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Studio Workbench Switcher -->
+                <div class="workbench-frame hero-enter" style="--stagger: 2;" data-tab-group>
+                    <div class="workbench-header">
+                        <div class="workbench-header-left">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            <span class="mono workbench-header-title">Maharaja Studio · Asset Workbench</span>
+                        </div>
+                        <span class="mono">6 production tools</span>
+                    </div>
+
+                    <div class="workbench-surface">
+                        <div class="workbench-tabs" role="tablist" aria-label="Featured Unity assets">
+                            <button type="button" class="workbench-tab active" role="tab" aria-selected="true" data-tab-target="msultimate">
+                                <span class="workbench-tab-dot"></span>MSUltimate
+                            </button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="msmotion">
+                                <span class="workbench-tab-dot"></span>MSMotion
+                            </button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="scriptable">
+                                <span class="workbench-tab-dot"></span>Scriptable Studio
+                            </button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="tactical">
+                                <span class="workbench-tab-dot"></span>Tactical AI
+                            </button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="finder">
+                                <span class="workbench-tab-dot"></span>Object Finder
+                            </button>
+                            <button type="button" class="workbench-tab" role="tab" aria-selected="false" data-tab-target="quick">
+                                <span class="workbench-tab-dot"></span>Quick Inspector
+                            </button>
+                        </div>
+
+                        <div data-tab-pane="msultimate">
+                            <img src="assets/Images/MSUltimate_Banner_Main_Website.png" alt="MSUltimate Ecosystem Inspector and Hierarchy preview" class="workbench-img">
+                            <div class="workbench-footer">
+                                <span class="mono" style="color: var(--text-secondary);">454+ attributes · 6 addons · 6,115 test cases</span>
+                                <a href="msultimate.html" class="link-arrow">Open MSUltimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                            </div>
+                        </div>
+
+                        <div data-tab-pane="msmotion" hidden>
+                            <img src="assets/Images/MSMotion.png" alt="MSMotion promotional choreography overview" class="workbench-img">
+                            <div class="workbench-footer">
+                                <span class="mono" style="color: var(--text-secondary);">Multi-actor choreography · 8 FX channels · PlayableGraph</span>
+                                <a href="ms-motion.html" class="link-arrow">Open MSMotion <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                            </div>
+                        </div>
+
+                        <div data-tab-pane="scriptable" hidden>
+                            <img src="assets/Images/ScriptableStudioPro.png" alt="Scriptable Studio Pro grid editor preview" class="workbench-img">
+                            <div class="workbench-footer">
+                                <span class="mono" style="color: var(--text-secondary);">Spreadsheet grid · Prefab Studio · Formulas &amp; MT</span>
+                                <a href="scriptable-studio-pro.html" class="link-arrow">Open Scriptable Studio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                            </div>
+                        </div>
+
+                        <div data-tab-pane="tactical" hidden>
+                            <img src="assets/Images/Tactical_Cover_&_Retreat_AI_System.png" alt="Tactical Cover & Retreat AI System preview" class="workbench-img">
+                            <div class="workbench-footer">
+                                <span class="mono" style="color: var(--text-secondary);">30+ tactical scorers · Squad maneuvers · Burst Jobs</span>
+                                <a href="tactical-cover-retreat-ai-system.html" class="link-arrow">Open Tactical AI <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                            </div>
+                        </div>
+
+                        <div data-tab-pane="finder" hidden>
+                            <img src="assets/Images/ObjectFinderPro.jpg" alt="Object Finder Pro search preview" class="workbench-img">
+                            <div class="workbench-footer">
+                                <span class="mono" style="color: var(--text-secondary);">Smart query language · Async scan · 35+ filters</span>
+                                <a href="object-finder-pro.html" class="link-arrow">Open Object Finder <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                            </div>
+                        </div>
+
+                        <div data-tab-pane="quick" hidden>
+                            <img src="assets/Images/UltimateQuickInspector.png" alt="Ultimate Quick Inspector Unity window" class="workbench-img">
+                            <div class="workbench-footer">
+                                <span class="mono" style="color: var(--text-secondary);">Multi-page pin drawer · GUID object tracking</span>
+                                <a href="ultimate-quick-inspector.html" class="link-arrow">Open Quick Inspector <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="featured-assets" class="py-5">
+        <!-- Compact Telemetry Strip -->
+        <section class="section-compact">
             <div class="container">
-                <h2 class="text-center section-title mb-5 display-4 animate-on-scroll fade-in-up">Featured Assets</h2>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container">
-                                <img src="assets/Images/MSUltimate_Logo.png" class="card-img-top"
-                                    alt="MSUltimate Ecosystem">
+                <div class="stats-strip" id="hero-asset-stats">
+                    <div class="stat-cell">
+                        <div class="stat-label">Attributes total</div>
+                        <div class="stat-value mono" data-count-to="454" data-count-suffix="+">454+</div>
+                        <div class="stat-note accent">463 attribute classes total</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Community tier</div>
+                        <div class="stat-value mono" style="color: var(--positive);">Free</div>
+                        <div class="stat-note positive">156+ attributes in Community Core</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Standalone addons</div>
+                        <div class="stat-value mono" data-count-to="6" data-count-suffix=" Addons">6 Addons</div>
+                        <div class="stat-note">100% decoupled modular architecture</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-label">Automated tests</div>
+                        <div class="stat-value mono" data-count-to="6115">6,115</div>
+                        <div class="stat-note">573 test files · 39 CLI rules</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Assets -->
+        <section id="featured-assets" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">Featured assets</h2>
+                        <p class="section-sub">Modular suites and standalone utilities built for daily production inside Unity</p>
+                    </div>
+                    <a href="documentation.html" class="btn btn-secondary btn-sm">Browse all documentation</a>
+                </div>
+
+                <!-- Flagship Wide Cards (MSUltimate & MSMotion) -->
+                <div class="flagship-grid">
+                    <article class="flagship-card spotlight-card">
+                        <div class="flagship-media">
+                            <img src="assets/Images/MSUltimate_Banner_Main_Website.png" alt="MSUltimate Ecosystem Inspector and Hierarchy windows">
+                        </div>
+                        <div class="asset-card-head">
+                            <div class="asset-logo-well">
+                                <img src="assets/Images/MSUltimate_Logo.png" alt="MSUltimate logo">
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MSUltimate Ecosystem <span class="badge bg-primary ms-2 text-white">Ecosystem</span></h5>
-                                <p class="card-text text-muted flex-grow-1">A modular, enterprise-grade Unity Editor suite. Features a 100% Free Community Edition, 6 standalone specialized addons, and a Pro Full Collection with 444+ attributes, custom serializers, and 5,500+ unit tests.</p>
-                                <a href="msultimate.html" class="btn btn-outline-primary mt-3">Explore Ecosystem</a>
+                            <div>
+                                <div class="asset-meta-row">
+                                    <span class="tag tag-accent">Ecosystem</span>
+                                    <span class="mono">454+ attributes · Unity 6+</span>
+                                </div>
+                                <h3 class="card-title">MSUltimate Ecosystem</h3>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container">
-                                <img src="assets/Images/MSMotion_Logo.png" class="card-img-top"
-                                    alt="MSMotion">
+                        <p class="card-desc">
+                            A modular UI Toolkit editor suite featuring a free Community Core, 6 decoupled standalone addons, custom collection serializers, and a Pro Full Collection backed by 6,115 automated test cases across 573 test files.
+                        </p>
+                        <div class="card-footer">
+                            <span class="mono">Free Core · Pro $149.99–$299.99</span>
+                            <a href="msultimate.html" class="link-arrow">Explore ecosystem <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="flagship-card spotlight-card">
+                        <div class="flagship-media">
+                            <img src="assets/Images/MSMotion.png" alt="MSMotion Composition Editor timeline">
+                        </div>
+                        <div class="asset-card-head">
+                            <div class="asset-logo-well">
+                                <img src="assets/Images/MSMotion_Logo.png" alt="MSMotion logo">
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">MSMotion <span class="badge bg-primary ms-1 text-white small">v2.0</span></h5>
-                                <p class="card-text text-muted flex-grow-1">A unified motion timeline and multi-actor choreography framework for Unity. Features synchronized multi-character duets, dynamic summons, motion warping, 8 frame-accurate FX lanes with surface decals, and zero-allocation PlayableGraph runtime blending.</p>
-                                <a href="ms-motion.html" class="btn btn-outline-primary mt-3">Learn More</a>
+                            <div>
+                                <div class="asset-meta-row">
+                                    <span class="tag tag-accent">v2.0</span>
+                                    <span class="mono">PlayableGraph · Multi-Actor Timeline</span>
+                                </div>
+                                <h3 class="card-title">MSMotion</h3>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container">
-                                <img src="assets/Images/ScriptableStudioPro_Logo.png" class="card-img-top"
-                                    alt="Scriptable Studio Pro">
+                        <p class="card-desc">
+                            Unified motion timeline and multi-actor choreography framework. Author synchronized combat duets, dynamic weapon summons, Bezier motion warping, secondary spring-mass jiggle physics, and 8 frame-accurate FX channels.
+                        </p>
+                        <div class="card-footer">
+                            <span class="mono">Full C# Source · Interactive Demo</span>
+                            <a href="ms-motion.html" class="link-arrow">Explore MSMotion <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 4 Specialized Tools Grid (Intact Square Logos, Equal Padding) -->
+                <div class="grid-2">
+                    <article class="card spotlight-card">
+                        <div class="asset-card-head">
+                            <div class="asset-logo-well">
+                                <img src="assets/Images/ScriptableStudioPro_Logo.png" alt="Scriptable Studio Pro logo">
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Scriptable Studio Pro <span class="badge bg-primary ms-2 text-white">v4.5</span></h5>
-                                <p class="card-text text-muted flex-grow-1">The ultimate asset management solution. Edit
-                                    hundreds of ScriptableObjects at once with a spreadsheet-like grid and Generative
-                                    AI.</p>
-                                <a href="scriptable-studio-pro.html" class="btn btn-outline-primary mt-3">Learn More</a>
+                            <div>
+                                <div class="asset-meta-row">
+                                    <span class="tag">v4.5</span>
+                                    <span class="mono">10,000+ Row Data Grid &amp; Prefabs</span>
+                                </div>
+                                <h3 class="card-title">Scriptable Studio Pro</h3>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container">
-                                <img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png"
-                                    class="card-img-top" alt="Tactical Cover & Retreat AI System">
+                        <p class="card-desc">
+                            Bulk edit thousands of ScriptableObjects and Prefab components in an Excel-grade virtualized grid with dynamic formula calculations (=[Level]*100), delta-safe serialization, and multi-format export.
+                        </p>
+                        <div class="card-footer">
+                            <span class="mono">Shortcut <span class="kbd">Ctrl+M</span></span>
+                            <a href="scriptable-studio-pro.html" class="link-arrow">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="card spotlight-card">
+                        <div class="asset-card-head">
+                            <div class="asset-logo-well">
+                                <img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt="Tactical Cover & Retreat AI System logo">
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Tactical Cover & Retreat AI System <span class="badge bg-primary ms-2 text-white">v3.0</span></h5>
-                                <p class="card-text text-muted flex-grow-1">Advanced tactical AI framework featuring combat locomotion execution, synchronized squad maneuvers, dynamic suppression ballistics, and an automated scene validator.</p>
-                                <a href="tactical-cover-retreat-ai-system.html"
-                                    class="btn btn-outline-primary mt-3">Learn More</a>
+                            <div>
+                                <div class="asset-meta-row">
+                                    <span class="tag">v3.0</span>
+                                    <span class="mono">21 Spot Providers · 47 Scorers</span>
+                                </div>
+                                <h3 class="card-title">Tactical Cover &amp; Retreat AI System</h3>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container">
-                                <img src="assets/Images/ObjectFinderPro_Logo.png" class="card-img-top"
-                                    alt="Object Finder Pro">
+                        <p class="card-desc">
+                            Tactical AI framework combining 21 spatial spot providers and 47 Burst-compiled scorers with combat locomotion, synchronized squad maneuvers, ballistic suppression tracking, and an automated scene validator.
+                        </p>
+                        <div class="card-footer">
+                            <span class="mono">68 modular assets · 7 diagnostics</span>
+                            <a href="tactical-cover-retreat-ai-system.html" class="link-arrow">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="card spotlight-card">
+                        <div class="asset-card-head">
+                            <div class="asset-logo-well">
+                                <img src="assets/Images/ObjectFinderPro_Logo.png" alt="Object Finder Pro logo">
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Object Finder Pro</h5>
-                                <p class="card-text text-muted flex-grow-1">A powerful editor utility to find any object
-                                    in your scene with advanced search criteria, saving you hours of manual work.</p>
-                                <a href="object-finder-pro.html" class="btn btn-outline-primary mt-3">Learn More</a>
+                            <div>
+                                <div class="asset-meta-row">
+                                    <span class="tag">v2.0</span>
+                                    <span class="mono">Async Search &amp; Smart Query Syntax</span>
+                                </div>
+                                <h3 class="card-title">Object Finder Pro</h3>
                             </div>
                         </div>
+                        <p class="card-desc">
+                            Query scenes, prefabs, and unloaded project assets asynchronously using smart query syntax (t:, m:, p:, b:), multi-component signature filters, and deep asset dependency tracking.
+                        </p>
+                        <div class="card-footer">
+                            <span class="mono">35+ pre-built filters · 5 scopes</span>
+                            <a href="object-finder-pro.html" class="link-arrow">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </article>
+
+                    <article class="card spotlight-card">
+                        <div class="asset-card-head">
+                            <div class="asset-logo-well">
+                                <img src="assets/Images/UltimateQuickInspector_Logo.png" alt="Ultimate Quick Inspector logo">
+                            </div>
+                            <div>
+                                <div class="asset-meta-row">
+                                    <span class="tag">Utility</span>
+                                    <span class="mono">Categorized Multi-Page Drawers</span>
+                                </div>
+                                <h3 class="card-title">Ultimate Quick Inspector</h3>
+                            </div>
+                        </div>
+                        <p class="card-desc">
+                            Pin frequently used prefabs, scripts, materials, and scene GameObjects across customizable multi-page drawer tabs with drag-and-drop organization and persistent GUID tracking.
+                        </p>
+                        <div class="card-footer">
+                            <span class="mono">Version-control safe SO storage</span>
+                            <a href="ultimate-quick-inspector.html" class="link-arrow">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- In Development Roadmap (SoftbodyMeshPro only) -->
+        <section id="upcoming-assets" class="section section-surface">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">In development</h2>
+                        <p class="section-sub">Upcoming runtime physics tooling currently in active engineering</p>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container">
-                                <img src="assets/Images/UltimateQuickInspector_Logo.png" class="card-img-top"
-                                    alt="Ultimate Quick Inspector">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Ultimate Quick Inspector</h5>
-                                <p class="card-text text-muted flex-grow-1">An essential tool for rapid prototyping and
-                                    debugging, allowing you to inspect and modify component values directly in the game
-                                    view.</p>
-                                <a href="ultimate-quick-inspector.html" class="btn btn-outline-primary mt-3">Learn
-                                    More</a>
-                            </div>
+                </div>
+
+                <div class="roadmap-panel spotlight-card">
+                    <div>
+                        <div class="asset-meta-row" style="margin-bottom: 12px;">
+                            <span class="tag tag-accent">Coming soon</span>
+                            <span class="mono">SoftbodyMeshPro</span>
+                        </div>
+                        <h3 class="card-title" style="font-size: 22px; margin-bottom: 10px;">SoftbodyMeshPro</h3>
+                        <p class="card-desc" style="margin-bottom: 16px;">
+                            A high-performance soft-body mesh deformation system designed for dynamic, physically reactive props and characters in Unity without heavy solver setup.
+                        </p>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">Move pointer across the vertex lattice to preview spring deformation</span>
+                    </div>
+
+                    <div class="softbody-canvas-box">
+                        <canvas id="softbody-canvas" aria-label="Interactive spring lattice simulation"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Maharaja Studio -->
+        <section id="why-choose-us" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title">Engineering standards</h2>
+                        <p class="section-sub">Every package follows strict editor separation, verification, and support practices</p>
+                    </div>
+                </div>
+
+                <div class="grid-3">
+                    <div class="feature-card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <div>
+                            <h3>Quality &amp; performance</h3>
+                            <p>Built with clean, modular C# code, Burst and Jobs compatibility where math runs hot, and zero unnecessary player-build overhead.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <div>
+                            <h3>Thorough documentation</h3>
+                            <p>Every asset ships with structured setup guides, parameter tables, code examples, and searchable web documentation.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <div>
+                            <h3>Direct support</h3>
+                            <p>Get help directly through Discord, email, or the support portal when integrating systems into custom project pipelines.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="upcoming-assets" class="py-5" style="background-color: var(--surface-color);">
+        <!-- Developer Notes / Real Asset Store Reviews -->
+        <section id="testimonials" class="section section-surface">
             <div class="container">
-                <h2 class="text-center section-title mb-5 display-4 animate-on-scroll fade-in-up">Coming Soon</h2>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container placeholder-img">
-                                <div>
-                                    <h5>SoftbodyMeshPro</h5>
-                                    <p class="mb-0">Coming Soon</p>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">SoftbodyMeshPro</h5>
-                                <p class="card-text text-muted">A high-performance, easy-to-use soft body physics system
-                                    for creating dynamic and realistic objects.</p>
-                            </div>
+                <div class="section-head" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: var(--space-4);">
+                    <div>
+                        <div class="badge" style="margin-bottom: var(--space-2);">
+                            <span class="badge-dot"></span>
+                            Verified Unity Asset Store Reviews
                         </div>
+                        <h2 class="section-title">Developer feedback</h2>
+                        <p class="section-sub">Real reviews from verified buyers building production titles with our tools</p>
                     </div>
+                    <a href="https://assetstore.unity.com/publishers/120284" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="font-size: 12px; gap: 6px;">
+                        <span>Unity Asset Store Profile</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll fade-in-up">
-                        <div class="asset-card-v3 h-100">
-                            <div class="card-img-container placeholder-img">
-                                <div>
-                                    <i class="fas fa-plus-circle fs-1 text-muted"></i>
-                                </div>
+                <div class="grid-2">
+                    <!-- Review 1: rbenrich on Tactical Cover & Retreat AI -->
+                    <article class="review-card">
+                        <div class="review-card-head">
+                            <div class="review-stars" aria-label="5 out of 5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">And Many More...</h5>
-                                <p class="card-text text-muted">We are constantly working on new and innovative assets
-                                    to help you create amazing games.</p>
-                            </div>
+                            <span class="tag tag-accent mono" style="font-size: 11px;">Verified Buyer</span>
                         </div>
-                    </div>
+                        <p class="review-quote">
+                            "I am a former combat arms Army Officer turned Game Dev. This is the best modern combat AI system I have found, and every update makes it better. And it is computationally efficient with DOTS. Keep up the great work."
+                        </p>
+                        <div class="card-footer">
+                            <div class="review-author">
+                                <span class="review-author-name">rbenrich</span>
+                                <span class="review-author-meta">Former Combat Arms Army Officer · Game Developer</span>
+                            </div>
+                            <a href="https://assetstore.unity.com/packages/tools/behavior-ai/tactical-cover-retreat-ai-system-338916" target="_blank" rel="noopener" class="tag mono" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Tactical Cover AI <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Review 2: Off0 on Scriptable Studio Pro -->
+                    <article class="review-card">
+                        <div class="review-card-head">
+                            <div class="review-stars" aria-label="5 out of 5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <span class="tag tag-accent mono" style="font-size: 11px;">Verified Buyer</span>
+                        </div>
+                        <p class="review-quote">
+                            "This tool is a real game changer — it enables workflows that other tools simply don’t support, and it continues to evolve without falling behind. What matters most to me is the communication with the developer. He’s active, responsive, and genuinely open to feedback, helping refine and implement ideas for improvement. That level of support really sets this tool apart and puts it ahead of others."
+                        </p>
+                        <div class="card-footer">
+                            <div class="review-author">
+                                <span class="review-author-name">Off0</span>
+                                <span class="review-author-meta">Verified Buyer · Unity Asset Store</span>
+                            </div>
+                            <a href="https://assetstore.unity.com/packages/tools/utilities/scriptable-studio-pro-344724" target="_blank" rel="noopener" class="tag mono" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Scriptable Studio Pro <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Review 3: Off0 on Object Finder Pro -->
+                    <article class="review-card">
+                        <div class="review-card-head">
+                            <div class="review-stars" aria-label="5 out of 5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <span class="tag tag-accent mono" style="font-size: 11px;">Verified Buyer</span>
+                        </div>
+                        <p class="review-quote">
+                            "Really, the tool is highly flexible and powerful, allowing you to search across scenes, project data, and much more. I especially appreciate its extensibility. With the developer’s support, I was able to implement custom search methods, and now I’m using the tool to its full potential. The search performance is fast and well optimized, so results are returned quickly without unnecessary delays."
+                        </p>
+                        <div class="card-footer">
+                            <div class="review-author">
+                                <span class="review-author-name">Off0</span>
+                                <span class="review-author-meta">Verified Buyer · Unity Asset Store</span>
+                            </div>
+                            <a href="https://assetstore.unity.com/packages/tools/utilities/object-finder-pro-329676" target="_blank" rel="noopener" class="tag mono" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Object Finder Pro <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- Review 4: D3trix666 & SPois on Scriptable Studio Pro -->
+                    <article class="review-card">
+                        <div class="review-card-head">
+                            <div class="review-stars" aria-label="5 out of 5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <span class="tag tag-accent mono" style="font-size: 11px;">Verified Buyers</span>
+                        </div>
+                        <p class="review-quote">
+                            "Saved me an infinite amount of time!! Crazy!"
+                            <span style="display: block; margin-top: 10px; font-size: 13.5px; color: var(--text-secondary); border-top: 1px dashed var(--hairline); padding-top: 10px;">
+                                "Asset is as described. The new localization support is great! Gets updated regularly. I hope it continues to do so."
+                            </span>
+                        </p>
+                        <div class="card-footer">
+                            <div class="review-author">
+                                <span class="review-author-name">D3trix666 &amp; SPois</span>
+                                <span class="review-author-meta">Verified Buyers · Unity Asset Store</span>
+                            </div>
+                            <a href="https://assetstore.unity.com/packages/tools/utilities/scriptable-studio-pro-344724" target="_blank" rel="noopener" class="tag mono" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Scriptable Studio Pro <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="why-choose-us" class="py-5">
+        <!-- Final CTA -->
+        <section class="section">
             <div class="container">
-                <h2 class="text-center section-title mb-5 display-4 animate-on-scroll fade-in-up">Why Choose Maharaja
-                    Studio?</h2>
-                <div class="row text-center g-4">
-                    <div class="col-md-4 animate-on-scroll fade-in-up">
-                        <div class="feature-box glass-box h-100">
-                            <div class="icon-box"><i class="fas fa-check-circle"></i></div>
-                            <h4>Quality & Performance</h4>
-                            <p>Our assets are built with clean, efficient code and optimized for performance across a
-                                wide range of platforms.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 animate-on-scroll fade-in-up">
-                        <div class="feature-box glass-box h-100">
-                            <div class="icon-box"><i class="fas fa-book-open"></i></div>
-                            <h4>Thorough Documentation</h4>
-                            <p>We provide comprehensive documentation and practical examples to get you up and running
-                                in minutes.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 animate-on-scroll fade-in-up">
-                        <div class="feature-box glass-box h-100">
-                            <div class="icon-box"><i class="fas fa-headset"></i></div>
-                            <h4>Dedicated Support</h4>
-                            <p>Your success is our priority. We offer fast and friendly support to help you with any
-                                issues you may encounter.</p>
-                        </div>
+                <div class="cta-panel">
+                    <h2>Pick the tool that fits your Unity pipeline</h2>
+                    <p>Start with the free MSUltimate Community Edition, browse full documentation, or check Asset Store packages directly.</p>
+                    <div class="hero-actions" style="justify-content: center;">
+                        <a href="#featured-assets" class="btn btn-primary">Browse assets</a>
+                        <a href="documentation.html" class="btn btn-secondary">Read documentation</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="py-5" style="background-color: var(--surface-color);">
-            <div class="container">
-                <h2 class="text-center section-title mb-5 display-4 animate-on-scroll fade-in-up">What Our Customers Say
-                </h2>
-                <div id="testimonialCarousel" class="carousel slide animate-on-scroll fade-in-up"
-                    data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="testimonial-card text-center col-md-8 mx-auto">
-                                <p class="lead fst-italic">"The Tactical Cover AI is simply outstanding. It saved me
-                                    weeks of work and the level of customization is incredible. A must-have for any
-                                    stealth or action game."
-                                </p>
-                                <div class="client-info mt-4 d-flex align-items-center justify-content-center">
-                                    <img src="https://i.pravatar.cc/150?img=1" alt="Client 1">
-                                    <div class="ms-3 text-start">
-                                        <h6 class="mb-0">Alex Johnson</h6>
-                                        <small class="text-muted">Lead Developer, Indie Game Studio</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="testimonial-card text-center col-md-8 mx-auto">
-                                <p class="lead fst-italic">"I've been using Object Finder Pro for months and it has
-                                    become an indispensable part of my workflow. The support is also top-notch!"
-                                </p>
-                                <div class="client-info mt-4 d-flex align-items-center justify-content-center">
-                                    <img src="https://i.pravatar.cc/150?img=2" alt="Client 2">
-                                    <div class="ms-3 text-start">
-                                        <h6 class="mb-0">Samantha Lee</h6>
-                                        <small class="text-muted">3D Artist & Level Designer</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section py-5">
-            <div class="container text-center">
-                <h2 class="display-5 fw-bold animate-on-scroll fade-in-up">Ready to Elevate Your Game?</h2>
-                <p class="lead my-4 animate-on-scroll fade-in-up">Browse our collection of assets and find the perfect
-                    tool for your next project.</p>
-                <a href="#featured-assets" class="btn btn-light btn-lg animate-on-scroll fade-in-up"><i
-                        class="fas fa-shopping-cart me-2"></i>Browse Assets</a>
             </div>
         </section>
     </main>
 
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 Maharaja Studio. All Rights Reserved. | <a href="legal.html"
-                    class="text-decoration-none">Legal Notice</a></p>
-            <div class="social-icons mt-3">
-                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="me-3"><i
-                        class="fab fa-youtube fa-lg"></i></a>
-                <a href="https://discord.gg/GamF5bez3h" class="me-3"><i class="fab fa-discord fa-lg"></i></a>
-                <a href="mailto:maharajastudiocustomerservice@gmail.com"><i
-                        class="fas fa-envelope fa-lg"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="legal.html" style="color: var(--text-secondary);">Legal Notice</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3v6Z"/></svg>
+                    YouTube
+                </a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener" aria-label="Discord">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Discord
+                </a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com" aria-label="Email">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    Email
+                </a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/studio.js"></script>
 </body>
 
 </html>

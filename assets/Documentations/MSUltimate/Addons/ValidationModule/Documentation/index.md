@@ -11,6 +11,6 @@ MSUltimate Validation Module is a comprehensive QA and asset validation framewor
 ## Systems & Sections
 | Section | Type | Description | Index Link |
 | :--- | :--- | :--- | :--- |
-| **Validation Attributes** | C# Attributes | 39 attributes enforcing regex, file paths, layer masks, audio specs, texture formats, and dependencies. | [Browse 39 Attributes](attributes/index.md) |
+| **Validation Attributes** | C# Attributes | 39 attributes enforcing regex, file paths, layers, animator parameters, texture dimensions, hierarchy structure, and dependencies. | [Browse 39 Attributes](attributes/index.md) |
 | **Validation Engine Window**| Editor Window | Project-wide asset & scene scanner with 1-click batch autofix tools. | [Open Window Manual](tools/validation-engine/index.md) |
 | **Custom Rule Pipeline** | C# Extensibility | Guide to creating custom validation rules and automated repair handlers. | [Open Developer Guide](custom-rules/index.md) |

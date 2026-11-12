@@ -1,235 +1,373 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Quick Inspector - Documentation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>Ultimate Quick Inspector — Documentation · Maharaja Studio</title>
+    <meta name="description" content="Complete documentation for Ultimate Quick Inspector: Pin assets and scene objects, multi-page drawer organization, persistent GUID scene tracking, and data storage.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
-        style="position: sticky; top: 0; z-index: 1000;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="documentation.html">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <div class="theme-switcher ms-3 d-flex align-items-center">
-                        <i class="fas fa-sun me-2"></i>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="theme-switcher">
-                        </div>
-                        <i class="fas fa-moon"></i>
+<body class="docs-workspace docs-no-subnav">
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSUltimate Ecosystem</span>
+                                <span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSMotion v2.0</span>
+                                <span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span>
+                                <span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span>
+                                <span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Object Finder Pro</span>
+                                <span class="nav-dropdown-meta">Async query &amp; reference search</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item is-current" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Ultimate Quick Inspector</span>
+                                <span class="nav-dropdown-meta">Multi-page GUID pin drawer</span>
+                            </span>
+                        </a>
                     </div>
-                </ul>
+                </li>
+                <li><a class="nav-link active" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="ultimate-quick-inspector.html">Asset overview</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html" class="active">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Ultimate Quick Inspector</span>
+            <a href="ultimate-quick-inspector.html">Ultimate Quick Inspector Overview</a>
+            <a href="#overview">Docs Hub &amp; Quick Start</a>
+            <a href="#features">Key Features</a>
+            <a href="#how-to-use">How to Use &amp; Layout</a>
+            <a href="#components">GuidComponent Architecture</a>
+            <a href="#data-storage">ScriptableObject Storage</a>
+            <a href="#troubleshooting">Troubleshooting</a>
+            <a href="#contact">Support &amp; Contact</a>
+        </div>
+    </div>
 
     <main>
-        <div class="docs-container">
-            <aside class="docs-sidebar">
-                <h3>Ultimate Quick Inspector</h3>
-                <div class="mb-3">
-                    <input type="text" id="doc-search" class="form-control" placeholder="Search documentation...">
-                </div>
-                <ul class="docs-nav-menu">
-                    <li><a href="#features" class="docs-nav-link">Features</a></li>
-                    <li><a href="#how-to-use" class="docs-nav-link">How to Use</a></li>
-                    <li><a href="#components" class="docs-nav-link">Components</a></li>
-                    <li><a href="#data-storage" class="docs-nav-link">Data Storage</a></li>
-                    <li><a href="#troubleshooting" class="docs-nav-link">Troubleshooting</a></li>
-                    <li><a href="#contact" class="docs-nav-link">Contact</a></li>
-                </ul>
-            </aside>
+        <div class="container">
+            <div class="docs-shell">
+                <aside class="docs-sidebar" aria-label="Ultimate Quick Inspector documentation navigation">
+                    <div class="docs-sidebar-head">
+                        <div class="docs-sidebar-title-row">
+                            <span class="docs-sidebar-title">Quick Inspector</span>
+                            <span style="display:inline-flex;align-items:center;gap:8px;">
+                                <span class="mono" style="font-size: 11px; color: var(--text-muted);">7 guides</span>
+                                <button type="button" class="docs-sidebar-close" data-doc-sidebar-close aria-label="Close sections drawer">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="docs-search-wrap">
+                            <svg class="docs-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            <input type="search" id="doc-search" class="docs-search-input" style="padding-right:12px;" placeholder="Filter sections..." aria-label="Filter Ultimate Quick Inspector documentation" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="docs-sidebar-body">
+                        <div class="docs-pinned-group">
+                            <div class="docs-pinned-label">Start Here</div>
+                            <a href="#overview" class="docs-nav-link"><span>Overview &amp; Quick Start</span><span class="eco-pill-count">v1.0</span></a>
+                        </div>
+<div class="docs-cat-group"><button type="button" class="docs-cat-btn" aria-expanded="true"><span>Getting Started</span><span style="display:inline-flex;align-items:center;gap:6px;"><span class="docs-cat-count">2</span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><ul class="docs-nav-menu"><li><a href="#features" class="docs-nav-link">Key Features</a></li><li><a href="#how-to-use" class="docs-nav-link">How to Use</a></li></ul></div>
+<div class="docs-cat-group"><button type="button" class="docs-cat-btn" aria-expanded="true"><span>Architecture &amp; Data</span><span style="display:inline-flex;align-items:center;gap:6px;"><span class="docs-cat-count">2</span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><ul class="docs-nav-menu"><li><a href="#components" class="docs-nav-link">Components Explained</a></li><li><a href="#data-storage" class="docs-nav-link">Data Storage</a></li></ul></div>
+<div class="docs-cat-group"><button type="button" class="docs-cat-btn" aria-expanded="true"><span>Support &amp; Maintenance</span><span style="display:inline-flex;align-items:center;gap:6px;"><span class="docs-cat-count">2</span><svg class="docs-cat-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><ul class="docs-nav-menu"><li><a href="#troubleshooting" class="docs-nav-link">Troubleshooting</a></li><li><a href="#contact" class="docs-nav-link">Support &amp; Contact</a></li></ul></div>
+                    </div>
+                </aside>
 
-            <article class="docs-content">
-                <section id="features" class="docs-section">
-                    <h1>Ultimate Quick Inspector</h1>
-                    <p>A powerful Unity Editor extension for pinning and organizing your most-used assets and scene
-                        objects for instant access.</p>
-                    <h2>Features</h2>
-                    <ul>
-                        <li><strong>Pin Anything:</strong> Keep references to any object in your project, whether it's a
-                            prefab, a script, a material, or a specific object in your scene.</li>
-                        <li><strong>Multi-Page Organization:</strong> Group your pinned objects into customizable pages.
-                            Keep your work organized by context, such as "Player Objects," "UI Elements," or "Level
-                            Design."</li>
-                        <li><strong>Drag-and-Drop:</strong> Easily add objects by dragging them into the window.</li>
-                        <li><strong>Search and Filter:</strong> Quickly find the object you're looking for with a simple
-                            search bar.</li>
-                        <li><strong>Persistent Data:</strong> Your pinned objects and pages are saved and will be
-                            available the next time you open Unity.</li>
-                        <li><strong>Scene Object Tracking:</strong> The tool uses a robust system to track objects in
-                            your scene, even if you rename them or they are inactive.</li>
-                    </ul>
-                </section>
-                <section id="how-to-use" class="docs-section">
-                    <h2>How to Use</h2>
-                    <h3>Opening the Window</h3>
-                    <p>To open the Ultimate Quick Inspector, go to the Unity Editor's main menu and select
-                        <strong>Window > Ultimate Quick Inspector</strong>.</p>
-                    <h3>Adding Objects</h3>
-                    <p>There are two ways to add objects to the Quick Inspector:</p>
-                    <ol>
-                        <li><strong>Drag and Drop:</strong> Simply drag any object from your Project window or Scene
-                            Hierarchy and drop it into the "Drag and Drop Objects Here" area in the Quick Inspector.
-                        </li>
-                        <li><strong>Object Field:</strong> Use the object field at the top right of the window to select
-                            an object to add.</li>
-                    </ol>
-                    <h3>Managing Objects</h3>
-                    <ul>
-                        <li><strong>Remove:</strong> To remove an object from the list, click the "Remove" button next
-                            to it.</li>
-                        <li><strong>Remove All:</strong> Use the "Remove All" button in the toolbar to clear all objects
-                            from the current page.</li>
-                    </ul>
-                    <h3>Organizing with Pages</h3>
-                    <ul>
-                        <li><strong>Add Page:</strong> Click the <code>+</code> button in the page navigation bar to
-                            create a new page.</li>
-                        <li><strong>Remove Page:</strong> Click the <code>-</code> button to remove the currently
-                            selected page and all objects on it.</li>
-                        <li><strong>Rename Page:</strong> Click the settings icon (gear) to open the page settings,
-                            where you can rename the current page.</li>
-                    </ul>
-                    <h3>Searching and Filtering</h3>
-                    <p>Use the search bar at the top of the window to filter the objects on the current page by name.
-                    </p>
-                </section>
-                <section id="components" class="docs-section">
-                    <h2>Components Explained</h2>
-                    <h3>GuidComponent</h3>
-                    <p>When you add a scene object to the Quick Inspector, a <code>GuidComponent</code> is automatically
-                        added to it. This component assigns a unique, persistent ID to the GameObject.</p>
-                    <p><strong>Why is this important?</strong></p>
-                    <p>Unity's internal instance IDs can change when you close and reopen a scene. The
-                        <code>GuidComponent</code> ensures that the Quick Inspector can always find the correct object,
-                        even after reloading the scene or restarting Unity. This component is lightweight and has no
-                        performance impact.</p>
-                </section>
-                <section id="data-storage" class="docs-section">
-                    <h2>Data Storage</h2>
-                    <p>The Ultimate Quick Inspector stores all its data (the list of pinned objects and your page
-                        configurations) in a <code>ScriptableObject</code> file named
-                        <code>QuickInspectorData.asset</code>. This file is located in the same directory as the main
-                        tool script (<code>UltimateQuickInspector/Editor/</code>).</p>
-                    <p>You don't need to manually edit this file, but it's good to know where it is. If you're using
-                        version control, make sure to include this file to share your pinned objects with your team.</p>
-                </section>
-                <section id="troubleshooting" class="docs-section">
-                    <h2>Troubleshooting & Best Practices</h2>
-                    <ul>
-                        <li><strong>"Object not found in scene" warning:</strong> This means that the object is in a
-                            diffrent scene.</li>
-                        <li><strong>"Missing Refrence:"</strong> This means the scene object you pinned has been
-                            deleted. You can safely remove it from the Quick Inspector.</li>
-                        <li><strong>Best Practice:</strong> Use pages to keep your workspace organized. For example, you
-                            could have a page for each major feature of your game, or for different types of assets.
-                        </li>
-                        <li><strong>Resetting the tool:</strong> If you ever want to start from scratch, you can use the
-                            "Reset" button (refresh icon) in the toolbar. This will clear all objects and pages.</li>
-                    </ul>
-                </section>
-                <section id="contact" class="docs-section">
-                    <h2>Contact</h2>
-                    <p>If you have any questions, suggestions, or run into any issues, please feel free to contact me
-                        at:</p>
-                    <ul>
-                        <li><strong>Email:</strong> maharajastudiocustomerservice@gmail.com</li>
-                    </ul>
-                    <h2>Thank You</h2>
-                    <p>Thank you for purchasing the Ultimate Quick Inspector! I hope it helps you streamline your
-                        workflow and be more productive in Unity. If you find this tool useful, please consider leaving
-                        a review on the Unity Asset Store.</p>
-                </section>
+                <div class="docs-main">
+                    <div class="docs-mobile-toolbar">
+                        <button type="button" id="doc-sidebar-toggle" class="btn btn-secondary btn-sm" aria-expanded="false">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                            Sections (7)
+                        </button>
+                        <a class="btn btn-secondary btn-sm" href="ultimate-quick-inspector.html">Asset Overview</a>
+                    </div>
 
-                <div class="docs-pagination">
-                    <button id="prev-doc" class="btn btn-secondary">Previous</button>
-                    <button id="next-doc" class="btn btn-primary">Next</button>
-                </div>
-            </article>
+<section id="overview" class="docs-section" data-doc-title="Overview & Architecture">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <span>Ultimate Quick Inspector</span>
+                <span>/</span>
+                <span>Documentation Hub</span>
+                <span class="mono" style="margin-left:auto;">v1.0 Pro</span>
+            </div>
+            <h1>Ultimate Quick Inspector Documentation</h1>
         </div>
-        <button id="doc-sidebar-toggle" class="btn btn-primary d-lg-none" 
-            style="position: fixed; bottom: 20px; right: 20px; z-index: 1100; border-radius: 50%; width: 50px; height: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            <i class="fas fa-list"></i>
-        </button>
+
+        <p class="doc-lead">
+            A lightweight, zero-overhead Unity Editor extension for pinning, organizing across multi-page tabs, and instantly selecting frequently accessed scene objects, prefabs, materials, and scripts.
+        </p>
+
+        <div class="doc-card-grid">
+            <div class="doc-mini-card">
+                <h4>Pin Anything</h4>
+                <p>Pin scene GameObjects (active or disabled), project prefabs, script assets, and materials with one drag-and-drop motion.</p>
+            </div>
+            <div class="doc-mini-card">
+                <h4>Persistent GUID Tracking</h4>
+                <p>Automatic <code>GuidComponent</code> maintains persistent object identity even after scene reloads, project restarts, or GameObject renames.</p>
+            </div>
+            <div class="doc-mini-card">
+                <h4>Multi-Page Drawer</h4>
+                <p>Organize items into feature-scoped pages like <em>UI Elements</em>, <em>Player Systems</em>, or <em>Level Design</em> for clean workspaces.</p>
+            </div>
+            <div class="doc-mini-card">
+                <h4>Zero Performance Cost</h4>
+                <p>Data is stored in a clean <code>QuickInspectorData.asset</code> ScriptableObject. Zero runtime allocations or frame overhead.</p>
+            </div>
+        </div>
+
+        <h3>Quick Start &amp; Access</h3>
+        <div class="doc-table-wrap">
+            <table class="doc-table">
+                <thead>
+                    <tr><th>Workflow</th><th>Action</th><th>Notes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Open Tool</strong></td><td><span class="mono">Window &gt; Ultimate Quick Inspector</span></td><td>Dock anywhere in your editor layout (next to Inspector or Hierarchy)</td></tr>
+                    <tr><td><strong>Add Items</strong></td><td>Drag &amp; drop from Project or Hierarchy</td><td>Supports single or multi-selection drop into the active page</td></tr>
+                    <tr><td><strong>Add Page</strong></td><td>Click <span class="mono">+</span> in page toolbar</td><td>Create unlimited categorized pages</td></tr>
+                    <tr><td><strong>Rename Page</strong></td><td>Click Settings icon (gear)</td><td>Edit current page name to reflect game subsystem</td></tr>
+                    <tr><td><strong>Select Item</strong></td><td>Click row or ping icon</td><td>Focuses and pings the object in Hierarchy/Project immediately</td></tr>
+                    <tr><td><strong>Remove Item</strong></td><td>Click <span class="mono">&times;</span> or &ldquo;Remove All&rdquo;</td><td>Unpins reference without deleting the underlying asset</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Documentation Chapters</h3>
+        <div class="doc-table-wrap">
+            <table class="doc-table">
+                <thead>
+                    <tr><th>Chapter</th><th>Category</th><th>Description</th><th>Anchor</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Features</strong></td><td>Core Concepts</td><td>Feature overview: drag-and-drop, persistent data, and multi-page drawer</td><td><a href="#features">Read Section &rarr;</a></td></tr>
+                    <tr><td><strong>How to Use</strong></td><td>Workflow</td><td>Opening window, adding/managing objects, page workflows, and search</td><td><a href="#how-to-use">Read Section &rarr;</a></td></tr>
+                    <tr><td><strong>Components Explained</strong></td><td>Architecture</td><td>Deep dive into <code>GuidComponent</code> and why persistent IDs matter</td><td><a href="#components">Read Section &rarr;</a></td></tr>
+                    <tr><td><strong>Data Storage</strong></td><td>Architecture</td><td><code>QuickInspectorData.asset</code> ScriptableObject and version control practices</td><td><a href="#data-storage">Read Section &rarr;</a></td></tr>
+                    <tr><td><strong>Troubleshooting</strong></td><td>Maintenance</td><td>Cross-scene warnings, missing reference cleanup, and reset options</td><td><a href="#troubleshooting">Read Section &rarr;</a></td></tr>
+                    <tr><td><strong>Support &amp; Contact</strong></td><td>Support</td><td>Customer service email, Discord community, and Asset Store feedback</td><td><a href="#contact">Read Section &rarr;</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+</section>
+
+<section id="features" class="docs-section" data-doc-title="Features &amp; Capabilities">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Ultimate Quick Inspector</a>
+                <span>/</span>
+                <span>Getting Started</span>
+                <span class="mono" style="margin-left:auto;">Readme.md</span>
+            </div>
+            <h1>Features &amp; Capabilities</h1>
+        </div>
+<h2 id="features__features">Features</h2>
+<ul><li><strong>Pin Anything:</strong> Keep references to any object in your project, whether it's a prefab, a script, a material, or a specific object in your scene.</li><li><strong>Multi-Page Organization:</strong> Group your pinned objects into customizable pages. Keep your work organized by context, such as "Player Objects," "UI Elements," or "Level Design."</li><li><strong>Drag-and-Drop:</strong> Easily add objects by dragging them into the window.</li><li><strong>Search and Filter:</strong> Quickly find the object you're looking for with a simple search bar.</li><li><strong>Persistent Data:</strong> Your pinned objects and pages are saved and will be available the next time you open Unity.</li><li><strong>Scene Object Tracking:</strong> The tool uses a robust system to track objects in your scene, even if you rename them or they are inactive.</li></ul>
+<hr>
+    </article>
+</section>
+
+<section id="how-to-use" class="docs-section" data-doc-title="How to Use &amp; Window Layout">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Ultimate Quick Inspector</a>
+                <span>/</span>
+                <span>Getting Started</span>
+                <span class="mono" style="margin-left:auto;">Readme.md</span>
+            </div>
+            <h1>How to Use &amp; Window Layout</h1>
+        </div>
+<h2 id="how-to-use__how-to-use">How to Use</h2>
+<h3 id="how-to-use__opening-the-window">Opening the Window</h3>
+<p>To open the Ultimate Quick Inspector, go to the Unity Editor's main menu and select <strong>Window &gt; Ultimate Quick Inspector</strong>.</p>
+<h3 id="how-to-use__adding-objects">Adding Objects</h3>
+<p>There are two ways to add objects to the Quick Inspector:</p>
+<ol><li><strong>Drag and Drop:</strong> Simply drag any object from your Project window or Scene Hierarchy and drop it into the "Drag and Drop Objects Here" area in the Quick Inspector.</li><li><strong>Object Field:</strong> Use the object field at the top right of the window to select an object to add.</li></ol>
+<h3 id="how-to-use__managing-objects">Managing Objects</h3>
+<ul><li><strong>Remove:</strong> To remove an object from the list, click the "Remove" button next to it.</li><li><strong>Remove All:</strong> Use the "Remove All" button in the toolbar to clear all objects from the current page.</li></ul>
+<h3 id="how-to-use__organizing-with-pages">Organizing with Pages</h3>
+<ul><li><strong>Add Page:</strong> Click the <code>+</code> button in the page navigation bar to create a new page.</li><li><strong>Remove Page:</strong> Click the <code>-</code> button to remove the currently selected page and all objects on it.</li><li><strong>Rename Page:</strong> Click the settings icon (gear) to open the page settings, where you can rename the current page.</li></ul>
+<h3 id="how-to-use__searching-and-filtering">Searching and Filtering</h3>
+<p>Use the search bar at the top of the window to filter the objects on the current page by name.</p>
+<hr>
+    </article>
+</section>
+
+<section id="components" class="docs-section" data-doc-title="Components: GuidComponent">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Ultimate Quick Inspector</a>
+                <span>/</span>
+                <span>Architecture &amp; Data</span>
+                <span class="mono" style="margin-left:auto;">Readme.md</span>
+            </div>
+            <h1>Components: GuidComponent</h1>
+        </div>
+<h2 id="components__components-explained">Components Explained</h2>
+<h3 id="components__guidcomponent">GuidComponent</h3>
+<p>When you add a scene object to the Quick Inspector, a <code>GuidComponent</code> is automatically added to it. This component assigns a unique, persistent ID to the GameObject.</p>
+<p><strong>Why is this important?</strong></p>
+<p>Unity's internal instance IDs can change when you close and reopen a scene. The <code>GuidComponent</code> ensures that the Quick Inspector can always find the correct object, even after reloading the scene or restarting Unity. This component is lightweight and has no performance impact.</p>
+<hr>
+    </article>
+</section>
+
+<section id="data-storage" class="docs-section" data-doc-title="Data Storage &amp; ScriptableObject">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Ultimate Quick Inspector</a>
+                <span>/</span>
+                <span>Architecture &amp; Data</span>
+                <span class="mono" style="margin-left:auto;">Readme.md</span>
+            </div>
+            <h1>Data Storage &amp; ScriptableObject</h1>
+        </div>
+<h2 id="data-storage__data-storage">Data Storage</h2>
+<p>The Ultimate Quick Inspector stores all its data (the list of pinned objects and your page configurations) in a <code>ScriptableObject</code> file named <code>QuickInspectorData.asset</code>. This file is located in the same directory as the main tool script (<code>UltimateQuickInspector/Editor/</code>).</p>
+<p>You don't need to manually edit this file, but it's good to know where it is. If you're using version control, make sure to include this file to share your pinned objects with your team.</p>
+<hr>
+    </article>
+</section>
+
+<section id="troubleshooting" class="docs-section" data-doc-title="Troubleshooting &amp; Best Practices">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Ultimate Quick Inspector</a>
+                <span>/</span>
+                <span>Support &amp; Maintenance</span>
+                <span class="mono" style="margin-left:auto;">Readme.md</span>
+            </div>
+            <h1>Troubleshooting &amp; Best Practices</h1>
+        </div>
+<h2 id="troubleshooting__troubleshooting-best-practices">Troubleshooting &amp; Best Practices</h2>
+<ul><li><strong>"Object not found in scene" warning:</strong> This means that the object is in a diffrent scene.</li><li><strong>"Missing Refrence:"</strong> This means the scene object you pinned has been deleted. You can safely remove it from the Quick Inspector.</li><li><strong>Best Practice:</strong> Use pages to keep your workspace organized. For example, you could have a page for each major feature of your game, or for different types of assets.</li><li><strong>Resetting the tool:</strong> If you ever want to start from scratch, you can use the "Reset" button (refresh icon) in the toolbar. This will clear all objects and pages.</li></ul>
+<hr>
+    </article>
+</section>
+
+<section id="contact" class="docs-section" data-doc-title="Customer Support &amp; Contact">
+    <article class="doc-article">
+        <div class="doc-article-head">
+            <div class="doc-article-meta">
+                <a href="#overview" class="doc-crumb-link">Ultimate Quick Inspector</a>
+                <span>/</span>
+                <span>Support &amp; Maintenance</span>
+                <span class="mono" style="margin-left:auto;">Readme.md</span>
+            </div>
+            <h1>Customer Support &amp; Contact</h1>
+        </div>
+<h2 id="contact__thank-you">Thank You</h2>
+<p>Thank you for purchasing the Ultimate Quick Inspector! I hope it helps you streamline your workflow and be more productive in Unity. If you find this tool useful, please consider leaving a review on the Unity Asset Store.</p>
+    </article>
+</section>
+                    <nav class="docs-pager" aria-label="Page pagination">
+                        <button type="button" id="prev-doc" class="docs-pager-btn">
+                            <span class="docs-pager-dir">Previous</span>
+                            <span class="docs-pager-title">Start of guide</span>
+                        </button>
+                        <button type="button" id="next-doc" class="docs-pager-btn is-next">
+                            <span class="docs-pager-dir">Next</span>
+                            <span class="docs-pager-title">Next guide</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.docs-nav-link');
-            const sections = document.querySelectorAll('.docs-section');
-            const prevButton = document.getElementById('prev-doc');
-            const nextButton = document.getElementById('next-doc');
-            const searchInput = document.getElementById('doc-search');
-            const navItems = document.querySelectorAll('.docs-nav-menu li');
-
-            let currentIndex = 0;
-
-            function updateUI() {
-                const currentHash = window.location.hash || `#${sections[0].id}`;
-                let foundIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
-                if (foundIndex === -1) foundIndex = 0;
-                currentIndex = foundIndex;
-
-                sections.forEach((section, index) => section.classList.toggle('active', index === currentIndex));
-                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
-
-                prevButton.disabled = currentIndex === 0;
-                nextButton.disabled = currentIndex >= sections.length - 1;
-            }
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const newHash = link.getAttribute('href');
-                    if (window.location.hash !== newHash) {
-                        window.location.hash = newHash;
-                    }
-                });
-            });
-
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                navItems.forEach(li => {
-                    const linkText = li.querySelector('a').textContent.toLowerCase();
-                    li.style.display = linkText.includes(searchTerm) ? '' : 'none';
-                });
-            });
-
-            window.addEventListener('hashchange', updateUI);
-
-            prevButton.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    window.location.hash = `#${sections[currentIndex - 1].id}`;
-                }
-            });
-
-            nextButton.addEventListener('click', () => {
-                if (currentIndex < sections.length - 1) {
-                    window.location.hash = `#${sections[currentIndex + 1].id}`;
-                }
-            });
-
-            updateUI();
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="ultimate-quick-inspector.html" style="color: var(--text-secondary);">Ultimate Quick Inspector</a>
+                <span style="margin: 0 8px;">·</span>
+                <a href="documentation.html" style="color: var(--text-secondary);">All Docs</a>
+                <span style="margin: 0 8px;">·</span>
+                <a href="legal.html" style="color: var(--text-secondary);">Legal Notice</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/studio.js"></script>
 </body>
 
 </html>

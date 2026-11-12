@@ -12,9 +12,9 @@ Every event in the console is a `ConsoleLogEntry`. It holds significantly more d
 - **ContextSnapshot**: A dictionary of string key-value pairs representing variables at the exact moment the log occurred.
 - **Actions**: A list of clickable buttons (`ConsoleAction`) embedded in the log detail view.
 
-## 2. ConsoleLogManager (Registry)
-The `ConsoleLogManager` is the static singleton that routes and stores all logs.
-- It maintains a **circular buffer** of up to 10,000 logs by default to prevent memory leaks.
+## 2. `RuntimeConsoleLogManager` (Registry)
+The `RuntimeConsoleLogManager` (in `MaharajaStudio.MSUltimate.Runtime.AdvancedConsole`) is the static singleton that routes and stores all logs (and backs the `MSConsole` runtime API).
+- It maintains a **circular buffer** capped by `MaxEntries` (configured via `RuntimeConsoleSettings`) to prevent memory leaks.
 - It handles computing **Collapse Hashes**. If consecutive logs match by message and context, they are collapsed into a single entry with a badge count.
 - It provides APIs to run complex queries, filter logs, and manage **Sessions**.
 

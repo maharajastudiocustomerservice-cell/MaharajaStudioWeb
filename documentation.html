@@ -1,157 +1,358 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation - Maharaja Studio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Documentation Hub — Maharaja Studio</title>
+    <meta name="description" content="Central documentation portal for Maharaja Studio Unity assets: MSUltimate Ecosystem, MSMotion v2.0, Tactical AI v3.0, Scriptable Studio Pro, Object Finder Pro, and Ultimate Quick Inspector.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><i
-                                class="fas fa-book me-1"></i>Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="support.html"><i class="fas fa-life-ring me-1"></i>Support</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html"><i
-                                class="fas fa-envelope me-1"></i>Contact</a></li>
-                    <div class="theme-switcher ms-3 d-flex align-items-center">
-                        <i class="fas fa-sun me-2"></i>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="theme-switcher">
-                        </div>
-                        <i class="fas fa-moon"></i>
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSUltimate Ecosystem</span>
+                                <span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">MSMotion v2.0</span>
+                                <span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span>
+                                <span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span>
+                                <span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Object Finder Pro</span>
+                                <span class="nav-dropdown-meta">Async query &amp; reference search</span>
+                            </span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span>
+                                <span class="nav-dropdown-title">Ultimate Quick Inspector</span>
+                                <span class="nav-dropdown-meta">Multi-page GUID pin drawer</span>
+                            </span>
+                        </a>
                     </div>
-                </ul>
+                </li>
+                <li><a class="nav-link active" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="index.html">Studio Home</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html" class="active">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Documentation Hub</span>
+            <a href="index.html">Home</a>
+            <a href="msultimate-docs.html">MSUltimate Ecosystem (454+)</a>
+            <a href="msultimate-license.html">MSUltimate License &amp; EULA</a>
+            <a href="ms-motion-docs.html">MSMotion v2.0 (51)</a>
+            <a href="tactical-cover-retreat-ai-system-docs.html">Tactical Cover &amp; Retreat AI (99)</a>
+            <a href="scriptable-studio-pro-docs.html">Scriptable Studio Pro (14)</a>
+            <a href="object-finder-pro-docs.html">Object Finder Pro (12)</a>
+            <a href="ultimate-quick-inspector-docs.html">Ultimate Quick Inspector (7)</a>
+        </div>
+    </div>
 
-    <header class="page-header text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Documentation</h1>
-            <p class="lead">Find detailed information about our assets.</p>
+    <header class="hero">
+        <canvas class="hero-canvas" data-glyph-mode="grid" aria-hidden="true"></canvas>
+        <div class="container text-center" style="position: relative; z-index: 1;">
+            <div class="hero-breadcrumb" style="justify-content: center; margin-bottom: 12px;">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="mono" style="color: var(--accent-text);">Documentation Portal</span>
+            </div>
+            <h1 style="font-size: clamp(32px, 5vw, 48px); margin-bottom: 16px;">Maharaja Studio Documentation</h1>
+            <p class="hero-sub" style="max-width: 720px; margin: 0 auto 28px;">
+                Official architecture guides, API references, cookbooks, and workflow manuals for the Maharaja Studio Unity product suite.
+            </p>
+            <div class="hub-search-box" style="margin: 0 auto; max-width: 600px;">
+                <svg style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" id="doc-hub-search" class="hub-search-input" placeholder="Filter documentation by package, keyword, or feature..." aria-label="Filter documentation packages" autocomplete="off">
+            </div>
         </div>
     </header>
 
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card asset-card h-100">
-                    <a href="msultimate-docs.html">
-                        <img src="assets/Images/MSUltimate_Logo.png" class="card-img-top"
-                            alt="MSUltimate Ecosystem Logo">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">MSUltimate <span class="badge bg-primary ms-2 text-white">Ecosystem</span></h5>
-                        <p class="card-text text-muted small mb-3">Enterprise-grade Unity 6+ editor enhancement suite: Free Community Core, Pro Core, 6 Addons, and Master Pro Collection.</p>
-                        <a href="msultimate-docs.html" class="btn btn-primary mt-auto"><i
-                                class="fas fa-book me-2"></i>View Documentation</a>
-                    </div>
+    <main class="page-content" style="padding: 60px 0 100px;">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h2 style="font-size: 22px; font-weight: 600; margin: 0 0 4px; color: var(--text-primary);">Unity Packages &amp; Toolkits</h2>
+                    <span class="mono" style="font-size: 13px; color: var(--text-muted);">6 Active Products &middot; 640+ Authored Guides</span>
+                </div>
+                <div class="mono" style="font-size: 12px; color: var(--text-secondary); background: var(--bg-card); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid var(--hairline);">
+                    Unity 2021.3 LTS through Unity 6+
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card asset-card h-100">
-                    <a href="ms-motion-docs.html">
-                        <img src="assets/Images/MSMotion_Logo.png" class="card-img-top"
-                            alt="MSMotion Logo">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">MSMotion <span class="badge bg-primary ms-2 text-white">v2.0 Choreography &amp; FX</span></h5>
-                        <p class="card-text text-muted small mb-3">Multi-actor choreography, dynamic summons, motion warping, 8 FX event lanes with surface decals, and zero-allocation PlayableGraph runtime blending.</p>
-                        <a href="ms-motion-docs.html" class="btn btn-primary mt-auto"><i
-                                class="fas fa-book me-2"></i>View Documentation</a>
+
+            <div id="hub-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px;">
+            <div class="card asset-card" data-hub-card="msultimate attributes editor ui styling inspector hierarchy validation customizer toolbox license eula community pro" style="display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 24px; transition: border-color 140ms ease, transform 140ms ease;">
+                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
+                    <img src="assets/Images/MSUltimate_Logo.png" alt="MSUltimate Ecosystem" style="width: 52px; height: 52px; border-radius: var(--radius-md); object-fit: contain; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 4px;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                            <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: var(--text-primary);">MSUltimate Ecosystem</h3>
+                            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-text); font-weight: 500;">Ecosystem · 454+ Attributes</span>
+                        </div>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">454+ Guides</span>
                     </div>
+                </div>
+
+                <p style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-bottom: 20px; flex: 1;">
+                    Enterprise-grade Unity 6+ editor enhancement suite. Decorate fields with kinetic animations, transform inspector panels with node-based makeovers, validate scene constraints, and curate hierarchy structures.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;">
+                    <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Community &amp; Pro Core</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Animated Attributes</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Component Designer</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Hierarchy Designer</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Validation Module</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Inspector Customizer</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">ToolBox Vol. 1</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">License &amp; EULA</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline-strong); flex-wrap: wrap;">
+                    <a href="msultimate-docs.html" class="btn btn-primary btn-sm" style="flex: 1; min-width: 140px; text-align: center;">Explore Docs &rarr;</a>
+                    <a href="msultimate.html" class="btn btn-secondary btn-sm">Asset Page</a>
+                    <a href="msultimate-license.html" class="btn btn-secondary btn-sm" style="color: var(--text-secondary);">License &amp; EULA</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card asset-card h-100">
-                    <a href="object-finder-pro-docs.html">
-                        <img src="assets/Images/ObjectFinderPro_Logo.png" class="card-img-top"
-                            alt="Object Finder Pro Logo">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Object Finder Pro</h5>
-                        <a href="object-finder-pro-docs.html" class="btn btn-primary mt-auto"><i
-                                class="fas fa-book me-2"></i>View Documentation</a>
+            <div class="card asset-card" data-hub-card="msmotion motion animation choreography fx visual effects dynamic summons playablegraph warping" style="display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 24px; transition: border-color 140ms ease, transform 140ms ease;">
+                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
+                    <img src="assets/Images/MSMotion_Logo.png" alt="MSMotion v2.0" style="width: 52px; height: 52px; border-radius: var(--radius-md); object-fit: contain; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 4px;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                            <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: var(--text-primary);">MSMotion v2.0</h3>
+                            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-text); font-weight: 500;">v2.0 · Multi-Actor &amp; FX</span>
+                        </div>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">51 Guides</span>
                     </div>
+                </div>
+
+                <p style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-bottom: 20px; flex: 1;">
+                    Multi-actor interaction choreography and animation engine. Orchestrate synchronized combat moves, dynamic summons, motion warping, 8 FX event channels, and zero-allocation PlayableGraph blending.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;">
+                    <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Animation Editor (10)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Composition Editor (26)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Runtime Framework (10)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Troubleshooting (4)</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline-strong); flex-wrap: wrap;">
+                    <a href="ms-motion-docs.html" class="btn btn-primary btn-sm" style="flex: 1; min-width: 140px; text-align: center;">Explore Docs &rarr;</a>
+                    <a href="ms-motion.html" class="btn btn-secondary btn-sm">Asset Page</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card asset-card h-100">
-                    <a href="ultimate-quick-inspector-docs.html">
-                        <img src="assets/Images/UltimateQuickInspector_Logo.png" class="card-img-top"
-                            alt="Ultimate Quick Inspector Logo">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Ultimate Quick Inspector</h5>
-                        <a href="ultimate-quick-inspector-docs.html" class="btn btn-primary mt-auto"><i
-                                class="fas fa-book me-2"></i>View Documentation</a>
+            <div class="card asset-card" data-hub-card="tactical cover retreat ai combat squads burst suppression providers scorers navigation" style="display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 24px; transition: border-color 140ms ease, transform 140ms ease;">
+                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
+                    <img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt="Tactical Cover &amp; Retreat AI" style="width: 52px; height: 52px; border-radius: var(--radius-md); object-fit: contain; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 4px;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                            <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: var(--text-primary);">Tactical Cover &amp; Retreat AI</h3>
+                            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-text); font-weight: 500;">v3.0 · Spatial AI &amp; Squads</span>
+                        </div>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">99 Guides</span>
                     </div>
+                </div>
+
+                <p style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-bottom: 20px; flex: 1;">
+                    Enterprise spatial intelligence framework. Pair high-performance Burst cover evaluation with combat locomotion, synchronized squad choreography, real-time ballistic suppression, and automated scene validation.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;">
+                    <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Environmental Helpers (8)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Spatial Providers (21)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Tactical Scorers (47)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">API Reference (3)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Use Cases (3)</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">What&#x27;s New &amp; Upgrades (6)</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline-strong); flex-wrap: wrap;">
+                    <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary btn-sm" style="flex: 1; min-width: 140px; text-align: center;">Explore Docs &rarr;</a>
+                    <a href="tactical-cover-retreat-ai-system.html" class="btn btn-secondary btn-sm">Asset Page</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card asset-card h-100">
-                    <a href="tactical-cover-retreat-ai-system-docs.html">
-                        <img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" class="card-img-top"
-                            alt="Tactical Cover & Retreat AI System Logo">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Tactical Cover & Retreat AI System <span class="badge bg-primary ms-2 text-white">v3.0</span></h5>
-                        <a href="tactical-cover-retreat-ai-system-docs.html" class="btn btn-primary mt-auto"><i
-                                class="fas fa-book me-2"></i>View Documentation</a>
+            <div class="card asset-card" data-hub-card="scriptable studio pro grid editor prefab bulk excel formula localization translation grammar ai" style="display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 24px; transition: border-color 140ms ease, transform 140ms ease;">
+                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
+                    <img src="assets/Images/ScriptableStudioPro_Logo.png" alt="Scriptable Studio Pro" style="width: 52px; height: 52px; border-radius: var(--radius-md); object-fit: contain; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 4px;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                            <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: var(--text-primary);">Scriptable Studio Pro</h3>
+                            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-text); font-weight: 500;">v4.5 · Bulk Grid &amp; Prefabs</span>
+                        </div>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">14 Guides</span>
                     </div>
+                </div>
+
+                <p style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-bottom: 20px; flex: 1;">
+                    Excel-grade bulk data grid editor. Rapidly edit thousands of ScriptableObjects and Prefab components with formula expressions, native property drawers, AI Asset Architect, and offline Docker grammar checking.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;">
+                    <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Bulk Data Grid</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Prefab Studio Pro</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Formula Engine</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Native Drawers</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">AI Architect</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">MT &amp; Grammar</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline-strong); flex-wrap: wrap;">
+                    <a href="scriptable-studio-pro-docs.html" class="btn btn-primary btn-sm" style="flex: 1; min-width: 140px; text-align: center;">Explore Docs &rarr;</a>
+                    <a href="scriptable-studio-pro.html" class="btn btn-secondary btn-sm">Asset Page</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card asset-card h-100">
-                    <a href="scriptable-studio-pro-docs.html">
-                        <img src="assets/Images/ScriptableStudioPro_Logo.png" class="card-img-top"
-                            alt="Scriptable Studio Pro Logo">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Scriptable Studio Pro <span class="badge bg-primary ms-2 text-white">v4.5</span></h5>
-                        <a href="scriptable-studio-pro-docs.html" class="btn btn-primary mt-auto"><i
-                                class="fas fa-book me-2"></i>View Documentation</a>
+            <div class="card asset-card" data-hub-card="object finder pro search query smart search filter references scenes assets hierarchy" style="display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 24px; transition: border-color 140ms ease, transform 140ms ease;">
+                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
+                    <img src="assets/Images/ObjectFinderPro_Logo.png" alt="Object Finder Pro" style="width: 52px; height: 52px; border-radius: var(--radius-md); object-fit: contain; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 4px;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                            <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: var(--text-primary);">Object Finder Pro</h3>
+                            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-text); font-weight: 500;">v2.0 · Multithreaded Search</span>
+                        </div>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">12 Guides</span>
                     </div>
                 </div>
+
+                <p style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-bottom: 20px; flex: 1;">
+                    Lightning-fast project and scene query engine. Features Smart Search query language (t:, m:, p:, b:), 5 search scopes, multi-component filters, component signature queries, and extensible CustomFilterBase API.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;">
+                    <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Smart Search Query Syntax</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Core &amp; Advanced Filters</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">5 Search Scopes</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Find All References</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">CustomFilterBase API</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline-strong); flex-wrap: wrap;">
+                    <a href="object-finder-pro-docs.html" class="btn btn-primary btn-sm" style="flex: 1; min-width: 140px; text-align: center;">Explore Docs &rarr;</a>
+                    <a href="object-finder-pro.html" class="btn btn-secondary btn-sm">Asset Page</a>
+                </div>
+            </div>
+            <div class="card asset-card" data-hub-card="ultimate quick inspector pin drawer guid persistent scene objects hierarchy favorites" style="display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 24px; transition: border-color 140ms ease, transform 140ms ease;">
+                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
+                    <img src="assets/Images/UltimateQuickInspector_Logo.png" alt="Ultimate Quick Inspector" style="width: 52px; height: 52px; border-radius: var(--radius-md); object-fit: contain; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 4px;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                            <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: var(--text-primary);">Ultimate Quick Inspector</h3>
+                            <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-text); font-weight: 500;">v1.0 Pro · GUID Pin Drawer</span>
+                        </div>
+                        <span class="mono" style="font-size: 12px; color: var(--text-muted);">7 Guides</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-bottom: 20px; flex: 1;">
+                    Lightweight productivity extension for pinning and grouping frequently accessed assets and scene objects across customizable pages with persistent GUID scene tracking and zero runtime overhead.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;">
+                    <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Drag &amp; Drop Simplicity</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">Multi-Page Organization</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">GuidComponent Tracking</span> <span class="mono" style="font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg-deep); border: 1px solid var(--hairline); color: var(--text-secondary);">ScriptableObject Storage</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline-strong); flex-wrap: wrap;">
+                    <a href="ultimate-quick-inspector-docs.html" class="btn btn-primary btn-sm" style="flex: 1; min-width: 140px; text-align: center;">Explore Docs &rarr;</a>
+                    <a href="ultimate-quick-inspector.html" class="btn btn-secondary btn-sm">Asset Page</a>
+                </div>
+            </div>
+            </div>
+
+            <div id="hub-empty-state" style="display: none; text-align: center; padding: 60px 20px; background: var(--bg-card); border: 1px dashed var(--hairline-strong); border-radius: var(--radius-lg); margin-top: 24px;">
+                <h3 style="margin-bottom: 8px; font-size: 18px; color: var(--text-primary);">No documentation matching your filter</h3>
+                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">Try searching for generic terms like &ldquo;attributes&rdquo;, &ldquo;motion&rdquo;, &ldquo;squad&rdquo;, &ldquo;grid&rdquo;, or &ldquo;search&rdquo;.</p>
+                <button type="button" class="btn btn-secondary btn-sm" id="hub-reset-btn">Reset Search Filter</button>
             </div>
         </div>
     </main>
 
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 Maharaja Studio. All Rights Reserved. | <a href="legal.html"
-                    class="text-decoration-none">Legal Notice</a></p>
-            <div class="social-icons mt-3">
-                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="me-3"><i
-                        class="fab fa-youtube fa-lg"></i></a>
-                <a href="https://discord.gg/GamF5bez3h" class="me-3"><i class="fab fa-discord fa-lg"></i></a>
-                <a href="mailto:maharajastudiocustomerservice@gmail.com"><i
-                        class="fas fa-envelope fa-lg"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="index.html" style="color: var(--text-secondary);">Studio Overview</a>
+                <span style="margin: 0 8px;">·</span>
+                <a href="documentation.html" style="color: var(--text-secondary);">All Docs</a>
+                <span style="margin: 0 8px;">·</span>
+                <a href="legal.html" style="color: var(--text-secondary);">Legal Notice</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
             </div>
         </div>
     </footer>
+    <script src="js/studio.js"></script>
+    <script>
+    (function() {
+        const searchInput = document.getElementById("doc-hub-search");
+        const cards = document.querySelectorAll("[data-hub-card]");
+        const emptyState = document.getElementById("hub-empty-state");
+        const resetBtn = document.getElementById("hub-reset-btn");
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+        if (!searchInput) return;
+
+        function filter() {
+            const q = searchInput.value.trim().toLowerCase();
+            let visible = 0;
+            cards.forEach(card => {
+                const hay = (card.getAttribute("data-hub-card") + " " + card.textContent).toLowerCase();
+                const match = !q || hay.includes(q);
+                card.style.display = match ? "flex" : "none";
+                if (match) visible++;
+            });
+            if (emptyState) emptyState.style.display = visible === 0 ? "block" : "none";
+        }
+
+        searchInput.addEventListener("input", filter);
+        if (resetBtn) {
+            resetBtn.addEventListener("click", () => {
+                searchInput.value = "";
+                filter();
+                searchInput.focus();
+            });
+        }
+    })();
+    </script>
 </body>
 
 </html>

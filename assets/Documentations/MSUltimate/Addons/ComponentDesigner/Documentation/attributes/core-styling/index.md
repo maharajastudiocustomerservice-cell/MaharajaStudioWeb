@@ -4,7 +4,7 @@
 
 ---
 
-## Attribute Directory
+## Attribute Directory (46 Attributes)
 | Attribute | Target | Description | Status |
 | :--- | :--- | :--- | :---: |
 | [**`[Component]`**](component.md) | `Class` | Architectural base attribute and styling contract for component card decorators. | ✅ Complete |
@@ -53,39 +53,3 @@
 | [**`[ComponentWatermark]`**](component-watermark.md) | `Class` | Large rotated semi-transparent text watermark projected across the card center. | ✅ Complete |
 | [**`[ComponentWaterRipple]`**](component-water-ripple.md) | `Class` | Animated expanding concentric water ripple rings from the component card center. | ✅ Complete |
 | [**`[ComponentWaveAnimation]`**](component-wave-animation.md) | `Class` | Undulating sinusoidal color wave bands rolling along top or bottom borders. | ✅ Complete |
-| `[ComponentAccentBorder]` | `Class, Field` | Colored accent side border stripe with rounded corners. | ⏳ Planned |
-| `[ComponentActionGrid]` | `Class, Method` | Multi-column grid layout for quick action buttons. | ⏳ Planned |
-| `[ComponentAestheticPill]` | `Field, Property` | Rounded pill tag with icon and status color. | ⏳ Planned |
-| `[ComponentBanner]` | `Class, Member` | Full-width aesthetic header banner with subtitle and icon. | ⏳ Planned |
-| `[ComponentBrandTag]` | `Class` | Studio / project branding mark in inspector corner. | ⏳ Planned |
-| `[ComponentCard]` | `Class, Member` | Modern elevated container card with background tint. | ⏳ Planned |
-| `[ComponentCategoryChip]` | `Field, Property` | Category indicator chip for organization. | ⏳ Planned |
-| `[ComponentChip]` | `Field, Property` | Compact chip badge with removable or clickable states. | ⏳ Planned |
-| `[ComponentCodeBracket]` | `Member` | Bracketed code section styling with syntax styling. | ⏳ Planned |
-| `[ComponentCornerRibbon]` | `Class, Member` | Slanted corner ribbon banner (e.g. "ALPHA", "CORE"). | ⏳ Planned |
-| `[ComponentFloatingCard]` | `Class, Member` | Card with soft drop shadow giving floating depth. | ⏳ Planned |
-| `[ComponentGlassCard]` | `Class, Member` | Frosted glassmorphism background with blur simulation. | ⏳ Planned |
-| `[ComponentGlow]` | `Class, Member` | Vibrant colored glow outline. | ⏳ Planned |
-| `[ComponentGradient]` | `Class, Member` | Multi-stop linear or radial background gradient. | ⏳ Planned |
-| `[ComponentGridPattern]` | `Class, Member` | Technical blueprint grid pattern background. | ⏳ Planned |
-| `[ComponentHeadline]` | `Member` | Editorial bold typography headline. | ⏳ Planned |
-| `[ComponentIconBadge]` | `Member` | Icon container badge with tooltip support. | ⏳ Planned |
-| `[ComponentInlineHelp]` | `Member` | Help box formatted to match component card theme. | ⏳ Planned |
-| `[ComponentLayerStack]` | `Member` | Visual layer stacking visualization. | ⏳ Planned |
-| `[ComponentListSection]` | `Member` | Formatted list container header with item count badge. | ⏳ Planned |
-| `[ComponentMetricsRow]` | `Class, Member` | Horizontal dashboard metric strip (e.g. HP, Armor, Speed). | ⏳ Planned |
-| `[ComponentModernHeader]` | `Class` | Minimal modern header bar with subtle divider. | ⏳ Planned |
-| `[ComponentModernPanel]` | `Class, Member` | Dark mode sleek modern panel enclosure. | ⏳ Planned |
-| `[ComponentNotificationBanner]`| `Class, Member` | Alert callout banner with dismiss and action buttons. | ⏳ Planned |
-| `[ComponentNumericBadge]` | `Field, Property` | Circular numeric count badge. | ⏳ Planned |
-| `[ComponentPanel]` | `Class, Member` | General-purpose themed panel enclosure. | ⏳ Planned |
-| `[ComponentPulseRing]` | `Member` | Subtle glowing pulse ring around critical controls. | ⏳ Planned |
-| `[ComponentQuickAction]` | `Method` | Prominent quick-trigger action bar. | ⏳ Planned |
-| `[ComponentSectionHeader]`| `Member` | Mid-level category section header. | ⏳ Planned |
-| `[ComponentShadow]` | `Class, Member` | Configurable drop shadow for cards and panels. | ⏳ Planned |
-| `[ComponentSideRail]` | `Class, Member` | Vertical left-side status rail indicating component mode. | ⏳ Planned |
-| `[ComponentStepIndicator]`| `Field` | Numbered step wizard progress indicator (Step 1 of 4). | ⏳ Planned |
-| `[ComponentTabHeader]` | `Member` | Header tab strip integrating with section views. | ⏳ Planned |
-| `[ComponentTimelineCard]` | `Member` | Milestone timeline card layout. | ⏳ Planned |
-| `[ComponentTitleCard]` | `Class` | Grand title card featuring subtitle, version, and logo. | ⏳ Planned |
-| `[ComponentToolbar]` | `Class, Member` | Docked horizontal action toolbar. | ⏳ Planned |

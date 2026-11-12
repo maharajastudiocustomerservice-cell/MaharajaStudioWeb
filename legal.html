@@ -1,202 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Notice & Disclaimer - Maharaja Studio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .legal-header {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .legal-content {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .legal-content h2 {
-            color: var(--primary-color);
-            margin-top: 1.5rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .legal-content h3 {
-            margin-top: 1.2rem;
-            color: var(--text-color);
-        }
-
-        .alert-custom {
-            border-left: 5px solid;
-        }
-    </style>
+    <title>Legal Notice &amp; Disclaimer — Maharaja Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/studio.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-transparent"
-        style="position: sticky; top: 0; z-index: 1000;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Maharaja Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <div class="theme-switcher ms-3 d-flex align-items-center">
-                        <i class="fas fa-sun me-2"></i>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="theme-switcher">
-                        </div>
-                        <i class="fas fa-moon"></i>
+    <nav class="site-nav" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">MS</span>
+                <span>Maharaja Studio</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link" data-dropdown-trigger aria-expanded="false" aria-haspopup="true">
+                        Assets
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="nav-dropdown-panel" role="menu">
+                        <a class="nav-dropdown-item" href="msultimate.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSUltimate_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">MSUltimate Ecosystem</span><span class="nav-dropdown-meta">454+ attributes · Core &amp; 6 addons</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ms-motion.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/MSMotion_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">MSMotion v2.0</span><span class="nav-dropdown-meta">Multi-actor choreography &amp; FX</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="scriptable-studio-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ScriptableStudioPro_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Scriptable Studio Pro v4.5</span><span class="nav-dropdown-meta">Grid editor &amp; Prefab Studio</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="tactical-cover-retreat-ai-system.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/Tactical_Cover_&_Retreat_AI_System_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Tactical Cover &amp; Retreat AI</span><span class="nav-dropdown-meta">v3.0 squad maneuvers &amp; cover</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="object-finder-pro.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/ObjectFinderPro_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Object Finder Pro</span><span class="nav-dropdown-meta">Async query &amp; reference search</span></span>
+                        </a>
+                        <a class="nav-dropdown-item" href="ultimate-quick-inspector.html" role="menuitem">
+                            <span class="nav-dropdown-thumb"><img src="assets/Images/UltimateQuickInspector_Logo.png" alt=""></span>
+                            <span><span class="nav-dropdown-title">Ultimate Quick Inspector</span><span class="nav-dropdown-meta">Multi-page GUID pin drawer</span></span>
+                        </a>
                     </div>
-                </ul>
+                </li>
+                <li><a class="nav-link" href="documentation.html">Documentation</a></li>
+                <li><a class="nav-link" href="support.html">Support</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" class="theme-btn" data-theme-toggle aria-label="Switch theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm" href="msultimate.html">Explore Assets</a>
+                <button type="button" class="mobile-menu-btn" data-mobile-menu-toggle aria-label="Toggle navigation menu" aria-expanded="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="legal-header text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Legal Notice & Disclaimer</h1>
-            <p class="lead">AI Feature Responsibility & Support Disclaimer</p>
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="support.html">Support</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-drawer-group">
+            <span class="mobile-drawer-label">Unity Assets</span>
+            <a href="msultimate.html">MSUltimate Ecosystem</a>
+            <a href="ms-motion.html">MSMotion v2.0</a>
+            <a href="scriptable-studio-pro.html">Scriptable Studio Pro v4.5</a>
+            <a href="tactical-cover-retreat-ai-system.html">Tactical Cover &amp; Retreat AI</a>
+            <a href="object-finder-pro.html">Object Finder Pro</a>
+            <a href="ultimate-quick-inspector.html">Ultimate Quick Inspector</a>
+        </div>
+    </div>
+
+    <header class="hero" style="padding: var(--space-10) 0;">
+        <canvas class="hero-canvas" data-glyph-mode="search" aria-hidden="true"></canvas>
+        <div class="container" style="max-width: 860px; text-align: center;">
+            <div class="hero-breadcrumb" style="justify-content: center;">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="mono" style="color: var(--accent-text);">Legal</span>
+            </div>
+            <h1>Legal Notice &amp; Disclaimer</h1>
+            <p class="hero-sub" style="margin: 0 auto; max-width: 32rem;">
+                AI Feature Responsibility &amp; Support Disclaimer for Maharaja Studio Assets
+            </p>
         </div>
     </header>
 
-    <main class="container my-5">
-        <div class="legal-content">
-            <div class="alert alert-warning alert-custom" role="alert" style="border-color: #ffc107;">
-                <strong>1. Scope of the Tool</strong><br>
-                Scriptable Studio Pro (the “Tool”) is a development utility designed to interface with Artificial
-                Intelligence models to assist in the generation and refinement of Unity ScriptableObjects.
-                MaharajaStudio (the “Developer”) provides the software framework and integration logic only. <strong>The
-                    Developer does not provide, host, or bundle any AI models.</strong>
-            </div>
-
-            <h2>2. Developer Responsibility (The Tool)</h2>
-            <p>The Developer is responsible for the core functionality and maintenance of the Tool’s code.</p>
-            <ul>
-                <li><strong>What we support:</strong> We will provide updates and bug fixes for errors originating
-                    within the Tool’s interface, ScriptableObject serialization logic, and integration framework.</li>
-                <li><strong>Bug Reporting:</strong> If the Tool fails to function as advertised due to a software defect
-                    in our code, please report it via maharajastudiocustomerservice@gmail.com or discord, and we will
-                    work to resolve it.</li>
-            </ul>
-
-            <h2>3. User Responsibility (The AI Service)</h2>
-            <p>The AI feature is an optional "Bring Your Own Model" (BYOM) service. You are solely responsible for the
-                setup and maintenance of your AI connection.</p>
-            <ul>
-                <li><strong>Third-Party APIs:</strong> We are <strong>not responsible</strong> for issues related to
-                    your AI provider (e.g., OpenAI, Google) or your local AI setup (e.g., LM Studio, Ollama).</li>
-                <li><strong>API Keys & Billing:</strong> We cannot provide support for invalid API keys, expired
-                    credits, billing disputes, or service outages on the part of the AI provider.</li>
-                <li><strong>Connectivity:</strong> You are responsible for ensuring your hardware and internet
-                    connection meet the requirements of your chosen AI provider.</li>
-            </ul>
-
-            <h2>4. Quality of AI Output</h2>
-            <p>The AI-generated content is the result of a third-party process outside the Developer's control.</p>
-            <ul>
-                <li><strong>Accuracy:</strong> We do not guarantee that the AI will generate functional,
-                    logic-error-free, or "good" ScriptableObjects. The AI may "hallucinate" or produce code that does
-                    not compile.</li>
-                <li><strong>Manual Review Required:</strong> You are strictly required to review, validate, and test all
-                    ScriptableObjects generated by the AI before using them in a production environment. The Developer
-                    is not liable for project corruption or data loss resulting from AI-generated content.</li>
-            </ul>
-
-            <h2>5. No Endorsement</h2>
-            <p>Integration with any specific AI service (cloud or local) does not constitute an endorsement. Your
-                relationship with the AI provider is governed by their respective Terms of Service and Privacy Policies.
-            </p>
-
-            <div class="alert alert-danger alert-custom mt-4" role="alert" style="border-color: #dc3545;">
-                <h4 class="alert-heading">6. Limitation of Liability</h4>
-                <p>To the maximum extent permitted by law, the Developer shall not be held liable for any indirect,
-                    incidental, or consequential damages (including but not limited to loss of data or API costs)
-                    arising from the use of third-party AI models through this Tool.</p>
-            </div>
-
-            <hr class="my-5">
-
-            <h2>Suggested "Support FAQ"</h2>
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Q: The AI is giving me an error about 'Invalid API Key'. Can you fix it?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                        data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <strong>A: No.</strong> This is an issue between you and your AI provider. Please check your
-                            dashboard on their website to ensure your key is active and has sufficient credits.
-                        </div>
-                    </div>
+    <main class="section" style="padding-top: var(--space-4);">
+        <div class="container" style="max-width: 860px;">
+            <div class="form-card" style="padding: var(--space-8); line-height: 1.65;">
+                <div class="callout-box" style="margin-top: 0; background-color: var(--accent-soft); border-left-color: var(--accent); border-color: var(--accent-line);">
+                    <strong style="color: var(--text-primary); font-size: 15px;">1. Scope of the Tool</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 14px;">
+                        Scriptable Studio Pro (the &ldquo;Tool&rdquo;) is a development utility designed to interface with Artificial Intelligence models to assist in the generation and refinement of Unity ScriptableObjects. Maharaja Studio (the &ldquo;Developer&rdquo;) provides the software framework and integration logic only. <strong>The Developer does not provide, host, or bundle any AI models.</strong>
+                    </span>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Q: The Tool UI is flickering or the 'Generate' button isn't clicking. Can you fix it?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                        data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <strong>A: Yes!</strong> This sounds like a bug in our tool. Please report this to us so we
-                            can issue a patch.
-                        </div>
-                    </div>
+
+                <h2 style="font-size: 18px; font-weight: 600; margin: var(--space-6) 0 var(--space-2); color: var(--text-primary);">2. Developer Responsibility (The Tool)</h2>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-3); font-size: 14px;">The Developer is responsible for the core functionality and maintenance of the Tool's code.</p>
+                <ul style="color: var(--text-secondary); font-size: 14px; margin-bottom: var(--space-6); padding-left: var(--space-5);">
+                    <li style="margin-bottom: 6px;"><strong>What we support:</strong> We provide updates and bug fixes for errors originating within the Tool's interface, ScriptableObject serialization logic, and integration framework.</li>
+                    <li><strong>Bug Reporting:</strong> If the Tool fails to function as advertised due to a software defect in our code, please report it via <a href="mailto:maharajastudiocustomerservice@gmail.com" class="mono" style="color: var(--accent-text);">maharajastudiocustomerservice@gmail.com</a> or Discord, and we will work to resolve it.</li>
+                </ul>
+
+                <h2 style="font-size: 18px; font-weight: 600; margin: var(--space-6) 0 var(--space-2); color: var(--text-primary);">3. User Responsibility (The AI Service)</h2>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-3); font-size: 14px;">The AI feature is an optional "Bring Your Own Model" (BYOM) service. You are solely responsible for the setup and maintenance of your AI connection.</p>
+                <ul style="color: var(--text-secondary); font-size: 14px; margin-bottom: var(--space-6); padding-left: var(--space-5);">
+                    <li style="margin-bottom: 6px;"><strong>Third-Party APIs:</strong> We are <strong>not responsible</strong> for issues related to your AI provider (e.g., OpenAI, Google) or your local AI setup (e.g., LM Studio, Ollama).</li>
+                    <li style="margin-bottom: 6px;"><strong>API Keys &amp; Billing:</strong> We cannot provide support for invalid API keys, expired credits, billing disputes, or service outages on the part of the AI provider.</li>
+                    <li><strong>Connectivity:</strong> You are responsible for ensuring your hardware and internet connection meet the requirements of your chosen AI provider.</li>
+                </ul>
+
+                <h2 style="font-size: 18px; font-weight: 600; margin: var(--space-6) 0 var(--space-2); color: var(--text-primary);">4. Quality of AI Output</h2>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-3); font-size: 14px;">The AI-generated content is the result of a third-party process outside the Developer's control.</p>
+                <ul style="color: var(--text-secondary); font-size: 14px; margin-bottom: var(--space-6); padding-left: var(--space-5);">
+                    <li style="margin-bottom: 6px;"><strong>Accuracy:</strong> We do not guarantee that the AI will generate functional, logic-error-free, or "good" ScriptableObjects. The AI may hallucinate or produce code that does not compile.</li>
+                    <li><strong>Manual Review Required:</strong> You are strictly required to review, validate, and test all ScriptableObjects generated by the AI before using them in a production environment. The Developer is not liable for project corruption or data loss resulting from AI-generated content.</li>
+                </ul>
+
+                <h2 style="font-size: 18px; font-weight: 600; margin: var(--space-6) 0 var(--space-2); color: var(--text-primary);">5. No Endorsement</h2>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-6); font-size: 14px;">
+                    Integration with any specific AI service (cloud or local) does not constitute an endorsement. Your relationship with the AI provider is governed by their respective Terms of Service and Privacy Policies.
+                </p>
+
+                <div class="callout-box" style="border-left-color: var(--negative); background-color: rgba(220, 38, 38, 0.08); border-color: rgba(220, 38, 38, 0.25);">
+                    <strong style="color: var(--text-primary); font-size: 15px;">6. Limitation of Liability</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 14px;">
+                        To the maximum extent permitted by law, the Developer shall not be held liable for any indirect, incidental, or consequential damages (including but not limited to loss of data or API costs) arising from the use of third-party AI models through this Tool.
+                    </span>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Q: The AI generated a ScriptableObject that broke my game. Will you fix the data?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            <strong>A: No.</strong> AI output is unpredictable. Always backup your project and manually
-                            verify what the AI generates before saving.
-                        </div>
+
+                <div style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--hairline);">
+                    <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 var(--space-4); color: var(--text-primary);">Support Boundaries FAQ</h3>
+                    <div class="faq-list">
+                        <details class="faq-item" open>
+                            <summary class="faq-question">Q: The AI is giving me an error about 'Invalid API Key'. Can you fix it?</summary>
+                            <div class="faq-answer">
+                                <p><strong>A: No.</strong> This is an issue between you and your AI provider. Please check your dashboard on their website to ensure your key is active and has sufficient credits.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-question">Q: The Tool UI is flickering or the 'Generate' button isn't clicking. Can you fix it?</summary>
+                            <div class="faq-answer">
+                                <p><strong>A: Yes!</strong> This is a software bug in our tool. Please report this to us so we can issue a patch promptly.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-question">Q: The AI generated a ScriptableObject that broke my game. Will you fix the data?</summary>
+                            <div class="faq-answer">
+                                <p><strong>A: No.</strong> AI output is probabilistic. Always backup your project and manually verify what the AI generates before saving.</p>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 Maharaja Studio. All Rights Reserved.</p>
-            <div class="social-icons mt-3">
-                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" class="me-3"><i
-                        class="fab fa-youtube fa-lg"></i></a>
-                <a href="https://discord.gg/GamF5bez3h" class="me-3"><i class="fab fa-discord fa-lg"></i></a>
-                <a href="mailto:maharajastudiocustomerservice@gmail.com"><i class="fas fa-envelope fa-lg"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <span>&copy; 2026 Maharaja Studio. All rights reserved.</span>
+                <span style="margin: 0 8px;">·</span>
+                <a href="legal.html" style="color: var(--text-secondary);">Legal Notice</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://youtube.com/@king_of_games-l9e?si=EleZSFthz6ZBPPao" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://discord.gg/GamF5bez3h" target="_blank" rel="noopener">Discord</a>
+                <a href="mailto:maharajastudiocustomerservice@gmail.com">Email</a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/studio.js"></script>
 </body>
 
 </html>

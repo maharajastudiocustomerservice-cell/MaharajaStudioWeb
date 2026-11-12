@@ -4,35 +4,31 @@ This guide will help you open, use, and integrate the **Advanced Console System*
 
 ## 1. Opening the Console Window
 Inside the Unity Editor, open the Advanced Console Window from the top menu:
-**`Window`** -> **`Maharaja Studio`** -> **`Advanced Console`**
+**`Tools`** -> **`Maharaja Studio`** -> **`MSUltimate`** -> **`ToolBox Vol 1`** -> **`Advanced Console`**
 
 *Tip: Dock this window alongside your standard Unity Console or Scene view. It serves as a superset of the built-in console for complex debugging.*
 
 ## 2. Your First Log
-You can log to the Advanced Console from any script using the `ConsoleLogManager`. Ensure you include the namespace:
+You can log to the Advanced Console from any script using `MSConsole` (safe in both Editor and player builds with no `#if UNITY_EDITOR` required) or `RuntimeConsoleLogManager`:
 
 ```csharp
-using MaharajaStudio.MSUltimate.Editor.AdvancedConsole;
+using MaharajaStudio.MSUltimate.Runtime;
+using UnityEngine;
 
 public class MyScript : MonoBehaviour 
 {
     void Start() 
     {
-#if UNITY_EDITOR
-        ConsoleLogManager.LogInfo("System initialized successfully!", channel: "Core");
-#endif
+        MSConsole.Log("System initialized successfully!", channel: "Core", target: this);
     }
 }
 ```
 
-*Note: The `ConsoleLogManager` is an Editor-only class. Wrap your calls in `#if UNITY_EDITOR`.*
-
 ## 3. Enabling the Runtime Overlay
-To access the console during actual gameplay (in the Editor or in a build):
-1. Create an empty GameObject in your first/boot scene.
-2. Add the **`RuntimeConsoleOverlay`** component to it (`Add Component -> Maharaja Studio -> Runtime Console Overlay`).
-3. Press **Play**.
-4. Press the **Backtick key (\`)** (typically under the Escape key) to toggle the console open and closed.
+During gameplay (in Play Mode or in a build), `RuntimeAdvancedConsoleUI` loads automatically via `RuntimeInitializeOnLoadMethod`:
+1. Press **Play** (or run a build).
+2. Press the **Backtick key (\`)** (typically under the Escape key) to toggle the UI Toolkit console open and closed.
+*(Note: The legacy IMGUI `RuntimeConsoleOverlay` component is deprecated in favor of `RuntimeAdvancedConsoleUI`.)*
 
 ## 4. Registering a Console Command
 Console commands allow you to trigger methods from within the in-game runtime console.

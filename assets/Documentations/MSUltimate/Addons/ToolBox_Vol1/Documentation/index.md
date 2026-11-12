@@ -15,4 +15,4 @@ MSUltimate ToolBox Vol. 1 is an enterprise utility suite addressing the most com
 | **History Track** | Editor Window | Timeline inspection of Undo/Redo state changes, variable diffs, and serialization history. | [Open Manual](tools/history-track/index.md) |
 | **Lifetime Track** | Editor Window | Lifecycle profiler tracking allocations, active instances, and memory leaks. | [Open Manual](tools/lifetime-track/index.md) |
 | **Live Track** | Editor Window | Real-time in-Scene telemetry HUD and field graphs. | [Open Manual](tools/live-track/index.md) |
-| **ToolBox Attributes**| C# Attributes | Dedicated attributes (`[LiveTracked]`, `[HistoryTracked]`, etc.) binding fields to tools. | [Browse Attributes](attributes/index.md) |
+| **ToolBox Attributes**| C# Attributes | Dedicated attributes (`[ConsoleCommand]`, `[HistoryTrack]`, `[TrackLifetime]`, `[LiveTrack]`) binding methods, fields, and classes to tools. | [Browse Attributes](attributes/index.md) |

@@ -5,6 +5,6 @@
 ---
 
 ## Authoring Custom Rules
-- **Implementing `IValidationRule`:** Defining validation logic, error messages, and severity.
-- **Registering Auto-Fix Actions:** Supplying 1-click repair delegates.
-- **Integrating with CI / Command Line:** Running validation headless during automated builds.
+- **Implementing `IValidationRule` / `IDeepValidationRule`:** Defining field-level attribute rules (`IValidationRule`) or project/GameObject-wide deep scan rules (`IDeepValidationRule`), error messages, and severity.
+- **Registering Auto-Fix Actions:** Supplying 1-click repair delegates via `ValidationResult.FixAction`.
+- **Integrating with CI / Command Line:** Running validation headless during automated builds via `ValidationCLI`.

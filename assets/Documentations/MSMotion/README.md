@@ -33,7 +33,7 @@ Open the editor workspace from the Unity menu bar: `Tools > Maharaja Studio > Ms
 * **Dynamic Bone Subdivision (Exp)**: Injects virtual bone chains into existing skeletons with auto-propagation.
 
 ### 4. FX Event Triggering & Cross-Actor Handover
-* **8 Dedicated Event Lanes**: Place trigger blocks to spawn Audio, Particles, Decals, VFX Graphs, Custom Prefabs, Camera Shakes, Transforms, or Script Callbacks.
+* **8 Dedicated FX & Event Node Types**: Place trigger blocks to spawn Audio, Particles, Decals, VFX Graphs, Custom Prefabs, Camera Shakes, Transforms, or Script Callbacks.
 * **Decal FX**: Projects surface decals (blood, dirt, runes, skid marks) onto floors and walls via directional raycasts with normal angle filtering.
 * **Cross-Actor Handover**: Seamlessly transfer weapons, torches, and spell effects between characters with phase-aware Scene View gizmos, HUD bars, and auto-keying.
 * **Property Overrides**: Customize public variables or component fields (e.g. Light intensity, Material color) of spawned prefabs directly from the event timeline without duplicate assets.
@@ -104,7 +104,7 @@ For a comprehensive guide on all features, refer to the local documentation dire
 
 ## 🎮 Interactive Windows Demo Build
 
-Try MSMotion before you integrate! A standalone, high-fidelity cinematic demo build is available for Windows showcasing runtime PlayableGraph evaluation, Burst compilation, 8 FX event lanes, and synchronized multi-actor choreography.
+Try MSMotion before you integrate! A standalone, high-fidelity cinematic demo build is available for Windows showcasing runtime PlayableGraph evaluation, Burst compilation, 8 FX event channels, and synchronized multi-actor choreography.
 
 👉 **[Download the Free Windows Demo Build via GitHub](https://github.com/maharajastudiocustomerservice-cell/MSMotion-Demo-Build-win/releases/tag/Demo)**
 
